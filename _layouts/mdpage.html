@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+
+{% include head.html %}
+
+<body>
+
+{% include header.html %}
+
+ <div id="container" class="fluid">
+  <div class="center aligned ui padded one column grid fluid" id="content">
+<div class=" column twelve wide ui padded grid" style="margin-top: 50px !important;" markdown="1">
+  <div class="ui segment grid">
+    <div class="row sixteen wide">
+      
+
+        <center class="fluid" style="width: 100%">
+          <h2 class="ui icon header">
+          <i class="medium icons">
+          <i class="write  icon" style="text-shadow: 0 0 10px pink;"></i>
+        </i>
+        <div class="content">
+          {{page.title}}
+          <div class="sub header">{{page.subtitle}}</div>
+        </div>
+      </h2>
+    </center>
+    <div class="ui vertical padded segment left aligned" markdown="1">
+        {{content}}
+    </div>
+  </div>
+
+</div>
+    
+
+  </div>
+ </div>
+  {% include modal-indev.html %}
+ <script>
+
+$.ajax('https://api.github.com/repos/sasha240100/whitestormjs/commits').done(function(result) {
+  result.forEach(function(item) {
+    $('#commits').append('<div class="item">' +
+          '<img src=' + item.author.avatar_url + ' class="ui avatar image">' +
+        '<div class="content">' +
+            '<a class="header">'
+              + item.author.login +
+            '</a> ' +
+          '<div class="description">'
+             + item.commit.message +
+          '</div>' +
+        '</div>' +
+      '</div>');
+  });
+
+  $(".nano").nanoScroller();
+});
+ </script>
+ <!-- Place this tag right after the last button or just before your close body tag. -->
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

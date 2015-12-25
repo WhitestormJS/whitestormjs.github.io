@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+
+{% include head.html %}
+
+<body>
+
+ {% include header.html %}
+
+ <div id="container" class="fluid">
+  <div class="ui padded grid fluid">
+    <div class="top aligned column six wide" style="margin-top: 50px;">
+        <div class="center aligned row">
+          {% include menu.html %}
+        </div>
+    </div>
+    <div class="column eight wide content-block ui padded grid" id="context-box">
+      <div class="row content-top"><div class="ui raised segment middle aligned column figured content-block">
+        <div class="ui padded grid nano">
+          <div class="sixteen wide column nano-content">
+            <h1>{{page.title}}</h1>
+            {{content}}
+          </div>
+        </div>
+      </div></div>
+
+      {% include footer.html %}
+    </div>
+   </div>
+
+ </div>
+
+ {% include modal-indev.html %}
+ 
+ <script>
+ $(".grid.nano").nanoScroller();
+
+ $('.ui.accordion').accordion({
+  //exclusive: false,
+  onOpen:  function() {
+    if ($(this) .find(".nano-content").children().length > 8)
+      $(".content.nano").nanoScroller()
+  }
+
+ });
+
+ // Rem to piels.
+
+
+function getRootElementFontSize( ) {
+  // Returns a number
+  return parseFloat(
+      // of the computed font-size, so in px
+      getComputedStyle(
+          // for the root <html> element
+          document.documentElement
+      )
+      .fontSize
+  );
+}
+function convertRem(value) {
+    return value * getRootElementFontSize();
+}
+
+
+// Overwrite.
+
+$('.ui.sticky').css('height', "auto");
+
+$('.ui.sticky')
+  .sticky({
+    offset: 50,
+    context: '#context-box',
+    onScroll: function() {
+      $(this).css('height', "auto");
+    },
+    onStick: function() {
+      $(this).css('height', "auto");
+      $(this).css('left', $('.ui.sticky').css('left').substring(0, $('.ui.sticky').css('left').length-2) - convertRem(0.5));
+    },
+    onUnstick: function() {
+      $(this).css('height', "auto");
+    },
+    onTop: function() {
+      $(this).css('height', "auto");
+    },
+    onBottom: function() {
+      $(this).css('height', "auto");
+    },
+    onReposition: function() {
+      $(this).css('height', "auto");
+    },
+  })
+;
+
+ </script>
+</body>
+</html>

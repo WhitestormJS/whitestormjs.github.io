@@ -1,0 +1,117 @@
+@font-face {
+  src: url(../font.otf);
+  font-family: 'Myraid semibold';
+}
+
+@font-face {
+  src: url(../font2.otf);
+  font-family: 'Myraid pro';
+}
+
+@font-face {
+  src: url(../fonts/Ubuntu-R.ttf);
+  font-family: 'Ubuntu';
+}
+
+/* HEADER */
+header {
+  height: 80px;
+  width:100%;
+  box-shadow: 0 0 10px grey;
+  margin:0 !important;
+}
+
+.header-menu span {
+  color:#aaa;
+  font-size: 12px;
+  padding: 5px;
+}
+
+
+/* CONTAINER */
+
+#container {
+  background: url(../images/bg/4.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #1e5085;
+  min-height: calc(100% - 80px);
+  position: relative;
+}
+
+#container:before {
+  content: "";
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  background-image: url(../images/pattern3.png);
+  background-size: 5px;
+}
+
+#container > .grid, .content-block {
+  height: 100%;
+}
+
+.content-block {
+  height:100%;
+}
+
+.flag {
+  padding: 10px !important;
+}
+
+.content-top {
+  height: calc(100% - 30px);
+}
+
+/* FOOTER */
+
+/* NANO-SLIDER */
+.nano {padding: 0;}
+.nano .nano-content { padding: 5px; }
+
+.nano .nano-content:focus {outline: none;}
+.nano .nano-pane   { background: #eee; padding:0; }
+.nano .nano-slider { background: #ddd !important;}
+
+/* FIXES */
+.figured {
+  padding:10px !important;
+}
+
+pre {
+  margin:0;
+}
+
+code {
+  background: white;
+}
+
+/* SEMANTIC */
+
+.ui.accordion {
+  padding: 0 !important;
+}
+
+.ui.list {
+  padding:10px 25px !important;
+}
+
+.ui.accordion .content, .ui.accordion .content .nano-content {
+  max-height:100px !important;
+}
+
+.ui.sticky.fixed {
+  margin-top: 50px !important;
+  border-radius: .28571429rem !important;
+  /*left: 243px !important;*/
+  height: auto !important;
+  max-height: calc(100% - 80px);
+}
+
+.ui.sticky.vertical.menu.right.floated.fixed.top {
+  height: auto !important;
+}
