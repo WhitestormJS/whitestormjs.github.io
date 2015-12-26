@@ -38,7 +38,7 @@
   {% include modal-indev.html %}
  <script>
 
-$.ajax('https://api.github.com/repos/sasha240100/whitestormjs/commits').done(function(result) {
+$.ajax('https://api.github.com/repos/WhitestormJS/whitestorm.js/commits').done(function(result) {
   result.forEach(function(item) {
     $('#commits').append('<div class="item">' +
           '<img src=' + item.author.avatar_url + ' class="ui avatar image">' +
