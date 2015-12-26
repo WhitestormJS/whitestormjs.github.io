@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+
+{% include head.html %}
+
+<body>
+
+ {% include header.html %}
+
+ <div id="container" class="fluid">
+  <div class="ui padded grid fluid">
+    <div class="top aligned padded ui segment column four wide nano" style="margin-top: 50px; margin-left:200px; min-height: 0 !important; max-height:500px">
+        <div class="center aligned row nano-content">
+          {% include recentblog.html %}
+        </div>
+    </div>
+    <div class="column eight wide content-block ui padded grid" id="context-box">
+      <div class="row content-top">
+      <div class="ui raised segment middle aligned column figured content-block" style="min-height:500px;">
+        <div class="ui padded grid nano">
+          <div class="sixteen wide column nano-content">
+          <h1 class="ui blog-title header">{{page.title}}</h1>
+          
+            <div class="contentdiv">{{content}}</div>
+          </div>
+        </div>
+      </div></div>
+
+      {% include footer.html %}
+    </div>
+   </div>
+
+ </div>
+
+ {% include modal-indev.html %}
+ 
+ <script>
+
+  $(".nano").nanoScroller();
+
+
+// Overwrite.
+
+$('.ui.sticky').css('height', "auto");
+
+$('.ui.sticky')
+  .sticky({
+    offset: 50,
+    context: '#context-box',
+    onScroll: function() {
+      $(this).css('height', "auto");
+    },
+    onStick: function() {
+      $(this).css('height', "auto");
+      $(this).css('left', $('.ui.sticky').css('left').substring(0, $('.ui.sticky').css('left').length-2));
+    },
+    onUnstick: function() {
+      $(this).css('height', "auto");
+    },
+    onTop: function() {
+      $(this).css('height', "auto");
+    },
+    onBottom: function() {
+      $(this).css('height', "auto");
+    },
+    onReposition: function() {
+      $(this).css('height', "auto");
+    },
+  })
+;
+
+ </script>
+ {% if page.html != true %}
+ <style>
+  .contentdiv {
+    font-size: 12pt;
+  }
+ </style>
+ {% endif %}
+</body>
+</html>

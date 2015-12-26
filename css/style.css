@@ -115,3 +115,15 @@ code {
 .ui.sticky.vertical.menu.right.floated.fixed.top {
   height: auto !important;
 }
+
+/* BLOG */
+
+.blog-title {
+	color: #333;
+    text-shadow: 1px 1px 0px #ddd, 2px 2px 0px #aaa;
+    /*background: #eee;
+    padding: 10px !important;
+    box-shadow: 0 20px 20px #eee, 0 20px 20px #eee;
+    margin-bottom: 1em !important;
+    border-top: 2px dotted purple !important;*/
+}
