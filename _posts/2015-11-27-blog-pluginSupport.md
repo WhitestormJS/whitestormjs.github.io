@@ -10,7 +10,7 @@ Now we have plugin support in *WhitestormJS* !
 
 Plugin example: [http://192.241.128.187/current/examples/plugin_example.html](http://192.241.128.187/current/examples/plugin_example.html)
 
-<img src="../images/blog/plugin-support.jpg" width="600">
+<img src="/images/blog/plugin-support.jpg" width="600">
 
 ### How to setup
 
