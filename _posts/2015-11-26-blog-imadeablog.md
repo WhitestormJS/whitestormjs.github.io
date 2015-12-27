@@ -2,7 +2,7 @@
 layout: blog
 title: "I made a blog!"
 permalink: blog/first-post
-icon: wizard
+icon: newspaper
 ---
 
 Hello, everyone! So now i made new feature for this site! Now we have a blog!
