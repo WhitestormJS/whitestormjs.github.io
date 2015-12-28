@@ -2,29 +2,30 @@
   link: init
 
 - name: Objects
-  funcs: 
+  funcs:
    - name: addObject
    - name: addMorph
    - name: addModel
 
 - name: Ground
-  funcs: 
+  funcs:
    - name: addGround
    - name: addGrass
 
 - name: Light
   link: addLight
-
+- name: Skybox
+  link: addSkybox
 - name: Fog
   link: addFog
 
 - name: Controls
-  funcs: 
+  funcs:
    - name: FirstPerson
    - name: OrbitControls
 
 - name: API
-  funcs: 
+  funcs:
   - name: Construct
   - name: ConvexFigure
   - name: Def
@@ -44,7 +45,7 @@
   - name: Wrap
 
 - name: PostEffects
-  funcs: 
+  funcs:
    - name: zoomBlurPass
    - name: multiPassBloomPass
    - name: vignettePass
