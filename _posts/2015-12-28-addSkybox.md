@@ -32,4 +32,4 @@ The required axes are:
 * `zneg`
 * `zpos`
 
-Rather than adding a skybox to your game, you can also add a skydome. In your options, set the value of `skyType` to `"dome"` rather than `box`, remove `imgSuffix`, and set `src` equal to the direct path to your image (`assets/textures/skydome/skydome-image.jpg`).
+Rather than adding a skybox to your game, you can also add a skysphere. In your options, set the value of `skyType` to `"sphere"` rather than `box`, remove `imgSuffix`, and set `src` equal to the direct path to your image (`assets/textures/skysphere/skysphere-image.jpg`).
