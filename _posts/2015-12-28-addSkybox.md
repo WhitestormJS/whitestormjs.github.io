@@ -10,7 +10,8 @@ To add a skybox to your game, call `GAME.addSkybox` (`GAME` is an instance of `W
 ```javascript
 GAME.skybox = GAME.addSkybox({
   src: "assets/textures/skybox/DarkSea-",
-  imgSuffix: ".jpg"
+  imgSuffix: ".jpg",
+  skyType: "box"
 });
 ```
 
@@ -30,3 +31,5 @@ The required axes are:
 * `xpos`
 * `zneg`
 * `zpos`
+
+Rather than adding a skybox to your game, you can also add a skydome. In your options, set the value of `skyType` to `"dome"` rather than `box`, remove `imgSuffix`, and set `src` equal to the direct path to your image (`assets/textures/skydome/skydome-image.jpg`).
