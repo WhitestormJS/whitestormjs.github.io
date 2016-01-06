@@ -127,3 +127,7 @@ code {
     margin-bottom: 1em !important;
     border-top: 2px dotted purple !important;*/
 }
+
+#blogpost img {
+  max-width: 100% !important;
+}

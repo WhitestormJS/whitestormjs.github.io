@@ -5,6 +5,8 @@ permalink: blog/winter-updates
 icon: rocket
 ---
 
+![whitestorm winter update](/images/whitestorm_winter.png)
+
 ### Yeah, new physics!!
 
 We just ported PhysiJS to WhitestormJS engine. It doesn't mean that you can't use WhitestormJS with cannonjs now. CannonJS is awesome library too, but we alse decided to make variations of engine for people who have worked with PhysiJS, OimoJS and others...
