@@ -8,36 +8,34 @@ Every WhitestormJS object is a combination of Three.js and Cannon.js rendering a
 
 Here is a basic example of adding a sphere to `GAME`, an instance of `WHS.init`:
 
-```javascript
-GAME.sphere = GAME.addObject("sphere",
-{
-    geometryOptions: {
-        radius:3 // Sphere radius
-    },
-    mass: 10, // Mass for CANNON.JS
-    onlyvis: false, // If set true - no physic for this object
-    materialOptions: { // ThreeJs material options
-        color: 0xffffff,
-        type: "basic"
-    },
-    pos: { // position in space
-        x: 0,
-        y: 100,
-        z: 0
-    }
-});
-```
+    GAME.sphere = GAME.addObject("sphere",
+    {
+        geometryOptions: {
+            radius:3 // Sphere radius
+        },
+        mass: 10, // Mass for CANNON.JS
+        onlyvis: false, // If set true - no physic for this object
+        materialOptions: { // ThreeJs material options
+            color: 0xffffff,
+            type: "basic"
+        },
+        pos: { // position in space
+            x: 0,
+            y: 100,
+            z: 0
+        }
+    });
 
 **Note** that `GAME.sphere` is used only for setting it as an object (returned from this func.)
 You could just do:
-```javascript
-GAME.addObject("sphere",
-```
 
-Instead of: 
-```javascript
-GAME.sphere = GAME.addObject("sphere",
-```
+    GAME.addObject("sphere",
+
+
+Instead of:
+
+    GAME.sphere = GAME.addObject("sphere",
+
 
 ##### Sphere options:
 
@@ -49,12 +47,12 @@ GAME.sphere = GAME.addObject("sphere",
 - **onlyvis** - If set *true* - only *THREE.JS* object [without physic]
 
 
-###### Adding a compound face
+##### Adding a compound face
 
 You can add a face for appending element's side-to-side.
 Use `addCompoundFace` for generating a geometry with one Face3 and 3 vertices.
 
-```javascript
-GAME.sphere.addCompoundFace();
-```
+
+    GAME.sphere.addCompoundFace();
+
 ![addCompoundFace](http://4.1m.yt/5ed58UzMN.png)

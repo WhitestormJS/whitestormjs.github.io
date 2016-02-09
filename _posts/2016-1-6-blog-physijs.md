@@ -15,7 +15,7 @@ We just ported PhysiJS to WhitestormJS engine. It doesn't mean that you can't us
 
  - In fps example person(sphere) now doesn't rolls when you stay.
 
- - Physics runs in **WebWorkers**. 
+ - Physics runs in **WebWorkers**.
 
  - Now you can control **friction and restitution** of your 3d object.
 
@@ -34,56 +34,54 @@ We just ported PhysiJS to WhitestormJS engine. It doesn't mean that you can't us
 
 1) **Add physijs library to your page.**
 
-```html
 
-<script src="physi.js"></script>
 
-```
+    <script src="physi.js"></script>
+
+
 
 <br>
 2) **Some changes in WHS.init:**
 
-_Was:_ 
+_Was:_
 
-```javascript
 
-var GAME = new WHS.init({
-    anaglyph: false, // Anaglyph effect.
-    stats: "fps", // fps, ms, mb or false if not need.
-    wagner: WAGNER, // wagner library variable
 
-    gravity: { // Physic gravity.
-        x: 0,
-        y: -100,
-        z: 0
-    }
-});
+    var GAME = new WHS.init({
+        anaglyph: false, // Anaglyph effect.
+        stats: "fps", // fps, ms, mb or false if not need.
+        wagner: WAGNER, // wagner library variable
 
-```
+        gravity: { // Physic gravity.
+            x: 0,
+            y: -100,
+            z: 0
+        }
+    });
+
+
 
 <br>
 
 _Now:_
 
-```javascript
 
-var GAME = new WHS.init({
-    anaglyph: false, // Anaglyph effect.
-    stats: "fps", // fps, ms, mb or false if not need.
-    wagner: WAGNER, // wagner library variable
 
-    gravity: { // Physic gravity.
-        x: 0,
-        y: -100,
-        z: 0
-    },
+    var GAME = new WHS.init({
+        anaglyph: false, // Anaglyph effect.
+        stats: "fps", // fps, ms, mb or false if not need.
+        wagner: WAGNER, // wagner library variable
 
-    path_worker: 'physijs_worker.js' // Path to Physijs worker here.
-    path_ammo: 'ammo.js' // Path to Ammo.js.
-});
+        gravity: { // Physic gravity.
+            x: 0,
+            y: -100,
+            z: 0
+        },
 
-// Define your scene objects here.
+        path_worker: 'physijs_worker.js' // Path to Physijs worker here.
+        path_ammo: 'ammo.js' // Path to Ammo.js.
+    });
 
-GAME.start(); // Start animations and physics simulation.
+    // Define your scene objects here.
 
-```
+    GAME.start(); // Start animations and physics simulation.

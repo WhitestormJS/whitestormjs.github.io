@@ -15,7 +15,7 @@ twitter_username: _alex_buzin
 github_username:  sasha240100
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
 
 redcarpet:

@@ -7,13 +7,11 @@ permalink: addSkybox
 
 To add a skybox to your game, call `GAME.addSkybox` (`GAME` is an instance of `WHS.init`):
 
-```javascript
-GAME.skybox = GAME.addSkybox({
-  src: "assets/textures/skybox/DarkSea-",
-  imgSuffix: ".jpg",
-  skyType: "box"
-});
-```
+    GAME.skybox = GAME.addSkybox({
+      src: "assets/textures/skybox/DarkSea-",
+      imgSuffix: ".jpg",
+      skyType: "box"
+    });
 
 `addSkybox` takes a single parameter, an object of options. `src` is the skybox image source, while `imgSuffix` is the skybox image's suffix (JPEG, PNG, etc.). If `imgSuffix` second parameter is not provided, the PNG suffix (`.png`) is assumed.
 
