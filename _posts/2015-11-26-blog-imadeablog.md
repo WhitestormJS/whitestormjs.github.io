@@ -10,4 +10,4 @@ Everyone can make posts by adding md file with pull request to [site repo](https
 
 Note [this guide](/blog/) for making posts.
 
-<center>![Giphy blog](http://i.giphy.com/hpEzeWC2Pbrag.gif)</center>
+<center><img src="http://i.giphy.com/hpEzeWC2Pbrag.gif"></center>
