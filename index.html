@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,12 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;html&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,9 +101,8 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="html">html</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -119,230 +118,2474 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 class="bigline">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p><strong>Whiestorm.js</strong> is a <em>framework</em> for 3D web apps built with Three.js technology.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>It implements a <em>core</em> with cmponent system and plugin support for fast development of 3D scene with physics.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>Automizing your web app with whitestorm.js is fast and comfortable. You can use whitestorm&rsquo;s API for creating different shapes instead of writing simple functionality each time.</p>
 
-<h1 id="authentication">Authentication</h1>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<h1 id="getting-started">Getting started</h1>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Include Three.js and Physi.js to your document. Then include Whitestorm.js
+Define your world with parameters:</p>
 </blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">GAME</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WHS</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="c1">// Type parameters here.</span>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+    <span class="na">path_worker</span><span class="p">:</span> <span class="s1">'physijs_worker.js'</span><span class="p">,</span> <span class="c1">// Path to Physijs worker here.</span>
+    <span class="na">path_ammo</span><span class="p">:</span> <span class="s1">'ammo.js'</span> <span class="c1">// Path to Ammo.js.</span>
+<span class="p">});</span>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<span class="c1">// Define your scene objects here.</span>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<span class="nx">GAME</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span> <span class="c1">// Start animations and physics simulation.</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"three.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"physi.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- WhitestormJS library --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"whitestorm.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries must work properly. 
+<code class="prettyprint">WHS.Init</code> initializes 3D world with parameters.</p>
+
+<aside class="notice">It is advised to download your own copies of the following libraries, as large changes can break backwards compatibility.</aside>
+
+<p>Include Three.js, Wagner, and Physi.js libraries. Include a script tag linking the WhitestormJS library in your head or after your body:</p>
+
+<p>Also you need to put pathes to <code class="prettyprint">physijs_worker.js</code> file and <code class="prettyprint">ammo.js</code>. It will cause some errors, if you forget to do so.</p>
+
+<h1 id="core">Core</h1>
+
+<h2 id="whs-init-super-class">WHS.init [Super Class]</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Defaults for <code class="prettyprint">WHS.init</code> Class:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"anaglyph"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"helper"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"stats"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"autoresize"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shadowmap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"gravity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"camera"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"aspect"</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"near"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"far"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+
+        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"rWidth"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="err">window.innerWidth</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="err">window.innerHeight</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"physics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"quatNormalizeSkip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quatNormalizeFast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+
+        </span><span class="nt">"solver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"iterations"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tolerance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+        </span><span class="nt">"defMaterial"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"contactEquationStiffness"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">e</span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contactEquationRegularizationTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="nt">"background"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="err">x</span><span class="mi">000000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"assets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./assets"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"container"</span><span class="p">:</span><span class="w"> </span><span class="err">document.body</span><span class="p">,</span><span class="w">
+
+    </span><span class="nt">"path_worker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../libs/physijs_worker.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"path_ammo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../libs/ammo.js"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
 <th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td><strong>gravity</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Gravity vector.</td>
 </tr>
 <tr>
-<td>available</td>
+<td><strong>camera</strong></td>
+<td>Camera object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Camera object.</td>
+</tr>
+<tr>
+<td><strong>physics</strong></td>
+<td>Physics object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Physics object.</td>
+</tr>
+<tr>
+<td><strong>shadowmap</strong></td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td><code class="prettyprint">Boolean</code></td>
+<td>Shadows support.</td>
+</tr>
+<tr>
+<td><strong>autoresize</strong></td>
+<td>true</td>
+<td><code class="prettyprint">Boolean</code></td>
+<td>Autoresize function.</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>window.innerWidth</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Canvas width.</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>window.innerHeight</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Canvas height.</td>
+</tr>
+<tr>
+<td><strong>rWidth</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Resolution width ratio.</td>
+</tr>
+<tr>
+<td><strong>rHeight</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Resolution height ratio.</td>
+</tr>
+<tr>
+<td><strong>background</strong></td>
+<td>0x000000</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Color of background.</td>
+</tr>
+<tr>
+<td><strong>assets</strong></td>
+<td>&ldquo;./assets&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Assets folder.</td>
+</tr>
+<tr>
+<td><strong>container</strong></td>
+<td>document.body</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Where to put whs canvas.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+You must include <code>path_worker</code> and <code>path_ammo</code> parameters with pathes to Physi.js worker script and Ammo.js.
 </aside>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="camera-object">Camera object.</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>x, y, z</td>
+<td><code class="prettyprint">x: 0, y: 0, z: 0</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Camera pozition.</td>
+</tr>
+<tr>
+<td>aspect</td>
+<td>75</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Camera aspect.</td>
+</tr>
+<tr>
+<td>near</td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Camera near.</td>
+</tr>
+<tr>
+<td>far</td>
+<td>1000</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Camera far.</td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h3 id="physics-object-physijs-settings">Physics object. (PhysiJS settings)</h3>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>quatNormalizeSkip</td>
+<td>0</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>quatNormalizeFast</td>
+<td>false</td>
+<td><code class="prettyprint">Boolean</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>solver</td>
+<td><strong>{</strong></td>
+<td><code class="prettyprint">Object</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;iterations: 20,</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;tolerance: 20</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<td></td>
+<td><strong>}</strong></td>
+<td></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>defMaterial</td>
+<td><strong>{</strong></td>
+<td><code class="prettyprint">Object</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;cEqStiffness: 1e8,</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;cEqRegTime: 3</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td></td>
+<td><strong>}</strong></td>
+<td></td>
+<td>TODO.</td>
 </tr>
 </tbody></table>
+
+<h1 class="big" id="API">API</h1>
+
+<h2 id="whs-shape-super-class">WHS.Shape [Super Class]</h2>
+
+<blockquote>
+<p>WHS.Shape structure.</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Shape</span><span class="p">({</span>
+  <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// Shape geometry options here.</span>
+  <span class="p">},</span>
+
+  <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span> <span class="c1">// White color.</span>
+    <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+  <span class="p">},</span>
+
+  <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<blockquote>
+<h4>Methods:</h4>
+
+<p><strong>.build( &hellip;tags )</strong> - aplly position and rotation to mesh, writing <code class="prettyprint">build_state</code> as ready.</p>
+
+<p><strong>.addTo( root, &hellip;tags )</strong> - add WHS.Shape object to scene (WHS.init).</p>
+
+<p><strong>.remove()</strong> - remove object from scene.</p>
+
+<p><strong>.retrieve()</strong> - add object to scene after it was removed.</p>
+
+<div class="tip-right"> <b>&hellip;tags</b> is a list of tags that inform core how to make changes to <code>build_state</code> and <code>_state</code>.</div>
+</blockquote>
+
+<p>WHS.Shape is a default class for all object&rsquo;s (except lights and cameras).
+It consist of Three.js mesh, Physi.js mesh and whs parameters such as geometry or material.</p>
+
+<p><strong>geometry</strong> is an object that contains shape&rsquo;s options for generating vertices and faces.</p>
+
+<p><strong>material</strong> is an object that contains material properties of Three.js + friction and restitution for physics material in Physi.js.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>geometry</strong></td>
+<td>Geometry object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Geometry object.</td>
+</tr>
+<tr>
+<td><strong>material</strong></td>
+<td>Material object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Material object.</td>
+</tr>
+<tr>
+<td><strong>mass</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Physics object.</td>
+</tr>
+<tr>
+<td><strong>pos</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Position Vector.</td>
+</tr>
+<tr>
+<td><strong>rot</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Euler3</code></td>
+<td>Rotation Euler.</td>
+</tr>
+<tr>
+<td><strong>target</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Target Vector.</td>
+</tr>
+</tbody></table>
+
+<p>To choose material setup <code class="prettyprint">kind</code> property with name of Three.js material type. For example <em>THREE.MeshLambertMaterial</em>
+ will be &ldquo;lambert&rdquo;.
+<script src="https://gist.github.com/sasha240100/51180537efcdacb005a3.js"></script></p>
+
+<aside class="success">
+<b>WhitestormJS material support this types</b>: 
+</aside>
+
+<p><ul>
+    <li><b>basic</b> - THREE.MeshBasicMaterial</li>
+    <li><b>linebasic</b> - THREE.MeshLineBasicMaterial </li>
+    <li><b>linedashed</b> - THREE.MeshLineDashedMaterial </li>
+    <li><b>material</b> - THREE.Material </li>
+    <li><b>depth</b> - THREE.MeshDepthMaterial </li>
+    <li><b>face</b> - THREE.MultiMaterial </li>
+    <li><b>lambert</b> - THREE.MeshLambertMaterial </li>
+    <li><b>normal</b> - THREE.MeshNormalMaterial </li>
+    <li><b>phong</b> - THREE.MeshPhongMaterial </li>
+    <li><b>pointcloud</b> - THREE.MeshPointsMaterial </li>
+    <li><b>rawshader</b> - THREE.MeshRawShaderMaterial </li>
+    <li><b>shader</b> - THREE.MeshShaderMaterial </li>
+    <li><b>sprite</b> - THREE.MeshSpriteMaterial</li>
+  </ul></p>
+
+<h2 id="whs-light-super-class">WHS.Light [Super Class]</h2>
+
+<blockquote>
+<p>Light Example. WHS.SpotLight is an instance of WHS.Light.</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">SpotLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span> <span class="c1">//0x00ff00,</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="na">distance</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="na">shadowmap</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">width</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span>
+        <span class="na">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fov</span><span class="p">:</span> <span class="mi">90</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">160</span><span class="p">,</span> <span class="c1">// 100,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="c1">// 30,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">160</span><span class="p">,</span> <span class="c1">// 100</span>
+    <span class="p">},</span>
+
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+<h4>Methods:</h4>
+
+<p><strong>All that WHS.Shape has +</strong></p>
+
+<p><strong>.buildShadow()</strong> - apply shadowmap parameters to light.</p>
+</blockquote>
+
+<aside class="notice"> Almost similar to <a href="#whs-shape-class"><code>WHS.Shape</code></a></aside>
+
+<p>WHS.Light class is very similar to WHS.Shape, but it is optimized for lights, because WHS.Shape doesn&rsquo;t support processing properties like <code class="prettyprint">light</code> or <code class="prettyprint">shadowmap</code>. It doesn&rsquo;t have <code class="prettyprint">geometry</code>, <code class="prettyprint">mass</code>, and <code class="prettyprint">material</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>light</strong></td>
+<td>Light object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Light object.</td>
+</tr>
+<tr>
+<td><strong>shadowmap</strong></td>
+<td>Shadowmap object</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Shadowmap object.</td>
+</tr>
+<tr>
+<td><strong>mass</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Physics object.</td>
+</tr>
+<tr>
+<td><strong>pos</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Position Vector.</td>
+</tr>
+<tr>
+<td><strong>rot</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Euler3</code></td>
+<td>Rotation Euler.</td>
+</tr>
+<tr>
+<td><strong>target</strong></td>
+<td><code class="prettyprint">{x: 0, y: 0, z: 0}</code></td>
+<td><code class="prettyprint">Vector3</code></td>
+<td>Target Vector.</td>
+</tr>
+</tbody></table>
+
+<h3 id="light-object">Light object.</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+<tr>
+<td><strong>skyColor</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>groundColor</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Shine intensity.</td>
+</tr>
+<tr>
+<td><strong>distance</strong></td>
+<td>100</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light cast distance.</td>
+</tr>
+<tr>
+<td><strong>angle</strong></td>
+<td>Math.PI/3</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light cast angle.</td>
+</tr>
+</tbody></table>
+
+<h3 id="shadowmap-object">Shadowmap object.</h3>
+
+<p>TODO.</p>
+
+<h2 id="api-extend-object-extensions-api">api.extend( object, &hellip;extensions ); [API]</h2>
+
+<p><code class="prettyprint">WHS.API.extend()</code> or just <code class="prettyprint">api.extend()</code> is made to simplify defining defaults process. We use it to check object for undefined parameters and fill them with our defaults.</p>
+
+<p>That&rsquo;s how you can use it:
+<script src="https://gist.github.com/sasha240100/cf1af9b43d06a1d2756d.js"></script></p>
+
+<p>Will return:</p>
+
+<script src="https://gist.github.com/sasha240100/8af05b677037ff4efb90.js"></script>
+
+<aside class="warning yellow">This function is used in WhitestormJS Core!</aside>
+
+<h2 id="api-loadmaterial-material-api">api.loadMaterial( material ); [API]</h2>
+
+<p>Turns your material parameter and returns whs material object.
+This function checks for <code class="prettyprint">kind</code> property and turns it into <code class="prettyprint">THREE.Material</code> object.</p>
+
+<p>Returns object that consist of <code class="prettyprint">_material</code>, <code class="prettyprint">_restitution</code> and <code class="prettyprint">_friction</code>, where <code class="prettyprint">_material</code> is a PhysiJS material object.</p>
+
+<aside class="warning yellow">This function is used in WhitestormJS Core!</aside>
+
+<h2 id="api-merge-box-rabbits-api">api.merge( box, rabbits ); [API]</h2>
+
+<p>Merge is a simple function that adds Objects to another objects(with .add() function). Use it if you need to add multiple objects to scene for example.</p>
+
+<p>Add rabbits to box!</p>
+
+<aside class="warning">Need to be rewritten [TODO]</aside>
+
+<h2 id="api-texture-url-options-api">api.texture( url, options  ); [API]</h2>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">cube</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Cube</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">width</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">depth</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"lambert"</span><span class="p">,</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">WHS</span><span class="p">.</span><span class="nx">API</span><span class="p">.</span><span class="nx">texture</span><span class="p">(</span> <span class="s1">'assets/textures/box.jpg'</span> <span class="p">)</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">60</span>
+    <span class="p">}</span>
+
+<span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">api.texture()</code> wraps whs texture object to Three.js texture.</p>
+
+<h3 id="options">Options.</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td><code class="prettyprint">{ x: 0, y: 0 }</code></td>
+<td><code class="prettyprint">Vector2</code></td>
+<td>Texture offset.</td>
+</tr>
+<tr>
+<td><strong>repeat</strong></td>
+<td><code class="prettyprint">{ x: 0, y: 0 }</code></td>
+<td><code class="prettyprint">Vector2</code></td>
+<td>Texture repeat.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"><code>options</code> parameter is optional.</aside>
+
+<aside class="warning yellow">This function is used in WhitestormJS Core!</aside>
+
+          <h1 id="shapes">Shapes</h1>
+
+<h2 class="ws" id="cube">Cube [Class]</h2>
+
+<blockquote>
+<p>Basic cube, created with WHS.Cube property.</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">cube</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Cube</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// Fill cube geometry here.</span>
+        <span class="na">width</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">depth</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span><span class="p">,</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">60</span>
+    <span class="p">}</span>
+
+<span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Cube</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Cube</code> class is used to create box objects of different size.</p>
+
+<p>It is similar to <code class="prettyprint">THREE.BoxGeometry</code>, but it also contain&rsquo;s all properties, applied by <code class="prettyprint">WHS.Shape</code>, such as material, mass and vectors like position (pos) and rotation (rot).</p>
+
+<p>Here are parameters of geometry object, that you need to fill:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>width</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Geometry width.</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Geometry height.</td>
+</tr>
+<tr>
+<td><strong>depth</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Geometry depth.</td>
+</tr>
+</tbody></table>
+
+<p>Then it creates an <code class="prettyprint">Three.js geometry</code>:</p>
+
+<script src="https://gist.github.com/sasha240100/7084bd4d0a271be6adfe.js"></script>
+
+<p>And a <code class="prettyprint">Physijs mesh</code>, that is similar to <code class="prettyprint">Three.js mesh</code>, but it also participates in collision calculations. This mesh is a combination of <code class="prettyprint">Three.js geometry</code> and <code class="prettyprint">Physijs material</code> (The same as in three.js, but with friction and restitution).</p>
+
+          <h2 class="ws" id="sphere">Sphere [Class]</h2>
+
+<blockquote>
+<p>WHS.Sphere that creates object with sphere geometry.</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">sphere</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Sphere</span><span class="p">(</span> <span class="p">{</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"lambert"</span><span class="p">,</span>
+        <span class="na">rest</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fri</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Sphere</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Sphere</code> class is used to create sphere objects by it&rsquo;s <code class="prettyprint">radius</code> property and other values that determinates it&rsquo;s detality.</p>
+
+<p>It is similar to <code class="prettyprint">THREE.SphereGeometry</code>, but it also contain&rsquo;s all properties, applied by <code class="prettyprint">WHS.Shape</code>, such as material, mass and vectors like position (pos) and rotation (rot).</p>
+
+<p>You need to fill these parameters:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>widthSegments</strong></td>
+<td>8</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>heightSegments</strong></td>
+<td>6</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>phiStart</strong></td>
+<td>Math.PI*2</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>phiLength</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>thetaStart</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+<tr>
+<td><strong>thetaLength</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Sphere radius.</td>
+</tr>
+</tbody></table>
+
+<p>Then it creates an <code class="prettyprint">Three.js geometry</code>:</p>
+
+<script src="https://gist.github.com/sasha240100/df4a83ceb3625ffdb44d.js"></script>
+
+<p>And a <code class="prettyprint">Physijs mesh</code>, that is similar to <code class="prettyprint">Three.js mesh</code>, but it also participates in collision calculations. This mesh is a combination of <code class="prettyprint">Three.js geometry</code> and <code class="prettyprint">Physijs material</code> (The same as in three.js, but with friction and restitution).</p>
+
+<aside class="warning">Need to be rewritten [TODO]</aside>
+
+          <h2 class="ws" id="plane">Plane [Class]</h2>
+
+<p><code class="prettyprint">WHS.Plane</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Plane</code> class is used for creating planes by it&rsquo;s <code class="prettyprint">width</code> and <code class="prettyprint">height</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>width</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Plane width.</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Plane height.</td>
+</tr>
+<tr>
+<td><strong>segments</strong></td>
+<td>32</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Plane detality.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/aa821a5174b0204259e9.js"></script>
+
+          <h2 class="ws" id="cylinder">Cylinder [Class]</h2>
+
+<blockquote>
+<p>WHS.Cylinder example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">cylinder</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Cylinder</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radiusTop</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">radiusBottom</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Cylinder</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Cylinder</code> creates Cylinder object by it&rsquo;s <code class="prettyprint">radiusTop</code>, <code class="prettyprint">radiusBottom</code> and <code class="prettyprint">height</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radiusTop</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>radiusBottom</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>radiusSegments</strong></td>
+<td>32</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/452b417534e092a75e8f.js"></script>
+
+          <h2 class="ws" id="dodecahedron">Dodecahedron [Class]</h2>
+
+<blockquote>
+<p>WHS.Dodecahedron example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">dodecahedron</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Dodecahedron</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Dodecahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Dodecahedron</code> creates Dodecahedron object by it&rsquo;s <code class="prettyprint">radius</code> and <code class="prettyprint">detail</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/6c36848a37c9d8833ace.js"></script>
+
+          <h2 class="ws" id="polyhedron">Polyhedron [Class]</h2>
+
+<blockquote>
+<p>WHS.Polyhedron example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">polyhedron</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Polyhedron</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">detail</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Polyhedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Polyhedron</code> creates Polyhedron object by it&rsquo;s <code class="prettyprint">radius</code> and <code class="prettyprint">detail</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>verticesOfCube</strong></td>
+<td>get verticesOfCube</td>
+<td><code class="prettyprint">Array</code></td>
+</tr>
+<tr>
+<td><strong>indicesOfFaces</strong></td>
+<td>get indicesOfFaces</td>
+<td><code class="prettyprint">Array</code></td>
+</tr>
+<tr>
+<td><strong>radius</strong></td>
+<td>6</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td>2</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/d821cc016863b6d71266.js"></script>
+
+          <h2 class="ws" id="icosahedron">Icosahedron [Class]</h2>
+
+<blockquote>
+<p>WHS.Icosahedron example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">icosahedron</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Icosahedron</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">detail</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Icosahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Icosahedron</code> creates Icosahedron object by it&rsquo;s <code class="prettyprint">radius</code> and <code class="prettyprint">detail</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/9411184563af222a098b.js"></script>
+
+          <h2 class="ws" id="octahedron">Octahedron [Class]</h2>
+
+<blockquote>
+<p>WHS.Icosahedron example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">octahedron</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Octahedron</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">detail</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Octahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Octahedron</code> creates Octahedron object by it&rsquo;s <code class="prettyprint">radius</code> and <code class="prettyprint">detail</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/2e4fd99eed06e9c5bd05.js"></script>
+
+          <h2 class="ws" id="tetrahedron">Tetrahedron [Class]</h2>
+
+<blockquote>
+<p>WHS.Tetrahedron example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">tetrahedron</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Tetrahedron</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">detail</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Tetrahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Tetrahedron</code> creates Tetrahedron object by it&rsquo;s <code class="prettyprint">radius</code> and <code class="prettyprint">detail</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/769a64629d8180f38a17.js"></script>
+
+          <h2 class="ws" id="extrude">Extrude [Class]</h2>
+
+<blockquote>
+<p>WHS.Extrude example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Shape</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span> <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span>  <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>  <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">2</span>  <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span>  <span class="mi">4</span><span class="p">,</span><span class="mi">4</span>  <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span>  <span class="mi">2</span><span class="p">,</span><span class="mi">0</span>  <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span>  <span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span> <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span>  <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span> <span class="p">)</span>
+<span class="p">]);</span>
+
+<span class="kd">var</span> <span class="nx">extrude</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Extrude</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">shapes</span><span class="p">:</span> <span class="nx">shape</span><span class="p">,</span>
+        <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">bevelEnabled</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="na">bevelSize</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="na">amount</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span> 
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Extrude</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Extrude</code> class creates extruded geometry from a path shape. You need to make a 2D shape based on <code class="prettyprint">THREE.Shape</code> and <code class="prettyprint">THREE.Vector3</code> and import it <code class="prettyprint">shapes</code> parameter. After that it will be turned in 3D shape.</p>
+
+<p>It is similar to <code class="prettyprint">THREE.ExtrudeGeometry</code>, but it also contain&rsquo;s all properties, applied by <code class="prettyprint">WHS.Shape</code>, such as material, mass and vectors like position (pos) and rotation (rot).</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>shapes</strong></td>
+<td>[]</td>
+<td><code class="prettyprint">Array</code> or <code class="prettyprint">Object</code></td>
+<td>Array of shapes or a shape.</td>
+</tr>
+<tr>
+<td><strong>options</strong></td>
+<td>{}</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Object with parameters.</td>
+</tr>
+</tbody></table>
+
+<p>Then it creates an <code class="prettyprint">Three.js geometry</code>:</p>
+
+<script src="https://gist.github.com/sasha240100/0d6e84001eb02faa07a3.js"></script>
+
+<p>And a <code class="prettyprint">Physijs mesh</code>, that is similar to <code class="prettyprint">Three.js mesh</code>, but it also participates in collision calculations. This mesh is a combination of <code class="prettyprint">Three.js geometry</code> and <code class="prettyprint">Physijs material</code> (The same as in three.js, but with friction and restitution).</p>
+
+<p><img src="images/shapes/extrude.png"></p>
+
+          <h2 class="ws" id="lathe">Lathe [Class]</h2>
+
+<blockquote>
+<p>WHS.Lathe example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">points</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">points</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> 
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">(</span> 
+            <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span> <span class="nx">i</span> <span class="o">*</span> <span class="mf">0.7</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">15</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> 
+            <span class="p">(</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">5</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span> 
+        <span class="p">)</span> 
+    <span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">lathe</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Lathe</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">points</span><span class="p">:</span> <span class="nx">points</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"lambert"</span><span class="p">,</span>
+        <span class="na">side</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DoubleSide</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Lathe</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Lathe</code> is a class for generating meshes with axial symmetry. Possible uses include donuts, pipes, vases etc. The lathe rotate around the Y axis.</p>
+
+<p>It is similar to <code class="prettyprint">THREE.LatheGeometry</code>, but it also contain&rsquo;s all properties, applied by <code class="prettyprint">WHS.Shape</code>, such as material, mass and vectors like position (pos) and rotation (rot).</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>points</strong></td>
+<td>[]</td>
+<td><code class="prettyprint">Array</code></td>
+<td>TODO.</td>
+</tr>
+<tr>
+<td><strong>segments</strong></td>
+<td>{}</td>
+<td><code class="prettyprint">Object</code></td>
+<td>TODO.</td>
+</tr>
+<tr>
+<td><strong>phiStart</strong></td>
+<td>{}</td>
+<td><code class="prettyprint">Object</code></td>
+<td>TODO.</td>
+</tr>
+<tr>
+<td><strong>phiLength</strong></td>
+<td>{}</td>
+<td><code class="prettyprint">Object</code></td>
+<td>TODO.</td>
+</tr>
+</tbody></table>
+
+<p>Then it creates an <code class="prettyprint">Three.js geometry</code>:</p>
+
+<script src="https://gist.github.com/sasha240100/06c3b07fc14e4d1a828d.js"></script>
+
+<p>Right example will create the following shape: </p>
+
+<p><img src="images/shapes/lathe.png"></p>
+
+          <h2 class="ws" id="model">Model [Class]</h2>
+
+<blockquote>
+<p>WHS.Model example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">teapot</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Model</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">path</span><span class="p">:</span> <span class="s2">"assets/models/teapot.js"</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">vertexColors</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span><span class="p">,</span>
+        <span class="na">shading</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SmoothShading</span><span class="p">,</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">api</span><span class="p">.</span><span class="nx">texture</span><span class="p">(</span>
+                <span class="s1">'assets/textures/teapot.jpg'</span><span class="p">,</span> 
+                <span class="p">{</span>
+                    <span class="na">repeat</span><span class="p">:{</span>
+                        <span class="na">x</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> 
+                        <span class="na">y</span><span class="p">:</span><span class="mi">4</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">),</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"phong"</span><span class="p">,</span>
+        <span class="na">useCustomMaterial</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">rest</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">fri</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+
+    <span class="na">rot</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">30</span>
+    <span class="p">}</span>
+
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Model</code> class loader for loading objects in JSON format.</p>
+
+<p>Model is a simple class too. But it doesn&rsquo;t depends on <code class="prettyprint">Three.js geometry</code> object. It loads geometry from <code class="prettyprint">JSON</code> file by url as it&rsquo;s material, but material you can replace with your own. Just add <code class="prettyprint">useCustomMaterial</code> property with <code class="prettyprint">true</code> value in <code class="prettyprint">material</code> parameter object.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>path</strong></td>
+<td>&ldquo;&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Url adress to JSON file.</td>
+</tr>
+</tbody></table>
+
+<p>Also, if model has vertex colors - you can add <code class="prettyprint">useVertexColors</code> property to material parameter object (as with <code class="prettyprint">useCustomMaterial</code>).</p>
+
+<p>Similar one is <code class="prettyprint">WHS.Morph</code>. It&rsquo;s like a model, but this one supports animations.</p>
+
+<p><img src="images/shapes/model.png"></p>
+
+          <h2 class="ws" id="morph">Morph [Class]</h2>
+
+<blockquote>
+<p>WHS.Morph example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">parrot</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Morph</span><span class="p">(</span> <span class="p">{</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">path</span><span class="p">:</span> <span class="s2">"assets/models/morph/parrot.js"</span>
+    <span class="p">},</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">useVertexColors</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">70</span>
+    <span class="p">},</span>
+
+    <span class="na">scale</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mf">0.1</span>
+    <span class="p">},</span>
+
+    <span class="na">morph</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">duration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="na">speed</span><span class="p">:</span> <span class="mi">250</span>
+    <span class="p">}</span>
+
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Model</code> is a class for loading animated models or meshes.</p>
+
+<p><code class="prettyprint">WHS.Morph</code> is used for creating animated object&rsquo;s that doesn&rsquo;t support physics. Off course you can make your own class, based on <code class="prettyprint">WHS.Shape</code> that will run animation and support physics. But you will need to update your geometry in Physi.js each time you update anmation. Physi.js currently provides physic only for static geometries. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>path</strong></td>
+<td>&ldquo;&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Url adress to JSON file.</td>
+</tr>
+</tbody></table>
+
+<p>The same as in <code class="prettyprint">WHS.Model</code> you can use <code class="prettyprint">useVertexColors</code> and <code class="prettyprint">useCustomMaterial</code> properties.</p>
+
+<p>Right example will create the following:</p>
+
+<p><img src="images/shapes/morph.png"></p>
+
+<p>And each frame it will change:</p>
+
+<p><img src="images/shapes/morph2.png"></p>
+
+<aside class="notice">
+    This class use <code>morph</code> property in <code>WHS.Shape</code>. You need to specify <code>duration</code> and <code>speed</code> settings.
+</aside>
+
+          <h2 class="ws" id="parametric">Parametric [Class]</h2>
+
+<blockquote>
+<p>WHS.Parametric example: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">function</span> <span class="nx">createParametric</span><span class="p">(</span> <span class="nx">u</span><span class="p">,</span> <span class="nx">v</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector3</span><span class="p">(</span> <span class="nx">u</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">v</span> <span class="o">*</span> <span class="mi">30</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">parametric</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Parametric</span><span class="p">({</span>
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">func</span><span class="p">:</span> <span class="nx">createParametric</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"lambert"</span><span class="p">,</span>
+        <span class="na">side</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DoubleSide</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Parametric</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Parametric</code> class is used for creating objects representing a parametric surface.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>func</strong></td>
+<td>functon() {}</td>
+<td><code class="prettyprint">Function</code></td>
+<td>Function for generating surface.</td>
+</tr>
+<tr>
+<td><strong>slices</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>The count of slices.</td>
+</tr>
+<tr>
+<td><strong>stacks</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>The count of stacks.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/9d4741da789ecbc02557.js"></script>
+
+<p>Example will create heightfield-like geometry. <code class="prettyprint">u</code> and <code class="prettyprint">v</code> are like <code class="prettyprint">x</code> and <code class="prettyprint">y</code> in shape, but their values are always from <code class="prettyprint">0</code> to <code class="prettyprint">1</code>.
+We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="prettyprint">x</code> and <code class="prettyprint">z</code> and <code class="prettyprint">Math.random()</code> for <code class="prettyprint">y</code>.</p>
+
+<p><img src="images/shapes/parametric.png"></p>
+
+          <h2 class="ws" id="ring">Ring [Class]</h2>
+
+<blockquote>
+<p>WHS.Ring example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+
+<span class="kd">var</span> <span class="nx">ring</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Ring</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">innerRadius</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="na">outerRadius</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"basic"</span><span class="p">,</span>
+        <span class="na">side</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DoubleSide</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+
+    <span class="na">rot</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">4</span>
+    <span class="p">}</span>
+
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Ring</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Ring</code> class makes a circle or just 2D <code class="prettyprint">WHS.Torus</code> that doesn&rsquo;t support physics.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>func</strong></td>
+<td>functon() {}</td>
+<td><code class="prettyprint">Function</code></td>
+<td>Function for generating surface.</td>
+</tr>
+<tr>
+<td><strong>slices</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>The count of slices.</td>
+</tr>
+<tr>
+<td><strong>stacks</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>The count of stacks.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/9d4741da789ecbc02557.js"></script>
+
+<aside class="notice">
+<code>WHS.Ring</code> doesn&rsquo;t support physics, so if you want to make it with physics - you can use <code>WHS.Torus</code> and scale it <code>x</code> 1/(your torus outerRadius - innerRadius), so it&rsquo;s width will be 1 and then multiply by value near 0 to make it very thin.
+</aside>
+
+<p><img src="images/shapes/ring.png"></p>
+
+<aside class="warning">Need to be fixed. In progress.</aside>
+
+          <h2 class="ws" id="shape2d">Shape2D [Class]</h2>
+
+<p><code class="prettyprint">WHS.Shape2D</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Shape2D</code> is an universal class, that allows you create different 2D shapes in 3D scene. Unfortunately, all of them don&rsquo;t support physics, so you can make a similar 3D obect and scale it width to be near zero.</p>
+
+<p><code class="prettyprint">WHS.Shape2D</code> consist of shapes that are in <code class="prettyprint">shapes</code> parameter.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>shapes</strong></td>
+<td>[]</td>
+<td><code class="prettyprint">Array</code></td>
+<td>Array of 2D shapes.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/118ced78b8c3a9aeb008.js"></script>
+
+          <h2 class="ws" id="smooth">Smooth [Class]</h2>
+
+<blockquote>
+<p>WHS.Smooth example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="nx">GAME</span><span class="p">.</span><span class="nx">ground</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Smooth</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">width</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">250</span>
+    <span class="p">},</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xff0000</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"phong"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Smooth</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Smooth</code> is like a <code class="prettyprint">WHS.Plane</code>, but it creates infinite plane (in physics). That&rsquo;s why we call it &ldquo;Smooth plane&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>width</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Width of visible plane.</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Height of visible plane.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/c7579930352c9943a11f.js"></script>
+
+          <h2 class="ws" id="text">Text [Class]</h2>
+
+<p><code class="prettyprint">WHS.Text</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Text</code> class is made for creating 3D text objects.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>text</strong></td>
+<td>&ldquo;Hello World!&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Text that will be displayed.</td>
+</tr>
+<tr>
+<td><strong>parameters</strong></td>
+<td>Text parameters.</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Text parameters.</td>
+</tr>
+</tbody></table>
+
+<h3 id="text-parameters">Text parameters.</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>size</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Font size.</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>50</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Font height?</td>
+</tr>
+<tr>
+<td><strong>curveSegments</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Number of curves</td>
+</tr>
+<tr>
+<td><strong>font</strong></td>
+<td>&ldquo;Adelle&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Font name</td>
+</tr>
+<tr>
+<td><strong>weight</strong></td>
+<td>&ldquo;normal&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Font weight</td>
+</tr>
+<tr>
+<td><strong>style</strong></td>
+<td>&ldquo;normal&rdquo;</td>
+<td><code class="prettyprint">String</code></td>
+<td>Font style</td>
+</tr>
+<tr>
+<td><strong>bevelEnabled</strong></td>
+<td>false</td>
+<td><code class="prettyprint">Boolean</code></td>
+<td>Is bevel enabled?</td>
+</tr>
+<tr>
+<td><strong>bevelThickness</strong></td>
+<td>10</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Bevel thickness.</td>
+</tr>
+<tr>
+<td><strong>bevelSize</strong></td>
+<td>8</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Bevel size.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/158b43f76862cf606c06.js"></script>
+
+          <h2 class="ws" id="torus">Torus [Class]</h2>
+
+<blockquote>
+<p>WHS.Torus example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">torus</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Torus</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="na">tube</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"lambert"</span><span class="p">,</span>
+        <span class="na">side</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DoubleSide</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Torus</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Torus</code> class makes a torus figure. Torus is a donut. Donut is a torus.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>100</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Torus radius.</td>
+</tr>
+<tr>
+<td><strong>tube</strong></td>
+<td>40</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Torus tube radius.</td>
+</tr>
+<tr>
+<td><strong>radialSegments</strong></td>
+<td>8</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Radial segments.</td>
+</tr>
+<tr>
+<td><strong>tubularSegments</strong></td>
+<td>6</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Tubular segments.</td>
+</tr>
+<tr>
+<td><strong>arc</strong></td>
+<td>2</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/c320e12f7e594c48fb8e.js"></script>
+
+<p><img src="images/shapes/torus.png"></p>
+
+          <h2 class="ws" id="torusknot">Torusknot [Class]</h2>
+
+<blockquote>
+<p>WHS.Torusknot example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">torusknot</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">Torusknot</span><span class="p">({</span>
+
+    <span class="na">geometry</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">radius</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+        <span class="na">tube</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+
+    <span class="na">mass</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+
+    <span class="na">material</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">vertexColors</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">VertexColors</span><span class="p">,</span>
+        <span class="na">shading</span><span class="p">:</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SmoothShading</span><span class="p">,</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">api</span><span class="p">.</span><span class="nx">texture</span><span class="p">(</span><span class="s1">'assets/textures/bricks.jpg'</span><span class="p">),</span>
+        <span class="na">kind</span><span class="p">:</span> <span class="s2">"phong"</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+
+<span class="p">});</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.Torusknot</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Torusknot</code> class makes a torusknot figure. It&rsquo;s like crooked donut, very crooked.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>radius</strong></td>
+<td>100</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Torus radius.</td>
+</tr>
+<tr>
+<td><strong>tube</strong></td>
+<td>40</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Torus tube radius.</td>
+</tr>
+<tr>
+<td><strong>radialSegments</strong></td>
+<td>8</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Radial segments.</td>
+</tr>
+<tr>
+<td><strong>tubularSegments</strong></td>
+<td>6</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Tubular segments.</td>
+</tr>
+<tr>
+<td><strong>p</strong></td>
+<td>2</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>q</strong></td>
+<td>3</td>
+<td><code class="prettyprint">Number</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>heightScale</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Height scale.</td>
+</tr>
+</tbody></table>
+
+<script src="https://gist.github.com/sasha240100/186976e65a13e62ec333.js"></script>
+
+<p><img src="images/shapes/torusknot.png"></p>
+
+          <h1 id="lights">Lights</h1>
+
+<h2 class="wsl" id="ambient">AmbientLight [Class]</h2>
+
+<blockquote>
+<p>WHS.AmbientLight example:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">ambient</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">AmbientLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mf">0.2</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.AmbientLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.AmbientLight</code> creates basic light around all scene, so it doesn&rsquo;t need properties like <code class="prettyprint">pos</code> or <code class="prettyprint">target</code>.</p>
+
+<p>It supports only <code class="prettyprint">color</code> parameter, which defines the color of the surrounded light and <code class="prettyprint">intensity</code> of light.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light intensity.</td>
+</tr>
+</tbody></table>
+
+          <h2 class="wsl" id="directional">DirectinalLight [Class]</h2>
+
+<blockquote>
+<p>WHS.DirectinalLight:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">directionallight</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">DirectinalLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mf">0.2</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+<p>This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)</p>
+</blockquote>
+
+<p><code class="prettyprint">WHS.DirectinalLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.DirectinalLight</code> creates a light that shines from a specific direction not from a specific position. </p>
+
+<p>This light will behave as though it is infinitely far away and the rays produced from it are all parallel. </p>
+
+<p>The best analogy would be a light source that acts like the sun: the sun is so far away that all sunlight hitting objects comes from the same angle.</p>
+
+<p>It has the same options as <code class="prettyprint">WHS.AmbientLight</code> in <code class="prettyprint">light</code> paramater, but it also supports <code class="prettyprint">pos</code> and <code class="prettyprint">target</code> paramaters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light intensity.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"><code>DirectinalLight</code> affects only meshes with <code>lambert</code> and <code>phong</code> material.</aside>
+
+          <h2 class="wsl" id="hemisphere">HemisphereLight [Class]</h2>
+
+<blockquote>
+<p>WHS.HemisphereLight:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">ambient</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">HemisphereLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">skyColor</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">groundColor</span><span class="p">:</span> <span class="mh">0xffffff</span><span class="p">,</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mf">0.2</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+<p>This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)</p>
+</blockquote>
+
+<p><code class="prettyprint">WHS.HemisphereLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.HemisphereLight</code> is a light source positioned directly above the scene. </p>
+
+<p>It also doesn&rsquo;t need <code class="prettyprint">pos</code> and <code class="prettyprint">target</code> properties.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>skyColorHex</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>groundColorHex</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light intensity.</td>
+</tr>
+</tbody></table>
+
+          <h2 class="wsl" id="normal">NormalLight [Class]</h2>
+
+<blockquote>
+<p>WHS.HemisphereLight:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">ambient</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">NormalLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xffffff</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<p><code class="prettyprint">WHS.NormalLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.NormalLight</code> is an abstract base class for lights.</p>
+
+<p>It also doesn&rsquo;t need <code class="prettyprint">pos</code> and <code class="prettyprint">target</code> properties.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+</tbody></table>
+
+          <h2 class="wsl" id="point">PointLight [Class]</h2>
+
+<blockquote>
+<p>red WHS.PointLight:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">pointlight</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">PointLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xff0000</span><span class="p">,</span> <span class="c1">// Red.</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="na">distance</span><span class="p">:</span> <span class="mi">1000</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+<p>This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)</p>
+</blockquote>
+
+<p><code class="prettyprint">WHS.PointLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.PointLight</code> creates a light at a specific position in the scene. The light shines in all directions (roughly similar to a light bulb.)</p>
+
+<p>It has the same options as <code class="prettyprint">WHS.AmbientLight</code> in <code class="prettyprint">light</code> paramater, but it also supports <code class="prettyprint">pos</code> and <code class="prettyprint">target</code> paramaters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light intensity.</td>
+</tr>
+<tr>
+<td><strong>distance</strong></td>
+<td>100</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light distance.</td>
+</tr>
+<tr>
+<td><strong>angle</strong></td>
+<td>Math.PI/3</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Angle.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"><code>WHS.PointLight</code> affects meshes with <code>lambert</code> and <code>phong</code> material.</aside>
+
+          <h2 class="wsl" id="spot">SpotLight [Class]</h2>
+
+<blockquote>
+<p>red WHS.SpotLight:</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">spotlight</span> <span class="o">=</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">SpotLight</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">light</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">color</span><span class="p">:</span> <span class="mh">0xff0000</span><span class="p">,</span> <span class="c1">// Red.</span>
+        <span class="na">intensity</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="na">distance</span><span class="p">:</span> <span class="mi">1000</span>
+    <span class="p">},</span>
+
+    <span class="na">pos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">z</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+<p>This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)</p>
+</blockquote>
+
+<p><code class="prettyprint">WHS.PointLight</code> is a simple class, it extends <code class="prettyprint">WHS.Light</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.PointLight</code> creates point light that can cast shadow in one direction.</p>
+
+<p>It has the same options as <code class="prettyprint">WHS.AmbientLight</code> in <code class="prettyprint">light</code> paramater, but it also supports <code class="prettyprint">pos</code> and <code class="prettyprint">target</code> paramaters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>0xffffff</td>
+<td><code class="prettyprint">Color</code></td>
+<td>Light color.</td>
+</tr>
+<tr>
+<td><strong>intensity</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light intensity.</td>
+</tr>
+<tr>
+<td><strong>distance</strong></td>
+<td>100</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Light distance.</td>
+</tr>
+<tr>
+<td><strong>angle</strong></td>
+<td>Math.PI/3</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Angle.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"><code>WHS.SpotLight</code> affects meshes with <code>lambert</code> and <code>phong</code> material.</aside>
+
+          <h1 id="controls">Controls.</h1>
+
+<h2 id="first-person-controls">First-person controls.</h2>
+
+<blockquote>
+<p>First Person controls: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="nx">GAME</span><span class="p">.</span><span class="nx">FPSControls</span><span class="p">(</span> <span class="nx">GAME</span><span class="p">.</span><span class="nx">person</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">block</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'blocker'</span><span class="p">),</span>
+    <span class="na">speed</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="na">ypos</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span> <span class="p">);</span>
+
+</code></pre>
+
+<p>In video games, the <strong>first person</strong> refers to a graphical perspective rendered from the viewpoint of the player character. In many cases, this may be the viewpoint from the cockpit of a vehicle. 
+Many different genres have made use of first-person perspectives, ranging from adventure games to flight simulators. Perhaps the most notable genre to make use of this device is the <em>first-person shooter</em>, where the graphical perspective has an immense impact on game play.</p>
+
+<p><strong>From wikipedia</strong></p>
+
+<p><code class="prettyprint">FPSControls</code> has 2 parameters. First one is <code class="prettyprint">whs object</code> that will be a person which you control, and <code class="prettyprint">settings</code> of it.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>block</strong></td>
+<td>$(&rsquo;#blocker&rsquo;)</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Blocker element.</td>
+</tr>
+<tr>
+<td><strong>speed</strong></td>
+<td>5</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Player speed</td>
+</tr>
+<tr>
+<td><strong>ypos</strong></td>
+<td>1</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Distance from camera to surface.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="orbit-controls">Orbit controls.</h2>
+
+<blockquote>
+<p>Orbit controls: </p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="nx">GAME</span><span class="p">.</span><span class="nx">OrbitControls</span><span class="p">();</span>
+
+</code></pre>
+
+<p>Use <code class="prettyprint">OrbitControls</code> if you want to look for your shape from different angles.</p>
+
+          <h1 id="plugins-amp-components">Plugins &amp; Components</h1>
+
+<h2 id="making-your-own-component">Making your own component</h2>
+<pre class="highlight javascript"><code>
+<span class="c1">// Make a component.</span>
+<span class="nx">WHS</span><span class="p">.</span><span class="nx">NewObject</span> <span class="o">=</span> <span class="kr">class</span> <span class="nx">NewObject</span> <span class="kr">extends</span> <span class="nx">WHS</span><span class="p">.</span><span class="nx">Shape</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span> <span class="nx">params</span> <span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// Call "super" for processing params.</span>
+        <span class="kr">super</span><span class="p">(</span> <span class="nx">params</span><span class="p">,</span> <span class="s2">"newObject"</span> <span class="p">);</span>
+
+        <span class="c1">// And api.extend for defining defaults.</span>
+        <span class="nx">api</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">geometry</span><span class="p">,</span> <span class="p">{</span>
+
+            <span class="na">my</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="na">new</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="na">params</span><span class="p">:</span> <span class="mi">1</span>
+
+        <span class="p">});</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">mesh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">(),</span>
+
+            <span class="c1">// Initialize material.</span>
+            <span class="kr">super</span><span class="p">.</span><span class="nx">_initMaterial</span><span class="p">()</span>
+        <span class="p">);</span>
+
+        <span class="c1">// Let's apply our position, scale and rotation!</span>
+        <span class="kr">super</span><span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Add it to game.</span>
+<span class="kd">var</span> <span class="nx">newobject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WHS</span><span class="p">.</span><span class="nx">NewObject</span><span class="p">();</span>
+    <span class="nx">newobject</span><span class="p">.</span><span class="nx">addTo</span><span class="p">(</span> <span class="nx">GAME</span> <span class="p">);</span>
+
+</code></pre>
+
+<p>First of all you need to understand how WhitestormJS works. There are two basic
+classes called <a href="#whs-shape-super-class"><code class="prettyprint">WHS.Shape</code></a> and <a href="#whs-light-super-class"><code class="prettyprint">WHS.Light</code></a></p>
+
+<p>If you are going to write a new shape or replace existing, <code class="prettyprint">WHS.Shape</code> will help you.
+As you know, <code class="prettyprint">whitestorm.js</code> uses <code class="prettyprint">es6 classes</code> to define new shapes, lights and other objects</p>
+
+<p>After you call a <code class="prettyprint">super</code> which is a <code class="prettyprint">WHS.Shape</code> object in your class, you need to define a <code class="prettyprint">Three.js mesh</code> in <code class="prettyprint">this.mesh</code>.</p>
+
+<p>Use <code class="prettyprint">super._initMaterial()</code> for initializing you Physi.js material object.</p>
+
+<p>Then use <code class="prettyprint">super.build()</code> to apply your position and rotation to your <code class="prettyprint">Three.js mesh</code>.</p>
+
+<aside class="notice">You also can specify your <code>tags</code> when you are going to build your shape. If you need to load a file, it is better to put a <code>wait</code> tag. So your build method will look like <code>super.build("wait")</code>. And don&rsquo;t forget about <code>this._loading</code> promise, or your obect will throw errors.</aside>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="html">html</a>
           </div>
       </div>
     </div>
+    <a href="https://github.com/WhitestormJS/whitestorm.js"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 99;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
   </body>
 </html>
