@@ -4,6 +4,7 @@ title: API Reference
 language_tabs:
   - javascript
   - html
+  - output
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -42,6 +43,7 @@ includes:
   - orbitcontrols
 
   - plugins
+  - scripts
 
 search: true
 ---

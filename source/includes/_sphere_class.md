@@ -29,6 +29,8 @@ var sphere = GAME.Sphere( {
 
 ```
 
+<div id="sphere_ex" class="example output"></div>
+
 `WHS.Sphere` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Sphere` class is used to create sphere objects by it's `radius` property and other values that determinates it's detality.

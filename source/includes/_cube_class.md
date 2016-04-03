@@ -31,6 +31,9 @@ var cube = GAME.Cube({
 
 ```
 
+
+<div id="cube_ex" class="example output"></div>
+
 `WHS.Cube` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Cube` class is used to create box objects of different size.
