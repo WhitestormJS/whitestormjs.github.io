@@ -47,7 +47,7 @@ var groundParams = {
 
 defaultParams.container = document.getElementById("sphere_ex");
 
-var Sphere_example = new WHS.init( defaultParams );
+var Sphere_example = new WHS.World( defaultParams );
 
 var sphere = Sphere_example.Sphere(
 {
@@ -79,7 +79,7 @@ Sphere_example.start();
 
 defaultParams.container = document.getElementById("cube_ex");
 
-var Cube_example = new WHS.init( defaultParams );
+var Cube_example = new WHS.World( defaultParams );
 
 var cube = Cube_example.Cube(
 {
@@ -108,5 +108,39 @@ Cube_example.Smooth(groundParams);
 Cube_example.OrbitControls();
 
 Cube_example.start();
+
+// CYLINDER EXAMPLE.
+
+defaultParams.container = document.getElementById("cylinder_ex");
+
+var Cylinder_example = new WHS.World( defaultParams );
+
+var cylinder = Cylinder_example.Cylinder(
+{
+    geometry: {
+        radiusTop: 2,
+        radiusBottom: 4,
+        height: 5
+    },
+
+    mass: 10,
+
+    material: {
+        color: 0xffffff,
+        kind: "basic"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+Cylinder_example.Smooth(groundParams);
+
+Cylinder_example.OrbitControls();
+
+Cylinder_example.start();
 
 </script>

@@ -2,7 +2,6 @@ window.Physijs = (function() {
 	'use strict';
 
 	var SUPPORT_TRANSFERABLE,
-		_is_simulating = false,
 		_Physijs = Physijs, // used for noConflict method
 		Physijs = {}, // object assigned to window.Physijs
 		Eventable, // class to provide simple event methods
@@ -396,6 +395,7 @@ window.Physijs = (function() {
 		this._objects = {};
 		this._vehicles = {};
 		this._constraints = {};
+		this._is_simulating = false;
 
 		var ab = new ArrayBuffer( 1 );
 		this._worker.transferableMessage( ab, [ab] );
@@ -489,7 +489,10 @@ window.Physijs = (function() {
 		params.fixedTimeStep = params.fixedTimeStep || 1 / 60;
 		params.rateLimit = params.rateLimit || true;
 		this.execute( 'init', params );
+
+	console.log(this._worker);
 	};
+
 	Physijs.Scene.prototype = new THREE.Scene;
 	Physijs.Scene.prototype.constructor = Physijs.Scene;
 	Eventable.make( Physijs.Scene );
@@ -543,7 +546,7 @@ window.Physijs = (function() {
 			this._worker.transferableMessage( data.buffer, [data.buffer] );
 		}
 
-		_is_simulating = false;
+		this._is_simulating = false;
 		this.dispatchEvent( 'update' );
 	};
 
@@ -916,11 +919,11 @@ window.Physijs = (function() {
 	Physijs.Scene.prototype.simulate = function( timeStep, maxSubSteps ) {
 		var object_id, object, update;
 
-		if ( _is_simulating ) {
+		if ( this._is_simulating ) {
 			return false;
 		}
 
-		_is_simulating = true;
+		this._is_simulating = true;
 
 		for ( object_id in this._objects ) {
 			if ( !this._objects.hasOwnProperty( object_id ) ) continue;
@@ -1246,7 +1249,7 @@ window.Physijs = (function() {
 	Physijs.ConcaveMesh = function( geometry, material, mass ) {
 		var i,
 			width, height, depth,
-			vertices, face, triangles = [];
+			vertices, face, triangles = new Array(geometry.faces.length);
 
 		Physijs.Mesh.call( this, geometry, material, mass );
 
@@ -1258,28 +1261,12 @@ window.Physijs = (function() {
 
 		for ( i = 0; i < geometry.faces.length; i++ ) {
 			face = geometry.faces[i];
-			if ( face instanceof THREE.Face3) {
-
-				triangles.push([
-					{ x: vertices[face.a].x, y: vertices[face.a].y, z: vertices[face.a].z },
-					{ x: vertices[face.b].x, y: vertices[face.b].y, z: vertices[face.b].z },
-					{ x: vertices[face.c].x, y: vertices[face.c].y, z: vertices[face.c].z }
-				]);
-
-			} else if ( face instanceof THREE.Face4 ) {
-
-				triangles.push([
-					{ x: vertices[face.a].x, y: vertices[face.a].y, z: vertices[face.a].z },
-					{ x: vertices[face.b].x, y: vertices[face.b].y, z: vertices[face.b].z },
-					{ x: vertices[face.d].x, y: vertices[face.d].y, z: vertices[face.d].z }
-				]);
-				triangles.push([
-					{ x: vertices[face.b].x, y: vertices[face.b].y, z: vertices[face.b].z },
-					{ x: vertices[face.c].x, y: vertices[face.c].y, z: vertices[face.c].z },
-					{ x: vertices[face.d].x, y: vertices[face.d].y, z: vertices[face.d].z }
-				]);
-
-			}
+			
+			triangles[ i ] = [
+				{ x: vertices[face.a].x, y: vertices[face.a].y, z: vertices[face.a].z },
+				{ x: vertices[face.b].x, y: vertices[face.b].y, z: vertices[face.b].z },
+				{ x: vertices[face.c].x, y: vertices[face.c].y, z: vertices[face.c].z }
+			];
 		}
 
 		width = geometry.boundingBox.max.x - geometry.boundingBox.min.x;
