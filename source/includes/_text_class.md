@@ -33,6 +33,12 @@ var text = GAME.Text({
 
 ```
 
+<div id="text_ex" class="example output">
+    <div class="splash" onclick="Text_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Text` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Text` class is made for creating 3D text objects.

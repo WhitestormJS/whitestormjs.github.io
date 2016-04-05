@@ -30,6 +30,12 @@ var torusknot = GAME.Torusknot({
 
 ```
 
+<div id="torusknot_ex" class="example output">
+    <div class="splash" onclick="Torusknot_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Torusknot` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Torusknot` class makes a torusknot figure. It's like crooked donut, very crooked.

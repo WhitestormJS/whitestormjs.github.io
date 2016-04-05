@@ -25,6 +25,12 @@ var dodecahedron = GAME.Dodecahedron({
 
 ```
 
+<div id="dodecahedron_ex" class="example output">
+    <div class="splash" onclick="Dodecahedron_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Dodecahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Dodecahedron` creates Dodecahedron object by it's `radius` and `detail`.

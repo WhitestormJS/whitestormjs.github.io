@@ -44,6 +44,12 @@ var teapot = GAME.Model({
 
 ```
 
+<div id="model_ex" class="example output">
+    <div class="splash" onclick="Model_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Model` class loader for loading objects in JSON format.
 
 Model is a simple class too. But it doesn't depends on `Three.js geometry` object. It loads geometry from `JSON` file by url as it's material, but material you can replace with your own. Just add `useCustomMaterial` property with `true` value in `material` parameter object.

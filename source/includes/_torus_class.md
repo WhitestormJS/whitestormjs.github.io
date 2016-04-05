@@ -27,6 +27,12 @@ var torus = GAME.Torus({
 
 ```
 
+<div id="torus_ex" class="example output">
+    <div class="splash" onclick="Torus_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Torus` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Torus` class makes a torus figure. Torus is a donut. Donut is a torus.

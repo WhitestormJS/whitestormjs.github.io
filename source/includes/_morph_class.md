@@ -16,9 +16,9 @@ var parrot = GAME.Morph( {
     },
 
     pos: {
-        x: 70,
-        y: 72,
-        z: 70
+        x: 0,
+        y: 0,
+        z: 0
     },
 
     scale: {
@@ -35,6 +35,12 @@ var parrot = GAME.Morph( {
 } );
 
 ```
+
+<div id="morph_ex" class="example output">
+    <div class="splash" onclick="Morph_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
 
 `WHS.Model` is a class for loading animated models or meshes.
 

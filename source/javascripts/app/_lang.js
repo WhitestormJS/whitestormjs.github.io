@@ -32,9 +32,11 @@ under the License.
     for (var i=0; i < languages.length; i++) {
       $(".highlight." + languages[i]).hide();
       $(".lang-specific." + languages[i]).hide();
+      $(".example." + languages[i]).hide();
     }
     $(".highlight." + language).show();
     $(".lang-specific." + language).show();
+    $(".example." + language).show();
 
     global.toc.calculateHeights();
 

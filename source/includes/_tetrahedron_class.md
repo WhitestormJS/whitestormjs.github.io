@@ -26,6 +26,12 @@ var tetrahedron = GAME.Tetrahedron({
 
 ```
 
+<div id="tetrahedron_ex" class="example output">
+    <div class="splash" onclick="Tetrahedron_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Tetrahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Tetrahedron` creates Tetrahedron object by it's `radius` and `detail`.

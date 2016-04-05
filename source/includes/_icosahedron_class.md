@@ -26,6 +26,12 @@ var icosahedron = GAME.Icosahedron({
 
 ```
 
+<div id="icosahedron_ex" class="example output">
+    <div class="splash" onclick="Icosahedron_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Icosahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Icosahedron` creates Icosahedron object by it's `radius` and `detail`.

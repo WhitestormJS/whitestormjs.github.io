@@ -27,7 +27,11 @@ var cylinder = GAME.Cylinder({
 
 ```
 
-<div id="cylinder_ex" class="example output"></div>
+<div id="cylinder_ex" class="example output">
+    <div class="splash" onclick="Cylinder_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
 
 `WHS.Cylinder` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

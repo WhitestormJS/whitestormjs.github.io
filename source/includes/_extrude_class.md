@@ -41,6 +41,12 @@ var extrude = GAME.Extrude({
 
 ```
 
+<div id="extrude_ex" class="example output">
+    <div class="splash" onclick="Extrude_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Extrude` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Extrude` class creates extruded geometry from a path shape. You need to make a 2D shape based on `THREE.Shape` and `THREE.Vector3` and import it `shapes` parameter. After that it will be turned in 3D shape.

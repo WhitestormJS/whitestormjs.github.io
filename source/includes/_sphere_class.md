@@ -29,7 +29,11 @@ var sphere = GAME.Sphere( {
 
 ```
 
-<div id="sphere_ex" class="example output"></div>
+<div id="sphere_ex" class="example output">
+    <div class="splash" onclick="Sphere_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
 
 `WHS.Sphere` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

@@ -30,6 +30,12 @@ var parametric = GAME.Parametric({
 
 ```
 
+<div id="parametric_ex" class="example output">
+    <div class="splash" onclick="Parametric_example.start()">
+        <img src="images/play.png" width="30" height="30">
+    </div>
+</div>
+
 `WHS.Parametric` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Parametric` class is used for creating objects representing a parametric surface.
