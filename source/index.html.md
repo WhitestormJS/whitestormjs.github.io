@@ -95,7 +95,7 @@ GAME.start(); // Start animations and physics simulation.
 ```
 
 Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries must work properly. 
-`WHS.Init` initializes 3D world with parameters.
+`WHS.World` initializes 3D world with parameters.
 
 <aside class="notice">It is advised to download your own copies of the following libraries, as large changes can break backwards compatibility.</aside>
 
@@ -106,9 +106,9 @@ Also you need to put pathes to `physijs_worker.js` file and `ammo.js`. It will c
 
 # Core
 
-## WHS.init [Super Class]
+## WHS.World [Super Class]
 
-> Defaults for `WHS.init` Class:
+> Defaults for `WHS.World` Class:
 
 ```json
 {
@@ -239,7 +239,7 @@ var shape = GAME.Shape({
 >
 > **.build( ...tags )** - aplly position and rotation to mesh, writing `build_state` as ready.
 >
-> **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.init).
+> **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World).
 >
 > **.remove()** - remove object from scene.
 >
