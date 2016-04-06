@@ -171,7 +171,7 @@ Define your world with parameters:</p>
 </code></pre>
 
 <p>Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries must work properly. 
-<code class="prettyprint">WHS.Init</code> initializes 3D world with parameters.</p>
+<code class="prettyprint">WHS.World</code> initializes 3D world with parameters.</p>
 
 <aside class="notice">It is advised to download your own copies of the following libraries, as large changes can break backwards compatibility.</aside>
 
@@ -181,10 +181,10 @@ Define your world with parameters:</p>
 
 <h1 id="core">Core</h1>
 
-<h2 id="whs-init-super-class">WHS.init [Super Class]</h2>
+<h2 id="whs-world-super-class">WHS.World [Super Class]</h2>
 
 <blockquote>
-<p>Defaults for <code class="prettyprint">WHS.init</code> Class:</p>
+<p>Defaults for <code class="prettyprint">WHS.World</code> Class:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"anaglyph"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -465,7 +465,7 @@ You must include <code>path_worker</code> and <code>path_ammo</code> parameters 
 
 <p><strong>.build( &hellip;tags )</strong> - aplly position and rotation to mesh, writing <code class="prettyprint">build_state</code> as ready.</p>
 
-<p><strong>.addTo( root, &hellip;tags )</strong> - add WHS.Shape object to scene (WHS.init).</p>
+<p><strong>.addTo( root, &hellip;tags )</strong> - add WHS.Shape object to scene (WHS.World).</p>
 
 <p><strong>.remove()</strong> - remove object from scene.</p>
 
@@ -822,7 +822,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="cube.mesh.__dirtyPosition = true; cube._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(cube);  cube._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -905,7 +905,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="sphere.mesh.__dirtyPosition = true; sphere._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(sphere);  sphere._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1048,7 +1048,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="cylinder.mesh.__dirtyPosition = true; cylinder._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(cylinder);  cylinder._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1120,7 +1120,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="dodecahedron.mesh.__dirtyPosition = true; dodecahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(dodecahedron);  dodecahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1183,7 +1183,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="polyhedron.mesh.__dirtyPosition = true; polyhedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(polyhedron);  polyhedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1256,7 +1256,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="icosahedron.mesh.__dirtyPosition = true; icosahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(icosahedron);  icosahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1319,7 +1319,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="octahedron.mesh.__dirtyPosition = true; octahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(octahedron);  octahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1382,7 +1382,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="tetrahedron.mesh.__dirtyPosition = true; tetrahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(tetrahedron);  tetrahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1460,7 +1460,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="extrude.mesh.__dirtyPosition = true; extrude._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(extrude);  extrude._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1545,7 +1545,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="lathe.mesh.__dirtyPosition = true; lathe._pos.set(0, 50, 10);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(lathe);  lathe._pos.set(0, 50, 10);"></i>
     </div>
 </div>
 
@@ -1649,7 +1649,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="model.mesh.__dirtyPosition = true; model._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(model);  model._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1723,7 +1723,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="morph.mesh.__dirtyPosition = true; morph._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(morph);  morph._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1799,7 +1799,7 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="parametric.mesh.__dirtyPosition = true; parametric._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(parametric);  parametric._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -2042,7 +2042,7 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="text.mesh.__dirtyPosition = true; text._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(text);  text._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -2177,7 +2177,7 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="torus.mesh.__dirtyPosition = true; torus._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(torus);  torus._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -2267,7 +2267,7 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="torusknot.mesh.__dirtyPosition = true; torusknot._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(torusknot);  torusknot._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -2840,6 +2840,8 @@ As you know, <code class="prettyprint">whitestorm.js</code> uses <code class="pr
 
 <aside class="notice">You also can specify your <code>tags</code> when you are going to build your shape. If you need to load a file, it is better to put a <code>wait</code> tag. So your build method will look like <code>super.build("wait")</code>. And don&rsquo;t forget about <code>this._loading</code> promise, or your obect will throw errors.</aside>
 
+<aside class="warning yellow">It is adviced to compile them with <a href="https://babeljs.io/">Babel</a>.</aside>
+
           <script src="jslibs/whitestorm.js"></script>
 
 <script>
@@ -2853,6 +2855,17 @@ $('.actions .fa-pause').on('click', function() {
     $(this).parent().parent().find('.splash').show();
     $(this).parent().hide();
 });
+
+function reset_mesh( whsobject ) {
+    whsobject.mesh.__dirtyPosition = true;
+    whsobject.mesh.__dirtyRotation = true;
+
+    whsobject._rot.set(0, 0, 0);
+
+    whsobject.mesh.setLinearVelocity(new THREE.Vector3(0, 0, 0));
+    whsobject.mesh.setAngularVelocity(new THREE.Vector3(0, 0, 0));
+}
+
 // NOTE: Basic scene with sphere and ground.
 
 var defaultParams = {
