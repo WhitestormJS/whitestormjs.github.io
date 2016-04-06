@@ -93,6 +93,8 @@
     <script src="jslibs/three.js"></script>
     <script src="jslibs/physi.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
   </head>
 
   <body class="index" data-languages="[&quot;javascript&quot;,&quot;html&quot;,&quot;output&quot;]">
@@ -818,6 +820,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Cube_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="cube.mesh.__dirtyPosition = true; cube._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Cube</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -896,6 +902,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="sphere_ex" class="example output">
     <div class="splash" onclick="Sphere_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="sphere.mesh.__dirtyPosition = true; sphere._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1036,6 +1046,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Cylinder_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="cylinder.mesh.__dirtyPosition = true; cylinder._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Cylinder</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -1104,6 +1118,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Dodecahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="dodecahedron.mesh.__dirtyPosition = true; dodecahedron._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Dodecahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -1162,6 +1180,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="polyhedron_ex" class="example output">
     <div class="splash" onclick="Polyhedron_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="polyhedron.mesh.__dirtyPosition = true; polyhedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1232,6 +1254,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Icosahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="icosahedron.mesh.__dirtyPosition = true; icosahedron._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Icosahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -1291,6 +1317,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Octahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="octahedron.mesh.__dirtyPosition = true; octahedron._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Octahedron</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -1349,6 +1379,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="tetrahedron_ex" class="example output">
     <div class="splash" onclick="Tetrahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="tetrahedron.mesh.__dirtyPosition = true; tetrahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1423,6 +1457,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="extrude_ex" class="example output">
     <div class="splash" onclick="Extrude_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="extrude.mesh.__dirtyPosition = true; extrude._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1504,6 +1542,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="lathe_ex" class="example output">
     <div class="splash" onclick="Lathe_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="lathe.mesh.__dirtyPosition = true; lathe._pos.set(0, 50, 10);"></i>
     </div>
 </div>
 
@@ -1605,6 +1647,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
     <div class="splash" onclick="Model_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="model.mesh.__dirtyPosition = true; model._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Model</code> class loader for loading objects in JSON format.</p>
@@ -1674,6 +1720,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="morph_ex" class="example output">
     <div class="splash" onclick="Morph_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="morph.mesh.__dirtyPosition = true; morph._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1746,6 +1796,10 @@ This function checks for <code class="prettyprint">kind</code> property and turn
 <div id="parametric_ex" class="example output">
     <div class="splash" onclick="Parametric_example.start()">
         <img src="images/play.png" width="30" height="30">
+    </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="parametric.mesh.__dirtyPosition = true; parametric._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -1986,6 +2040,10 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     <div class="splash" onclick="Text_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="text.mesh.__dirtyPosition = true; text._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Text</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -2117,6 +2175,10 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     <div class="splash" onclick="Torus_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="torus.mesh.__dirtyPosition = true; torus._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Torus</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -2203,6 +2265,10 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
     <div class="splash" onclick="Torusknot_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="torusknot.mesh.__dirtyPosition = true; torusknot._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 <p><code class="prettyprint">WHS.Torusknot</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
@@ -2264,6 +2330,52 @@ We use them in <code class="prettyprint">THREE.Vector3</code> like <code class="
 <script src="https://gist.github.com/sasha240100/186976e65a13e62ec333.js"></script>
 
 <p><img src="images/shapes/torusknot.png"></p>
+
+          <h2 class="ws" id="tube">Tube [Class]</h2>
+
+<p><code class="prettyprint">WHS.Tube</code> is a simple class, it extends <code class="prettyprint">WHS.Shape</code> and inherits all it&rsquo;s methods.</p>
+
+<p><code class="prettyprint">WHS.Tube</code> class makes a tube that extrudes along a 3d curve.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>path</strong></td>
+<td>customSinCurve()</td>
+<td><code class="prettyprint">Object</code></td>
+<td>Tube curve object.</td>
+</tr>
+<tr>
+<td><strong>segments</strong></td>
+<td>20</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Number of segments.</td>
+</tr>
+<tr>
+<td><strong>radius</strong></td>
+<td>2</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Radius.</td>
+</tr>
+<tr>
+<td><strong>radiusSegments</strong></td>
+<td>8</td>
+<td><code class="prettyprint">Number</code></td>
+<td>Radius segments number.</td>
+</tr>
+<tr>
+<td><strong>closed</strong></td>
+<td>false</td>
+<td><code class="prettyprint">Boolean</code></td>
+<td>TODO</td>
+</tr>
+</tbody></table>
 
           <h1 id="lights">Lights</h1>
 
@@ -2734,6 +2846,12 @@ As you know, <code class="prettyprint">whitestorm.js</code> uses <code class="pr
 
 $('.splash').on('click', function() {
     $(this).hide();
+    $(this).parent().find('.actions').show();
+});
+
+$('.actions .fa-pause').on('click', function() {
+    $(this).parent().parent().find('.splash').show();
+    $(this).parent().hide();
 });
 // NOTE: Basic scene with sphere and ground.
 
