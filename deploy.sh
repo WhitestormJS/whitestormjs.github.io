@@ -169,6 +169,8 @@ commit+push() {
   set_user_id
   git --work-tree "$deploy_directory" commit -m "$commit_message"
 
+  echo "whitestormjs.xyz" > CNAME
+
   disable_expanded_output
   #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
   git push --quiet $repo $deploy_branch
