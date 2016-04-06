@@ -51,3 +51,5 @@ Use `super._initMaterial()` for initializing you Physi.js material object.
 Then use `super.build()` to apply your position and rotation to your `Three.js mesh`.
 
 <aside class="notice">You also can specify your <code>tags</code> when you are going to build your shape. If you need to load a file, it is better to put a <code>wait</code> tag. So your build method will look like <code>super.build("wait")</code>. And don't forget about <code>this._loading</code> promise, or your obect will throw errors.</aside>
+
+<aside class="warning yellow">It is adviced to compile them with <a href="https://babeljs.io/">Babel</a>.</aside>
