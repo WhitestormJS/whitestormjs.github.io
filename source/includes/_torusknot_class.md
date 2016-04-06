@@ -36,7 +36,7 @@ var torusknot = GAME.Torusknot({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="torusknot.mesh.__dirtyPosition = true; torusknot._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(torusknot);  torusknot._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

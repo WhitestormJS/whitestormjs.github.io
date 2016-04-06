@@ -31,7 +31,7 @@ var dodecahedron = GAME.Dodecahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="dodecahedron.mesh.__dirtyPosition = true; dodecahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(dodecahedron);  dodecahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

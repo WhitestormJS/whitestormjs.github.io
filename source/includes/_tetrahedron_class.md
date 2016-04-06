@@ -32,7 +32,7 @@ var tetrahedron = GAME.Tetrahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="tetrahedron.mesh.__dirtyPosition = true; tetrahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(tetrahedron);  tetrahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

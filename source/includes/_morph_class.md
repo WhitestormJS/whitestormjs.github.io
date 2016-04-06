@@ -42,7 +42,7 @@ var parrot = GAME.Morph( {
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="morph.mesh.__dirtyPosition = true; morph._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(morph);  morph._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

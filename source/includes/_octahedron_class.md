@@ -32,7 +32,7 @@ var octahedron = GAME.Octahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="octahedron.mesh.__dirtyPosition = true; octahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(octahedron);  octahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

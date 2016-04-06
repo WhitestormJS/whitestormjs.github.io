@@ -50,7 +50,7 @@ var teapot = GAME.Model({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="model.mesh.__dirtyPosition = true; model._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(model);  model._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

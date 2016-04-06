@@ -11,6 +11,17 @@ $('.actions .fa-pause').on('click', function() {
     $(this).parent().parent().find('.splash').show();
     $(this).parent().hide();
 });
+
+function reset_mesh( whsobject ) {
+    whsobject.mesh.__dirtyPosition = true;
+    whsobject.mesh.__dirtyRotation = true;
+
+    whsobject._rot.set(0, 0, 0);
+
+    whsobject.mesh.setLinearVelocity(new THREE.Vector3(0, 0, 0));
+    whsobject.mesh.setAngularVelocity(new THREE.Vector3(0, 0, 0));
+}
+
 // NOTE: Basic scene with sphere and ground.
 
 var defaultParams = {

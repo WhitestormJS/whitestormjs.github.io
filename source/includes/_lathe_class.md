@@ -43,7 +43,7 @@ var lathe = GAME.Lathe({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="lathe.mesh.__dirtyPosition = true; lathe._pos.set(0, 50, 10);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(lathe);  lathe._pos.set(0, 50, 10);"></i>
     </div>
 </div>
 

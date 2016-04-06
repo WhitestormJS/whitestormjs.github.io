@@ -32,7 +32,7 @@ var icosahedron = GAME.Icosahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="icosahedron.mesh.__dirtyPosition = true; icosahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(icosahedron);  icosahedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

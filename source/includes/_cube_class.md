@@ -38,7 +38,7 @@ var cube = GAME.Cube({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="cube.mesh.__dirtyPosition = true; cube._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(cube);  cube._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 

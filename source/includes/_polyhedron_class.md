@@ -32,7 +32,7 @@ var polyhedron = GAME.Polyhedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="polyhedron.mesh.__dirtyPosition = true; polyhedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(polyhedron);  polyhedron._pos.set(0, 100, 0);"></i>
     </div>
 </div>
 
