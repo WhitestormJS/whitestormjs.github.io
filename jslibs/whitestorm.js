@@ -1,2 +1,4730 @@
-"use strict";function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function Events(e){var t={},o=[];e=e||this,e.on=function(e,o,r){(t[e]=t[e]||[]).push([o,r])},e.off=function(e,r){e||(t={});for(var n=t[e]||o,i=n.length=r?n.length:0;i--;)r==n[i][0]&&n.splice(i,1)},e.emit=function(e){for(var r,n=t[e]||o,i=0;r=n[i++];)r[0].apply(r[1],o.slice.call(arguments,1))}}function addCSSRule(e,t,o,r){e.insertRule?e.insertRule(t+"{"+o+"}",r):e.addRule&&e.addRule(t,o,r)}var _get=function e(t,o,r){null===t&&(t=Function.prototype);var n=Object.getOwnPropertyDescriptor(t,o);if(void 0===n){var i=Object.getPrototypeOf(t);return null===i?void 0:e(i,o,r)}if("value"in n)return n.value;var a=n.get;return void 0===a?void 0:a.call(r)},_createClass=function(){function e(e,t){for(var o=0;o<t.length;o++){var r=t[o];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,o,r){return o&&e(t.prototype,o),r&&e(t,r),t}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e};THREE.AnaglyphEffect=function(e,t,o){var r,n,i,a,s=new THREE.Matrix4,l=new THREE.Matrix4,c=125,h=new THREE.PerspectiveCamera;h.matrixAutoUpdate=!1;var u=new THREE.PerspectiveCamera;u.matrixAutoUpdate=!1;var d=new THREE.OrthographicCamera(-1,1,1,-1,0,1),p=new THREE.Scene,m={minFilter:THREE.LinearFilter,magFilter:THREE.NearestFilter,format:THREE.RGBAFormat};void 0===t&&(t=512),void 0===o&&(o=512);var g=new THREE.WebGLRenderTarget(t,o,m),y=new THREE.WebGLRenderTarget(t,o,m),f=new THREE.ShaderMaterial({uniforms:{mapLeft:{type:"t",value:g},mapRight:{type:"t",value:y}},vertexShader:["varying vec2 vUv;","void main() {","	vUv = vec2( uv.x, uv.y );","	gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );","}"].join("\n"),fragmentShader:["uniform sampler2D mapLeft;","uniform sampler2D mapRight;","varying vec2 vUv;","void main() {","	vec4 colorL, colorR;","	vec2 uv = vUv;","	colorL = texture2D( mapLeft, uv );","	colorR = texture2D( mapRight, uv );","	gl_FragColor = vec4( colorL.g * 0.7 + colorL.b * 0.3, colorR.g, colorR.b, colorL.a + colorR.a ) * 1.1;","}"].join("\n")}),v=new THREE.Mesh(new THREE.PlaneBufferGeometry(2,2),f);p.add(v),this.setSize=function(t,o){g&&g.dispose(),y&&y.dispose(),g=new THREE.WebGLRenderTarget(t,o,m),y=new THREE.WebGLRenderTarget(t,o,m),f.uniforms.mapLeft.value=g,f.uniforms.mapRight.value=y,e.setSize(t,o)},this.render=function(t,o){t.updateMatrixWorld(),void 0===o.parent&&o.updateMatrixWorld();var m=r!==o.aspect||n!==o.near||i!==o.far||a!==o.fov;if(m){r=o.aspect,n=o.near,i=o.far,a=o.fov;var f,v,_=o.projectionMatrix.clone(),E=c/30*.5,b=E*n/c,w=n*Math.tan(THREE.Math.degToRad(.5*a));s.elements[12]=E,l.elements[12]=-E,f=-w*r+b,v=w*r+b,_.elements[0]=2*n/(v-f),_.elements[8]=(v+f)/(v-f),h.projectionMatrix.copy(_),f=-w*r-b,v=w*r-b,_.elements[0]=2*n/(v-f),_.elements[8]=(v+f)/(v-f),u.projectionMatrix.copy(_)}h.matrixWorld.copy(o.matrixWorld).multiply(l),h.position.copy(o.position),h.near=o.near,h.far=o.far,e.render(t,h,g,!0),u.matrixWorld.copy(o.matrixWorld).multiply(s),u.position.copy(o.position),u.near=o.near,u.far=o.far,e.render(t,u,y,!0),e.render(p,d)},this.dispose=function(){g&&g.dispose(),y&&y.dispose()}},THREE.BufferGeometryUtils={computeTangents:function(e){function t(e,t,o){m.fromArray(a,3*e),g.fromArray(a,3*t),y.fromArray(a,3*o),f.fromArray(l,2*e),v.fromArray(l,2*t),_.fromArray(l,2*o);var r=g.x-m.x,n=y.x-m.x,i=g.y-m.y,s=y.y-m.y,c=g.z-m.z,h=y.z-m.z,p=v.x-f.x,w=_.x-f.x,S=v.y-f.y,H=_.y-f.y,O=1/(p*H-w*S);E.set((H*r-S*n)*O,(H*i-S*s)*O,(H*c-S*h)*O),b.set((p*n-w*r)*O,(p*s-w*i)*O,(p*h-w*c)*O),u[e].add(E),u[t].add(E),u[o].add(E),d[e].add(b),d[t].add(b),d[o].add(b)}function o(e){L.fromArray(s,3*e),A.copy(L),C=u[e],M.copy(C),M.sub(L.multiplyScalar(L.dot(C))).normalize(),j.crossVectors(A,C),k=j.dot(d[e]),W=0>k?-1:1,h[4*e]=M.x,h[4*e+1]=M.y,h[4*e+2]=M.z,h[4*e+3]=W}var r=e.index,n=e.attributes;if(null===r||void 0===n.position||void 0===n.normal||void 0===n.uv)return void console.warn("THREE.BufferGeometry: Missing required attributes (index, position, normal or uv) in BufferGeometry.computeTangents()");var i=r.array,a=n.position.array,s=n.normal.array,l=n.uv.array,c=a.length/3;void 0===n.tangent&&e.addAttribute("tangent",new THREE.BufferAttribute(new Float32Array(4*c),4));for(var h=n.tangent.array,u=[],d=[],p=0;c>p;p++)u[p]=new THREE.Vector3,d[p]=new THREE.Vector3;var m=new THREE.Vector3,g=new THREE.Vector3,y=new THREE.Vector3,f=new THREE.Vector2,v=new THREE.Vector2,_=new THREE.Vector2,E=new THREE.Vector3,b=new THREE.Vector3,w=e.groups;0===w.length&&(w=[{start:0,count:i.length}]);for(var S=0,H=w.length;H>S;++S)for(var O=w[S],T=O.start,R=O.count,x=T,P=T+R;P>x;x+=3)t(i[x+0],i[x+1],i[x+2]);for(var W,C,k,M=new THREE.Vector3,j=new THREE.Vector3,L=new THREE.Vector3,A=new THREE.Vector3,S=0,H=w.length;H>S;++S)for(var O=w[S],T=O.start,R=O.count,x=T,P=T+R;P>x;x+=3)o(i[x+0]),o(i[x+1]),o(i[x+2])}},THREE.OrbitControls=function(e,t){function o(){return 2*Math.PI/60/60*d.autoRotateSpeed}function r(){return Math.pow(.95,d.zoomSpeed)}function n(e){if(d.enabled!==!1){if(e.preventDefault(),0===e.button){if(d.noRotate===!0)return;P=x.ROTATE,m.set(e.clientX,e.clientY)}else if(1===e.button){if(d.noZoom===!0)return;P=x.DOLLY,E.set(e.clientX,e.clientY)}else if(2===e.button){if(d.noPan===!0)return;P=x.PAN,f.set(e.clientX,e.clientY)}d.domElement.addEventListener("mousemove",i,!1),d.domElement.addEventListener("mouseup",a,!1)}}function i(e){if(d.enabled!==!1){e.preventDefault();var t=d.domElement===document?d.domElement.body:d.domElement;if(P===x.ROTATE){if(d.noRotate===!0)return;g.set(e.clientX,e.clientY),y.subVectors(g,m),d.rotateLeft(2*Math.PI*y.x/t.clientWidth*d.rotateSpeed),d.rotateUp(2*Math.PI*y.y/t.clientHeight*d.rotateSpeed),m.copy(g)}else if(P===x.DOLLY){if(d.noZoom===!0)return;b.set(e.clientX,e.clientY),w.subVectors(b,E),w.y>0?d.dollyIn():d.dollyOut(),E.copy(b)}else if(P===x.PAN){if(d.noPan===!0)return;v.set(e.clientX,e.clientY),_.subVectors(v,f),d.pan(_),f.copy(v)}d.update()}}function a(){d.enabled!==!1&&(d.domElement.removeEventListener("mousemove",i,!1),d.domElement.removeEventListener("mouseup",a,!1),P=x.NONE)}function s(e){if(d.enabled!==!1&&d.noZoom!==!0){var t=0;e.wheelDelta?t=e.wheelDelta:e.detail&&(t=-e.detail),t>0?d.dollyOut():d.dollyIn()}}function l(e){if(d.enabled!==!1&&d.noKeys!==!0&&d.noPan!==!0){var t=!1;switch(e.keyCode){case d.keys.UP:d.pan(new THREE.Vector2(0,d.keyPanSpeed)),t=!0;break;case d.keys.BOTTOM:d.pan(new THREE.Vector2(0,-d.keyPanSpeed)),t=!0;break;case d.keys.LEFT:d.pan(new THREE.Vector2(d.keyPanSpeed,0)),t=!0;break;case d.keys.RIGHT:d.pan(new THREE.Vector2(-d.keyPanSpeed,0)),t=!0}t&&d.update()}}function c(e){if(d.enabled!==!1)switch(e.touches.length){case 1:if(d.noRotate===!0)return;P=x.TOUCH_ROTATE,m.set(e.touches[0].pageX,e.touches[0].pageY);break;case 2:if(d.noZoom===!0)return;P=x.TOUCH_DOLLY;var t=e.touches[0].pageX-e.touches[1].pageX,o=e.touches[0].pageY-e.touches[1].pageY,r=Math.sqrt(t*t+o*o);E.set(0,r);break;case 3:if(d.noPan===!0)return;P=x.TOUCH_PAN,f.set(e.touches[0].pageX,e.touches[0].pageY);break;default:P=x.NONE}}function h(e){if(d.enabled!==!1){e.preventDefault(),e.stopPropagation();var t=d.domElement===document?d.domElement.body:d.domElement;switch(e.touches.length){case 1:if(d.noRotate===!0)return;if(P!==x.TOUCH_ROTATE)return;g.set(e.touches[0].pageX,e.touches[0].pageY),y.subVectors(g,m),d.rotateLeft(2*Math.PI*y.x/t.clientWidth*d.rotateSpeed),d.rotateUp(2*Math.PI*y.y/t.clientHeight*d.rotateSpeed),m.copy(g);break;case 2:if(d.noZoom===!0)return;if(P!==x.TOUCH_DOLLY)return;var o=e.touches[0].pageX-e.touches[1].pageX,r=e.touches[0].pageY-e.touches[1].pageY,n=Math.sqrt(o*o+r*r);b.set(0,n),w.subVectors(b,E),w.y>0?d.dollyOut():d.dollyIn(),E.copy(b);break;case 3:if(d.noPan===!0)return;if(P!==x.TOUCH_PAN)return;v.set(e.touches[0].pageX,e.touches[0].pageY),_.subVectors(v,f),d.pan(_),f.copy(v);break;default:P=x.NONE}}}function u(){d.enabled!==!1&&(P=x.NONE)}this.object=e,this.domElement=void 0!==t?t:document,this.enabled=!0,this.target=new THREE.Vector3,this.center=this.target,this.noZoom=!1,this.zoomSpeed=1,this.minDistance=0,this.maxDistance=1/0,this.noRotate=!1,this.rotateSpeed=1,this.noPan=!1,this.keyPanSpeed=7,this.autoRotate=!1,this.autoRotateSpeed=2,this.minPolarAngle=0,this.maxPolarAngle=Math.PI,this.noKeys=!1,this.keys={LEFT:37,UP:38,RIGHT:39,BOTTOM:40};var d=this,p=1e-6,m=new THREE.Vector2,g=new THREE.Vector2,y=new THREE.Vector2,f=new THREE.Vector2,v=new THREE.Vector2,_=new THREE.Vector2,E=new THREE.Vector2,b=new THREE.Vector2,w=new THREE.Vector2,S=0,H=0,O=1,T=new THREE.Vector3,R=new THREE.Vector3,x={NONE:-1,ROTATE:0,DOLLY:1,PAN:2,TOUCH_ROTATE:3,TOUCH_DOLLY:4,TOUCH_PAN:5},P=x.NONE,W={type:"change"};this.rotateLeft=function(e){void 0===e&&(e=o()),H-=e},this.rotateUp=function(e){void 0===e&&(e=o()),S-=e},this.panLeft=function(e){var t=new THREE.Vector3,o=this.object.matrix.elements;t.set(o[0],o[1],o[2]),t.multiplyScalar(-e),T.add(t)},this.panUp=function(e){var t=new THREE.Vector3,o=this.object.matrix.elements;t.set(o[4],o[5],o[6]),t.multiplyScalar(e),T.add(t)},this.pan=function(e){var t=d.domElement===document?d.domElement.body:d.domElement;if(void 0!==d.object.fov){var o=d.object.position,r=o.clone().sub(d.target),n=r.length();n*=Math.tan(d.object.fov/2*Math.PI/180),d.panLeft(2*e.x*n/t.clientHeight),d.panUp(2*e.y*n/t.clientHeight)}else void 0!==d.object.top?(d.panLeft(e.x*(d.object.right-d.object.left)/t.clientWidth),d.panUp(e.y*(d.object.top-d.object.bottom)/t.clientHeight)):console.warn("WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.")},this.dollyIn=function(e){void 0===e&&(e=r()),O/=e},this.dollyOut=function(e){void 0===e&&(e=r()),O*=e},this.update=function(){var e=this.object.position,t=e.clone().sub(this.target),r=Math.atan2(t.x,t.z),n=Math.atan2(Math.sqrt(t.x*t.x+t.z*t.z),t.y);this.autoRotate&&this.rotateLeft(o()),r+=H,n+=S,n=Math.max(this.minPolarAngle,Math.min(this.maxPolarAngle,n)),n=Math.max(p,Math.min(Math.PI-p,n));var i=t.length()*O;i=Math.max(this.minDistance,Math.min(this.maxDistance,i)),this.target.add(T),t.x=i*Math.sin(n)*Math.sin(r),t.y=i*Math.cos(n),t.z=i*Math.sin(n)*Math.cos(r),e.copy(this.target).add(t),this.object.lookAt(this.target),H=0,S=0,O=1,T.set(0,0,0),R.distanceTo(this.object.position)>0&&(this.dispatchEvent(W),R.copy(this.object.position))},this.domElement.addEventListener("contextmenu",function(e){e.preventDefault()},!1),this.domElement.addEventListener("mousedown",n,!1),this.domElement.addEventListener("mousewheel",s,!1),this.domElement.addEventListener("DOMMouseScroll",s,!1),this.domElement.addEventListener("keydown",l,!1),this.domElement.addEventListener("touchstart",c,!1),this.domElement.addEventListener("touchend",u,!1),this.domElement.addEventListener("touchmove",h,!1)},THREE.OrbitControls.prototype=Object.create(THREE.EventDispatcher.prototype);var Stats=function(){function e(e,t,o){return e=document.createElement(e),e.id=t,e.style.cssText=o,e}function t(t,o,r){var n=e("div",t,"padding:0 0 3px 3px;text-align:left;background:"+r),i=e("div",t+"Text","font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px;color:"+o);for(i.innerHTML=t.toUpperCase(),n.appendChild(i),t=e("div",t+"Graph","width:74px;height:30px;background:"+o),n.appendChild(t),o=0;74>o;o++)t.appendChild(e("span","","width:1px;height:30px;float:left;opacity:0.9;background:"+r));return n}function o(e){for(var t=c.children,o=0;o<t.length;o++)t[o].style.display=o===e?"block":"none";l=e}function r(e,t){e.appendChild(e.firstChild).style.height=Math.min(30,30-30*t)+"px"}var n=self.performance&&self.performance.now?self.performance.now.bind(performance):Date.now,i=n(),a=i,s=0,l=0,c=e("div","stats","width:80px;opacity:0.9;cursor:pointer");c.addEventListener("mousedown",function(e){e.preventDefault(),o(++l%c.children.length)},!1);var h=0,u=1/0,d=0,p=t("fps","#0ff","#002"),m=p.children[0],g=p.children[1];c.appendChild(p);var y=0,f=1/0,v=0,p=t("ms","#0f0","#020"),_=p.children[0],E=p.children[1];if(c.appendChild(p),self.performance&&self.performance.memory){var b=0,w=1/0,S=0,p=t("mb","#f08","#201"),H=p.children[0],O=p.children[1];c.appendChild(p)}return o(l),{REVISION:14,domElement:c,setMode:o,begin:function(){i=n()},end:function(){var e=n();if(y=e-i,f=Math.min(f,y),v=Math.max(v,y),_.textContent=(0|y)+" MS ("+(0|f)+"-"+(0|v)+")",r(E,y/200),s++,e>a+1e3&&(h=Math.round(1e3*s/(e-a)),u=Math.min(u,h),d=Math.max(d,h),m.textContent=h+" FPS ("+u+"-"+d+")",r(g,h/100),a=e,s=0,void 0!==b)){var t=performance.memory.usedJSHeapSize,o=performance.memory.jsHeapSizeLimit;b=Math.round(9.54e-7*t),w=Math.min(w,b),S=Math.max(S,b),H.textContent=b+" MB ("+w+"-"+S+")",r(O,t/o)}return e},update:function(){i=this.end()}}};"object"===("undefined"==typeof module?"undefined":_typeof(module))&&(module.exports=Stats),THREE.SubdivisionModifier=function(e){this.subdivisions=void 0===e?1:e},THREE.SubdivisionModifier.prototype.modify=function(e){for(var t=this.subdivisions;t-->0;)this.smooth(e);delete e.__tmpVertices,e.computeFaceNormals(),e.computeVertexNormals()},function(){function e(e,t,o){var r=Math.min(e,t),n=Math.max(e,t),i=r+"_"+n;return o[i]}function t(e,t,o,r,n,i){var a,s=Math.min(e,t),l=Math.max(e,t),c=s+"_"+l;if(c in r)a=r[c];else{var h=o[s],u=o[l];a={a:h,b:u,newEdge:null,faces:[]},r[c]=a}a.faces.push(n),i[e].edges.push(a),i[t].edges.push(a)}function o(e,o,r,n){var i,a,s;for(i=0,a=e.length;a>i;i++)r[i]={edges:[]};for(i=0,a=o.length;a>i;i++)s=o[i],t(s.a,s.b,e,n,s,r),t(s.b,s.c,e,n,s,r),t(s.c,s.a,e,n,s,r)}function r(e,t,o,r){e.push(new THREE.Face3(t,o,r))}var n=!1,i=["a","b","c"];THREE.SubdivisionModifier.prototype.smooth=function(t){var a,s,l,c,h,u,d,p,m,g,y,y,f,v,_=new THREE.Vector3;a=t.vertices,s=t.faces,g=new Array(a.length),y={},o(a,s,g,y),f=[];var E,b,w,S,H,O,T;for(u in y){for(b=y[u],w=new THREE.Vector3,H=3/8,O=1/8,T=b.faces.length,2!=T&&(H=.5,O=0,1!=T&&n&&console.warn("Subdivision Modifier: Number of connected faces != 2, is: ",T,b)),w.addVectors(b.a,b.b).multiplyScalar(H),_.set(0,0,0),p=0;T>p;p++){for(S=b.faces[p],m=0;3>m&&(E=a[S[i[m]]],E===b.a||E===b.b);m++);_.add(E)}_.multiplyScalar(O),w.add(_),b.newEdge=f.length,f.push(w)}var R,x,P,W,C,k,M;for(v=[],u=0,d=a.length;d>u;u++){for(k=a[u],C=g[u].edges,h=C.length,3==h?R=3/16:h>3&&(R=3/(8*h)),x=1-h*R,P=R,2>=h&&(2==h?(n&&console.warn("2 connecting edges",C),x=.75,P=1/8):1==h?n&&console.warn("only 1 connecting edge"):0==h&&n&&console.warn("0 connecting edges")),M=k.clone().multiplyScalar(x),_.set(0,0,0),p=0;h>p;p++)W=C[p],E=W.a!==k?W.a:W.b,_.add(E);_.multiplyScalar(P),M.add(_),v.push(M)}l=v.concat(f);var j,L,A,z=v.length;for(c=[],u=0,d=s.length;d>u;u++)S=s[u],j=e(S.a,S.b,y).newEdge+z,L=e(S.b,S.c,y).newEdge+z,A=e(S.c,S.a,y).newEdge+z,r(c,j,L,A),r(c,S.a,j,A),r(c,S.b,L,j),r(c,S.c,A,L);t.vertices=l,t.faces=c}}(),addCSSRule(document.styleSheets[0],"@keyframes fadeOut","to {opacity: 0}",0),addCSSRule(document.styleSheets[0],"@keyframes fadeIn","from {opacity: 0} to {opacity: 1}",0),Element.prototype.fadeOut=function(e){this.style.webkitAnimationDuration=(e||1)+"s",this.style.webkitAnimationName="fadeOut",this.style.webkitAnimationPlayState="running",this.addEventListener("animationend",function(){this.style.display="none",this.style.webkitAnimationPlayState="paused"})},Element.prototype.fadeIn=function(e,t){this.style.display=t||"block",this.style.webkitAnimationDuration=(e||1)+"s",this.style.webkitAnimationName="fadeIn",this.style.webkitAnimationPlayState="running",this.addEventListener("animationend",function(){this.style.display=t||"block"})},"undefined"==typeof Array.isArray&&(Array.isArray=function(e){return"[object Array]"===Object.prototype.toString.call(e)}),function(){if(!MouseEvent.prototype.hasOwnProperty("movementX")||!MouseEvent.prototype.hasOwnProperty("mozMovementX")){var e={lastX:0,lastY:0};MouseEvent.prototype.getMovementX=function(){var t=this.clientX-e.lastX;return e.lastX=this.clientX,t},MouseEvent.prototype.getMovementY=function(){var t=this.clientY-e.lastY;return e.lastY=this.clientY,t}}}(),Object.assign||Object.defineProperty(Object,"assign",{enumerable:!1,configurable:!0,writable:!0,value:function(e){if(void 0===e||null===e)throw new TypeError("Cannot convert first argument to object");for(var t=Object(e),o=1;o<arguments.length;o++){var r=arguments[o];if(void 0!==r&&null!==r){r=Object(r);for(var n=Object.keys(r),i=0,a=n.length;a>i;i++){var s=n[i],l=Object.getOwnPropertyDescriptor(r,s);void 0!==l&&l.enumerable&&(t[s]=r[s])}}}return t}});var WHS={REVISION:"7",loader:{JSON:new THREE.JSONLoader,Texture:new THREE.TextureLoader,Font:new THREE.FontLoader},API:{},_settings:{assets:"./assets",path_worker:"../libs/physijs_worker.js",path_ammo:"../libs/ammo.js"},loops:[]};WHS.API.loadJSON=function(e,t,o){return WHS.loader.JSON.load(e,t,o)},WHS.API.loadTexture=function(e,t,o,r){return WHS.loader.Texture.load(e,t,o,r)},WHS.API.loadFont=function(e,t,o,r){return WHS.loader.Font.load(e,t,o,r)};var api=WHS.API;"function"==typeof define&&define.amd?define("whitestorm",WHS):"undefined"!=typeof exports&&"undefined"!=typeof module&&(module.exports=WHS),THREE.ShaderWater={water:{}},WHS.API.extend=function(e){for(var t=arguments.length,o=Array(t>1?t-1:0),r=1;t>r;r++)o[r-1]=arguments[r];var n=!0,i=!1,a=void 0;try{for(var s,l=o[Symbol.iterator]();!(n=(s=l.next()).done);n=!0){var c=s.value;if(c){var h=!0,u=!1,d=void 0;try{for(var p,m=Object.getOwnPropertyNames(c)[Symbol.iterator]();!(h=(p=m.next()).done);h=!0){var g=p.value;void 0!=e[g]&&"[object Object]"==e[g].toString()&&"[object Object]"==c[g].toString()?WHS.API.extend(e[g],c[g]):e[g]=0===e[g]?0:e[g],e[g]||"boolean"==typeof e[g]||(e[g]=c[g])}}catch(y){u=!0,d=y}finally{try{!h&&m["return"]&&m["return"]()}finally{if(u)throw d}}}}}catch(y){i=!0,a=y}finally{try{!n&&l["return"]&&l["return"]()}finally{if(i)throw a}}return e},WHS.Light=function(){function e(t,o){_classCallCheck(this,e);var r=function(e,t,o){this.x=e,this.y=t,this.z=o};t.pos&&(t.pos.set=r),t.rot&&(t.rot.set=r),t.target&&(t.target.set=r);var n=api.extend(t,{light:{color:16777215,skyColor:16777215,groundColor:16777215,intensity:1,distance:100,angle:Math.PI/3,exponent:0,decay:1},shadowmap:{cast:!0,bias:0,width:1024,height:1024,near:!0,far:400,fov:60,darkness:.3,top:200,bottom:-200,left:-200,right:200},pos:{x:0,y:0,z:0,set:r},rot:{x:0,y:0,z:0,set:r},target:{x:0,y:0,z:0,set:r}}),i=0,a={_key:i,_type:o,_whsobject:!0,_name:o+i,__releaseTime:(new Date).getTime(),_pos:n.pos,_rot:n.rot,_target:n.target,_light:n.light,_shadowmap:n.shadowmap,ready:new Events};return Object.assign(this,a),this}return _createClass(e,[{key:"build",value:function(){for(var e=this,t=arguments.length,o=Array(t),r=0;t>r;r++)o[r]=arguments[r];var n=this.mesh,i=this;return this.build_state=new Promise(function(t,r){try{n.castShadow=!0,n.receiveShadow=!0,n.position.set(e._pos.x,e._pos.y,e._pos.z),n.rotation.set(e._rot.x,e._rot.y,e._rot.z),o.forEach(function(e){i[e]=!0}),t()}catch(a){console.error(a.message),r()}}),this}},{key:"addTo",value:function(e){this.root=e;var t=this.mesh,o=this;return console.log(this),this._key=this.root.modellingQueue.length,o._state=new Promise(function(e,r){try{api.merge(o.root.scene,t),o.root.modellingQueue.push(o)}catch(n){console.error(n.message),r()}finally{o._wait?o._mesh.addEventListener("ready",function(){e(),o.ready.emit("ready")}):(e(),o.ready.emit("ready"))}}),o.root.children.push(o),this}},{key:"buildShadow",value:function(){this.mesh.shadow.mapSize.width=this._shadowmap.width,this.mesh.shadow.mapSize.height=this._shadowmap.height,this.mesh.shadow.bias=this._shadowmap.bias,this.mesh.shadow.camera.near=this._shadowmap.near,this.mesh.shadow.camera.far=this._shadowmap.far,this.mesh.shadow.camera.fov=this._shadowmap.fov,this.mesh.shadow.camera.Left=this._shadowmap.left,this.mesh.shadow.camera.right=this._shadowmap.right,this.mesh.shadow.camera.top=this._shadowmap.top,this.mesh.shadow.camera.bottom=this._shadowmap.bottom}},{key:"remove",value:function(){return this.root.scene.remove(this.mesh),this}},{key:"retrieve",value:function(){return this.root.scene.add(this.mesh),this}}]),e}(),WHS.API.loadMaterial=function(e){"string"!=typeof e.kind&&console.error("Type of material is undefined or not a string. @loadMaterial");var t={_type:e.kind,_restitution:isNaN(parseFloat(e.restitution))?isNaN(parseFloat(e.rest))?.3:e.rest:e.restitution,_friction:isNaN(parseFloat(e.friction))?isNaN(parseFloat(e.fri))?.8:e.fri:e.friction},o=api.extend({},e);switch(delete o.kind,delete o.friction,delete o.fri,delete o.restitution,delete o.rest,delete o.useCustomMaterial,delete o.useVertexColors,e.kind){case"basic":t._material=new THREE.MeshBasicMaterial(o);break;case"linebasic":t._params=new THREE.LineBasicMaterial(o);break;case"linedashed":t._material=new THREE.LineDashedMaterial(o);break;case"material":t._material=new THREE.Material(o);break;case"depth":t._material=new THREE.MeshDepthMaterial(o);break;case"face":t._material=new THREE.MeshFaceMaterial(o);break;case"lambert":t._material=new THREE.MeshLambertMaterial(o);break;case"normal":t._material=new THREE.MeshNormalMaterial(o);break;case"phong":t._material=new THREE.MeshPhongMaterial(o);break;case"pointcloud":t._material=new THREE.PointCloudMaterial(o);break;case"rawshader":t._material=new THREE.RawShaderMaterial(o);break;case"shader":t._material=new THREE.ShaderMaterial(o);break;case"spritecanvas":t._material=new THREE.SpriteCanvasMaterial(o);break;case"sprite":t._material=new THREE.SpriteMaterial(o)}return t._material=Physijs.createMaterial(t._material,t._friction,t._restitution),console.log(t._friction),t},WHS.API.merge=function(e,t){if(("object"!==("undefined"==typeof e?"undefined":_typeof(e))||"object"!==("undefined"==typeof t?"undefined":_typeof(t)))&&console.error("No rabbits for the box. (arguments)",["undefined"==typeof e?"undefined":_typeof(e),"undefined"==typeof t?"undefined":_typeof(t)]),e)if(Array.isArray(t)&&1===t.length)e.add(t[0]);else if(Array.isArray(t)&&t.length>1&&e)for(var o=0;o<t.length;o++)e.add(t[o]);else Array.isArray(t)||e.add(t);else console.error("box is undefined. Line "+(new Error).lineNumber+". Func merge.",[e,t])},WHS.Shape=function(){function e(t,o){_classCallCheck(this,e),this._lastWorld=null;var r=function(e,t,o){this.x=e,this.y=t,this.z=o};api.extend(t,{mass:10,pos:{x:0,y:0,z:0,set:r},rot:{x:0,y:0,z:0,set:r},scale:{x:1,y:1,z:1,set:r},target:{x:0,y:0,z:0,set:r},morph:{speed:1,duration:1},onlyvis:!1});var n=0,i={_key:n,_type:o,_whsobject:!0,_name:o+n,__releaseTime:(new Date).getTime(),_pos:t.pos,_rot:t.rot,_scale:t.scale,_morph:t.morph,_target:t.target,_onlyvis:t.onlyvis,ready:new Events};return Object.assign(this,i),this}return _createClass(e,[{key:"build",value:function(){console.log(this);for(var e=this,t=arguments.length,o=Array(t),r=0;t>r;r++)o[r]=arguments[r];return o.indexOf("wait")>=0?e._loading.then(function(){e.build_state=new Promise(function(t,o){try{e.mesh.castShadow=!0,e.mesh.receiveShadow=!0,e.mesh.position.set(e._pos.x,e._pos.y,e._pos.z),e.mesh.rotation.set(e._rot.x,e._rot.y,e._rot.z),e.mesh.scale.set(e._scale.x,e._scale.y,e._scale.z),e._pos=e.mesh.position,e._rot=e.mesh.rotation,e._scale=e.mesh.scale,t()}catch(r){console.error(r.message),o()}})}):e.build_state=new Promise(function(t,o){try{e.mesh.castShadow=!0,e.mesh.receiveShadow=!0,e.mesh.position.set(e._pos.x,e._pos.y,e._pos.z),e.mesh.rotation.set(e._rot.x,e._rot.y,e._rot.z),e.mesh.scale.set(e._scale.x,e._scale.y,e._scale.z),e._pos=e.mesh.position,e._rot=e.mesh.rotation,e._scale=e.mesh.scale,t()}catch(r){console.error(r.message),o()}}),this}},{key:"addTo",value:function(e){this.root=e,this._lastWorld=e;var t=this.mesh,o=this;this._key=this.root.modellingQueue.length;for(var r=arguments.length,n=Array(r>1?r-1:0),i=1;r>i;i++)n[i-1]=arguments[i];return console.log([n,n.indexOf("wait"),o]),n.indexOf("wait")>=0?o._loading.then(function(){o._state=new Promise(function(e,t){try{api.merge(o.root.scene,o.mesh),o.root.modellingQueue.push(o)}catch(r){console.error(r.message),t()}finally{o._wait?o._mesh.addEventListener("ready",function(){e(),o.ready.emit("ready")}):(e(),o.ready.emit("ready"))}})}):o._state=new Promise(function(e,r){try{api.merge(o.root.scene,t),o.root.modellingQueue.push(o)}catch(n){console.error(n.message),r()}finally{o._wait?o._mesh.addEventListener("ready",function(){e(),o.ready.emit("ready")}):(e(),console.log("wqd"),o.ready.emit("ready"))}}),o.root.children.push(o),this}},{key:"_initMaterial",value:function(e){return api.loadMaterial(e)._material}},{key:"remove",value:function(){this.root.scene.remove(this.mesh);var e=this.root.modellingQueue.indexOf(this);return-1!==e&&this.root.modellingQueue.splice(e,1),this.root.children.splice(this.root.children.indexOf(this),1),this.root=null,this}},{key:"retrieve",value:function(){return this.root=this._lastWorld,this.root.scene.add(this.mesh),this}}]),e}(),WHS.API.texture=function(e,t){var o=api.loadTexture(e);if(t){var r=api.extend(t,{offset:{x:0,y:0},repeat:{x:1,y:1}});o.wrapS=o.wrapT=THREE.RepeatWrapping,o.offset.set(r.offset.x,r.offset.y),o.repeat.set(r.repeat.x,r.repeat.y),o.magFilter=THREE.NearestFilter,o.minFilter=THREE.LinearMipMapLinearFilter}return o},WHS.Watch=function(e){return this._queue=Array.isArray(e)?e.slice():[],this},WHS.Watch.prototype.add=function(e){return this._queue.push(e),this},WHS.Watch.prototype.remove=function(e){return this._queue=this._queue.filter(function(t){return t!=e}),this},WHS.loop=function(e){this.loop={func:e,id:WHS.loops.length,enabled:!1},WHS.loops.push(this.loop)},WHS.loop.prototype.start=function(){this.loop.enabled=!0},WHS.loop.prototype.stop=function(){this.loop.enabled=!1},WHS.World=function(){function e(){var t=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,e),console.log("WHS.World",WHS.REVISION),THREE||console.warn("whitestormJS requires THREE.js. {Object} THREE not found."),Physijs||console.warn("whitestormJS requires PHYSI.js. {Object} Physijs not found.");var o=api.extend(t,{anaglyph:!1,helper:!1,stats:!1,autoresize:!1,shadowmap:{enabled:!0,type:THREE.PCFSoftShadowMap},gravity:{x:0,y:0,z:0},camera:{aspect:75,near:1,far:1e3,x:0,y:0,z:0},rWidth:1,rHeight:1,width:window.innerWidth,height:window.innerHeight,physics:{quatNormalizeSkip:0,quatNormalizeFast:!1,solver:{iterations:20,tolerance:0},defMaterial:{contactEquationStiffness:1e8,contactEquationRegularizationTime:3}},background:0,assets:"./assets",container:document.body,path_worker:"../libs/physijs_worker.js",path_ammo:"../libs/ammo.js"});this._settings=o,this._initScene(),this._initDOM(),this._initStats(),this._initCamera(),this._initRenderer();var r=this;return o.autoresize&&window.addEventListener("resize",function(){r.resize()}),r}return _createClass(e,[{key:"_initScene",value:function(){this._initPhysiJS(),this.scene=new Physijs.Scene,console.log(this.scene),this.scene.setGravity(new THREE.Vector3(this._settings.gravity.x,this._settings.gravity.y,this._settings.gravity.z)),this.modellingQueue=[],this.children=[]}},{key:"_initPhysiJS",value:function(){Physijs.scripts.worker=this._settings.path_worker,Physijs.scripts.ammo=this._settings.path_ammo}},{key:"_initDOM",value:function(){return this._settings.container.style.margin=0,this._settings.container.style.padding=0,this._settings.container.style.position="relative",this._settings.container.style.overflow="hidden",this._dom=document.createElement("div"),this._dom.className="whs",this._settings.container.appendChild(this._dom),this._dom}},{key:"_initStats",value:function(){this._settings.stats&&(this._stats=new Stats,"fps"==this._settings.stats?this._stats.setMode(0):"ms"==this._settings.stats?this._stats.setMode(1):"mb"==this._settings.stats?this._stats.setMode(1):(this._stats.setMode(0),console.warn([this._stats],"Please, apply stats mode [fps, ms, mb] .")),this._stats.domElement.style.position="absolute",this._stats.domElement.style.left="0px",this._stats.domElement.style.bottom="0px",this._dom.appendChild(this._stats.domElement))}},{key:"_initCamera",value:function(){this._camera=new THREE.PerspectiveCamera(this._settings.camera.aspect,this._settings.width/this._settings.height,this._settings.camera.near,this._settings.camera.far),this._camera.position.set(this._settings.camera.x,this._settings.camera.y,this._settings.camera.z),this.scene.add(this._camera)}},{key:"_initRenderer",value:function(){this._renderer=new THREE.WebGLRenderer({precision:"lowp"}),this._renderer.setClearColor(this._settings.background),this._renderer.shadowMap.enabled=this._settings.shadowmap.enabled,this._renderer.shadowMap.type=this._settings.shadowmap.type,this._renderer.shadowMap.cascade=!0,this._renderer.setSize(+(window.innerWidth*this._settings.rWidth).toFixed(),+(window.innerHeight*this._settings.rHeight).toFixed()),this._renderer.render(this.scene,this._camera),this._dom.appendChild(this._renderer.domElement),this._renderer.domElement.style.width="100%",this._renderer.domElement.style.height="100%"}},{key:"start",value:function(){function e(r){requestAnimationFrame(e),o._stats&&o._stats.begin(),o._process(t),o.scene.simulate(),o._updateControls(),o._composer?(o._composer.reset(),o._composer.render(o.scene,o._camera),o._composer.pass(o._composer.stack),o._composer.toScreen()):o._renderer.render(o.scene,o._camera),o._execLoops(r),o._stats&&o._stats.end()}var t=new THREE.Clock,o=this;this._update=e,o._update()}},{key:"_execLoops",value:function(e){WHS.loops.forEach(function(t){t.enabled&&t.func(e)})}},{key:"_updateControls",value:function(){this.controls&&(this.controls.update(Date.now()-this.time),this.time=Date.now())}},{key:"_process",value:function(e){for(var t=0;t<this.modellingQueue.length;t++)"morph"==this.modellingQueue[t]._type&&this.modellingQueue[t].mesh.mixer.update(e.getDelta())}},{key:"resize",value:function(){this._camera.aspect=window.innerWidth/window.innerHeight,this._camera.updateProjectionMatrix(),this._renderer.setSize(+(window.innerWidth*this._settings.rWidth).toFixed(),+(window.innerHeight*this._settings.rHeight).toFixed())}}]),e}(),WHS.Cube=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"cube"));return api.extend(e.geometry,{width:1,height:1,depth:1}),o.mesh=new Physijs.BoxMesh(new THREE.BoxGeometry(e.geometry.width,e.geometry.height,e.geometry.depth),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Cube=function(e){return new WHS.Cube(e).addTo(this)},WHS.Cylinder=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"cylinder"));return api.extend(e.geometry,{radiusTop:1,radiusBottom:1,height:1,radiusSegments:32}),o.mesh=new Physijs.CylinderMesh(new THREE.CylinderGeometry(e.geometry.radiusTop,e.geometry.radiusBottom,e.geometry.height,e.geometry.radiusSegments),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Cylinder=function(e){return new WHS.Cylinder(e).addTo(this)},WHS.Dodecahedron=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"dodecahedron"));return api.extend(e.geometry,{radius:1,detail:0}),o.mesh=new Physijs.ConvexMesh(new THREE.DodecahedronGeometry(e.geometry.radius,e.geometry.detail),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Dodecahedron=function(e){return new WHS.Dodecahedron(e).addTo(this)},WHS.Extrude=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];
-_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"extrude"));return api.extend(e.geometry,{shapes:[],options:{}}),o.mesh=new Physijs.ConvexMesh(new THREE.ExtrudeGeometry(e.geometry.shapes,e.geometry.options),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Extrude=function(e){return new WHS.Extrude(e).addTo(this)},WHS.Icosahderon=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"icosahedron"));return api.extend(e.geometry,{radius:1,detail:0}),o.mesh=new Physijs.ConvexMesh(new THREE.IcosahedronGeometry(e.geometry.radius,e.geometry.detail),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Icosahedron=function(e){return new WHS.Icosahderon(e).addTo(this)},WHS.Lathe=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"lathe"));return api.extend(e.geometry,{points:[]}),o.mesh=new Physijs.ConvexMesh(new THREE.LatheGeometry(e.geometry.points),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Lathe=function(e){return new WHS.Lathe(e).addTo(this)},WHS.Model=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"model"));api.extend(e.geometry,{path:""});var r=o;return o._loading=new Promise(function(t,o){api.loadJSON(e.geometry.path,function(o,n){if(!n||e.material.useVertexColors)var i=api.loadMaterial(api.extend(e.material,{morphTargets:!0,vertexColors:THREE.FaceColors}))._material;else if(e.material.useCustomMaterial)var i=api.loadMaterial(e.material)._material;else var i=new THREE.MultiMaterial(n);o.computeFaceNormals(),o.computeVertexNormals(),r.mesh=new Physijs.ConcaveMesh(o,i,e.mass),t()})}),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o,"wait"),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Model=function(e){return new WHS.Model(e).addTo(this,"wait")},WHS.Morph=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"morph"));api.extend(e.geometry,{path:""});var r=o;return o._loading=new Promise(function(t,o){api.loadJSON(e.geometry.path,function(o,n){if(!n||e.material.useVertexColors)var i=api.loadMaterial(api.extend(e.material,{morphTargets:!0,vertexColors:THREE.FaceColors}))._material;else if(e.material.useCustomMaterial)var i=api.loadMaterial(e.material)._material;else var i=new THREE.MultiMaterial(n);o.computeFaceNormals(),o.computeVertexNormals(),r.mesh=new THREE.Mesh(o,i),r.mesh.speed=e.morph.speed,r.mesh.mixer=new THREE.AnimationMixer(r.mesh),r.mesh.mixer.clipAction(o.animations[0]).setDuration(e.morph.duration).play(),r._rot.y=Math.PI/2,t()})}),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o,"wait"),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Morph=function(e){return new WHS.Morph(e).addTo(this,"wait")},WHS.Octahedron=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"octahedron"));return api.extend(e.geometry,{radius:1,detail:0}),o.mesh=new Physijs.ConvexMesh(new THREE.OctahedronGeometry(e.geometry.radius,e.geometry.detail),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Octahedron=function(e){return new WHS.Octahedron(e).addTo(this)},WHS.Parametric=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"parametric"));return api.extend(e.geometry,{func:function(){},slices:10,stacks:10}),o.mesh=new Physijs.ConcaveMesh(new THREE.ParametricGeometry(e.geometry.func,e.geometry.slices,e.geometry.stacks),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Parametric=function(e){return new WHS.Parametric(e).addTo(this)},WHS.Plane=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"plane"));return api.extend(e.geometry,{width:10,height:10,segments:32}),o.mesh=new Physijs.PlaneMesh(new THREE.PlaneGeometry(e.geometry.width,e.geometry.height,e.geometry.segments),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Plane=function(e){return new WHS.Plane(e).addTo(this)},WHS.Polyhedron=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"polyhedron"));return api.extend(e.geometry,{verticesOfCube:o.verticesOfCube,indicesOfFaces:o.indicesOfFaces,radius:6,detail:2}),o.mesh=new Physijs.ConvexMesh(new THREE.PolyhedronGeometry(e.geometry.verticesOfCube,e.geometry.indicesOfFaces,e.geometry.radius,e.geometry.detail),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),_createClass(t,[{key:"verticesOfCube",get:function(){return[-1,-1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,1,1,-1,1,1,1,1,-1,1,1]}},{key:"indicesOfFaces",get:function(){return[2,1,0,0,3,2,0,4,7,7,3,0,0,1,5,5,4,0,1,2,6,6,5,1,2,3,7,7,6,2,4,5,6,6,7,4]}}]),t}(WHS.Shape),WHS.World.prototype.Polyhedron=function(e){return new WHS.Polyhedron(e).addTo(this)},WHS.Ring=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"ring"));return api.extend(e.geometry,{innerRadius:0,outerRadius:50,thetaSegments:8,phiSegments:8,thetaStart:0,thetaLength:2*Math.PI}),o.mesh=new THREE.Mesh(new THREE.RingGeometry(e.geometry.innerRadius,e.geometry.outerRadius,e.geometry.thetaSegments,e.geometry.phiSegments,e.geometry.thetaStart,e.geometry.thetaLength),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material)),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o,"onlyvis"),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Ring=function(e){return new WHS.Ring(e).addTo(this)},WHS.Shape2D=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"shape2D"));return api.extend(e.geometry,{shapes:[]}),o.mesh=new THREE.Mesh(new THREE.ShapeGeometry(e.geometry.shapes),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material)),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o,"onlyvis"),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Shape2D=function(e){return new WHS.Shape2D(e).addTo(this)},WHS.Smooth=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"smooth"));return api.extend(e.geometry,{width:10,height:10}),o.mesh=new Physijs.BoxMesh(new THREE.BoxGeometry(e.geometry.width,1,e.geometry.height),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),0),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Smooth=function(e){return new WHS.Smooth(e).addTo(this)},WHS.Sphere=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"sphere"));return api.extend(e.geometry,{radius:1,segmentA:32,segmentB:32}),o.mesh=new Physijs.SphereMesh(new THREE.SphereGeometry(e.geometry.radius,e.geometry.segmentA,e.geometry.segmentB),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Sphere=function(e){return new WHS.Sphere(e).addTo(this)},WHS.Tetrahedron=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"tetrahedron"));return api.extend(e.geometry,{radius:1,detail:0}),o.mesh=new Physijs.ConvexMesh(new THREE.TetrahedronGeometry(e.geometry.radius,e.geometry.detail),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Tetrahedron=function(e){return new WHS.Tetrahedron(e).addTo(this)},WHS.Text=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"text"));api.extend(e.geometry,{text:"Hello World!",parameters:{size:12,height:50,curveSegments:12,font:new THREE.Font,bevelEnabled:!1,bevelThickness:10,bevelSize:8}});var r=o;return o._loading=new Promise(function(t,o){api.loadFont(e.geometry.parameters.font,function(o){e.geometry.parameters.font=o,console.log(e.geometry),r.mesh=new Physijs.ConcaveMesh(new THREE.TextGeometry(e.geometry.text,e.geometry.parameters),api.loadMaterial(e.material)._material,e.mass),t()})}),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o,"wait"),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Text=function(e){return new WHS.Text(e).addTo(this,"wait")},WHS.Torus=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"torus"));return api.extend(e.geometry,{radius:100,tube:40,radialSegments:8,tubularSegments:6,arc:2*Math.PI}),o.mesh=new Physijs.ConvexMesh(new THREE.TorusGeometry(e.geometry.radius,e.geometry.tube,e.geometry.radialSegments,e.geometry.tubularSegments,e.geometry.arc),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Torus=function(e){return new WHS.Torus(e).addTo(this)},WHS.Torusknot=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"Torusknot"));return api.extend(e.geometry,{radius:100,tube:40,radialSegments:64,tubularSegments:8,p:2,q:3,heightScale:1}),o.mesh=new Physijs.ConvexMesh(new THREE.TorusKnotGeometry(e.geometry.radius,e.geometry.tube,e.geometry.radialSegments,e.geometry.tubularSegments,e.geometry.p,e.geometry.q,e.geometry.heightScale),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Torusknot=function(e){return new WHS.Torusknot(e).addTo(this)},WHS.Tube=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"tube"));return api.extend(e.geometry,{path:options.geometryOptions.path?new o.CustomSinCurve(100):!1,segments:20,radius:2,radiusSegments:8,closed:!1}),o.mesh=new Physijs.ConvexMesh(new THREE.TubeGeometry(e.geometry.path,e.geometry.segments,e.geometry.radius,e.geometry.radiusSegments,e.geometry.closed),_get(Object.getPrototypeOf(t.prototype),"_initMaterial",o).call(o,e.material),e.mass),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),_createClass(t,[{key:"CustomSinCurve",get:function(){return THREE.Curve.create(function(e){this.scale=e||1},function(e){var t=3*e-1.5,o=Math.sin(2*Math.PI*e),r=0;return new THREE.Vector3(t,o,r).multiplyScalar(this.scale)})}}]),t}(WHS.Shape),WHS.World.prototype.Tube=function(e){return new WHS.Tube(e).addTo(this)},WHS.AmbientLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"ambientlight"));return o.mesh=new THREE.AmbientLight(e.light.color,e.light.intensity),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.AmbientLight=function(e){return new WHS.AmbientLight(e).addTo(this)},WHS.DirectionalLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"directionallight"));return o.mesh=new THREE.DirectionalLight(e.light.color,e.light.intensity),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),_get(Object.getPrototypeOf(t.prototype),"buildShadow",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.DirectionalLight=function(e){return new WHS.DirectionalLight(e).addTo(this)},WHS.HemisphereLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"hemispherelight"));return o.mesh=new THREE.HemisphereLight(e.light.skyColor,e.light.groundColor,e.light.intensity),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),_get(Object.getPrototypeOf(t.prototype),"buildShadow",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.HemisphereLight=function(e){return new WHS.HemisphereLight(e).addTo(this)},WHS.NormalLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"normallight"));return o.mesh=new THREE.Light(e.light.color),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),_get(Object.getPrototypeOf(t.prototype),"buildShadow",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.NormalLight=function(e){return new WHS.NormalLight(e).addTo(this)},WHS.PointLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"pointlight"));return o.mesh=new THREE.PointLight(e.light.color,e.light.intensity,e.light.distance,e.light.decay),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),_get(Object.getPrototypeOf(t.prototype),"buildShadow",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.PointLight=function(e){return new WHS.PointLight(e).addTo(this)},WHS.SpotLight=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"spotlight"));return o.mesh=new THREE.SpotLight(e.light.color,e.light.intensity,e.light.distance,e.light.angle,e.light.exponent,e.light.decay),_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),_get(Object.getPrototypeOf(t.prototype),"buildShadow",o).call(o),o}return _inherits(t,e),t}(WHS.Light),WHS.World.prototype.SpotLight=function(e){return new WHS.SpotLight(e).addTo(this)};var PI_2=Math.PI/2;WHS.World.prototype.FPSControls=function(e){var t=arguments.length<=1||void 0===arguments[1]?{}:arguments[1],o=WHS.API.extend(t,{block:document.getElementById("blocker"),speed:1,ypos:1});this.controls=new function(e,t,o){function r(e){if(l.enabled!==!1){var t=e.movementX||e.mozMovementX||e.getMovementX()||0,o=e.movementY||e.mozMovementY||e.getMovementY()||0;u.rotation.y-=.002*t,h.rotation.x-=.002*o,h.rotation.x=Math.max(-PI_2,Math.min(PI_2,h.rotation.x))}}function n(e){switch(e.keyCode){case 38:case 87:p=!0;break;case 37:case 65:g=!0;break;case 40:case 83:m=!0;break;case 39:case 68:y=!0;break;case 32:console.log(f),1==f&&(c.applyCentralImpulse({x:0,y:300,z:0}),console.log(c.applyCentralImpulse)),f=!1;break;case 16:s=.5}}function i(e){switch(e.keyCode){case 38:case 87:p=!1;break;case 37:case 65:g=!1;break;case 40:case 83:m=!1;break;case 39:case 68:y=!1;break;case 16:s=.25}}var a=1,s=.25;t.setAngularFactor({x:0,y:0,z:0});var l=this,c=t,h=new THREE.Object3D;h.add(e);var u=new THREE.Object3D;u.position.y=o.ypos,u.add(h);var d=new THREE.Quaternion,p=!1,m=!1,g=!1,y=!1,f=!1;c.addEventListener("collision",function(e,t,o,r){console.log("afdg"),r.y<.5&&(f=!0)}),document.body.addEventListener("mousemove",r,!1),document.body.addEventListener("keydown",n,!1),document.body.addEventListener("keyup",i,!1),this.enabled=!1,this.getObject=function(){return u},this.getDirection=function(e){e.set(0,0,-1),d.multiplyVector3(e)};var v=new THREE.Vector3,_=new THREE.Euler;this.update=function(e){new THREE.Vector3;if(l.enabled!==!1){e=e||.5,e=Math.min(e,.5),v.set(0,0,0);var t=a*e*o.speed*s;p&&(v.z=-t),m&&(v.z=t),g&&(v.x=-t),y&&(v.x=t),_.x=h.rotation.x,_.y=u.rotation.y,_.order="XYZ",d.setFromEuler(_),v.applyQuaternion(d),c.applyCentralImpulse({x:10*v.x,y:0,z:10*v.z}),c.setAngularVelocity({x:10*v.z,y:0,z:10*-v.x}),c.setAngularFactor({x:0,y:0,z:0}),u.position.copy(c.position)}}}(this._camera,e.mesh,o);var r=this.controls;if(WHS.API.merge(this.scene,this.controls.getObject()),"pointerLockElement"in document||"mozPointerLockElement"in document||"webkitPointerLockElement"in document){var n=document.body;this.pointerlockchange=function(){document.pointerLockElement===n||document.mozPointerLockElement===n||document.webkitPointerLockElement===n?(r.enabled=!0,o.block.fadeOut()):(r.enabled=!1,o.block.fadeIn())}}else console.warn("Your browser does not support the PointerLock API.");document.addEventListener("pointerlockchange",this.pointerlockchange,!1),document.addEventListener("mozpointerlockchange",this.pointerlockchange,!1),document.addEventListener("webkitpointerlockchange",this.pointerlockchange,!1),this.pointerlockerror=function(){console.warn("Pointer lock error.")},document.addEventListener("pointerlockerror",this.pointerlockerror,!1),document.addEventListener("mozpointerlockerror",this.pointerlockerror,!1),document.addEventListener("webkitpointerlockerror",this.pointerlockerror,!1),o.block.addEventListener("click",function(){if(n.requestPointerLock=n.requestPointerLock||n.mozRequestPointerLock||n.webkitRequestPointerLock,n.requestFullscreen=n.requestFullscreen||n.mozRequestFullscreen||n.mozRequestFullScreen||n.webkitRequestFullscreen,/Firefox/i.test(navigator.userAgent)){var e=function t(){(document.fullscreenElement===n||document.mozFullscreenElement===n||document.mozFullScreenElement===n)&&(document.removeEventListener("fullscreenchange",t),document.removeEventListener("mozfullscreenchange",t),n.requestPointerLock())};document.addEventListener("fullscreenchange",e,!1),document.addEventListener("mozfullscreenchange",e,!1),n.requestFullscreen()}else n.requestPointerLock()})},WHS.World.prototype.OrbitControls=function(e){if(this.controls=new THREE.OrbitControls(this._camera,this._renderer.domElement),e)if(e._whsobject){var t=e?e.mesh.position:new THREE.Vector3(0,0,0);this.controls.target=t}else"object"==("undefined"==typeof e?"undefined":_typeof(e))?this.controls.target.copy(t):console.error("Object must be a THREE.JS vector! @OrbitControls")},WHS.Fog=function(){function e(){var t=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,e),api.extend(t,{hex:0,near:1,far:1e3}),this.fog=new THREE.Fog(t.hex,t.near,t.far),this.type="fog"}return _createClass(e,[{key:"addTo",value:function(e){e.scene.fog=this.fog}}]),e}(),WHS.World.prototype.Fog=function(e){return new WHS.Fog(e).addTo(this)},WHS.FogExp2=function(){function e(){var t=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,e),api.extend(t,{hex:0,density:25e-5}),this.fog=new THREE.FogExp2(t.hex,t.density),this.type="fogexp2"}return _createClass(e,[{key:"addTo",value:function(e){e.scene.fog=this.fog}}]),e}(),WHS.World.prototype.FogExp2=function(e){return new WHS.FogExp2(e).addTo(this)},WHS.Skybox=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];_classCallCheck(this,t);var o=_possibleConstructorReturn(this,Object.getPrototypeOf(t).call(this,e,"skybox"));api.extend(e,{skyType:"box",detail:".png",radius:10,fog:!0,path:""}),console.log(e.fog);var r,n;switch(e.skyType){case"box":var i=["xpos","xneg","ypos","yneg","zpos","zneg"];r=new THREE.CubeGeometry(e.radius,e.radius,e.radius);for(var a=[],s=0;6>s;s++)a.push(new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture(e.path+i[s]+e.imgSuffix),side:THREE.BackSide,fog:e.fog}));n=new THREE.MeshFaceMaterial(a);break;case"sphere":r=new THREE.SphereGeometry(e.radius/2,60,40),n=new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture(e.path+e.imgSuffix),side:THREE.BackSide,fog:e.fog})}return o.mesh=new THREE.Mesh(r,n),o.mesh.renderDepth=1e3,_get(Object.getPrototypeOf(t.prototype),"build",o).call(o),o}return _inherits(t,e),t}(WHS.Shape),WHS.World.prototype.Skybox=function(e){return new WHS.Skybox(e).addTo(this)};
+/**
+ * © Alexander Buzin, 2014-2015
+ * Site: http://alexbuzin.me/
+ * Email: alexbuzin88@gmail.com
+*/
+
+"use strict";
+
+var _get = function get(object, property, receiver) {
+    if (object === null) object = Function.prototype;
+    var desc = Object.getOwnPropertyDescriptor(object, property);
+    if (desc === undefined) {
+        var parent = Object.getPrototypeOf(object);
+        if (parent === null) {
+            return undefined;
+        } else {
+            return get(parent, property, receiver);
+        }
+    } else if ("value" in desc) {
+        return desc.value;
+    } else {
+        var getter = desc.get;
+        if (getter === undefined) {
+            return undefined;
+        }
+        return getter.call(receiver);
+    }
+};
+
+var _createClass = function() {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }
+    return function(Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+    };
+}();
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+    return typeof obj;
+} : function(obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+};
+
+function _possibleConstructorReturn(self, call) {
+    if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+            value: subClass,
+            enumerable: false,
+            writable: true,
+            configurable: true
+        }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+/**
+ * @author mrdoob / http://mrdoob.com/
+ * @author marklundin / http://mark-lundin.com/
+ * @author alteredq / http://alteredqualia.com/
+ */
+
+THREE.AnaglyphEffect = function(renderer, width, height) {
+
+    var eyeRight = new THREE.Matrix4();
+    var eyeLeft = new THREE.Matrix4();
+    var focalLength = 125;
+    var _aspect, _near, _far, _fov;
+
+    var _cameraL = new THREE.PerspectiveCamera();
+    _cameraL.matrixAutoUpdate = false;
+
+    var _cameraR = new THREE.PerspectiveCamera();
+    _cameraR.matrixAutoUpdate = false;
+
+    var _camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+    var _scene = new THREE.Scene();
+
+    var _params = {
+        minFilter: THREE.LinearFilter,
+        magFilter: THREE.NearestFilter,
+        format: THREE.RGBAFormat
+    };
+
+    if (width === undefined) width = 512;
+    if (height === undefined) height = 512;
+
+    var _renderTargetL = new THREE.WebGLRenderTarget(width, height, _params);
+    var _renderTargetR = new THREE.WebGLRenderTarget(width, height, _params);
+
+    var _material = new THREE.ShaderMaterial({
+
+        uniforms: {
+
+            "mapLeft": {
+                type: "t",
+                value: _renderTargetL
+            },
+            "mapRight": {
+                type: "t",
+                value: _renderTargetR
+            }
+
+        },
+
+        vertexShader: ["varying vec2 vUv;", "void main() {", "	vUv = vec2( uv.x, uv.y );", "	gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
+
+        fragmentShader: ["uniform sampler2D mapLeft;", "uniform sampler2D mapRight;", "varying vec2 vUv;", "void main() {", "	vec4 colorL, colorR;", "	vec2 uv = vUv;", "	colorL = texture2D( mapLeft, uv );", "	colorR = texture2D( mapRight, uv );",
+
+            // http://3dtv.at/Knowhow/AnaglyphComparison_en.aspx
+
+            "	gl_FragColor = vec4( colorL.g * 0.7 + colorL.b * 0.3, colorR.g, colorR.b, colorL.a + colorR.a ) * 1.1;", "}"
+        ].join("\n")
+
+    });
+
+    var mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2, 2), _material);
+    _scene.add(mesh);
+
+    this.setSize = function(width, height) {
+
+        if (_renderTargetL) _renderTargetL.dispose();
+        if (_renderTargetR) _renderTargetR.dispose();
+        _renderTargetL = new THREE.WebGLRenderTarget(width, height, _params);
+        _renderTargetR = new THREE.WebGLRenderTarget(width, height, _params);
+
+        _material.uniforms["mapLeft"].value = _renderTargetL;
+        _material.uniforms["mapRight"].value = _renderTargetR;
+
+        renderer.setSize(width, height);
+    };
+
+    /*
+     * Renderer now uses an asymmetric perspective projection
+     * (http://paulbourke.net/miscellaneous/stereographics/stereorender/).
+     *
+     * Each camera is offset by the eye seperation and its projection matrix is
+     * also skewed asymetrically back to converge on the same projection plane.
+     * Added a focal length parameter to, this is where the parallax is equal to 0.
+     */
+
+    this.render = function(scene, camera) {
+
+        scene.updateMatrixWorld();
+
+        if (camera.parent === undefined) camera.updateMatrixWorld();
+
+        var hasCameraChanged = _aspect !== camera.aspect || _near !== camera.near || _far !== camera.far || _fov !== camera.fov;
+
+        if (hasCameraChanged) {
+
+            _aspect = camera.aspect;
+            _near = camera.near;
+            _far = camera.far;
+            _fov = camera.fov;
+
+            var projectionMatrix = camera.projectionMatrix.clone();
+            var eyeSep = focalLength / 30 * 0.5;
+            var eyeSepOnProjection = eyeSep * _near / focalLength;
+            var ymax = _near * Math.tan(THREE.Math.degToRad(_fov * 0.5));
+            var xmin, xmax;
+
+            // translate xOffset
+
+            eyeRight.elements[12] = eyeSep;
+            eyeLeft.elements[12] = -eyeSep;
+
+            // for left eye
+
+            xmin = -ymax * _aspect + eyeSepOnProjection;
+            xmax = ymax * _aspect + eyeSepOnProjection;
+
+            projectionMatrix.elements[0] = 2 * _near / (xmax - xmin);
+            projectionMatrix.elements[8] = (xmax + xmin) / (xmax - xmin);
+
+            _cameraL.projectionMatrix.copy(projectionMatrix);
+
+            // for right eye
+
+            xmin = -ymax * _aspect - eyeSepOnProjection;
+            xmax = ymax * _aspect - eyeSepOnProjection;
+
+            projectionMatrix.elements[0] = 2 * _near / (xmax - xmin);
+            projectionMatrix.elements[8] = (xmax + xmin) / (xmax - xmin);
+
+            _cameraR.projectionMatrix.copy(projectionMatrix);
+        }
+
+        _cameraL.matrixWorld.copy(camera.matrixWorld).multiply(eyeLeft);
+        _cameraL.position.copy(camera.position);
+        _cameraL.near = camera.near;
+        _cameraL.far = camera.far;
+
+        renderer.render(scene, _cameraL, _renderTargetL, true);
+
+        _cameraR.matrixWorld.copy(camera.matrixWorld).multiply(eyeRight);
+        _cameraR.position.copy(camera.position);
+        _cameraR.near = camera.near;
+        _cameraR.far = camera.far;
+
+        renderer.render(scene, _cameraR, _renderTargetR, true);
+
+        renderer.render(_scene, _camera);
+    };
+
+    this.dispose = function() {
+        if (_renderTargetL) _renderTargetL.dispose();
+        if (_renderTargetR) _renderTargetR.dispose();
+    };
+};
+
+/**
+ * @author mrdoob / http://mrdoob.com/
+ */
+
+THREE.BufferGeometryUtils = {
+
+    computeTangents: function computeTangents(geometry) {
+
+        var index = geometry.index;
+        var attributes = geometry.attributes;
+
+        // based on http://www.terathon.com/code/tangent.html
+        // (per vertex tangents)
+
+        if (index === null || attributes.position === undefined || attributes.normal === undefined || attributes.uv === undefined) {
+
+            console.warn('THREE.BufferGeometry: Missing required attributes (index, position, normal or uv) in BufferGeometry.computeTangents()');
+            return;
+        }
+
+        var indices = index.array;
+        var positions = attributes.position.array;
+        var normals = attributes.normal.array;
+        var uvs = attributes.uv.array;
+
+        var nVertices = positions.length / 3;
+
+        if (attributes.tangent === undefined) {
+
+            geometry.addAttribute('tangent', new THREE.BufferAttribute(new Float32Array(4 * nVertices), 4));
+        }
+
+        var tangents = attributes.tangent.array;
+
+        var tan1 = [],
+            tan2 = [];
+
+        for (var k = 0; k < nVertices; k++) {
+
+            tan1[k] = new THREE.Vector3();
+            tan2[k] = new THREE.Vector3();
+        }
+
+        var vA = new THREE.Vector3(),
+            vB = new THREE.Vector3(),
+            vC = new THREE.Vector3(),
+            uvA = new THREE.Vector2(),
+            uvB = new THREE.Vector2(),
+            uvC = new THREE.Vector2(),
+            sdir = new THREE.Vector3(),
+            tdir = new THREE.Vector3();
+
+        function handleTriangle(a, b, c) {
+
+            vA.fromArray(positions, a * 3);
+            vB.fromArray(positions, b * 3);
+            vC.fromArray(positions, c * 3);
+
+            uvA.fromArray(uvs, a * 2);
+            uvB.fromArray(uvs, b * 2);
+            uvC.fromArray(uvs, c * 2);
+
+            var x1 = vB.x - vA.x;
+            var x2 = vC.x - vA.x;
+
+            var y1 = vB.y - vA.y;
+            var y2 = vC.y - vA.y;
+
+            var z1 = vB.z - vA.z;
+            var z2 = vC.z - vA.z;
+
+            var s1 = uvB.x - uvA.x;
+            var s2 = uvC.x - uvA.x;
+
+            var t1 = uvB.y - uvA.y;
+            var t2 = uvC.y - uvA.y;
+
+            var r = 1.0 / (s1 * t2 - s2 * t1);
+
+            sdir.set((t2 * x1 - t1 * x2) * r, (t2 * y1 - t1 * y2) * r, (t2 * z1 - t1 * z2) * r);
+
+            tdir.set((s1 * x2 - s2 * x1) * r, (s1 * y2 - s2 * y1) * r, (s1 * z2 - s2 * z1) * r);
+
+            tan1[a].add(sdir);
+            tan1[b].add(sdir);
+            tan1[c].add(sdir);
+
+            tan2[a].add(tdir);
+            tan2[b].add(tdir);
+            tan2[c].add(tdir);
+        }
+
+        var groups = geometry.groups;
+
+        if (groups.length === 0) {
+
+            groups = [{
+                start: 0,
+                count: indices.length
+            }];
+        }
+
+        for (var j = 0, jl = groups.length; j < jl; ++j) {
+
+            var group = groups[j];
+
+            var start = group.start;
+            var count = group.count;
+
+            for (var i = start, il = start + count; i < il; i += 3) {
+
+                handleTriangle(indices[i + 0], indices[i + 1], indices[i + 2]);
+            }
+        }
+
+        var tmp = new THREE.Vector3(),
+            tmp2 = new THREE.Vector3();
+        var n = new THREE.Vector3(),
+            n2 = new THREE.Vector3();
+        var w, t, test;
+
+        function handleVertex(v) {
+
+            n.fromArray(normals, v * 3);
+            n2.copy(n);
+
+            t = tan1[v];
+
+            // Gram-Schmidt orthogonalize
+
+            tmp.copy(t);
+            tmp.sub(n.multiplyScalar(n.dot(t))).normalize();
+
+            // Calculate handedness
+
+            tmp2.crossVectors(n2, t);
+            test = tmp2.dot(tan2[v]);
+            w = test < 0.0 ? -1.0 : 1.0;
+
+            tangents[v * 4] = tmp.x;
+            tangents[v * 4 + 1] = tmp.y;
+            tangents[v * 4 + 2] = tmp.z;
+            tangents[v * 4 + 3] = w;
+        }
+
+        for (var j = 0, jl = groups.length; j < jl; ++j) {
+
+            var group = groups[j];
+
+            var start = group.start;
+            var count = group.count;
+
+            for (var i = start, il = start + count; i < il; i += 3) {
+
+                handleVertex(indices[i + 0]);
+                handleVertex(indices[i + 1]);
+                handleVertex(indices[i + 2]);
+            }
+        }
+    }
+
+};
+
+function Events(n) {
+    var t = {},
+        f = [];
+    n = n || this, n.on = function(n, f, i) {
+        (t[n] = t[n] || []).push([f, i]);
+    }, n.off = function(n, i) {
+        n || (t = {});
+        for (var o = t[n] || f, c = o.length = i ? o.length : 0; c--;) {
+            i == o[c][0] && o.splice(c, 1);
+        }
+    }, n.emit = function(n) {
+        for (var i, o = t[n] || f, c = 0; i = o[c++];) {
+            i[0].apply(i[1], f.slice.call(arguments, 1));
+        }
+    };
+}
+/**
+ * @author qiao / https://github.com/qiao
+ * @author mrdoob / http://mrdoob.com
+ * @author alteredq / http://alteredqualia.com/
+ * @author WestLangley / http://github.com/WestLangley
+ * @author erich666 / http://erichaines.com
+ */
+/*global THREE, console */
+
+// This set of controls performs orbiting, dollying (zooming), and panning. It maintains
+// the "up" direction as +Y, unlike the TrackballControls. Touch on tablet and phones is
+// supported.
+//
+//    Orbit - left mouse / touch: one finger move
+//    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
+//    Pan - right mouse, or arrow keys / touch: three finter swipe
+//
+// This is a drop-in replacement for (most) TrackballControls used in examples.
+// That is, include this js file and wherever you see:
+//    	controls = new THREE.TrackballControls( camera );
+//      controls.target.z = 150;
+// Simple substitute "OrbitControls" and the control should work as-is.
+
+THREE.OrbitControls = function(object, domElement) {
+
+    this.object = object;
+    this.domElement = domElement !== undefined ? domElement : document;
+
+    // API
+
+    // Set to false to disable this control
+    this.enabled = true;
+
+    // "target" sets the location of focus, where the control orbits around
+    // and where it pans with respect to.
+    this.target = new THREE.Vector3();
+    // center is old, deprecated; use "target" instead
+    this.center = this.target;
+
+    // This option actually enables dollying in and out; left as "zoom" for
+    // backwards compatibility
+    this.noZoom = false;
+    this.zoomSpeed = 1.0;
+    // Limits to how far you can dolly in and out
+    this.minDistance = 0;
+    this.maxDistance = Infinity;
+
+    // Set to true to disable this control
+    this.noRotate = false;
+    this.rotateSpeed = 1.0;
+
+    // Set to true to disable this control
+    this.noPan = false;
+    this.keyPanSpeed = 7.0; // pixels moved per arrow key push
+
+    // Set to true to automatically rotate around the target
+    this.autoRotate = false;
+    this.autoRotateSpeed = 2.0; // 30 seconds per round when fps is 60
+
+    // How far you can orbit vertically, upper and lower limits.
+    // Range is 0 to Math.PI radians.
+    this.minPolarAngle = 0; // radians
+    this.maxPolarAngle = Math.PI; // radians
+
+    // Set to true to disable use of the keys
+    this.noKeys = false;
+    // The four arrow keys
+    this.keys = {
+        LEFT: 37,
+        UP: 38,
+        RIGHT: 39,
+        BOTTOM: 40
+    };
+
+    ////////////
+    // internals
+
+    var scope = this;
+
+    var EPS = 0.000001;
+
+    var rotateStart = new THREE.Vector2();
+    var rotateEnd = new THREE.Vector2();
+    var rotateDelta = new THREE.Vector2();
+
+    var panStart = new THREE.Vector2();
+    var panEnd = new THREE.Vector2();
+    var panDelta = new THREE.Vector2();
+
+    var dollyStart = new THREE.Vector2();
+    var dollyEnd = new THREE.Vector2();
+    var dollyDelta = new THREE.Vector2();
+
+    var phiDelta = 0;
+    var thetaDelta = 0;
+    var scale = 1;
+    var pan = new THREE.Vector3();
+
+    var lastPosition = new THREE.Vector3();
+
+    var STATE = {
+        NONE: -1,
+        ROTATE: 0,
+        DOLLY: 1,
+        PAN: 2,
+        TOUCH_ROTATE: 3,
+        TOUCH_DOLLY: 4,
+        TOUCH_PAN: 5
+    };
+    var state = STATE.NONE;
+
+    // events
+
+    var changeEvent = {
+        type: 'change'
+    };
+
+    this.rotateLeft = function(angle) {
+
+        if (angle === undefined) {
+
+            angle = getAutoRotationAngle();
+        }
+
+        thetaDelta -= angle;
+    };
+
+    this.rotateUp = function(angle) {
+
+        if (angle === undefined) {
+
+            angle = getAutoRotationAngle();
+        }
+
+        phiDelta -= angle;
+    };
+
+    // pass in distance in world space to move left
+    this.panLeft = function(distance) {
+
+        var panOffset = new THREE.Vector3();
+        var te = this.object.matrix.elements;
+        // get X column of matrix
+        panOffset.set(te[0], te[1], te[2]);
+        panOffset.multiplyScalar(-distance);
+
+        pan.add(panOffset);
+    };
+
+    // pass in distance in world space to move up
+    this.panUp = function(distance) {
+
+        var panOffset = new THREE.Vector3();
+        var te = this.object.matrix.elements;
+        // get Y column of matrix
+        panOffset.set(te[4], te[5], te[6]);
+        panOffset.multiplyScalar(distance);
+
+        pan.add(panOffset);
+    };
+
+    // main entry point; pass in Vector2 of change desired in pixel space,
+    // right and down are positive
+    this.pan = function(delta) {
+
+        var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+
+        if (scope.object.fov !== undefined) {
+
+            // perspective
+            var position = scope.object.position;
+            var offset = position.clone().sub(scope.target);
+            var targetDistance = offset.length();
+
+            // half of the fov is center to top of screen
+            targetDistance *= Math.tan(scope.object.fov / 2 * Math.PI / 180.0);
+            // we actually don't use screenWidth, since perspective camera is fixed to screen height
+            scope.panLeft(2 * delta.x * targetDistance / element.clientHeight);
+            scope.panUp(2 * delta.y * targetDistance / element.clientHeight);
+        } else if (scope.object.top !== undefined) {
+
+            // orthographic
+            scope.panLeft(delta.x * (scope.object.right - scope.object.left) / element.clientWidth);
+            scope.panUp(delta.y * (scope.object.top - scope.object.bottom) / element.clientHeight);
+        } else {
+
+            // camera neither orthographic or perspective - warn user
+            console.warn('WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.');
+        }
+    };
+
+    this.dollyIn = function(dollyScale) {
+
+        if (dollyScale === undefined) {
+
+            dollyScale = getZoomScale();
+        }
+
+        scale /= dollyScale;
+    };
+
+    this.dollyOut = function(dollyScale) {
+
+        if (dollyScale === undefined) {
+
+            dollyScale = getZoomScale();
+        }
+
+        scale *= dollyScale;
+    };
+
+    this.update = function() {
+
+        var position = this.object.position;
+        var offset = position.clone().sub(this.target);
+
+        // angle from z-axis around y-axis
+
+        var theta = Math.atan2(offset.x, offset.z);
+
+        // angle from y-axis
+
+        var phi = Math.atan2(Math.sqrt(offset.x * offset.x + offset.z * offset.z), offset.y);
+
+        if (this.autoRotate) {
+
+            this.rotateLeft(getAutoRotationAngle());
+        }
+
+        theta += thetaDelta;
+        phi += phiDelta;
+
+        // restrict phi to be between desired limits
+        phi = Math.max(this.minPolarAngle, Math.min(this.maxPolarAngle, phi));
+
+        // restrict phi to be betwee EPS and PI-EPS
+        phi = Math.max(EPS, Math.min(Math.PI - EPS, phi));
+
+        var radius = offset.length() * scale;
+
+        // restrict radius to be between desired limits
+        radius = Math.max(this.minDistance, Math.min(this.maxDistance, radius));
+
+        // move target to panned location
+        this.target.add(pan);
+
+        offset.x = radius * Math.sin(phi) * Math.sin(theta);
+        offset.y = radius * Math.cos(phi);
+        offset.z = radius * Math.sin(phi) * Math.cos(theta);
+
+        position.copy(this.target).add(offset);
+
+        this.object.lookAt(this.target);
+
+        thetaDelta = 0;
+        phiDelta = 0;
+        scale = 1;
+        pan.set(0, 0, 0);
+
+        if (lastPosition.distanceTo(this.object.position) > 0) {
+
+            this.dispatchEvent(changeEvent);
+
+            lastPosition.copy(this.object.position);
+        }
+    };
+
+    function getAutoRotationAngle() {
+
+        return 2 * Math.PI / 60 / 60 * scope.autoRotateSpeed;
+    }
+
+    function getZoomScale() {
+
+        return Math.pow(0.95, scope.zoomSpeed);
+    }
+
+    function onMouseDown(event) {
+
+        if (scope.enabled === false) {
+            return;
+        }
+        event.preventDefault();
+
+        if (event.button === 0) {
+            if (scope.noRotate === true) {
+                return;
+            }
+
+            state = STATE.ROTATE;
+
+            rotateStart.set(event.clientX, event.clientY);
+        } else if (event.button === 1) {
+            if (scope.noZoom === true) {
+                return;
+            }
+
+            state = STATE.DOLLY;
+
+            dollyStart.set(event.clientX, event.clientY);
+        } else if (event.button === 2) {
+            if (scope.noPan === true) {
+                return;
+            }
+
+            state = STATE.PAN;
+
+            panStart.set(event.clientX, event.clientY);
+        }
+
+        // Greggman fix: https://github.com/greggman/three.js/commit/fde9f9917d6d8381f06bf22cdff766029d1761be
+        scope.domElement.addEventListener('mousemove', onMouseMove, false);
+        scope.domElement.addEventListener('mouseup', onMouseUp, false);
+    }
+
+    function onMouseMove(event) {
+
+        if (scope.enabled === false) return;
+
+        event.preventDefault();
+
+        var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+
+        if (state === STATE.ROTATE) {
+
+            if (scope.noRotate === true) return;
+
+            rotateEnd.set(event.clientX, event.clientY);
+            rotateDelta.subVectors(rotateEnd, rotateStart);
+
+            // rotating across whole screen goes 360 degrees around
+            scope.rotateLeft(2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed);
+            // rotating up and down along whole screen attempts to go 360, but limited to 180
+            scope.rotateUp(2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed);
+
+            rotateStart.copy(rotateEnd);
+        } else if (state === STATE.DOLLY) {
+
+            if (scope.noZoom === true) return;
+
+            dollyEnd.set(event.clientX, event.clientY);
+            dollyDelta.subVectors(dollyEnd, dollyStart);
+
+            if (dollyDelta.y > 0) {
+
+                scope.dollyIn();
+            } else {
+
+                scope.dollyOut();
+            }
+
+            dollyStart.copy(dollyEnd);
+        } else if (state === STATE.PAN) {
+
+            if (scope.noPan === true) return;
+
+            panEnd.set(event.clientX, event.clientY);
+            panDelta.subVectors(panEnd, panStart);
+
+            scope.pan(panDelta);
+
+            panStart.copy(panEnd);
+        }
+
+        // Greggman fix: https://github.com/greggman/three.js/commit/fde9f9917d6d8381f06bf22cdff766029d1761be
+        scope.update();
+    }
+
+    function onMouseUp() /* event */ {
+
+        if (scope.enabled === false) return;
+
+        // Greggman fix: https://github.com/greggman/three.js/commit/fde9f9917d6d8381f06bf22cdff766029d1761be
+        scope.domElement.removeEventListener('mousemove', onMouseMove, false);
+        scope.domElement.removeEventListener('mouseup', onMouseUp, false);
+
+        state = STATE.NONE;
+    }
+
+    function onMouseWheel(event) {
+
+        if (scope.enabled === false || scope.noZoom === true) return;
+
+        var delta = 0;
+
+        if (event.wheelDelta) {
+            // WebKit / Opera / Explorer 9
+
+            delta = event.wheelDelta;
+        } else if (event.detail) {
+            // Firefox
+
+            delta = -event.detail;
+        }
+
+        if (delta > 0) {
+
+            scope.dollyOut();
+        } else {
+
+            scope.dollyIn();
+        }
+    }
+
+    function onKeyDown(event) {
+
+        if (scope.enabled === false) {
+            return;
+        }
+        if (scope.noKeys === true) {
+            return;
+        }
+        if (scope.noPan === true) {
+            return;
+        }
+
+        // pan a pixel - I guess for precise positioning?
+        // Greggman fix: https://github.com/greggman/three.js/commit/fde9f9917d6d8381f06bf22cdff766029d1761be
+        var needUpdate = false;
+
+        switch (event.keyCode) {
+
+            case scope.keys.UP:
+                scope.pan(new THREE.Vector2(0, scope.keyPanSpeed));
+                needUpdate = true;
+                break;
+            case scope.keys.BOTTOM:
+                scope.pan(new THREE.Vector2(0, -scope.keyPanSpeed));
+                needUpdate = true;
+                break;
+            case scope.keys.LEFT:
+                scope.pan(new THREE.Vector2(scope.keyPanSpeed, 0));
+                needUpdate = true;
+                break;
+            case scope.keys.RIGHT:
+                scope.pan(new THREE.Vector2(-scope.keyPanSpeed, 0));
+                needUpdate = true;
+                break;
+        }
+
+        // Greggman fix: https://github.com/greggman/three.js/commit/fde9f9917d6d8381f06bf22cdff766029d1761be
+        if (needUpdate) {
+
+            scope.update();
+        }
+    }
+
+    function touchstart(event) {
+
+        if (scope.enabled === false) {
+            return;
+        }
+
+        switch (event.touches.length) {
+
+            case 1:
+                // one-fingered touch: rotate
+                if (scope.noRotate === true) {
+                    return;
+                }
+
+                state = STATE.TOUCH_ROTATE;
+
+                rotateStart.set(event.touches[0].pageX, event.touches[0].pageY);
+                break;
+
+            case 2:
+                // two-fingered touch: dolly
+                if (scope.noZoom === true) {
+                    return;
+                }
+
+                state = STATE.TOUCH_DOLLY;
+
+                var dx = event.touches[0].pageX - event.touches[1].pageX;
+                var dy = event.touches[0].pageY - event.touches[1].pageY;
+                var distance = Math.sqrt(dx * dx + dy * dy);
+                dollyStart.set(0, distance);
+                break;
+
+            case 3:
+                // three-fingered touch: pan
+                if (scope.noPan === true) {
+                    return;
+                }
+
+                state = STATE.TOUCH_PAN;
+
+                panStart.set(event.touches[0].pageX, event.touches[0].pageY);
+                break;
+
+            default:
+                state = STATE.NONE;
+
+        }
+    }
+
+    function touchmove(event) {
+
+        if (scope.enabled === false) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+
+        switch (event.touches.length) {
+
+            case 1:
+                // one-fingered touch: rotate
+                if (scope.noRotate === true) {
+                    return;
+                }
+                if (state !== STATE.TOUCH_ROTATE) {
+                    return;
+                }
+
+                rotateEnd.set(event.touches[0].pageX, event.touches[0].pageY);
+                rotateDelta.subVectors(rotateEnd, rotateStart);
+
+                // rotating across whole screen goes 360 degrees around
+                scope.rotateLeft(2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed);
+                // rotating up and down along whole screen attempts to go 360, but limited to 180
+                scope.rotateUp(2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed);
+
+                rotateStart.copy(rotateEnd);
+                break;
+
+            case 2:
+                // two-fingered touch: dolly
+                if (scope.noZoom === true) {
+                    return;
+                }
+                if (state !== STATE.TOUCH_DOLLY) {
+                    return;
+                }
+
+                var dx = event.touches[0].pageX - event.touches[1].pageX;
+                var dy = event.touches[0].pageY - event.touches[1].pageY;
+                var distance = Math.sqrt(dx * dx + dy * dy);
+
+                dollyEnd.set(0, distance);
+                dollyDelta.subVectors(dollyEnd, dollyStart);
+
+                if (dollyDelta.y > 0) {
+
+                    scope.dollyOut();
+                } else {
+
+                    scope.dollyIn();
+                }
+
+                dollyStart.copy(dollyEnd);
+                break;
+
+            case 3:
+                // three-fingered touch: pan
+                if (scope.noPan === true) {
+                    return;
+                }
+                if (state !== STATE.TOUCH_PAN) {
+                    return;
+                }
+
+                panEnd.set(event.touches[0].pageX, event.touches[0].pageY);
+                panDelta.subVectors(panEnd, panStart);
+
+                scope.pan(panDelta);
+
+                panStart.copy(panEnd);
+                break;
+
+            default:
+                state = STATE.NONE;
+
+        }
+    }
+
+    function touchend() /* event */ {
+
+        if (scope.enabled === false) {
+            return;
+        }
+
+        state = STATE.NONE;
+    }
+
+    this.domElement.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    }, false);
+    this.domElement.addEventListener('mousedown', onMouseDown, false);
+    this.domElement.addEventListener('mousewheel', onMouseWheel, false);
+    this.domElement.addEventListener('DOMMouseScroll', onMouseWheel, false); // firefox
+
+    this.domElement.addEventListener('keydown', onKeyDown, false);
+
+    this.domElement.addEventListener('touchstart', touchstart, false);
+    this.domElement.addEventListener('touchend', touchend, false);
+    this.domElement.addEventListener('touchmove', touchmove, false);
+};
+
+THREE.OrbitControls.prototype = Object.create(THREE.EventDispatcher.prototype);
+
+// stats.js - http://github.com/mrdoob/stats.js
+var Stats = function Stats() {
+    function f(a, e, b) {
+        a = document.createElement(a);
+        a.id = e;
+        a.style.cssText = b;
+        return a;
+    }
+
+    function l(a, e, b) {
+        var c = f("div", a, "padding:0 0 3px 3px;text-align:left;background:" + b),
+            d = f("div", a + "Text", "font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px;color:" + e);
+        d.innerHTML = a.toUpperCase();
+        c.appendChild(d);
+        a = f("div", a + "Graph", "width:74px;height:30px;background:" + e);
+        c.appendChild(a);
+        for (e = 0; 74 > e; e++) {
+            a.appendChild(f("span", "", "width:1px;height:30px;float:left;opacity:0.9;background:" + b));
+        }
+        return c;
+    }
+
+    function m(a) {
+        for (var b = c.children, d = 0; d < b.length; d++) {
+            b[d].style.display = d === a ? "block" : "none";
+        }
+        n = a;
+    }
+
+    function p(a, b) {
+        a.appendChild(a.firstChild).style.height = Math.min(30, 30 - 30 * b) + "px";
+    }
+    var q = self.performance && self.performance.now ? self.performance.now.bind(performance) : Date.now,
+        k = q(),
+        r = k,
+        t = 0,
+        n = 0,
+        c = f("div", "stats", "width:80px;opacity:0.9;cursor:pointer");
+    c.addEventListener("mousedown", function(a) {
+        a.preventDefault();
+        m(++n % c.children.length);
+    }, !1);
+    var d = 0,
+        u = Infinity,
+        v = 0,
+        b = l("fps", "#0ff", "#002"),
+        A = b.children[0],
+        B = b.children[1];
+    c.appendChild(b);
+    var g = 0,
+        w = Infinity,
+        x = 0,
+        b = l("ms", "#0f0", "#020"),
+        C = b.children[0],
+        D = b.children[1];
+    c.appendChild(b);
+    if (self.performance && self.performance.memory) {
+        var h = 0,
+            y = Infinity,
+            z = 0,
+            b = l("mb", "#f08", "#201"),
+            E = b.children[0],
+            F = b.children[1];
+        c.appendChild(b);
+    }
+    m(n);
+    return {
+        REVISION: 14,
+        domElement: c,
+        setMode: m,
+        begin: function begin() {
+            k = q();
+        },
+        end: function end() {
+            var a = q();
+            g = a - k;
+            w = Math.min(w, g);
+            x = Math.max(x, g);
+            C.textContent = (g | 0) + " MS (" + (w | 0) + "-" + (x | 0) + ")";
+            p(D, g / 200);
+            t++;
+            if (a > r + 1E3 && (d = Math.round(1E3 * t / (a - r)), u = Math.min(u, d), v = Math.max(v, d), A.textContent = d + " FPS (" + u + "-" + v + ")", p(B, d / 100), r = a, t = 0, void 0 !== h)) {
+                var b = performance.memory.usedJSHeapSize,
+                    c = performance.memory.jsHeapSizeLimit;
+                h = Math.round(9.54E-7 * b);
+                y = Math.min(y, h);
+                z = Math.max(z, h);
+                E.textContent = h + " MB (" + y + "-" + z + ")";
+                p(F, b / c);
+            }
+            return a;
+        },
+        update: function update() {
+            k = this.end();
+        }
+    };
+};
+"object" === (typeof module === "undefined" ? "undefined" : _typeof(module)) && (module.exports = Stats);
+
+/*
+ *	@author zz85 / http://twitter.com/blurspline / http://www.lab4games.net/zz85/blog
+ *
+ *	Subdivision Geometry Modifier
+ *		using Loop Subdivision Scheme
+ *
+ *	References:
+ *		http://graphics.stanford.edu/~mdfisher/subdivision.html
+ *		http://www.holmes3d.net/graphics/subdivision/
+ *		http://www.cs.rutgers.edu/~decarlo/readings/subdiv-sg00c.pdf
+ *
+ *	Known Issues:
+ *		- currently doesn't handle UVs
+ *		- currently doesn't handle "Sharp Edges"
+ *
+ */
+
+THREE.SubdivisionModifier = function(subdivisions) {
+    'use strict';
+
+    this.subdivisions = subdivisions === undefined ? 1 : subdivisions;
+};
+
+// Applies the "modify" pattern
+THREE.SubdivisionModifier.prototype.modify = function(geometry) {
+
+    var repeats = this.subdivisions;
+
+    while (repeats-- > 0) {
+
+        this.smooth(geometry);
+    }
+
+    delete geometry.__tmpVertices;
+
+    geometry.computeFaceNormals();
+    geometry.computeVertexNormals();
+};
+
+(function() {
+
+    // Some constants
+    var WARNINGS = !true; // Set to true for development
+    var ABC = ['a', 'b', 'c'];
+
+    function getEdge(a, b, map) {
+
+        var vertexIndexA = Math.min(a, b);
+        var vertexIndexB = Math.max(a, b);
+
+        var key = vertexIndexA + "_" + vertexIndexB;
+
+        return map[key];
+    }
+
+    function processEdge(a, b, vertices, map, face, metaVertices) {
+
+        var vertexIndexA = Math.min(a, b);
+        var vertexIndexB = Math.max(a, b);
+
+        var key = vertexIndexA + "_" + vertexIndexB;
+
+        var edge;
+
+        if (key in map) {
+
+            edge = map[key];
+        } else {
+
+            var vertexA = vertices[vertexIndexA];
+            var vertexB = vertices[vertexIndexB];
+
+            edge = {
+
+                a: vertexA, // pointer reference
+                b: vertexB,
+                newEdge: null,
+                // aIndex: a, // numbered reference
+                // bIndex: b,
+                faces: [] // pointers to face
+
+            };
+
+            map[key] = edge;
+        }
+
+        edge.faces.push(face);
+
+        metaVertices[a].edges.push(edge);
+        metaVertices[b].edges.push(edge);
+    }
+
+    function generateLookups(vertices, faces, metaVertices, edges) {
+
+        var i, il, face, edge;
+
+        for (i = 0, il = vertices.length; i < il; i++) {
+
+            metaVertices[i] = {
+                edges: []
+            };
+        }
+
+        for (i = 0, il = faces.length; i < il; i++) {
+
+            face = faces[i];
+
+            processEdge(face.a, face.b, vertices, edges, face, metaVertices);
+            processEdge(face.b, face.c, vertices, edges, face, metaVertices);
+            processEdge(face.c, face.a, vertices, edges, face, metaVertices);
+        }
+    }
+
+    function newFace(newFaces, a, b, c) {
+
+        newFaces.push(new THREE.Face3(a, b, c));
+    }
+
+    /////////////////////////////
+
+    // Performs one iteration of Subdivision
+    THREE.SubdivisionModifier.prototype.smooth = function(geometry) {
+
+        var tmp = new THREE.Vector3();
+
+        var oldVertices, oldFaces;
+        var newVertices, newFaces; // newUVs = [];
+
+        var n, l, i, il, j, k;
+        var metaVertices, sourceEdges;
+
+        // new stuff.
+        var sourceEdges, newEdgeVertices, newSourceVertices;
+
+        oldVertices = geometry.vertices; // { x, y, z}
+        oldFaces = geometry.faces; // { a: oldVertex1, b: oldVertex2, c: oldVertex3 }
+
+        /******************************************************
+         *
+         * Step 0: Preprocess Geometry to Generate edges Lookup
+         *
+         *******************************************************/
+
+        metaVertices = new Array(oldVertices.length);
+        sourceEdges = {}; // Edge => { oldVertex1, oldVertex2, faces[]  }
+
+        generateLookups(oldVertices, oldFaces, metaVertices, sourceEdges);
+
+        /******************************************************
+         *
+         *	Step 1.
+         *	For each edge, create a new Edge Vertex,
+         *	then position it.
+         *
+         *******************************************************/
+
+        newEdgeVertices = [];
+        var other, currentEdge, newEdge, face;
+        var edgeVertexWeight, adjacentVertexWeight, connectedFaces;
+
+        for (i in sourceEdges) {
+
+            currentEdge = sourceEdges[i];
+            newEdge = new THREE.Vector3();
+
+            edgeVertexWeight = 3 / 8;
+            adjacentVertexWeight = 1 / 8;
+
+            connectedFaces = currentEdge.faces.length;
+
+            // check how many linked faces. 2 should be correct.
+            if (connectedFaces != 2) {
+
+                // if length is not 2, handle condition
+                edgeVertexWeight = 0.5;
+                adjacentVertexWeight = 0;
+
+                if (connectedFaces != 1) {
+
+                    if (WARNINGS) console.warn('Subdivision Modifier: Number of connected faces != 2, is: ', connectedFaces, currentEdge);
+                }
+            }
+
+            newEdge.addVectors(currentEdge.a, currentEdge.b).multiplyScalar(edgeVertexWeight);
+
+            tmp.set(0, 0, 0);
+
+            for (j = 0; j < connectedFaces; j++) {
+
+                face = currentEdge.faces[j];
+
+                for (k = 0; k < 3; k++) {
+
+                    other = oldVertices[face[ABC[k]]];
+                    if (other !== currentEdge.a && other !== currentEdge.b) break;
+                }
+
+                tmp.add(other);
+            }
+
+            tmp.multiplyScalar(adjacentVertexWeight);
+            newEdge.add(tmp);
+
+            currentEdge.newEdge = newEdgeVertices.length;
+            newEdgeVertices.push(newEdge);
+
+            // console.log(currentEdge, newEdge);
+        }
+
+        /******************************************************
+         *
+         *	Step 2.
+         *	Reposition each source vertices.
+         *
+         *******************************************************/
+
+        var beta, sourceVertexWeight, connectingVertexWeight;
+        var connectingEdge, connectingEdges, oldVertex, newSourceVertex;
+        newSourceVertices = [];
+
+        for (i = 0, il = oldVertices.length; i < il; i++) {
+
+            oldVertex = oldVertices[i];
+
+            // find all connecting edges (using lookupTable)
+            connectingEdges = metaVertices[i].edges;
+            n = connectingEdges.length;
+            beta;
+
+            if (n == 3) {
+
+                beta = 3 / 16;
+            } else if (n > 3) {
+
+                beta = 3 / (8 * n); // Warren's modified formula
+            }
+
+            // Loop's original beta formula
+            // beta = 1 / n * ( 5/8 - Math.pow( 3/8 + 1/4 * Math.cos( 2 * Math. PI / n ), 2) );
+
+            sourceVertexWeight = 1 - n * beta;
+            connectingVertexWeight = beta;
+
+            if (n <= 2) {
+
+                // crease and boundary rules
+                // console.warn('crease and boundary rules');
+
+                if (n == 2) {
+
+                    if (WARNINGS) console.warn('2 connecting edges', connectingEdges);
+                    sourceVertexWeight = 3 / 4;
+                    connectingVertexWeight = 1 / 8;
+
+                    // sourceVertexWeight = 1;
+                    // connectingVertexWeight = 0;
+                } else if (n == 1) {
+
+                    if (WARNINGS) console.warn('only 1 connecting edge');
+                } else if (n == 0) {
+
+                    if (WARNINGS) console.warn('0 connecting edges');
+                }
+            }
+
+            newSourceVertex = oldVertex.clone().multiplyScalar(sourceVertexWeight);
+
+            tmp.set(0, 0, 0);
+
+            for (j = 0; j < n; j++) {
+
+                connectingEdge = connectingEdges[j];
+                other = connectingEdge.a !== oldVertex ? connectingEdge.a : connectingEdge.b;
+                tmp.add(other);
+            }
+
+            tmp.multiplyScalar(connectingVertexWeight);
+            newSourceVertex.add(tmp);
+
+            newSourceVertices.push(newSourceVertex);
+        }
+
+        /******************************************************
+         *
+         *	Step 3.
+         *	Generate Faces between source vertecies
+         *	and edge vertices.
+         *
+         *******************************************************/
+
+        newVertices = newSourceVertices.concat(newEdgeVertices);
+        var sl = newSourceVertices.length,
+            edge1,
+            edge2,
+            edge3;
+        newFaces = [];
+
+        for (i = 0, il = oldFaces.length; i < il; i++) {
+
+            face = oldFaces[i];
+
+            // find the 3 new edges vertex of each old face
+
+            edge1 = getEdge(face.a, face.b, sourceEdges).newEdge + sl;
+            edge2 = getEdge(face.b, face.c, sourceEdges).newEdge + sl;
+            edge3 = getEdge(face.c, face.a, sourceEdges).newEdge + sl;
+
+            // create 4 faces.
+
+            newFace(newFaces, edge1, edge2, edge3);
+            newFace(newFaces, face.a, edge1, edge3);
+            newFace(newFaces, face.b, edge2, edge1);
+            newFace(newFaces, face.c, edge3, edge2);
+        }
+
+        // Overwrite old arrays
+        geometry.vertices = newVertices;
+        geometry.faces = newFaces;
+
+        // console.log('done');
+    };
+})();
+
+/* ================ MODERNIZING BROWSER API IF NOT EXIST ==================== */
+
+//Replacing jQuery fadeIn and fadeOut
+function addCSSRule(sheet, selector, rules, index) {
+
+    if (sheet.insertRule) sheet.insertRule(selector + '{' + rules + '}', index);
+    else if (sheet.addRule) sheet.addRule(selector, rules, index);
+}
+
+//Adds CSS style sheets
+addCSSRule(document.styleSheets[0], '@keyframes fadeOut', 'to {opacity: 0}', 0);
+
+addCSSRule(document.styleSheets[0], '@keyframes fadeIn', 'from {opacity: 0} to {opacity: 1}', 0);
+
+//Adds function to triggers animation
+Element.prototype.fadeOut = function(t) {
+
+    this.style.webkitAnimationDuration = (t || 1) + 's';
+    this.style.webkitAnimationName = "fadeOut";
+    this.style.webkitAnimationPlayState = 'running';
+
+    this.addEventListener('animationend', function() {
+        this.style.display = 'none';
+        this.style.webkitAnimationPlayState = 'paused';
+    });
+};
+
+Element.prototype.fadeIn = function(t, display) {
+
+    this.style.display = display || 'block';
+
+    this.style.webkitAnimationDuration = (t || 1) + 's';
+    this.style.webkitAnimationName = "fadeIn";
+    this.style.webkitAnimationPlayState = 'running';
+
+    this.addEventListener('animationend', function() {
+        this.style.display = display || 'block';
+    });
+};
+
+// Array.isArray;
+if (typeof Array.isArray === 'undefined') {
+
+    Array.isArray = function(obj) {
+
+        'use strict';
+
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    };
+}
+
+// event.movementX and event.movementY kind of polyfill
+(function() {
+
+    if (!MouseEvent.prototype.hasOwnProperty('movementX') || !MouseEvent.prototype.hasOwnProperty('mozMovementX')) {
+        //Checks for support
+
+        // If movementX and ... are not supported, an object Mouse is added to the WHS
+        // that contains information about last coords of the mouse.
+        var mouse = {
+            lastX: 0,
+            lastY: 0
+        };
+
+        MouseEvent.prototype.getMovementX = function() {
+            'use strict';
+
+            var value = this.clientX - mouse.lastX;
+            mouse.lastX = this.clientX;
+
+            return value;
+        };
+
+        MouseEvent.prototype.getMovementY = function() {
+            'use strict';
+
+            var value = this.clientY - mouse.lastY;
+            mouse.lastY = this.clientY;
+
+            return value;
+        };
+    }
+})();
+
+// Object.assign|es6+;
+if (!Object.assign) {
+    Object.defineProperty(Object, 'assign', {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: function value(target) {
+            'use strict';
+
+            if (target === undefined || target === null) {
+                throw new TypeError('Cannot convert first argument to object');
+            }
+
+            var to = Object(target);
+            for (var i = 1; i < arguments.length; i++) {
+                var nextSource = arguments[i];
+                if (nextSource === undefined || nextSource === null) {
+                    continue;
+                }
+                nextSource = Object(nextSource);
+
+                var keysArray = Object.keys(nextSource);
+                for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+                    var nextKey = keysArray[nextIndex];
+                    var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+                    if (desc !== undefined && desc.enumerable) {
+                        to[nextKey] = nextSource[nextKey];
+                    }
+                }
+            }
+            return to;
+        }
+    });
+}
+
+// [x]#TODO:130 RESTRUCTURIZE.
+// [x]#TODO:120 RESTRUCTURIZE threejs and cannonjs library calling.
+// [x]#DONE:30 Add stats.
+// #TODO:10 Add http://underscorejs.org/.
+// DONE:20 clean all console.logs.
+// DOING:0 Wagner.base.js is not a part of library.
+// FIXME: Fix fog.
+// DOING:10 improve libraries support.
+
+/* ================ WHITESTORM|JS ==================== */
+var WHS = {
+    REVISION: "7",
+
+    loader: {
+        JSON: new THREE.JSONLoader(),
+        Texture: new THREE.TextureLoader(),
+        Font: new THREE.FontLoader()
+    },
+
+    API: {},
+
+    _settings: {
+
+        assets: "./assets",
+
+        path_worker: '../libs/physijs_worker.js',
+        path_ammo: '../libs/ammo.js'
+
+    },
+
+    loops: []
+};
+
+WHS.API.loadJSON = function(url, callback, texturePath) {
+    return WHS.loader.JSON.load(url, callback, texturePath);
+};
+
+WHS.API.loadTexture = function(url, onLoad, onProgress, onError) {
+    return WHS.loader.Texture.load(url, onLoad, onProgress, onError);
+};
+
+WHS.API.loadFont = function(url, onLoad, onProgress, onError) {
+    return WHS.loader.Font.load(url, onLoad, onProgress, onError);
+};
+
+var api = WHS.API;
+
+if (typeof define === 'function' && define.amd) {
+
+    define('whitestorm', WHS);
+} else if ('undefined' !== typeof exports && 'undefined' !== typeof module) {
+
+    module.exports = WHS;
+}
+
+/**
+ * Extending object with other objects.
+ *
+ * @param {Object} object - Object that will be overwritten.
+ * @param {...Objects} extensions - other objects that will be merged to first.
+ * @return {Object} Extended object.
+ */
+WHS.API.extend = function(object) {
+    for (var _len = arguments.length, extensions = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        extensions[_key - 1] = arguments[_key];
+    }
+
+    // $.extend alternative, ... is the spread operator.
+
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = extensions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var extension = _step.value;
+
+            //console.log(extension);
+            //console.log(typeof extension);
+
+            if (!extension) continue; // Ignore null and undefined objects and paramaters.
+
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = Object.getOwnPropertyNames(extension)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var prop = _step2.value;
+                    // Do not traverse the prototype chain.
+                    if (object[prop] != undefined && object[prop].toString() == '[object Object]' && extension[prop].toString() == '[object Object]')
+
+                    //Goes deep only if object[prop] and extension[prop] are both objects !
+                        WHS.API.extend(object[prop], extension[prop]);
+                    else object[prop] = object[prop] === 0 ? 0 : object[prop];
+                    if (!object[prop] && typeof object[prop] != "boolean") object[prop] = extension[prop]; // Add values that do not already exist.
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    return object;
+};
+
+/** Light super class */
+WHS.Light = function() {
+    /**
+     * Constructing WHS.Light object.
+     * 
+     * @param {Object} params - Inputed parameters.
+     * @param {String} type - Light type.
+     * @return {WHS.Light}
+     */
+
+    function _class(params, type) {
+        _classCallCheck(this, _class);
+
+        //if ( ! root )
+        //console.error( "@constructor: WHS root object is not defined." );
+
+        var _set = function _set(x, y, z) {
+
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        };
+
+        if (params.pos) params.pos.set = _set;
+        if (params.rot) params.rot.set = _set;
+        if (params.target) params.target.set = _set;
+
+        // Polyfill for 3D.
+        var target = api.extend(params, {
+
+            light: {
+                color: 0xffffff,
+                skyColor: 0xffffff,
+                groundColor: 0xffffff,
+
+                intensity: 1,
+                distance: 100,
+                angle: Math.PI / 3,
+                exponent: 0,
+                decay: 1
+            },
+
+            shadowmap: {
+                cast: true,
+
+                bias: 0,
+
+                width: 1024,
+                height: 1024,
+
+                near: true,
+                far: 400,
+                fov: 60,
+                darkness: 0.3,
+
+                top: 200,
+                bottom: -200,
+                left: -200,
+                right: 200
+            },
+
+            pos: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            },
+
+            rot: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            },
+
+            target: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            }
+
+        });
+
+        var key = 0;
+
+        /*root.modellingQueue.forEach( function( el ) {
+        			if ( el.type == type ) key ++;
+        		} );*/
+
+        var scope = {
+            _key: key,
+            _type: type,
+            _whsobject: true,
+            _name: type + key,
+            __releaseTime: new Date().getTime(),
+            _pos: target.pos,
+            _rot: target.rot,
+            _target: target.target,
+
+            _light: target.light,
+            _shadowmap: target.shadowmap,
+
+            ready: new Events()
+        };
+
+        Object.assign(this, scope);
+
+        return this;
+    }
+
+    /**
+     * Applying shadow & position & rotation.
+     *
+     * @param {...String} tags - Tags that defines what to do with light 
+     * additionally.
+     */
+
+    _createClass(_class, [{
+        key: "build",
+        value: function build() {
+
+            'use strict';
+
+            var _this = this;
+
+            for (var _len2 = arguments.length, tags = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                tags[_key2] = arguments[_key2];
+            }
+
+            var mesh = this.mesh,
+                _scope = this;
+
+            this.build_state = new Promise(function(resolve, reject) {
+
+                try {
+
+                    mesh.castShadow = true;
+                    mesh.receiveShadow = true;
+
+                    mesh.position.set(_this._pos.x, _this._pos.y, _this._pos.z);
+                    mesh.rotation.set(_this._rot.x, _this._rot.y, _this._rot.z);
+
+                    tags.forEach(function(tag) {
+                        _scope[tag] = true;
+                    });
+
+                    resolve();
+                } catch (err) {
+
+                    console.error(err.message);
+
+                    reject();
+
+                    //this._state.reject();
+                }
+            });
+
+            return this;
+        }
+
+        /**
+         * Add light to WHS.World object.
+         *
+         * @param {WHS.World} root - World, were this light will be. 
+         */
+
+    }, {
+        key: "addTo",
+        value: function addTo(root) {
+
+            'use strict';
+
+            this.root = root;
+
+            var _mesh = this.mesh,
+                _scope = this;
+
+            console.log(this);
+
+            this._key = this.root.modellingQueue.length;
+
+            _scope._state = new Promise(function(resolve, reject) {
+
+                try {
+
+                    api.merge(_scope.root.scene, _mesh);
+                    _scope.root.modellingQueue.push(_scope);
+                } catch (err) {
+
+                    console.error(err.message);
+                    reject();
+                } finally {
+
+                    if (_scope._wait) {
+
+                        _scope._mesh.addEventListener('ready', function() {
+                            resolve();
+
+                            _scope.ready.emit("ready");
+                        });
+                    } else {
+                        resolve();
+
+                        _scope.ready.emit("ready");
+                    }
+                }
+            });
+
+            _scope.root.children.push(_scope);
+
+            return this;
+        }
+
+        /** 
+         * Set shadow properties for light.
+         */
+
+    }, {
+        key: "buildShadow",
+        value: function buildShadow() {
+
+            this.mesh.shadow.mapSize.width = this._shadowmap.width;
+            this.mesh.shadow.mapSize.height = this._shadowmap.height;
+            this.mesh.shadow.bias = this._shadowmap.bias;
+
+            this.mesh.shadow.camera.near = this._shadowmap.near;
+            this.mesh.shadow.camera.far = this._shadowmap.far;
+            this.mesh.shadow.camera.fov = this._shadowmap.fov;
+            //this.mesh.shadowDarkness = this._shadowmap.darkness;
+
+            this.mesh.shadow.camera.Left = this._shadowmap.left;
+            this.mesh.shadow.camera.right = this._shadowmap.right;
+            this.mesh.shadow.camera.top = this._shadowmap.top;
+            this.mesh.shadow.camera.bottom = this._shadowmap.bottom;
+        }
+
+        /**
+         * Remove this light from world.
+         */
+
+    }, {
+        key: "remove",
+        value: function remove() {
+
+            this.root.scene.remove(this.mesh);
+
+            return this;
+        }
+
+        /**
+         * Add this light to last applied world.
+         */
+
+    }, {
+        key: "retrieve",
+        value: function retrieve() {
+
+            this.root.scene.add(this.mesh);
+
+            return this;
+        }
+    }]);
+
+    return _class;
+}();
+
+WHS.API.loadMaterial = function(material) {
+
+    'use strict';
+
+    if (typeof material.kind !== "string") console.error("Type of material is undefined or not a string. @loadMaterial");
+
+    var scope = {
+        _type: material.kind,
+        _restitution: !isNaN(parseFloat(material.restitution)) ? material.restitution : !isNaN(parseFloat(material.rest)) ? material.rest : 0.3,
+        _friction: !isNaN(parseFloat(material.friction)) ? material.friction : !isNaN(parseFloat(material.fri)) ? material.fri : 0.8
+    };
+
+    var params = api.extend({}, material);
+
+    delete params["kind"];
+
+    delete params["friction"];
+    delete params["fri"];
+
+    delete params["restitution"];
+    delete params["rest"];
+
+    delete params["useCustomMaterial"];
+    delete params["useVertexColors"];
+
+    switch (material.kind) {
+        case "basic":
+            scope._material = new THREE.MeshBasicMaterial(params);
+            break;
+
+        case "linebasic":
+            scope._params = new THREE.LineBasicMaterial(params);
+            break;
+
+        case "linedashed":
+            scope._material = new THREE.LineDashedMaterial(params);
+            break;
+
+        case "material":
+            scope._material = new THREE.Material(params);
+            break;
+
+        case "depth":
+            scope._material = new THREE.MeshDepthMaterial(params);
+            break;
+
+        case "face":
+            scope._material = new THREE.MeshFaceMaterial(params);
+            break;
+
+        case "lambert":
+            scope._material = new THREE.MeshLambertMaterial(params);
+            break;
+
+        case "normal":
+            scope._material = new THREE.MeshNormalMaterial(params);
+            break;
+
+        case "phong":
+            scope._material = new THREE.MeshPhongMaterial(params);
+            break;
+
+        case "pointcloud":
+            scope._material = new THREE.PointCloudMaterial(params);
+            break;
+
+        case "rawshader":
+            scope._material = new THREE.RawShaderMaterial(params);
+            break;
+
+        case "shader":
+            scope._material = new THREE.ShaderMaterial(params);
+            break;
+
+        case "spritecanvas":
+            scope._material = new THREE.SpriteCanvasMaterial(params);
+            break;
+
+        case "sprite":
+            scope._material = new THREE.SpriteMaterial(params);
+            break;
+    }
+
+    scope._material = Physijs.createMaterial(scope._material, scope._friction, scope._restitution);
+
+    console.log(scope._friction);
+
+    return scope;
+};
+
+/**
+ * Adds multiple objects to first object with .add method.
+ *
+ * @param {Object} box Object to be merged. (REQUIRED)
+ * @param {Object} rabbits Object to be added. (REQUIRED)
+ * @deprecated since v0.0.6
+ */
+WHS.API.merge = function(box, rabbits) {
+
+    'use strict';
+
+    // More presice checking.
+
+    if (!((typeof box === "undefined" ? "undefined" : _typeof(box)) === 'object' && (typeof rabbits === "undefined" ? "undefined" : _typeof(rabbits)) === 'object')) console.error("No rabbits for the box. (arguments)", [typeof box === "undefined" ? "undefined" : _typeof(box), typeof rabbits === "undefined" ? "undefined" : _typeof(rabbits)]);
+
+    // Will only get here if box and rabbits are objects, arrays are object !
+    if (!box) // Box should not be null, null is an object too !
+
+    // #FIXME:0 Fix caller function line number.
+        console.error("box is undefined. Line " + new Error().lineNumber + ". Func merge.", [box, rabbits]);
+    else {
+
+        if (Array.isArray(rabbits) && rabbits.length === 1) box.add(rabbits[0]); // Should not be 0.
+
+        else if (Array.isArray(rabbits) && rabbits.length > 1 && box) {
+
+            for (var i = 0; i < rabbits.length; i++) {
+
+                box.add(rabbits[i]);
+            }
+        } else if (!Array.isArray(rabbits)) box.add(rabbits);
+    }
+};
+
+/** Shape super class */
+WHS.Shape = function() {
+    /**
+     * Constructing WHS.Shape object.
+     * 
+     * @param {Object} params - Inputed parameters.
+     * @param {String} type - Shape type.
+     * @return {WHS.Shape}
+     */
+
+    function _class2(params, type) {
+        _classCallCheck(this, _class2);
+
+        //if ( ! root )
+        //console.error( "@constructor: WHS root object is not defined." );
+
+        this._lastWorld = null;
+
+        var _set = function _set(x, y, z) {
+
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        };
+
+        // Polyfill for 3D.
+        api.extend(params, {
+
+            mass: 10,
+
+            pos: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            },
+
+            rot: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            },
+
+            scale: {
+                x: 1,
+                y: 1,
+                z: 1,
+                set: _set
+            },
+
+            target: {
+                x: 0,
+                y: 0,
+                z: 0,
+                set: _set
+            },
+
+            morph: {
+                speed: 1,
+                duration: 1
+            },
+
+            onlyvis: false
+
+        });
+
+        var key = 0;
+
+        /*root.modellingQueue.forEach( function( el ) {
+        			if ( el.type == type ) key ++;
+        		} );*/
+
+        var scope = {
+            _key: key,
+            _type: type,
+            _whsobject: true,
+            _name: type + key,
+            __releaseTime: new Date().getTime(),
+            _pos: params.pos,
+            _rot: params.rot,
+            _scale: params.scale,
+            _morph: params.morph,
+            _target: params.target,
+            _onlyvis: params.onlyvis,
+
+            ready: new Events()
+        };
+
+        Object.assign(this, scope);
+
+        return this;
+    }
+
+    /**
+     * Applying shadow & position & rotation.
+     *
+     * @param {...String} tags - Tags that defines what to do with shape 
+     * additionally.
+     */
+
+    _createClass(_class2, [{
+        key: "build",
+        value: function build() {
+
+            'use strict';
+
+            console.log(this);
+
+            var _scope = this;
+
+            for (var _len3 = arguments.length, tags = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                tags[_key3] = arguments[_key3];
+            }
+
+            if (tags.indexOf("wait") >= 0) {
+
+                _scope._loading.then(function() {
+
+                    _scope.build_state = new Promise(function(resolve, reject) {
+
+                        try {
+
+                            _scope.mesh.castShadow = true;
+                            _scope.mesh.receiveShadow = true;
+
+                            _scope.mesh.position.set(_scope._pos.x, _scope._pos.y, _scope._pos.z);
+                            _scope.mesh.rotation.set(_scope._rot.x, _scope._rot.y, _scope._rot.z);
+                            _scope.mesh.scale.set(_scope._scale.x, _scope._scale.y, _scope._scale.z);
+
+                            //References, I consider this a bad way of solving the problem, but it works for now
+                            _scope._pos = _scope.mesh.position;
+                            _scope._rot = _scope.mesh.rotation;
+                            _scope._scale = _scope.mesh.scale;
+
+                            resolve();
+                        } catch (err) {
+
+                            console.error(err.message);
+
+                            reject();
+
+                            //this._state.reject();
+                        }
+                    });
+                });
+            } else {
+                _scope.build_state = new Promise(function(resolve, reject) {
+
+                    try {
+
+                        _scope.mesh.castShadow = true;
+                        _scope.mesh.receiveShadow = true;
+
+                        _scope.mesh.position.set(_scope._pos.x, _scope._pos.y, _scope._pos.z);
+                        _scope.mesh.rotation.set(_scope._rot.x, _scope._rot.y, _scope._rot.z);
+                        _scope.mesh.scale.set(_scope._scale.x, _scope._scale.y, _scope._scale.z);
+
+                        //References, I consider this a bad way of solving the problem, but it works for now
+                        _scope._pos = _scope.mesh.position;
+                        _scope._rot = _scope.mesh.rotation;
+                        _scope._scale = _scope.mesh.scale;
+
+                        resolve();
+                    } catch (err) {
+
+                        console.error(err.message);
+
+                        reject();
+
+                        //this._state.reject();
+                    }
+                });
+            }
+
+            return this;
+        }
+
+        /**
+         * Add shape to WHS.World object.
+         *
+         * @param {WHS.World} root - World, were this shape will be. 
+         */
+
+    }, {
+        key: "addTo",
+        value: function addTo(root) {
+
+            'use strict';
+
+            this.root = root;
+
+            this._lastWorld = root;
+
+            var _mesh = this.mesh,
+                _scope = this;
+
+            this._key = this.root.modellingQueue.length;
+
+            for (var _len4 = arguments.length, tags = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+                tags[_key4 - 1] = arguments[_key4];
+            }
+
+            console.log([tags, tags.indexOf("wait"), _scope]);
+
+            if (tags.indexOf("wait") >= 0) {
+                _scope._loading.then(function() {
+
+                    _scope._state = new Promise(function(resolve, reject) {
+
+                        try {
+
+                            api.merge(_scope.root.scene, _scope.mesh);
+                            _scope.root.modellingQueue.push(_scope);
+                        } catch (err) {
+
+                            console.error(err.message);
+                            reject();
+                        } finally {
+
+                            if (_scope._wait) {
+
+                                _scope._mesh.addEventListener('ready', function() {
+                                    resolve();
+
+                                    _scope.ready.emit("ready");
+                                });
+                            } else {
+                                resolve();
+
+                                _scope.ready.emit("ready");
+                            }
+                        }
+                    });
+                });
+            } else {
+
+                _scope._state = new Promise(function(resolve, reject) {
+
+                    try {
+
+                        api.merge(_scope.root.scene, _mesh);
+                        _scope.root.modellingQueue.push(_scope);
+                    } catch (err) {
+
+                        console.error(err.message);
+                        reject();
+                    } finally {
+
+                        if (_scope._wait) {
+
+                            _scope._mesh.addEventListener('ready', function() {
+                                resolve();
+
+                                _scope.ready.emit("ready");
+                            });
+                        } else {
+                            resolve();
+
+                            console.log("wqd");
+
+                            _scope.ready.emit("ready");
+                        }
+                    }
+                });
+            }
+
+            _scope.root.children.push(_scope);
+
+            return this;
+        }
+
+        /**
+         * Initialize shape's material object.
+         */
+
+    }, {
+        key: "_initMaterial",
+        value: function _initMaterial(mat_props) {
+
+            return api.loadMaterial(mat_props)._material;
+        }
+
+        /**
+         * Remove this light from world.
+         */
+
+    }, {
+        key: "remove",
+        value: function remove() {
+
+            this.root.scene.remove(this.mesh);
+            var index = this.root.modellingQueue.indexOf(this);
+            if (index !== -1) this.root.modellingQueue.splice(index, 1);
+            this.root.children.splice(this.root.children.indexOf(this), 1);
+            this.root = null;
+
+            return this;
+        }
+
+        /**
+         * Add this light to last applied world.
+         */
+
+    }, {
+        key: "retrieve",
+        value: function retrieve() {
+
+            this.root = this._lastWorld;
+
+            this.root.scene.add(this.mesh);
+
+            return this;
+        }
+    }]);
+
+    return _class2;
+}();
+
+/**
+ * Texture. Loads texture object.
+ *
+ * @param {String} url - Url adress of texture *JSON*.
+ * @param {Object} options - Parameters of texture.
+ * @return {Object} Three.JS texture.
+ */
+WHS.API.texture = function(url, options) {
+
+    'use strict';
+
+    var texture = api.loadTexture(url);
+
+    if (options) {
+
+        var opt = api.extend(options, {
+
+            offset: {
+                x: 0,
+                y: 0
+            },
+
+            repeat: {
+                x: 1,
+                y: 1
+            }
+
+        });
+
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+
+        texture.offset.set(opt.offset.x, opt.offset.y);
+        texture.repeat.set(opt.repeat.x, opt.repeat.y);
+
+        texture.magFilter = THREE.NearestFilter;
+        texture.minFilter = THREE.LinearMipMapLinearFilter;
+    }
+
+    return texture;
+};
+
+WHS.Watch = function(queue) {
+
+    'use strict';
+
+    this._queue = Array.isArray(queue) ? queue.slice() : [];
+
+    return this;
+};
+
+WHS.Watch.prototype.add = function(element) {
+
+    'use strict';
+
+    this._queue.push(element);
+
+    return this;
+};
+
+WHS.Watch.prototype.remove = function(element) {
+
+    'use strict';
+
+    this._queue = this._queue.filter(function(item) {
+        return item != element;
+    });
+
+    return this;
+};
+
+/**
+ * WhitestormJS plugin loop
+ *
+ * @param  {Function} func - Function to be executed
+ */
+WHS.loop = function(func) {
+
+    this.loop = {
+        func: func,
+        id: WHS.loops.length,
+        enabled: false
+    };
+
+    WHS.loops.push(this.loop);
+};
+
+/**
+ * Starts the loop
+ */
+WHS.loop.prototype.start = function() {
+
+    this.loop.enabled = true;
+};
+
+/**
+ * Stops the loop
+ */
+WHS.loop.prototype.stop = function() {
+
+    this.loop.enabled = false;
+};
+
+/** Class that initializates 3d world. */
+WHS.World = function() {
+    /**
+     * Create a 3D world and define defaults.
+     *
+     * @param {object} params - The scene settings object.
+     * @return {World} A 3D world whs object.
+     */
+
+    function _class3() {
+
+        'use strict';
+
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, _class3);
+
+        console.log('WHS.World', WHS.REVISION);
+
+        if (!THREE) console.warn('whitestormJS requires THREE.js. {Object} THREE not found.');
+        if (!Physijs) console.warn('whitestormJS requires PHYSI.js. {Object} Physijs not found.');
+
+        var target = api.extend(params, {
+
+            anaglyph: false,
+            helper: false,
+            stats: false,
+            autoresize: false,
+
+            shadowmap: {
+                enabled: true,
+                type: THREE.PCFSoftShadowMap
+            },
+
+            gravity: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+
+            camera: {
+                aspect: 75,
+                near: 1,
+                far: 1000,
+
+                x: 0,
+                y: 0,
+                z: 0
+            },
+
+            rWidth: 1, // Resolution(width).
+            rHeight: 1, // Resolution(height).
+
+            width: window.innerWidth, // Container(width).
+            height: window.innerHeight, // Container(height).
+
+            physics: {
+
+                quatNormalizeSkip: 0,
+                quatNormalizeFast: false,
+
+                solver: {
+                    iterations: 20,
+                    tolerance: 0
+                },
+
+                defMaterial: {
+                    contactEquationStiffness: 1e8,
+                    contactEquationRegularizationTime: 3
+                }
+
+            },
+
+            background: 0x000000,
+            assets: "./assets",
+            container: document.body,
+
+            path_worker: '../libs/physijs_worker.js',
+            path_ammo: '../libs/ammo.js'
+
+        });
+
+        this._settings = target;
+
+        // INIT.
+        this._initScene();
+        this._initDOM();
+        this._initStats();
+        this._initCamera();
+        this._initRenderer();
+
+        /*if (target.anaglyph) {
+              this.effect = new THREE.AnaglyphEffect(this._renderer);
+            this.effect.setSize(target.rWidth, target.rHeight);
+              this.effect.render(this.scene, this._camera);
+          }*/
+
+        // NOTE: ==================== Autoresize. ======================
+        var scope = this;
+
+        if (target.autoresize) window.addEventListener('resize', function() {
+            scope.resize();
+        });
+
+        return scope;
+    }
+
+    /**
+     * Initialize Three.js scene object.
+     */
+
+    _createClass(_class3, [{
+        key: "_initScene",
+        value: function _initScene() {
+
+            this._initPhysiJS();
+
+            this.scene = new Physijs.Scene();
+
+            this.scene.setGravity(new THREE.Vector3(this._settings.gravity.x, this._settings.gravity.y, this._settings.gravity.z));
+
+            // Arrays for processing.
+            this.modellingQueue = [];
+            this.children = [];
+        }
+
+        /**
+         * Set Physi.js scripts pathes.
+         */
+
+    }, {
+        key: "_initPhysiJS",
+        value: function _initPhysiJS() {
+
+            Physijs.scripts.worker = this._settings.path_worker;
+            Physijs.scripts.ammo = this._settings.path_ammo;
+        }
+
+        /**
+         * Initialize DOM structure for whitestorm.
+         */
+
+    }, {
+        key: "_initDOM",
+        value: function _initDOM() {
+
+            this._settings.container.style.margin = 0;
+            this._settings.container.style.padding = 0;
+            this._settings.container.style.position = 'relative';
+            this._settings.container.style.overflow = 'hidden';
+
+            this._dom = document.createElement('div');
+            this._dom.className = "whs";
+
+            this._settings.container.appendChild(this._dom);
+
+            return this._dom;
+        }
+
+        /**
+         * Inititialize stats plugin.
+         */
+
+    }, {
+        key: "_initStats",
+        value: function _initStats() {
+
+            // Debug Renderer
+            if (this._settings.stats) {
+
+                this._stats = new Stats();
+
+                if (this._settings.stats == "fps") this._stats.setMode(0);
+                else if (this._settings.stats == "ms") this._stats.setMode(1);
+                else if (this._settings.stats == "mb") this._stats.setMode(1);
+                else {
+                    this._stats.setMode(0);
+
+                    console.warn([this._stats], "Please, apply stats mode [fps, ms, mb] .");
+                }
+
+                this._stats.domElement.style.position = 'absolute';
+                this._stats.domElement.style.left = '0px';
+                this._stats.domElement.style.bottom = '0px';
+
+                this._dom.appendChild(this._stats.domElement);
+            }
+        }
+
+        /**
+         * Create a camera and add it to scene.
+         */
+
+    }, {
+        key: "_initCamera",
+        value: function _initCamera() {
+
+            this._camera = new THREE.PerspectiveCamera(this._settings.camera.aspect, this._settings.width / this._settings.height, this._settings.camera.near, this._settings.camera.far);
+
+            this._camera.position.set(this._settings.camera.x, this._settings.camera.y, this._settings.camera.z);
+
+            this.scene.add(this._camera);
+        }
+
+        /**
+         * Create a renderer and apply it's options.
+         */
+
+    }, {
+        key: "_initRenderer",
+        value: function _initRenderer() {
+
+            // Renderer.
+            this._renderer = new THREE.WebGLRenderer({
+                precision: "lowp"
+            });
+            this._renderer.setClearColor(this._settings.background);
+
+            // Shadowmap.
+            this._renderer.shadowMap.enabled = this._settings.shadowmap.enabled;
+            this._renderer.shadowMap.type = this._settings.shadowmap.type;
+            this._renderer.shadowMap.cascade = true;
+
+            this._renderer.setSize(+(window.innerWidth * this._settings.rWidth).toFixed(), +(window.innerHeight * this._settings.rHeight).toFixed());
+
+            this._renderer.render(this.scene, this._camera);
+
+            this._dom.appendChild(this._renderer.domElement);
+
+            this._renderer.domElement.style.width = '100%';
+            this._renderer.domElement.style.height = '100%';
+        }
+
+        /**
+         * Start animation.
+         */
+
+    }, {
+        key: "start",
+        value: function start() {
+
+            'use strict';
+
+            var clock = new THREE.Clock();
+            var scope = this;
+
+            function reDraw(time) {
+
+                requestAnimationFrame(reDraw);
+
+                // Init stats.
+                if (scope._stats) scope._stats.begin();
+
+                //if (scope._settings.anaglyph)
+                //  scope.effect.render(scope.scene, scope._camera);
+
+                scope._process(clock);
+                scope.scene.simulate();
+                scope._updateControls();
+
+                // Effects rendering.
+                if (scope._composer) {
+
+                    scope._composer.reset();
+                    scope._composer.render(scope.scene, scope._camera);
+
+                    scope._composer.pass(scope._composer.stack);
+
+                    scope._composer.toScreen();
+                } else {
+
+                    scope._renderer.render(scope.scene, scope._camera);
+                }
+
+                scope._execLoops(time);
+
+                // End helper.
+                if (scope._stats) scope._stats.end();
+            }
+
+            this._update = reDraw;
+
+            scope._update();
+
+            /*scope._ready = [];
+              var loading_queue = WHS.Watch(scope.children);
+              loading_queue._queue.forEach(object => {
+                object.ready.on("ready", function() {
+                   // object._state.then(() => {
+                        scope._ready.push(object);
+                          if(loading_queue._queue.length == scope._ready.length) 
+                            scope._events.emit("ready");
+                    //});
+                });
+              });*/
+        }
+
+        /**
+         * Execute all loops with a specific time.
+         *
+         * @params {number} time - The time value that will be passed to loops.
+         */
+
+    }, {
+        key: "_execLoops",
+        value: function _execLoops(time) {
+
+            WHS.loops.forEach(function(loop) {
+                if (loop.enabled) loop.func(time);
+            });
+        }
+
+        /**
+         * Update controls time values.
+         */
+
+    }, {
+        key: "_updateControls",
+        value: function _updateControls() {
+
+            if (this.controls) {
+
+                this.controls.update(Date.now() - this.time);
+                this.time = Date.now();
+            }
+        }
+
+        /**
+         * Update morphs animations.
+         *
+         * @params {THREE.Clock} clock - The clock object, which.
+         */
+
+    }, {
+        key: "_process",
+        value: function _process(clock) {
+
+            for (var i = 0; i < this.modellingQueue.length; i++) {
+
+                if (this.modellingQueue[i]._type == "morph") this.modellingQueue[i].mesh.mixer.update(clock.getDelta());
+            }
+        }
+
+        /**
+         * This functon will scene properties when it's called.
+         */
+
+    }, {
+        key: "resize",
+        value: function resize() {
+
+            this._camera.aspect = window.innerWidth / window.innerHeight;
+            this._camera.updateProjectionMatrix();
+
+            this._renderer.setSize(+(window.innerWidth * this._settings.rWidth).toFixed(), +(window.innerHeight * this._settings.rHeight).toFixed());
+        }
+    }]);
+
+    return _class3;
+}();
+
+/**
+ * WhitestormJS cube shape.
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Cube = function(_WHS$Shape) {
+    _inherits(Cube, _WHS$Shape);
+
+    /**
+     * Create a cube.
+     *
+     * @param {Object} params - Cube options
+     * @param {Object} params.geometry - Cube geometry
+     * @param {Number} params.geometry.width - Cube width
+     * @param {Number} params.geometry.height - Cube height
+     * @param {Number} params.geometry.depth - Cube depth
+     * @param {Material} params.material - Cube material
+     * @param {Number} params.mass - Cube mass
+     */
+
+    function Cube() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Cube);
+
+        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Cube).call(this, params, "cube"));
+
+        api.extend(params.geometry, {
+
+            width: 1,
+            height: 1,
+            depth: 1
+
+        });
+
+        _this2.mesh = new Physijs.BoxMesh(new THREE.BoxGeometry(params.geometry.width, params.geometry.height, params.geometry.depth), _get(Object.getPrototypeOf(Cube.prototype), "_initMaterial", _this2).call(_this2, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Cube.prototype), "build", _this2).call(_this2);
+
+        return _this2;
+    }
+
+    return Cube;
+}(WHS.Shape);
+
+WHS.World.prototype.Cube = function(params) {
+    return new WHS.Cube(params).addTo(this);
+};
+
+/**
+ * WhitestormJS cylinder shape.
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Cylinder = function(_WHS$Shape2) {
+    _inherits(Cylinder, _WHS$Shape2);
+
+    /**
+     * Create a cylinder.
+     *
+     * @param {Object} params - Cylinder options
+     * @param {Object} params.geometry - Cylinder geometry
+     * @param {Number} params.geometry.radiusTop - The cylinder's top radius
+     * @param {Number} params.geometry.radiusBottom - The cylinder's bottom radius
+     * @param {Number} params.geometry.height - The cylinder's height
+     * @param {Number} params.geometry.radiusSegments - The number of radius segments the cylinder has
+     * @param {Material} params.material - The cylinder's material
+     * @param {Number} params.mass - The cylinder's mass
+     */
+
+    function Cylinder() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Cylinder);
+
+        var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(Cylinder).call(this, params, "cylinder"));
+
+        api.extend(params.geometry, {
+
+            radiusTop: 1,
+            radiusBottom: 1,
+            height: 1,
+            radiusSegments: 32
+
+        });
+
+        _this3.mesh = new Physijs.CylinderMesh(new THREE.CylinderGeometry(params.geometry.radiusTop, params.geometry.radiusBottom, params.geometry.height, params.geometry.radiusSegments), _get(Object.getPrototypeOf(Cylinder.prototype), "_initMaterial", _this3).call(_this3, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Cylinder.prototype), "build", _this3).call(_this3);
+
+        return _this3;
+    }
+
+    return Cylinder;
+}(WHS.Shape);
+
+WHS.World.prototype.Cylinder = function(params) {
+    return new WHS.Cylinder(params).addTo(this);
+};
+
+/**
+ * WhitestormJS dodecahedron shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Dodecahedron = function(_WHS$Shape3) {
+    _inherits(Dodecahedron, _WHS$Shape3);
+
+    /**
+     * Create a dodecahedron
+     *
+     * @param {Object} params - The dodecahedron's options
+     * @param {Object} params.geometry - The dodecahedron's geometry
+     * @param {Number} params.geometry.radius - The dodecahedron's radius
+     * @param {Number} params.geometry.detail - The dodecahedron's detail
+     * @param {Material} params.material - The dodecahedron's material
+     * @param {Number} params.mass - The dodecahedron's mass
+     */
+
+    function Dodecahedron() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Dodecahedron);
+
+        var _this4 = _possibleConstructorReturn(this, Object.getPrototypeOf(Dodecahedron).call(this, params, "dodecahedron"));
+
+        api.extend(params.geometry, {
+
+            radius: 1,
+            detail: 0
+
+        });
+
+        _this4.mesh = new Physijs.ConvexMesh(new THREE.DodecahedronGeometry(params.geometry.radius, params.geometry.detail), _get(Object.getPrototypeOf(Dodecahedron.prototype), "_initMaterial", _this4).call(_this4, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Dodecahedron.prototype), "build", _this4).call(_this4);
+
+        return _this4;
+    }
+
+    return Dodecahedron;
+}(WHS.Shape);
+
+WHS.World.prototype.Dodecahedron = function(params) {
+    return new WHS.Dodecahedron(params).addTo(this);
+};
+
+/**
+ * WhitestormJS shape extrude
+ *
+ * @extends WHS.Shape
+ */
+WHS.Extrude = function(_WHS$Shape4) {
+    _inherits(Extrude, _WHS$Shape4);
+
+    /**
+     * Extrude a shape
+     *
+     * @param {Object} params - General options
+     * @param {Object} params.geometry - Geometry options
+     * @param {Array} params.geometry.shapes - Shapes to extrude
+     * @param {Object} params.geometry.options - Options concerning shapes to extrude
+     * @param {Material} params.material - Material
+     * @param {Number} params.mass - Mass
+     */
+
+    function Extrude() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Extrude);
+
+        var _this5 = _possibleConstructorReturn(this, Object.getPrototypeOf(Extrude).call(this, params, "extrude"));
+
+        api.extend(params.geometry, {
+
+            shapes: [],
+            options: {}
+
+        });
+
+        _this5.mesh = new Physijs.ConvexMesh(new THREE.ExtrudeGeometry(params.geometry.shapes, params.geometry.options), _get(Object.getPrototypeOf(Extrude.prototype), "_initMaterial", _this5).call(_this5, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Extrude.prototype), "build", _this5).call(_this5);
+
+        return _this5;
+    }
+
+    return Extrude;
+}(WHS.Shape);
+
+WHS.World.prototype.Extrude = function(params) {
+    return new WHS.Extrude(params).addTo(this);
+};
+
+/**
+ * WhitestormJS icosahedron shape.
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Icosahderon = function(_WHS$Shape5) {
+    _inherits(Icosahedron, _WHS$Shape5);
+
+    /**
+     * Create an icosahedron
+     *
+     * @param {Object} params - Icosahedron options
+     * @param {Object} params.geometry - Icosahedron geometry options
+     * @param {Number} params.geometry.radius - Icosahedron radius
+     * @param {Number} params.geometry.detail - Icosahedron detail
+     * @param {Material} params.material - Icosahedron material
+     * @param {Number} params.mass - Icosahedron mass
+     */
+
+    function Icosahedron() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Icosahedron);
+
+        var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(Icosahedron).call(this, params, "icosahedron"));
+
+        api.extend(params.geometry, {
+
+            radius: 1,
+            detail: 0
+
+        });
+
+        _this6.mesh = new Physijs.ConvexMesh(new THREE.IcosahedronGeometry(params.geometry.radius, params.geometry.detail), _get(Object.getPrototypeOf(Icosahedron.prototype), "_initMaterial", _this6).call(_this6, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Icosahedron.prototype), "build", _this6).call(_this6);
+
+        return _this6;
+    }
+
+    return Icosahedron;
+}(WHS.Shape);
+
+WHS.World.prototype.Icosahedron = function(params) {
+    return new WHS.Icosahderon(params).addTo(this);
+};
+
+/**
+ * WhitestormJS lathe Shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Lathe = function(_WHS$Shape6) {
+    _inherits(Lathe, _WHS$Shape6);
+
+    /**
+     * Create a lathe
+     *
+     * @param {Object} params - Lathe options
+     * @param {Object} params.geometry - Lathe geometry options
+     * @param {Array} params.geometry.points - Lathe points
+     * @param {Material} params.material - Lathe material
+     * @param {Number} params.mass - Lathe mass
+     */
+
+    function Lathe() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Lathe);
+
+        var _this7 = _possibleConstructorReturn(this, Object.getPrototypeOf(Lathe).call(this, params, "lathe"));
+
+        api.extend(params.geometry, {
+
+            points: []
+
+        });
+
+        _this7.mesh = new Physijs.ConvexMesh(new THREE.LatheGeometry(params.geometry.points), _get(Object.getPrototypeOf(Lathe.prototype), "_initMaterial", _this7).call(_this7, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Lathe.prototype), "build", _this7).call(_this7);
+
+        return _this7;
+    }
+
+    return Lathe;
+}(WHS.Shape);
+
+WHS.World.prototype.Lathe = function(params) {
+    return new WHS.Lathe(params).addTo(this);
+};
+
+/**
+ * WhitestormJS model
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Model = function(_WHS$Shape7) {
+    _inherits(Model, _WHS$Shape7);
+
+    /**
+     * Create a model
+     *
+     * @param {Object} params - Model options
+     * @param {Object} params.geometry - Model geometry options
+     * @param {String} params.geometry.path - Path to model JSON
+     * @param {Material} params.material - Model material
+     * @param {Number} params.mass - Model mass
+     */
+
+    function Model() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Model);
+
+        var _this8 = _possibleConstructorReturn(this, Object.getPrototypeOf(Model).call(this, params, "model"));
+
+        api.extend(params.geometry, {
+
+            path: ""
+
+        });
+
+        var scope = _this8;
+
+        _this8._loading = new Promise(function(resolve, reject) {
+
+            api.loadJSON(params.geometry.path, function(data, materials) {
+
+                if (!materials || params.material.useVertexColors) var material = api.loadMaterial(api.extend(params.material, {
+                    morphTargets: true,
+                    vertexColors: THREE.FaceColors
+                }))._material;
+                else if (params.material.useCustomMaterial) var material = api.loadMaterial(params.material)._material;
+                else var material = new THREE.MultiMaterial(materials);
+
+                data.computeFaceNormals();
+                data.computeVertexNormals();
+
+                scope.mesh = new Physijs.ConcaveMesh(data, material, params.mass);
+
+                resolve();
+            });
+        });
+
+        _get(Object.getPrototypeOf(Model.prototype), "build", _this8).call(_this8, "wait");
+
+        return _this8;
+    }
+
+    return Model;
+}(WHS.Shape);
+
+WHS.World.prototype.Model = function(params) {
+    return new WHS.Model(params).addTo(this, "wait");
+};
+
+/**
+ * WhitestormJS morph
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Morph = function(_WHS$Shape8) {
+    _inherits(Morph, _WHS$Shape8);
+
+    /**
+     * Create a morph
+     *
+     * @param {Object} params - Morph options
+     * @param {Object} params.geometry - Morph geometry options
+     * @param {String} params.geometry.path - Path to morph JSON
+     * @param {Material} params.material - Morph material
+     * @param {Number} params.mass - Morph mass
+     * @param {Object} params.morph - Morph options
+     * @param {Number} params.morph.speed - Morph speed
+     * @param {Number} params.morph.duration - Morph duration
+     */
+
+    function Morph() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Morph);
+
+        var _this9 = _possibleConstructorReturn(this, Object.getPrototypeOf(Morph).call(this, params, "morph"));
+
+        api.extend(params.geometry, {
+
+            path: ""
+
+        });
+
+        var scope = _this9;
+
+        _this9._loading = new Promise(function(resolve, reject) {
+
+            api.loadJSON(params.geometry.path, function(data, materials) {
+
+                if (!materials || params.material.useVertexColors) var material = api.loadMaterial(api.extend(params.material, {
+                    morphTargets: true,
+                    vertexColors: THREE.FaceColors
+                }))._material;
+                else if (params.material.useCustomMaterial) var material = api.loadMaterial(params.material)._material;
+                else var material = new THREE.MultiMaterial(materials);
+
+                data.computeFaceNormals();
+                data.computeVertexNormals();
+
+                // Visualization.
+                scope.mesh = new THREE.Mesh(data, material);
+                scope.mesh.speed = params.morph.speed;
+
+                scope.mesh.mixer = new THREE.AnimationMixer(scope.mesh);
+
+                scope.mesh.mixer.clipAction(data.animations[0]).setDuration(params.morph.duration).play();
+
+                scope._rot.y = Math.PI / 2;
+
+                resolve();
+            });
+        });
+
+        _get(Object.getPrototypeOf(Morph.prototype), "build", _this9).call(_this9, "wait");
+
+        return _this9;
+    }
+
+    return Morph;
+}(WHS.Shape);
+
+WHS.World.prototype.Morph = function(params) {
+    return new WHS.Morph(params).addTo(this, "wait");
+};
+
+/**
+ * WhitestormJS octahedron shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Octahedron = function(_WHS$Shape9) {
+    _inherits(Octahedron, _WHS$Shape9);
+
+    /**
+     * Creates an octahedron
+     *
+     * @param {Object} params - Octahedron options
+     * @param {Object} params.geometry - Octahedron geometry options
+     * @param {Number} params.geometry.radius - Octahedron radius
+     * @param {Number} params.geometry.detail - Octahedron detail
+     * @param {Material} params.material - Octahedron material
+     * @param {Number} params.mass - Octahedron mass
+     */
+
+    function Octahedron() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Octahedron);
+
+        var _this10 = _possibleConstructorReturn(this, Object.getPrototypeOf(Octahedron).call(this, params, "octahedron"));
+
+        api.extend(params.geometry, {
+
+            radius: 1,
+            detail: 0
+
+        });
+
+        _this10.mesh = new Physijs.ConvexMesh(new THREE.OctahedronGeometry(params.geometry.radius, params.geometry.detail), _get(Object.getPrototypeOf(Octahedron.prototype), "_initMaterial", _this10).call(_this10, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Octahedron.prototype), "build", _this10).call(_this10);
+
+        return _this10;
+    }
+
+    return Octahedron;
+}(WHS.Shape);
+
+WHS.World.prototype.Octahedron = function(params) {
+    return new WHS.Octahedron(params).addTo(this);
+};
+
+/**
+ * WhitestormJS parametric
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Parametric = function(_WHS$Shape10) {
+    _inherits(Parametric, _WHS$Shape10);
+
+    /**
+     * Creates a parametric
+     *
+     * @param {Object} params - Parametric options
+     * @param {Object} params.geometry - Parametric geometry options
+     * @param {Function} params.func - Parametric function
+     * @param {Number} params.slices - Parametric slices
+     * @param {Number} params.stacks - Parametric stacks
+     * @param {Material} params.material - Parametric material
+     * @param {Number} params.mass - Parametric mass
+     */
+
+    function Parametric() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Parametric);
+
+        var _this11 = _possibleConstructorReturn(this, Object.getPrototypeOf(Parametric).call(this, params, "parametric"));
+
+        api.extend(params.geometry, {
+
+            func: function func() {},
+            slices: 10,
+            stacks: 10
+
+        });
+
+        _this11.mesh = new Physijs.ConcaveMesh(new THREE.ParametricGeometry(params.geometry.func, params.geometry.slices, params.geometry.stacks), _get(Object.getPrototypeOf(Parametric.prototype), "_initMaterial", _this11).call(_this11, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Parametric.prototype), "build", _this11).call(_this11);
+
+        return _this11;
+    }
+
+    return Parametric;
+}(WHS.Shape);
+
+WHS.World.prototype.Parametric = function(params) {
+    return new WHS.Parametric(params).addTo(this);
+};
+
+/**
+ * WhitestormJS plane shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Plane = function(_WHS$Shape11) {
+    _inherits(Plane, _WHS$Shape11);
+
+    /**
+     * Creates a plane.
+     *
+     * @param {Object} params - Plane options
+     * @param {Object} params.geometry - Plane geometry options
+     * @param {Number} params.geometry.width - Plane width
+     * @param {Number} params.geometry.height - Plane height
+     * @param {Number} params.geometry.segments - Plane segments
+     * @param {Material} params.material - Plane material
+     * @param {Number} params.mass - Plane mass
+     */
+
+    function Plane() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Plane);
+
+        var _this12 = _possibleConstructorReturn(this, Object.getPrototypeOf(Plane).call(this, params, "plane"));
+
+        api.extend(params.geometry, {
+
+            width: 10,
+            height: 10,
+            segments: 32
+
+        });
+
+        _this12.mesh = new Physijs.PlaneMesh(new THREE.PlaneGeometry(params.geometry.width, params.geometry.height, params.geometry.segments), _get(Object.getPrototypeOf(Plane.prototype), "_initMaterial", _this12).call(_this12, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Plane.prototype), "build", _this12).call(_this12);
+
+        return _this12;
+    }
+
+    return Plane;
+}(WHS.Shape);
+
+WHS.World.prototype.Plane = function(params) {
+    return new WHS.Plane(params).addTo(this);
+};
+
+/**
+ * WhitestormJS polyhedron shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Polyhedron = function(_WHS$Shape12) {
+    _inherits(Polyhedron, _WHS$Shape12);
+
+    /**
+     * Creates a polyhedron
+     *
+     * @param {Object} params - Polyhedron options
+     * @param {Object} params.geometry - Polyhedron geometry options
+     * @param {Number} params.geometry.radius - Polyhedron radius
+     * @param {Number} param.geometry.verticesOfCube - Vertices of cube
+     * @param {Number} param.geometry.indicesOfFaces - Indices of faces
+     * @param {Number} param.geometry.detail - Polyhedron detail
+     * @param {Material} param.material - Polyhedron material
+     * @param {Number} param.mass - Polyhedron mass
+     */
+
+    function Polyhedron() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Polyhedron);
+
+        var _this13 = _possibleConstructorReturn(this, Object.getPrototypeOf(Polyhedron).call(this, params, "polyhedron"));
+
+        api.extend(params.geometry, {
+
+            verticesOfCube: _this13.verticesOfCube,
+            indicesOfFaces: _this13.indicesOfFaces,
+            radius: 6,
+            detail: 2
+
+        });
+
+        _this13.mesh = new Physijs.ConvexMesh(new THREE.PolyhedronGeometry(params.geometry.verticesOfCube, params.geometry.indicesOfFaces, params.geometry.radius, params.geometry.detail), _get(Object.getPrototypeOf(Polyhedron.prototype), "_initMaterial", _this13).call(_this13, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Polyhedron.prototype), "build", _this13).call(_this13);
+
+        return _this13;
+    }
+
+    _createClass(Polyhedron, [{
+        key: "verticesOfCube",
+        get: function get() {
+
+            return [-1, -1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1];
+        }
+    }, {
+        key: "indicesOfFaces",
+        get: function get() {
+
+            return [2, 1, 0, 0, 3, 2, 0, 4, 7, 7, 3, 0, 0, 1, 5, 5, 4, 0, 1, 2, 6, 6, 5, 1, 2, 3, 7, 7, 6, 2, 4, 5, 6, 6, 7, 4];
+        }
+    }]);
+
+    return Polyhedron;
+}(WHS.Shape);
+
+WHS.World.prototype.Polyhedron = function(params) {
+    return new WHS.Polyhedron(params).addTo(this);
+};
+
+/**
+ * WhitestormJS ring shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Ring = function(_WHS$Shape13) {
+    _inherits(Ring, _WHS$Shape13);
+
+    /**
+     * Creates a ring.
+     *
+     * @param {Object} params - Ring options
+     * @param {Object} params.geometry - Ring geometry options
+     * @param {Number} params.geometry.innerRadius - Ring inner radius
+     * @param {Number} params.geometry.outerRadius - Ring outer radius
+     * @param {Number} params.geometry.thetaSegments - Ring theta segments
+     * @param {Number} params.geometry.phiSegments - Ring phi segments
+     * @param {Number} params.geometry.thetaStart - Ring theta start
+     * @param {Number} params.geometry.thetaLength - Ring theta length
+     * @param {Material} params.material - Ring material
+     * @param {Number} params.mass - Ring mass
+     */
+
+    function Ring() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Ring);
+
+        var _this14 = _possibleConstructorReturn(this, Object.getPrototypeOf(Ring).call(this, params, "ring"));
+
+        api.extend(params.geometry, {
+
+            innerRadius: 0,
+            outerRadius: 50,
+            thetaSegments: 8,
+            phiSegments: 8,
+            thetaStart: 0,
+            thetaLength: Math.PI * 2
+
+        });
+
+        _this14.mesh = new THREE.Mesh(new THREE.RingGeometry(params.geometry.innerRadius, params.geometry.outerRadius, params.geometry.thetaSegments, params.geometry.phiSegments, params.geometry.thetaStart, params.geometry.thetaLength), _get(Object.getPrototypeOf(Ring.prototype), "_initMaterial", _this14).call(_this14, params.material));
+
+        _get(Object.getPrototypeOf(Ring.prototype), "build", _this14).call(_this14, "onlyvis");
+
+        return _this14;
+    }
+
+    return Ring;
+}(WHS.Shape);
+
+WHS.World.prototype.Ring = function(params) {
+    return new WHS.Ring(params).addTo(this);
+};
+
+/**
+ * WhitestormJS 2D shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Shape2D = function(_WHS$Shape14) {
+    _inherits(Shape2D, _WHS$Shape14);
+
+    /**
+     * Creates a 2D shape
+     *
+     * @param {Object} params - Shape options
+     * @param {Object} params.geometry - Shape geometry options
+     * @param {Array} params.geometry.shapes - Shapes
+     * @param {Material} params.material - Shape material
+     */
+
+    function Shape2D() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Shape2D);
+
+        var _this15 = _possibleConstructorReturn(this, Object.getPrototypeOf(Shape2D).call(this, params, "shape2D"));
+
+        api.extend(params.geometry, {
+
+            shapes: []
+
+        });
+
+        _this15.mesh = new THREE.Mesh(new THREE.ShapeGeometry(params.geometry.shapes), _get(Object.getPrototypeOf(Shape2D.prototype), "_initMaterial", _this15).call(_this15, params.material));
+
+        _get(Object.getPrototypeOf(Shape2D.prototype), "build", _this15).call(_this15, "onlyvis");
+
+        return _this15;
+    }
+
+    return Shape2D;
+}(WHS.Shape);
+
+WHS.World.prototype.Shape2D = function(params) {
+    return new WHS.Shape2D(params).addTo(this);
+};
+
+/**
+ * WhitestormJS smooth
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Smooth = function(_WHS$Shape15) {
+    _inherits(Smooth, _WHS$Shape15);
+
+    /**
+     * Smooths things
+     *
+     * @param {Object} params - Smooth options
+     * @param {Object} params.geometry - Smooth geometry options
+     * @param {Number} params.geometry.width - Smooth width
+     * @param {Number} params.geometry.height - Smooth height
+     * @param {Material} params.material - Smooth material
+     */
+
+    function Smooth() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Smooth);
+
+        var _this16 = _possibleConstructorReturn(this, Object.getPrototypeOf(Smooth).call(this, params, "smooth"));
+
+        api.extend(params.geometry, {
+
+            width: 10,
+            height: 10
+
+        });
+
+        _this16.mesh = new Physijs.BoxMesh(new THREE.BoxGeometry(params.geometry.width, 1, params.geometry.height), _get(Object.getPrototypeOf(Smooth.prototype), "_initMaterial", _this16).call(_this16, params.material), 0);
+
+        _get(Object.getPrototypeOf(Smooth.prototype), "build", _this16).call(_this16);
+
+        return _this16;
+    }
+
+    return Smooth;
+}(WHS.Shape);
+
+WHS.World.prototype.Smooth = function(params) {
+    return new WHS.Smooth(params).addTo(this);
+};
+
+/**
+ * WhitestormJS sphere shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Sphere = function(_WHS$Shape16) {
+    _inherits(Sphere, _WHS$Shape16);
+
+    /**
+     * Creates a sphere.
+     *
+     * @param {Object} params - Sphere options
+     * @param {Object} params.geometry - Sphere geometry options
+     * @param {Number} params.geometry.radius - Sphere radius
+     * @param {Number} params.geometry.segmentA - Sphere segment A count
+     * @param {Number} params.geometry.segmentB - Sphere segment B count
+     * @param {Material} params.material - Sphere material
+     * @param {Number} params.mass - Sphere mass
+     */
+
+    function Sphere() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Sphere);
+
+        var _this17 = _possibleConstructorReturn(this, Object.getPrototypeOf(Sphere).call(this, params, "sphere"));
+
+        api.extend(params.geometry, {
+
+            radius: 1,
+            segmentA: 32,
+            segmentB: 32
+
+        });
+
+        _this17.mesh = new Physijs.SphereMesh(new THREE.SphereGeometry(params.geometry.radius, params.geometry.segmentA, params.geometry.segmentB), _get(Object.getPrototypeOf(Sphere.prototype), "_initMaterial", _this17).call(_this17, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Sphere.prototype), "build", _this17).call(_this17);
+
+        return _this17;
+    }
+
+    return Sphere;
+}(WHS.Shape);
+
+WHS.World.prototype.Sphere = function(params) {
+    return new WHS.Sphere(params).addTo(this);
+};
+
+/**
+ * WhitestormJS tetrahedron shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Tetrahedron = function(_WHS$Shape17) {
+    _inherits(Tetrahedron, _WHS$Shape17);
+
+    /**
+     * Creates a tetrahedron
+     *
+     * @param {Object} params - Tetrahedron options
+     * @param {Object} params.geometry - Tetrahedron geometry options
+     * @param {Number} params.geometry.radius - Tetrahedron radius
+     * @param {Number} params.geometry.detail - Tetrahedron detail
+     * @param {Material} params.material - Tetrahedron material
+     * @param {Number} params.mass - Tetrahedron mass
+     */
+
+    function Tetrahedron() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Tetrahedron);
+
+        var _this18 = _possibleConstructorReturn(this, Object.getPrototypeOf(Tetrahedron).call(this, params, "tetrahedron"));
+
+        api.extend(params.geometry, {
+
+            radius: 1,
+            detail: 0
+
+        });
+
+        _this18.mesh = new Physijs.ConvexMesh(new THREE.TetrahedronGeometry(params.geometry.radius, params.geometry.detail), _get(Object.getPrototypeOf(Tetrahedron.prototype), "_initMaterial", _this18).call(_this18, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Tetrahedron.prototype), "build", _this18).call(_this18);
+
+        return _this18;
+    }
+
+    return Tetrahedron;
+}(WHS.Shape);
+
+WHS.World.prototype.Tetrahedron = function(params) {
+    return new WHS.Tetrahedron(params).addTo(this);
+};
+
+/**
+ * WhitestormJS text
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Text = function(_WHS$Shape18) {
+    _inherits(Text, _WHS$Shape18);
+
+    /**
+     * Creates 3D text
+     *
+     * @param {Object} params - Text options
+     * @param {Object} params.geometry - Text geometry options
+     * @param {String} params.geometry.text - Text to display
+     * @param {Number} params.geometry.parameters.size - Text size
+     * @param {Number} params.geometry.parameters.height - Text height
+     * @param {Number} params.geometry.parameters.curveSegments - Text curve segments
+     * @param {Font} params.geometry.parameters.font - Text font
+     * @param {Boolean} params.geometry.parameters.bevelEnabled - Whether or not to bevel text
+     * @param {Number} params.geometry.parameters.bevelThickness - Text bevel thickness
+     * @param {Number} params.geometry.parameters.bevelSize - Text bevel size
+     * @param {Material} params.material - Text material
+     * @param {Number} params.mass - Text mass
+     */
+
+    function Text() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Text);
+
+        var _this19 = _possibleConstructorReturn(this, Object.getPrototypeOf(Text).call(this, params, "text"));
+
+        api.extend(params.geometry, {
+
+            text: "Hello World!",
+
+            parameters: {
+                size: 12,
+                height: 50,
+                curveSegments: 12,
+                font: new THREE.Font(),
+                bevelEnabled: false,
+                bevelThickness: 10,
+                bevelSize: 8
+            }
+
+        });
+
+        var scope = _this19;
+
+        _this19._loading = new Promise(function(resolve, reject) {
+
+            api.loadFont(params.geometry.parameters.font, function(font) {
+
+                params.geometry.parameters.font = font;
+
+                console.log(params.geometry);
+
+                scope.mesh = new Physijs.ConcaveMesh(new THREE.TextGeometry(params.geometry.text, params.geometry.parameters), api.loadMaterial(params.material)._material, params.mass);
+
+                resolve();
+            });
+        });
+
+        _get(Object.getPrototypeOf(Text.prototype), "build", _this19).call(_this19, "wait");
+
+        return _this19;
+    }
+
+    return Text;
+}(WHS.Shape);
+
+WHS.World.prototype.Text = function(params) {
+    return new WHS.Text(params).addTo(this, "wait");
+};
+
+/**
+ * WhitestormJS torus shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Torus = function(_WHS$Shape19) {
+    _inherits(Torus, _WHS$Shape19);
+
+    /**
+     * Creates a torus
+     *
+     * @param {Object} params - Torus options
+     * @param {Object} params.geometry - Torus geometry options
+     * @param {Number} params.geometry.radius - Torus radius
+     * @param {Number} params.geometry.tube - Torus tube size
+     * @param {Number} params.geometry.radialSegments - Amount of radial segments
+     * @param {Number} params.geometry.tubularSegments - Amount of tubular segments
+     * @param {Number} params.geometry.arc - Torus arc
+     * @param {Material} params.material - Torus material
+     * @param {Number} params.mass - Torus mass
+     */
+
+    function Torus() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Torus);
+
+        var _this20 = _possibleConstructorReturn(this, Object.getPrototypeOf(Torus).call(this, params, "torus"));
+
+        api.extend(params.geometry, {
+
+            radius: 100,
+            tube: 40,
+            radialSegments: 8,
+            tubularSegments: 6,
+            arc: Math.PI * 2
+
+        });
+
+        _this20.mesh = new Physijs.ConvexMesh(new THREE.TorusGeometry(params.geometry.radius, params.geometry.tube, params.geometry.radialSegments, params.geometry.tubularSegments, params.geometry.arc), _get(Object.getPrototypeOf(Torus.prototype), "_initMaterial", _this20).call(_this20, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Torus.prototype), "build", _this20).call(_this20);
+
+        return _this20;
+    }
+
+    return Torus;
+}(WHS.Shape);
+
+WHS.World.prototype.Torus = function(params) {
+    return new WHS.Torus(params).addTo(this);
+};
+
+/**
+ * WhitestormJS torus knot
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Torusknot = function(_WHS$Shape20) {
+    _inherits(Torusknot, _WHS$Shape20);
+
+    /**
+     * Creates a torus knot
+     *
+     * @param {Object} params - Knot options
+     * @param {Object} params.geometry - Knot geometry options
+     * @param {Number} params.geometry.radius - Knot radius
+     * @param {Number} params.geometry.tube - Knot tube size
+     * @param {Number} params.geometry.radialSegments - Amount of radial segments
+     * @param {Number} params.geometry.tubularSegments - Amount of tubular segments
+     * @param {Number} params.geometry.p - P
+     * @param {Number} params.geometry.q - Q
+     * @param {Number} params.geometry.heightScale - Knot height scale
+     */
+
+    function Torusknot() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Torusknot);
+
+        var _this21 = _possibleConstructorReturn(this, Object.getPrototypeOf(Torusknot).call(this, params, "Torusknot"));
+
+        api.extend(params.geometry, {
+
+            radius: 100,
+            tube: 40,
+            radialSegments: 64,
+            tubularSegments: 8,
+            p: 2,
+            q: 3,
+            heightScale: 1
+
+        });
+
+        _this21.mesh = new Physijs.ConvexMesh(new THREE.TorusKnotGeometry(params.geometry.radius, params.geometry.tube, params.geometry.radialSegments, params.geometry.tubularSegments, params.geometry.p, params.geometry.q, params.geometry.heightScale), _get(Object.getPrototypeOf(Torusknot.prototype), "_initMaterial", _this21).call(_this21, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Torusknot.prototype), "build", _this21).call(_this21);
+
+        return _this21;
+    }
+
+    return Torusknot;
+}(WHS.Shape);
+
+WHS.World.prototype.Torusknot = function(params) {
+    return new WHS.Torusknot(params).addTo(this);
+};
+
+/**
+ * WhitestormJS tube shape
+ *
+ * @extends WHS.Shape
+ */
+
+WHS.Tube = function(_WHS$Shape21) {
+    _inherits(Tube, _WHS$Shape21);
+
+    /**
+     * Creates a tube
+     *
+     * @param {Object} params - Tube options
+     * @param {Object} params.geometry - Tube geometry options
+     * @param {Number} params.geometry.path - Tube path
+     * @param {Number} params.geometry.segments - Tube segments
+     * @param {Number} params.geometry.radius - Tube radius
+     * @param {Number} params.geometry.radiusSegments - Amount of radius segments
+     * @param {Boolean} params.geometry.closed - Whether or not the tube is closed
+     * @param {Material} params.material - Tube material
+     * @param {Number} params.mass - Tube mass
+     */
+
+    function Tube() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Tube);
+
+        var _this22 = _possibleConstructorReturn(this, Object.getPrototypeOf(Tube).call(this, params, "tube"));
+
+        api.extend(params.geometry, {
+
+            path: options.geometryOptions.path ? new _this22.CustomSinCurve(100) : false,
+            segments: 20,
+            radius: 2,
+            radiusSegments: 8,
+            closed: false
+
+        });
+
+        _this22.mesh = new Physijs.ConvexMesh(new THREE.TubeGeometry(params.geometry.path, params.geometry.segments, params.geometry.radius, params.geometry.radiusSegments, params.geometry.closed), _get(Object.getPrototypeOf(Tube.prototype), "_initMaterial", _this22).call(_this22, params.material), params.mass);
+
+        _get(Object.getPrototypeOf(Tube.prototype), "build", _this22).call(_this22);
+
+        return _this22;
+    }
+
+    _createClass(Tube, [{
+        key: "CustomSinCurve",
+        get: function get() {
+
+            return THREE.Curve.create(function(scale) {
+                //custom curve constructor
+                this.scale = scale || 1;
+            }, function(t) {
+                //getPoint: t is between 0-1
+                var tx = t * 3 - 1.5,
+                    ty = Math.sin(2 * Math.PI * t),
+                    tz = 0;
+
+                return new THREE.Vector3(tx, ty, tz).multiplyScalar(this.scale);
+            });
+        }
+    }]);
+
+    return Tube;
+}(WHS.Shape);
+
+WHS.World.prototype.Tube = function(params) {
+    return new WHS.Tube(params).addTo(this);
+};
+
+/**
+ * WhitestormJS ambient light.
+ *
+ * @extends WHS.Light
+ */
+WHS.AmbientLight = function(_WHS$Light) {
+    _inherits(AmbientLight, _WHS$Light);
+
+    /**
+     * Ambient light.
+     *
+     * @param {Object} params.light.color - Light color.
+     * @param {Object} params.light.intensity - Light intensity.
+     */
+
+    function AmbientLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, AmbientLight);
+
+        var _this23 = _possibleConstructorReturn(this, Object.getPrototypeOf(AmbientLight).call(this, params, "ambientlight"));
+
+        _this23.mesh = new THREE.AmbientLight(params.light.color, params.light.intensity);
+
+        _get(Object.getPrototypeOf(AmbientLight.prototype), "build", _this23).call(_this23);
+
+        return _this23;
+    }
+
+    return AmbientLight;
+}(WHS.Light);
+
+WHS.World.prototype.AmbientLight = function(params) {
+    return new WHS.AmbientLight(params).addTo(this);
+};
+
+/**
+ * WhitestormJS directional light.
+ *
+ * @extends WHS.Light
+ */
+WHS.DirectionalLight = function(_WHS$Light2) {
+    _inherits(DirectionalLight, _WHS$Light2);
+
+    /**
+     * Directional light.
+     *
+     * @param {Object} params.light.color - Light color.
+     * @param {Object} params.light.intensity - Light intensity.
+     */
+
+    function DirectionalLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, DirectionalLight);
+
+        var _this24 = _possibleConstructorReturn(this, Object.getPrototypeOf(DirectionalLight).call(this, params, "directionallight"));
+
+        _this24.mesh = new THREE.DirectionalLight(params.light.color, params.light.intensity);
+
+        _get(Object.getPrototypeOf(DirectionalLight.prototype), "build", _this24).call(_this24);
+        _get(Object.getPrototypeOf(DirectionalLight.prototype), "buildShadow", _this24).call(_this24);
+
+        return _this24;
+    }
+
+    return DirectionalLight;
+}(WHS.Light);
+
+WHS.World.prototype.DirectionalLight = function(params) {
+    return new WHS.DirectionalLight(params).addTo(this);
+};
+
+/**
+ * WhitestormJS hemisphere light.
+ *
+ * @extends WHS.Light
+ */
+WHS.HemisphereLight = function(_WHS$Light3) {
+    _inherits(HemisphereLight, _WHS$Light3);
+
+    /**
+     * Hemisphere light.
+     *
+     * @param {Object} params.light.skyColor - Light sky color.
+     * @param {Object} params.light.groundColor - Light ground color.
+     * @param {Object} params.light.intensity - Light intensity.
+     */
+
+    function HemisphereLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, HemisphereLight);
+
+        var _this25 = _possibleConstructorReturn(this, Object.getPrototypeOf(HemisphereLight).call(this, params, "hemispherelight"));
+
+        _this25.mesh = new THREE.HemisphereLight(params.light.skyColor, params.light.groundColor, params.light.intensity);
+
+        _get(Object.getPrototypeOf(HemisphereLight.prototype), "build", _this25).call(_this25);
+        _get(Object.getPrototypeOf(HemisphereLight.prototype), "buildShadow", _this25).call(_this25);
+
+        return _this25;
+    }
+
+    return HemisphereLight;
+}(WHS.Light);
+
+WHS.World.prototype.HemisphereLight = function(params) {
+    return new WHS.HemisphereLight(params).addTo(this);
+};
+
+/**
+ * WhitestormJS default light.
+ *
+ * @extends WHS.Light
+ */
+WHS.NormalLight = function(_WHS$Light4) {
+    _inherits(NormalLight, _WHS$Light4);
+
+    /**
+     * Normal light.
+     *
+     * @param {Object} params.light.color - Light color.
+     */
+
+    function NormalLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, NormalLight);
+
+        var _this26 = _possibleConstructorReturn(this, Object.getPrototypeOf(NormalLight).call(this, params, "normallight"));
+
+        _this26.mesh = new THREE.Light(params.light.color);
+
+        _get(Object.getPrototypeOf(NormalLight.prototype), "build", _this26).call(_this26);
+        _get(Object.getPrototypeOf(NormalLight.prototype), "buildShadow", _this26).call(_this26);
+
+        return _this26;
+    }
+
+    return NormalLight;
+}(WHS.Light);
+
+WHS.World.prototype.NormalLight = function(params) {
+    return new WHS.NormalLight(params).addTo(this);
+};
+
+/**
+ * WhitestormJS point light.
+ *
+ * @extends WHS.Light
+ */
+WHS.PointLight = function(_WHS$Light5) {
+    _inherits(PointLight, _WHS$Light5);
+
+    /**
+     * Point light.
+     *
+     * @param {Object} params.light.color - Light color.
+     * @param {Object} params.light.intensity - Light intensity.
+     * @param {Object} params.light.distance - Light distance.
+     * @param {Object} params.light.decay - Light decay.
+     */
+
+    function PointLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, PointLight);
+
+        var _this27 = _possibleConstructorReturn(this, Object.getPrototypeOf(PointLight).call(this, params, "pointlight"));
+
+        _this27.mesh = new THREE.PointLight(params.light.color, params.light.intensity, params.light.distance, params.light.decay);
+
+        _get(Object.getPrototypeOf(PointLight.prototype), "build", _this27).call(_this27);
+        _get(Object.getPrototypeOf(PointLight.prototype), "buildShadow", _this27).call(_this27);
+
+        return _this27;
+    }
+
+    return PointLight;
+}(WHS.Light);
+
+WHS.World.prototype.PointLight = function(params) {
+    return new WHS.PointLight(params).addTo(this);
+};
+
+/**
+ * WhitestormJS spot light.
+ *
+ * @extends WHS.Light
+ */
+WHS.SpotLight = function(_WHS$Light6) {
+    _inherits(SpotLight, _WHS$Light6);
+
+    /**
+     * Point light.
+     *
+     * @param {Object} params.light.color - Light color.
+     * @param {Object} params.light.intensity - Light intensity.
+     * @param {Object} params.light.distance - Light distance.
+     * @param {Object} params.light.angle - Light angle.
+     * @param {Object} params.light.exponent - Light exponent.
+     * @param {Object} params.light.decay - Light decay.
+     */
+
+    function SpotLight() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, SpotLight);
+
+        var _this28 = _possibleConstructorReturn(this, Object.getPrototypeOf(SpotLight).call(this, params, "spotlight"));
+
+        _this28.mesh = new THREE.SpotLight(params.light.color, params.light.intensity, params.light.distance, params.light.angle, params.light.exponent, params.light.decay);
+
+        _get(Object.getPrototypeOf(SpotLight.prototype), "build", _this28).call(_this28);
+        _get(Object.getPrototypeOf(SpotLight.prototype), "buildShadow", _this28).call(_this28);
+
+        return _this28;
+    }
+
+    return SpotLight;
+}(WHS.Light);
+
+WHS.World.prototype.SpotLight = function(params) {
+    return new WHS.SpotLight(params).addTo(this);
+};
+
+/**
+ * First person controls.
+ *
+ * @param {Object} object - *WHS* figure/object.
+ * @param {Object} params - Controls parameter objects.
+ */
+
+var PI_2 = Math.PI / 2;
+
+WHS.World.prototype.FPSControls = function(object) {
+
+    'use strict';
+
+    var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var target = WHS.API.extend(params, {
+        block: document.getElementById('blocker'),
+        speed: 1,
+        ypos: 1
+    });
+
+    this.controls = new function(camera, mesh, params) {
+
+        /* Velocity properties */
+        var velocityFactor = 1,
+            runVelocity = 0.25;
+
+        mesh.setAngularFactor({
+            x: 0,
+            y: 0,
+            z: 0
+        });
+
+        /* Init */
+        var scope = this,
+            player = mesh,
+            pitchObject = new THREE.Object3D();
+
+        pitchObject.add(camera);
+
+        var yawObject = new THREE.Object3D();
+
+        yawObject.position.y = params.ypos; // eyes are 2 meters above the ground
+        yawObject.add(pitchObject);
+
+        var quat = new THREE.Quaternion(),
+            moveForward = false,
+            moveBackward = false,
+            moveLeft = false,
+            moveRight = false,
+            canJump = false;
+
+        player.addEventListener("collision", function(other_object, v, r, contactNormal) {
+            console.log("afdg");
+
+            if (contactNormal.y < 0.5) // Use a "good" threshold value between 0 and 1 here!
+                canJump = true;
+        });
+
+        function onMouseMove(event) {
+            if (scope.enabled === false) return;
+
+            var movementX = event.movementX || event.mozMovementX || event.getMovementX() || 0,
+                movementY = event.movementY || event.mozMovementY || event.getMovementY() || 0;
+
+            yawObject.rotation.y -= movementX * 0.002, pitchObject.rotation.x -= movementY * 0.002;
+
+            pitchObject.rotation.x = Math.max(-PI_2, Math.min(PI_2, pitchObject.rotation.x));
+        };
+
+        function onKeyDown(event) {
+
+            switch (event.keyCode) {
+
+                case 38: // up
+                case 87:
+                    // w
+                    moveForward = true;
+                    break;
+
+                case 37: // left
+                case 65:
+                    // a
+                    moveLeft = true;
+                    break;
+
+                case 40: // down
+                case 83:
+                    // s
+                    moveBackward = true;
+                    break;
+
+                case 39: // right
+                case 68:
+                    // d
+                    moveRight = true;
+                    break;
+
+                case 32:
+                    // space
+                    console.log(canJump);
+                    if (canJump == true) {
+
+                        player.applyCentralImpulse({
+                            x: 0,
+                            y: 300,
+                            z: 0
+                        });
+
+                        console.log(player.applyCentralImpulse);
+                    }
+
+                    canJump = false;
+
+                    break;
+
+                case 16:
+                    // shift
+
+                    runVelocity = 0.5;
+                    break;
+
+            }
+        };
+
+        function onKeyUp(event) {
+            switch (event.keyCode) {
+
+                case 38: // up
+                case 87:
+                    // w
+                    moveForward = false;
+                    break;
+
+                case 37: // left
+                case 65:
+                    // a
+                    moveLeft = false;
+                    break;
+
+                case 40: // down
+                case 83:
+                    // a
+                    moveBackward = false;
+                    break;
+
+                case 39: // right
+                case 68:
+                    // d
+                    moveRight = false;
+                    break;
+
+                case 16:
+                    // shift
+                    runVelocity = 0.25;
+                    break;
+
+            }
+        };
+
+        document.body.addEventListener('mousemove', onMouseMove, false);
+        document.body.addEventListener('keydown', onKeyDown, false);
+        document.body.addEventListener('keyup', onKeyUp, false);
+
+        this.enabled = false;
+
+        this.getObject = function() {
+            return yawObject;
+        };
+
+        this.getDirection = function(targetVec) {
+            targetVec.set(0, 0, -1);
+            quat.multiplyVector3(targetVec);
+        };
+
+        // Moves the camera to the Cannon.js object position
+        // and adds velocity to the object if the run key is down.
+        var inputVelocity = new THREE.Vector3(),
+            euler = new THREE.Euler();
+
+        this.update = function(delta) {
+
+            var moveVec = new THREE.Vector3();
+
+            if (scope.enabled === false) return;
+
+            delta = delta || 0.5;
+            delta = Math.min(delta, 0.5);
+
+            inputVelocity.set(0, 0, 0);
+
+            var speed = velocityFactor * delta * params.speed * runVelocity;
+
+            if (moveForward) {
+                inputVelocity.z = -speed;
+            }
+
+            if (moveBackward) {
+                inputVelocity.z = speed;
+            }
+
+            if (moveLeft) {
+                inputVelocity.x = -speed;
+            }
+
+            if (moveRight) {
+                inputVelocity.x = speed;
+            }
+
+            // Convert velocity to world coordinates
+            euler.x = pitchObject.rotation.x, euler.y = yawObject.rotation.y, euler.order = "XYZ";
+
+            quat.setFromEuler(euler);
+
+            inputVelocity.applyQuaternion(quat);
+
+            player.applyCentralImpulse({
+                x: inputVelocity.x * 10,
+                y: 0,
+                z: inputVelocity.z * 10
+            });
+            player.setAngularVelocity({
+                x: inputVelocity.z * 10,
+                y: 0,
+                z: -inputVelocity.x * 10
+            });
+            player.setAngularFactor({
+                x: 0,
+                y: 0,
+                z: 0
+            });
+
+            yawObject.position.copy(player.position);
+        };
+    }(this._camera, object.mesh, target);
+
+    var controls = this.controls;
+
+    WHS.API.merge(this.scene, this.controls.getObject());
+
+    if ('pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document) {
+
+        var element = document.body;
+
+        this.pointerlockchange = function() {
+            if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
+
+                controls.enabled = true;
+
+                target.block.fadeOut();
+            } else {
+
+                controls.enabled = false;
+
+                target.block.fadeIn();
+            }
+        };
+    } else {
+
+        console.warn("Your browser does not support the PointerLock API.");
+    }
+
+    document.addEventListener('pointerlockchange', this.pointerlockchange, false);
+    document.addEventListener('mozpointerlockchange', this.pointerlockchange, false);
+    document.addEventListener('webkitpointerlockchange', this.pointerlockchange, false);
+
+    this.pointerlockerror = function() {
+        console.warn("Pointer lock error.");
+    };
+
+    document.addEventListener('pointerlockerror', this.pointerlockerror, false);
+    document.addEventListener('mozpointerlockerror', this.pointerlockerror, false);
+    document.addEventListener('webkitpointerlockerror', this.pointerlockerror, false);
+
+    target.block.addEventListener('click', function() {
+
+        element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
+
+        element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen;
+
+        if (/Firefox/i.test(navigator.userAgent)) {
+
+            var fullscreenchange = function fullscreenchange() {
+                if (document.fullscreenElement === element || document.mozFullscreenElement === element || document.mozFullScreenElement === element) {
+
+                    document.removeEventListener('fullscreenchange', fullscreenchange);
+                    document.removeEventListener('mozfullscreenchange', fullscreenchange);
+
+                    element.requestPointerLock();
+                }
+            };
+
+            document.addEventListener('fullscreenchange', fullscreenchange, false);
+            document.addEventListener('mozfullscreenchange', fullscreenchange, false);
+
+            element.requestFullscreen();
+        } else element.requestPointerLock();
+    });
+};
+
+/**
+ * Orbit controld for scene.
+ *
+ * @param {Object} object - Object followed by camera.
+ */
+WHS.World.prototype.OrbitControls = function(object) {
+
+    this.controls = new THREE.OrbitControls(this._camera, this._renderer.domElement);
+
+    if (object) {
+
+        if (object._whsobject) {
+
+            var target = object ? object.mesh.position : new THREE.Vector3(0, 0, 0);
+
+            this.controls.target = target;
+        } else if ((typeof object === "undefined" ? "undefined" : _typeof(object)) == "object") this.controls.target.copy(target);
+        else console.error("Object must be a THREE.JS vector! @OrbitControls");
+    }
+};
+
+/**
+ * Three.js Fog.
+ */
+WHS.Fog = function() {
+    /**
+     * Fog constructing.
+     *
+     * @param {Object} params - Optional fog parameters.
+     */
+
+    function Fog() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Fog);
+
+        api.extend(params, {
+
+            hex: 0x000000,
+            near: 1,
+            far: 1000
+
+        });
+
+        this.fog = new THREE.Fog(params.hex, params.near, params.far);
+
+        this.type = "fog";
+    }
+
+    /**
+     * Add fog to scene.
+     */
+
+    _createClass(Fog, [{
+        key: "addTo",
+        value: function addTo(root) {
+
+            root.scene.fog = this.fog;
+        }
+    }]);
+
+    return Fog;
+}();
+
+WHS.World.prototype.Fog = function(params) {
+    return new WHS.Fog(params).addTo(this);
+};
+
+/**
+ * Three.js FogExp2.
+ */
+WHS.FogExp2 = function() {
+    /**
+     * Fog (exp2) constructing.
+     *
+     * @param {Object} params - Optional fog parameters.
+     */
+
+    function FogExp2() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, FogExp2);
+
+        api.extend(params, {
+
+            hex: 0x000000,
+            density: 0.00025
+
+        });
+
+        this.fog = new THREE.FogExp2(params.hex, params.density);
+
+        this.type = "fogexp2";
+    }
+
+    /**
+     * Add fog to scene.
+     */
+
+    _createClass(FogExp2, [{
+        key: "addTo",
+        value: function addTo(root) {
+
+            root.scene.fog = this.fog;
+        }
+    }]);
+
+    return FogExp2;
+}();
+
+WHS.World.prototype.FogExp2 = function(params) {
+    return new WHS.FogExp2(params).addTo(this);
+};
+
+WHS.Skybox = function(_WHS$Shape22) {
+    _inherits(Skybox, _WHS$Shape22);
+
+    function Skybox() {
+        var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        _classCallCheck(this, Skybox);
+
+        var _this29 = _possibleConstructorReturn(this, Object.getPrototypeOf(Skybox).call(this, params, "skybox"));
+
+        api.extend(params, {
+
+            skyType: "box",
+            detail: ".png",
+            radius: 10,
+            fog: true,
+
+            path: ""
+
+        });
+
+        console.log(params.fog);
+
+        var skyGeometry, skyMat;
+
+        switch (params.skyType) {
+            case "box":
+
+                var directions = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
+
+                skyGeometry = new THREE.CubeGeometry(params.radius, params.radius, params.radius);
+
+                var matArray = [];
+
+                for (var i = 0; i < 6; i++) {
+
+                    matArray.push(new THREE.MeshBasicMaterial({
+                        map: THREE.ImageUtils.loadTexture(params.path + directions[i] + params.imgSuffix),
+                        side: THREE.BackSide,
+                        fog: params.fog
+                    }));
+                }
+
+                skyMat = new THREE.MeshFaceMaterial(matArray);
+
+                break;
+            case "sphere":
+
+                skyGeometry = new THREE.SphereGeometry(params.radius / 2, 60, 40);
+
+                skyMat = new THREE.MeshBasicMaterial({
+                    map: THREE.ImageUtils.loadTexture(params.path + params.imgSuffix),
+                    side: THREE.BackSide,
+                    fog: params.fog
+                });
+
+                break;
+        }
+
+        _this29.mesh = new THREE.Mesh(skyGeometry, skyMat);
+        _this29.mesh.renderDepth = 1000.0;
+
+        _get(Object.getPrototypeOf(Skybox.prototype), "build", _this29).call(_this29);
+
+        return _this29;
+    }
+
+    return Skybox;
+}(WHS.Shape);
+
+WHS.World.prototype.Skybox = function(params) {
+    return new WHS.Skybox(params).addTo(this);
+};
