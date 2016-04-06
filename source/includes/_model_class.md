@@ -48,6 +48,10 @@ var teapot = GAME.Model({
     <div class="splash" onclick="Model_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="model.mesh.__dirtyPosition = true; model._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Model` class loader for loading objects in JSON format.

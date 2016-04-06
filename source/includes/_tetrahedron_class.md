@@ -30,6 +30,10 @@ var tetrahedron = GAME.Tetrahedron({
     <div class="splash" onclick="Tetrahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="tetrahedron.mesh.__dirtyPosition = true; tetrahedron._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Tetrahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.

@@ -34,6 +34,10 @@ var torusknot = GAME.Torusknot({
     <div class="splash" onclick="Torusknot_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="torusknot.mesh.__dirtyPosition = true; torusknot._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Torusknot` is a simple class, it extends `WHS.Shape` and inherits all it's methods.

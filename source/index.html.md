@@ -31,6 +31,7 @@ includes:
   - text_class
   - torus_class
   - torusknot_class
+  - tube_class
 
   - ambient_class
   - directional_class

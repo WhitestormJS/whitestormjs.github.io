@@ -4,6 +4,12 @@
 
 $('.splash').on('click', function() {
     $(this).hide();
+    $(this).parent().find('.actions').show();
+});
+
+$('.actions .fa-pause').on('click', function() {
+    $(this).parent().parent().find('.splash').show();
+    $(this).parent().hide();
 });
 // NOTE: Basic scene with sphere and ground.
 

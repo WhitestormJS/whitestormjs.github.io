@@ -30,6 +30,10 @@ var icosahedron = GAME.Icosahedron({
     <div class="splash" onclick="Icosahedron_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="icosahedron.mesh.__dirtyPosition = true; icosahedron._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Icosahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.

@@ -34,6 +34,10 @@ var parametric = GAME.Parametric({
     <div class="splash" onclick="Parametric_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="parametric.mesh.__dirtyPosition = true; parametric._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Parametric` is a simple class, it extends `WHS.Shape` and inherits all it's methods.

@@ -45,6 +45,10 @@ var extrude = GAME.Extrude({
     <div class="splash" onclick="Extrude_example.start()">
         <img src="images/play.png" width="30" height="30">
     </div>
+    <div class="actions">
+        <i class="fa fa-pause"></i>
+        <i class="fa fa-repeat" onclick="extrude.mesh.__dirtyPosition = true; extrude._pos.set(0, 100, 0);"></i>
+    </div>
 </div>
 
 `WHS.Extrude` is a simple class, it extends `WHS.Shape` and inherits all it's methods.

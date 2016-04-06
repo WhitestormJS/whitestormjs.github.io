@@ -759,3 +759,15 @@ a[data-language-name="output"] {
     z-index: 10;
     display: block;
 }
+
+.actions {
+    position: absolute;
+    padding: 5px;
+    right: 0;
+    display: none;
+}
+
+.actions i {
+  padding: 5px;
+  cursor: pointer;
+}
