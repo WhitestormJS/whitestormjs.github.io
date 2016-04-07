@@ -1,4 +1,4 @@
-# Plugins & Components
+# Adding Plugins & Components
 
 ## Making your own component
 

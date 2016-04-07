@@ -1,5 +1,5 @@
 
-<script src="jslibs/whitestorm.js"></script>
+<script src="jslibs/whitestorm.min.js"></script>
 <script>
 
 $('.splash').on('click', function() {
@@ -20,6 +20,8 @@ function reset_mesh( whsobject ) {
 
     whsobject.mesh.setLinearVelocity(new THREE.Vector3(0, 0, 0));
     whsobject.mesh.setAngularVelocity(new THREE.Vector3(0, 0, 0));
+
+    
 }
 
 // NOTE: Basic scene with sphere and ground.
@@ -402,6 +404,32 @@ Extrude_example.OrbitControls();
 
 spotlight.addTo( Extrude_example );
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
 // LATHE EXAMPLE.
 
 defaultParams.container = document.getElementById("lathe_ex");
@@ -446,6 +474,32 @@ Lathe_example.OrbitControls();
 
 spotlight.addTo( Lathe_example );
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
 //Lathe_example.start();
 
 // MODEL EXAMPLE.
@@ -465,7 +519,7 @@ var model = Model_example.Model(
     material: {
         vertexColors: THREE.VertexColors,
         shading: THREE.SmoothShading,
-        map: api.texture('assets/textures/teapot.jpg', {repeat:{x: 4, y:4}}),
+        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 4, y:4}}),
         kind: "phong",
         useCustomMaterial: true,
         rest: 0,
@@ -490,6 +544,32 @@ Model_example.Smooth(groundParams);
 Model_example.OrbitControls();
 
 spotlight.addTo( Model_example );
+
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
 
 //Model_example.start();
 
@@ -532,6 +612,32 @@ Morph_example.OrbitControls();
 
 spotlight.addTo( Morph_example );
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
 //Morph_example.start();
 
 // PARAMETRIC EXAMPLE.
@@ -570,6 +676,32 @@ Parametric_example.OrbitControls();
 Parametric_example.Smooth(groundParams);
 
 spotlight.addTo( Parametric_example );
+
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
 
 //Parametric_example.start();
 
@@ -651,6 +783,32 @@ Text_example.Smooth(groundParams);
 
 spotlight.addTo( Text_example );
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
 //Text_example.start();
 
 // TORUS EXAMPLE.
@@ -687,6 +845,32 @@ Torus_example.Smooth(groundParams);
 
 spotlight.addTo( Torus_example );
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 1,
+        distance: 100,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 10,
+        z: 30
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
 //Torus_example.start();
 
 // TORUSKNOT EXAMPLE.
@@ -707,7 +891,7 @@ var torusknot = Torusknot_example.Torusknot(
     material: {
         vertexColors: THREE.VertexColors,
         shading: THREE.SmoothShading,
-        map: api.texture('assets/textures/bricks.jpg'),
+        map: WHS.API.texture('assets/textures/bricks.jpg'),
         kind: "phong"
     },
 

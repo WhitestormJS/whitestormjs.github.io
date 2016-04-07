@@ -43,6 +43,8 @@ includes:
   - fpscontrols
   - orbitcontrols
 
+  - components
+
   - plugins
   - scripts
 
@@ -116,7 +118,11 @@ Also you need to put pathes to `physijs_worker.js` file and `ammo.js`. It will c
     "helper": false,
     "stats": false,
     "autoresize": false,
-    "shadowmap": true,
+
+    "shadowmap": {
+        "enabled": true,
+        "type": THREE.PCFSoftShadowMap
+    },
 
     "gravity": {
         "x": 0,
@@ -179,7 +185,7 @@ Parameter     |       Default        | Type      | Description |
 **assets**    | "./assets"           | `String`  | Assets folder.
 **container** | document.body        | `Object`  | Where to put whs canvas.
 
-<aside class="notice">
+<aside class="warning yellow">
 You must include <code>path_worker</code> and <code>path_ammo</code> parameters with pathes to Physi.js worker script and Ammo.js.
 </aside>
 
@@ -194,18 +200,29 @@ Parameter     |       Default        | Type      | Description |
 
 ### Physics object. (PhysiJS settings)
 
-Parameter               |       Default        | Type      | Description |
------------------------ | -------------------- | --------- | ----------- |
-  quatNormalizeSkip   | 0                    | `Number`  | TODO.
-  quatNormalizeFast   | false                | `Boolean` | TODO.
-  solver              |  **{**               | `Object`  | TODO.
+Parameter               |       Default                                | Type      | Description |
+----------------------- | -------------------------------------------- | --------- | ----------- |
+  quatNormalizeSkip     | 0                                            | `Number`  | TODO.
+  quatNormalizeFast     | false                                        | `Boolean` | TODO.
+  solver                |  **{**                                       | `Object`  | TODO.
                         |    &nbsp;&nbsp;&nbsp;&nbsp;iterations: 20,   | `Number`  | TODO.
                         |    &nbsp;&nbsp;&nbsp;&nbsp;tolerance: 20     | `Number`  | TODO.
-                        |  **}**               |           | TODO.
-  defMaterial         |  **{**               | `Object`  | TODO.
-                        |    &nbsp;&nbsp;&nbsp;&nbsp;cEqStiffness: 1e8,   | `Number`  | TODO.
+                        |  **}**                                       |           | TODO.
+  defMaterial           |  **{**                                       | `Object`  | TODO.
+                        |    &nbsp;&nbsp;&nbsp;&nbsp;cEqStiffness: 1e8,| `Number`  | TODO.
                         |    &nbsp;&nbsp;&nbsp;&nbsp;cEqRegTime: 3     | `Number`  | TODO.
-                        |  **}**               |           | TODO.
+                        |  **}**                                       |           | TODO.
+
+<aside class="notice">
+More information about Physijs properties you can find [here](https://github.com/chandlerprall/Physijs/wiki)
+</aside>
+
+## Enable debugging.
+Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.
+
+For debugging simulating proccess set `WHS.debug = true;` at the begining of your application.
+All proccesses, such as *creating, building, adding to world or removing* will be described in the console.
+
 
 
 <h1 class="big" id="API">API</h1>
@@ -237,15 +254,15 @@ var shape = GAME.Shape({
 
 > <h4>Methods:</h4>
 >
-> **.build( ...tags )** - aplly position and rotation to mesh, writing `build_state` as ready.
+> **.build( ...tags )** - aplly position and rotation to mesh, returning `Promise` when ready.
 >
-> **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World).
+> **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World). Returns `Promise` object.
 >
-> **.remove()** - remove object from scene.
+> **.remove()** - remove object from scene. Returns `WHS object`.
 >
-> **.retrieve()** - add object to scene after it was removed.
+> **.retrieve()** - add object to scene after it was removed. Returns `WHS object`.
 >
-> <div class="tip-right"> <b>...tags</b> is a list of tags that inform core how to make changes to <code>build_state</code> and <code>_state</code>.</div>
+> <div class="tip-right"> <b>...tags</b> is a list of tags that inform core how to make changes to <code>WHS objects</code>.</div>
 
 WHS.Shape is a default class for all object's (except lights and cameras).
 It consist of Three.js mesh, Physi.js mesh and whs parameters such as geometry or material.
@@ -345,8 +362,8 @@ Parameter     |       Default        | Type      | Description |
 Parameter      |       Default        | Type      | Description |
 -------------- | -------------------- | --------- | ----------- |
 **color**      | 0xffffff             | `Color`   | Light color.
-**skyColor**   | 0xffffff             | `Color`   | TODO
-**groundColor**| 0xffffff             | `Color`   | TODO
+**skyColor**   | 0xffffff             | `Color`   | Sky color.
+**groundColor**| 0xffffff             | `Color`   | Ground color.
 **intensity**  | 1                    | `Number`  | Shine intensity.
 **distance**   | 100                  | `Number`  | Light cast distance.
 **angle**      | Math.PI/3            | `Number`  | Light cast angle.
@@ -355,9 +372,9 @@ Parameter      |       Default        | Type      | Description |
 
 TODO.
 
-## api.extend( object, ...extensions ); [API]
+## WHS.API.extend( object, ...extensions ); [API]
 
-`WHS.API.extend()` or just `api.extend()` is made to simplify defining defaults process. We use it to check object for undefined parameters and fill them with our defaults.
+`WHS.API.extend()` or just `WHS.API.extend()` is made to simplify defining defaults process. We use it to check object for undefined parameters and fill them with our defaults.
 
 That's how you can use it:
 <script src="https://gist.github.com/sasha240100/cf1af9b43d06a1d2756d.js"></script>
@@ -369,7 +386,7 @@ Will return:
 <aside class="warning yellow">This function is used in WhitestormJS Core!</aside>
 
 
-## api.loadMaterial( material ); [API]
+## WHS.API.loadMaterial( material ); [API]
 
 Turns your material parameter and returns whs material object.
 This function checks for `kind` property and turns it into `THREE.Material` object.
@@ -378,7 +395,7 @@ Returns object that consist of `_material`, `_restitution` and `_friction`, wher
 
 <aside class="warning yellow">This function is used in WhitestormJS Core!</aside>
 
-## api.merge( box, rabbits ); [API]
+## WHS.API.merge( box, rabbits ); [API]
 
 Merge is a simple function that adds Objects to another objects(with .add() function). Use it if you need to add multiple objects to scene for example.
 
@@ -386,7 +403,7 @@ Add rabbits to box!
 
 <aside class="warning">Need to be rewritten [TODO]</aside>
 
-## api.texture( url, options  ); [API]
+## WHS.API.texture( url, options  ); [API]
 
 ```javascript
 
@@ -415,7 +432,7 @@ var cube = GAME.Cube({
 
 ```
 
-`api.texture()` wraps whs texture object to Three.js texture.
+`WHS.API.texture()` wraps whs texture object to Three.js texture.
 
 ### Options.
 

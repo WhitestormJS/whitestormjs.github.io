@@ -142,6 +142,7 @@ main() {
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
+  echo "whitestormjs.xyz" > CNAME
   commit+push
 }
 
@@ -168,8 +169,6 @@ incremental_deploy() {
 commit+push() {
   set_user_id
   git --work-tree "$deploy_directory" commit -m "$commit_message"
-
-  echo "whitestormjs.xyz" > CNAME
 
   disable_expanded_output
   #--quiet is important here to avoid outputting the repo URL, which may contain a secret token
