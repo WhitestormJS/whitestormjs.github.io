@@ -32,11 +32,15 @@ var polyhedron = GAME.Polyhedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(polyhedron);  polyhedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(polyhedron);  polyhedron.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
 `WHS.Polyhedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In elementary geometry, a **polyhedron** is *a solid in three dimensions with flat polygonal faces, straight edges and sharp corners or vertices*.
+
+<img src="images/shapes/polyhedron.gif">
 
 `WHS.Polyhedron` creates Polyhedron object by it's `radius` and `detail`.
 

@@ -7,11 +7,12 @@ language_tabs:
   - output
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='http://threejs.org/'><b>Three.js <i>r75</i></b></a>
+  - <a href='https://github.com/WhitestormJS/Physijs'>Get custom <b>Physijs</b></a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - cube_class
+  - box_class
   - sphere_class
   - plane_class
   - cylinder_class
@@ -65,10 +66,11 @@ search: true
 
 **Whiestorm.js** is a _framework_ for 3D web apps built with Three.js technology.
 
-It implements a _core_ with cmponent system and plugin support for fast development of 3D scene with physics.
+It implements a _core_ with component system and plugin support for fast development of 3D scene with physics.
 
-Automizing your web app with whitestorm.js is fast and comfortable. You can use whitestorm's API for creating different shapes instead of writing simple functionality each time.
+Automizing your web app with **whitestorm.js** is fast and comfortable. You can use whitestorm's API for creating different shapes instead of writing common functions each time. This engine has physics support implemented by [custom Physi.js](https://github.com/WhitestormJS/Physijs) library, which is much faster than others. Framework provides extended component control and high frame rate, because it uses [**WebWorkers** technology](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) for multithreading.
 
+**Framework's goal is to simplify coding workflow and add plugin's feature to 3D part of the web.**
 
 # Getting started
 
@@ -257,6 +259,8 @@ var shape = GAME.Shape({
 > **.build( ...tags )** - aplly position and rotation to mesh, returning `Promise` when ready.
 >
 > **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World). Returns `Promise` object.
+>
+> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
 >
 > **.remove()** - remove object from scene. Returns `WHS object`.
 >

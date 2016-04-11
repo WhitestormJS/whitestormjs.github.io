@@ -32,11 +32,15 @@ var octahedron = GAME.Octahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(octahedron);  octahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(octahedron);  octahedron.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
 `WHS.Octahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular octahedron is a Platonic solid composed of eight equilateral triangles, four of which meet at each vertex.
+
+<img src="images/shapes/octahedron.gif">
 
 `WHS.Octahedron` creates Octahedron object by it's `radius` and `detail`.
 

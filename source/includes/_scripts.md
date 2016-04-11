@@ -37,9 +37,10 @@ var defaultParams = {
     },
 
     camera: {
-        far: 10000,
+        far: 1000,
+        near: 10,
         y: 10,
-        z: 30
+        z: 80
     },
 
     path_worker: '/jslibs/physijs_worker.js',
@@ -61,6 +62,10 @@ var groundParams = {
         x: 0,
         y: 0,
         z: 0
+    },
+
+    rot: {
+        x: -Math.PI/2
     }
 };
 
@@ -73,7 +78,7 @@ var Sphere_example = new WHS.World( defaultParams );
 var sphere = Sphere_example.Sphere(
 {
     geometry: {
-        radius:3
+        radius:15
     },
 
     mass: 10,
@@ -90,30 +95,81 @@ var sphere = Sphere_example.Sphere(
     }
 });
 
-Sphere_example.Smooth(groundParams);
+var sphere2 = Sphere_example.Sphere(
+{
+    geometry: {
+        radius:15.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
+        kind: "basic"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+(new WHS.loop(function() {
+    sphere2.position.copy( sphere.position );
+    sphere2.rotation.copy( sphere.rotation );
+})).start();
+
+Sphere_example.Plane(groundParams);
 
 Sphere_example.OrbitControls();
 
 //Sphere_example.start();
 
-// CUBE EXAMPLE.
+// Box EXAMPLE.
 
-defaultParams.container = document.getElementById("cube_ex");
+defaultParams.container = document.getElementById("box_ex");
 
-var Cube_example = new WHS.World( defaultParams );
+var Box_example = new WHS.World( defaultParams );
 
-var cube = Cube_example.Cube(
+var box = Box_example.Box(
 {
     geometry: {
-        width:2,
-        height:2,
-        depth:2
+        width:20,
+        height:20,
+        depth:20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var box2 = Box_example.Box(
+{
+    geometry: {
+        width:20.1,
+        height:20.1,
+        depth:20.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -124,11 +180,16 @@ var cube = Cube_example.Cube(
     }
 });
 
-Cube_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    box2.position.copy( box.position );
+    box2.rotation.copy( box.rotation );
+})).start();
 
-Cube_example.OrbitControls();
+Box_example.Plane(groundParams);
 
-//Cube_example.start();
+Box_example.OrbitControls();
+
+//Box_example.start();
 
 // CYLINDER EXAMPLE.
 
@@ -139,15 +200,39 @@ var Cylinder_example = new WHS.World( defaultParams );
 var cylinder = Cylinder_example.Cylinder(
 {
     geometry: {
-        radiusTop: 2,
-        radiusBottom: 4,
-        height: 5
+        radiusTop: 20,
+        radiusBottom: 40,
+        height: 50
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var cylinder2 = Cylinder_example.Cylinder(
+{
+    geometry: {
+        radiusTop: 20.1,
+        radiusBottom: 40.1,
+        height: 50.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -158,7 +243,12 @@ var cylinder = Cylinder_example.Cylinder(
     }
 });
 
-Cylinder_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    cylinder2.position.copy( cylinder.position );
+    cylinder2.rotation.copy( cylinder.rotation );
+})).start();
+
+Cylinder_example.Plane(groundParams);
 
 Cylinder_example.OrbitControls();
 
@@ -173,13 +263,35 @@ var Dodecahedron_example = new WHS.World( defaultParams );
 var dodecahedron = Dodecahedron_example.Dodecahedron(
 {
     geometry: {
-        radius: 2
+        radius: 20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var dodecahedron2 = Dodecahedron_example.Dodecahedron(
+{
+    geometry: {
+        radius: 20.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -190,7 +302,12 @@ var dodecahedron = Dodecahedron_example.Dodecahedron(
     }
 });
 
-Dodecahedron_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    dodecahedron2.position.copy( dodecahedron.position );
+    dodecahedron2.rotation.copy( dodecahedron.rotation );
+})).start();
+
+Dodecahedron_example.Plane(groundParams);
 
 Dodecahedron_example.OrbitControls();
 
@@ -205,13 +322,35 @@ var Polyhedron_example = new WHS.World( defaultParams );
 var polyhedron = Polyhedron_example.Polyhedron(
 {
     geometry: {
-        radius: 2
+        radius: 20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var polyhedron2 = Polyhedron_example.Polyhedron(
+{
+    geometry: {
+        radius: 20.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -222,7 +361,12 @@ var polyhedron = Polyhedron_example.Polyhedron(
     }
 });
 
-Polyhedron_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    polyhedron2.position.copy( polyhedron.position );
+    polyhedron2.rotation.copy( polyhedron.rotation );
+})).start();
+
+Polyhedron_example.Plane(groundParams);
 
 Polyhedron_example.OrbitControls();
 
@@ -237,13 +381,35 @@ var Icosahedron_example = new WHS.World( defaultParams );
 var icosahedron = Icosahedron_example.Icosahedron(
 {
     geometry: {
-        radius: 2
+        radius: 20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var icosahedron2 = Icosahedron_example.Icosahedron(
+{
+    geometry: {
+        radius: 20.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -254,7 +420,12 @@ var icosahedron = Icosahedron_example.Icosahedron(
     }
 });
 
-Icosahedron_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    icosahedron2.position.copy( icosahedron.position );
+    icosahedron2.rotation.copy( icosahedron.rotation );
+})).start();
+
+Icosahedron_example.Plane(groundParams);
 
 Icosahedron_example.OrbitControls();
 
@@ -266,16 +437,38 @@ defaultParams.container = document.getElementById("octahedron_ex");
 
 var Octahedron_example = new WHS.World( defaultParams );
 
-var icosahedron = Octahedron_example.Octahedron(
+var octahedron = Octahedron_example.Octahedron(
 {
     geometry: {
-        radius: 2
+        radius: 20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    }
+});
+
+var octahedron2 = Octahedron_example.Octahedron(
+{
+    geometry: {
+        radius: 20.1
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -286,7 +479,12 @@ var icosahedron = Octahedron_example.Octahedron(
     }
 });
 
-Octahedron_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    octahedron2.position.copy( octahedron.position );
+    octahedron2.rotation.copy( octahedron.rotation );
+})).start();
+
+Octahedron_example.Plane(groundParams);
 
 Octahedron_example.OrbitControls();
 
@@ -301,13 +499,39 @@ var Tetrahedron_example = new WHS.World( defaultParams );
 var tetrahedron = Tetrahedron_example.Tetrahedron(
 {
     geometry: {
-        radius: 2
+        radius: 20
     },
 
     mass: 10,
 
     material: {
         color: 0xffffff,
+        kind: "depth"
+    },
+
+    pos: {
+        x: 0,
+        y: 100,
+        z: 0
+    },
+
+    rot: {
+        x: 10
+    }
+});
+
+var tetrahedron2 = Tetrahedron_example.Tetrahedron(
+{
+    geometry: {
+        radius: 20
+    },
+
+    mass: 0,
+    physics: false,
+
+    material: {
+        color: 0x000000,
+        wireframe: true,
         kind: "basic"
     },
 
@@ -322,39 +546,18 @@ var tetrahedron = Tetrahedron_example.Tetrahedron(
     }
 });
 
-Tetrahedron_example.Smooth(groundParams);
+(new WHS.loop(function() {
+    tetrahedron2.position.copy( tetrahedron.position );
+    tetrahedron2.rotation.copy( tetrahedron.rotation );
+})).start();
+
+Tetrahedron_example.Plane(groundParams);
 
 Tetrahedron_example.OrbitControls();
 
 //Tetrahedron_example.start();
 
 // SPOTLIGHT CONFIGURE.
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
 
 // EXTRUDE EXAMPLE.
 
@@ -363,14 +566,14 @@ defaultParams.container = document.getElementById("extrude_ex");
 var Extrude_example = new WHS.World( defaultParams );
 
 var shape = new THREE.Shape([
-    new THREE.Vector2( -4,-4 ),
-    new THREE.Vector2( -2,0  ),
-    new THREE.Vector2( -4,4  ),
-    new THREE.Vector2(  0,2  ),
-    new THREE.Vector2(  4,4  ),
-    new THREE.Vector2(  2,0  ),
-    new THREE.Vector2(  4,-4 ),
-    new THREE.Vector2(  0,-2 ),
+    new THREE.Vector2( -40,-40 ),
+    new THREE.Vector2( -20,0  ),
+    new THREE.Vector2( -40,40  ),
+    new THREE.Vector2(  0,20  ),
+    new THREE.Vector2(  40,40  ),
+    new THREE.Vector2(  20,0  ),
+    new THREE.Vector2(  40,-40 ),
+    new THREE.Vector2(  0,-20 ),
 ]);
 
 var extrude = Extrude_example.Extrude(
@@ -380,7 +583,7 @@ var extrude = Extrude_example.Extrude(
         options: {
             bevelEnabled: false,
             bevelSize: 0,
-            amount: 2
+            amount: 20
         } 
     },
 
@@ -398,37 +601,9 @@ var extrude = Extrude_example.Extrude(
     }
 });
 
-Extrude_example.Smooth(groundParams);
+Extrude_example.Plane(groundParams);
 
 Extrude_example.OrbitControls();
-
-spotlight.addTo( Extrude_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
 
 // LATHE EXAMPLE.
 
@@ -468,37 +643,9 @@ var lathe = Lathe_example.Lathe(
     }
 });
 
-Lathe_example.Smooth(groundParams);
+Lathe_example.Plane(groundParams);
 
 Lathe_example.OrbitControls();
-
-spotlight.addTo( Lathe_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
 
 //Lathe_example.start();
 
@@ -511,16 +658,18 @@ var Model_example = new WHS.World( defaultParams );
 var model = Model_example.Model(
 {
     geometry: {
-        path: "assets/models/teapot.js"
+        path: "assets/models/utah-teapot-large.json",
+        physics: "assets/models/utah-teapot-light.json"
     },
 
     mass: 10,
 
     material: {
         vertexColors: THREE.VertexColors,
-        shading: THREE.SmoothShading,
-        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 4, y:4}}),
+        shading: THREE.PlaneShading,
+        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
         kind: "phong",
+        side: THREE.DoubleSide,
         useCustomMaterial: true,
         rest: 0,
         fri: 1
@@ -533,43 +682,34 @@ var model = Model_example.Model(
     },
 
     scale: {
-        x: 0.2,
-        y: 0.2,
-        z: 0.2
+        x: 4,
+        y: 4, 
+        z: 4
     }
 });
 
-Model_example.Smooth(groundParams);
-
-Model_example.OrbitControls();
-
-spotlight.addTo( Model_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
+Model_example.Box({    
+    geometry:{
+        width: 250,
+        height: 1,
+        depth: 250
     },
 
-    shadowmap: {
-        top: 0,
-        fov: 90
+    mass: 0,
+    
+    material: {
+        color: 0xff0000,
+        kind: "basic"
     },
 
     pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
         x: 0,
         y: 0,
         z: 0
     }
 });
+
+Model_example.OrbitControls();
 
 //Model_example.start();
 
@@ -596,12 +736,6 @@ var morph = Morph_example.Morph(
         z: 0
     },
 
-    scale: {
-        x: 0.1,
-        y: 0.1,
-        z: 0.1
-    },
-
     morph: {
         duration: 0.5,
         speed: 250
@@ -609,34 +743,6 @@ var morph = Morph_example.Morph(
 });
 
 Morph_example.OrbitControls();
-
-spotlight.addTo( Morph_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
 
 //Morph_example.start();
 
@@ -647,7 +753,7 @@ defaultParams.container = document.getElementById("parametric_ex");
 var Parametric_example = new WHS.World( defaultParams );
 
 function createParametric( u, v ) {
-    return new THREE.Vector3( u * 30, Math.random() * 5, v * 30);
+    return new THREE.Vector3( u * 300, Math.random() * 50, v * 300);
 }
 
 var parametric = Parametric_example.Parametric(
@@ -673,35 +779,7 @@ var parametric = Parametric_example.Parametric(
 
 Parametric_example.OrbitControls();
 
-Parametric_example.Smooth(groundParams);
-
-spotlight.addTo( Parametric_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
+Parametric_example.Plane(groundParams);
 
 //Parametric_example.start();
 
@@ -739,7 +817,7 @@ var ring = Ring_example.Ring(
 
 Ring_example.OrbitControls();
 
-Ring_example.Smooth(groundParams);
+Ring_example.Plane(groundParams);
 
 spotlight.addTo( Ring_example );*/
 
@@ -757,8 +835,8 @@ var text = Text_example.Text(
         text: "hello world",
         parameters: {
             font: "assets/fonts/gentilis_bold.typeface.js",
-            size: 20,
-            height: 5,
+            size: 200,
+            height: 50,
             curveSegments: 6
         }
     },
@@ -779,35 +857,7 @@ var text = Text_example.Text(
 
 Text_example.OrbitControls();
 
-Text_example.Smooth(groundParams);
-
-spotlight.addTo( Text_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
-    },
-
-    shadowmap: {
-        top: 0,
-        fov: 90
-    },
-
-    pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
-        x: 0,
-        y: 0,
-        z: 0
-    }
-});
+Text_example.Plane(groundParams);
 
 //Text_example.start();
 
@@ -820,8 +870,8 @@ var Torus_example = new WHS.World( defaultParams );
 var torus = Torus_example.Torus(
 {
     geometry: {
-        radius: 5,
-        tube: 2
+        radius: 20,
+        tube: 8
     },
 
     mass: 10,
@@ -834,37 +884,32 @@ var torus = Torus_example.Torus(
 
     pos: {
         x: 0,
-        y: 35,
+        y: 100,
         z: 0
+    },
+
+    rot: {
+        x: Math.PI/4
     }
 });
 
 Torus_example.OrbitControls();
 
-Torus_example.Smooth(groundParams);
-
-spotlight.addTo( Torus_example );
-
-var spotlight = new WHS.SpotLight( 
-{
-    light: {
-        color: 0xffffff, //0x00ff00,
-        intensity: 1,
-        distance: 100,
+Torus_example.Box({    
+    geometry:{
+        width: 250,
+        height: 1,
+        depth: 250
     },
 
-    shadowmap: {
-        top: 0,
-        fov: 90
+    mass: 0,
+    
+    material: {
+        color: 0xff0000,
+        kind: "basic"
     },
 
     pos: {
-        x: 0,
-        y: 10,
-        z: 30
-    },
-
-    target: {
         x: 0,
         y: 0,
         z: 0
@@ -882,15 +927,15 @@ var Torusknot_example = new WHS.World( defaultParams );
 var torusknot = Torusknot_example.Torusknot(
 {
     geometry: {
-        radius:5,
-        tube: 2
+        radius:20,
+        tube: 8
     },
 
     mass: 10,
 
     material: {
         vertexColors: THREE.VertexColors,
-        shading: THREE.SmoothShading,
+        shading: THREE.PlaneShading,
         map: WHS.API.texture('assets/textures/bricks.jpg'),
         kind: "phong"
     },
@@ -904,10 +949,68 @@ var torusknot = Torusknot_example.Torusknot(
 
 Torusknot_example.OrbitControls();
 
-Torusknot_example.Smooth(groundParams);
+Torusknot_example.Box({    
+    geometry:{
+        width: 250,
+        height: 1,
+        depth: 250
+    },
 
-spotlight.addTo( Torusknot_example );
+    mass: 0,
+    
+    material: {
+        color: 0xff0000,
+        kind: "basic"
+    },
+
+    pos: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
 
 //Torusknot_example.start();
 
+var spotlight = new WHS.SpotLight( 
+{
+    light: {
+        color: 0xffffff, //0x00ff00,
+        intensity: 2,
+        distance: 1000,
+    },
+
+    shadowmap: {
+        top: 0,
+        fov: 90
+    },
+
+    pos: {
+        x: 0,
+        y: 200,
+        z: 300
+    },
+
+    target: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
+
+spotlight.addTo( Extrude_example );
+
+spotlight.clone().addTo( Lathe_example );
+
+spotlight.clone().addTo( Model_example );
+
+spotlight.clone().addTo( Morph_example );
+
+spotlight.clone().addTo( Parametric_example );
+
+spotlight.clone().addTo( Text_example );
+
+spotlight.clone().addTo( Torus_example );
+
+spotlight.clone().addTo( Torusknot_example );
 </script>

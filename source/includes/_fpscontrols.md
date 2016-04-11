@@ -1,4 +1,4 @@
-# Events.
+# Events
 
 `WHS.Shape` and `WHS.Light` are returning `Events` object extended by themselfes.
 It means that you can listen for events with `.addEventListener()` method right on shape or light returned by those classes.
@@ -12,7 +12,7 @@ Event          |       Arguments returned       | Description |
 **remove**     | -                              | Emits when shape is removed.
 **retrieve**   | -                              | Emits when shape is retrieved.
 
-# Controls.
+# Controls
 
 ## First-person controls.
 

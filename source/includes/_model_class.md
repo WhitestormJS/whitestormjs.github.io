@@ -7,7 +7,8 @@
 var teapot = GAME.Model({
 
     geometry: {
-        path: "assets/models/teapot.js"
+        path: "assets/models/utah-teapot-large.json",
+        physics: "assets/models/utah-teapot-light.json"
     },
 
     mass: 10,
@@ -15,16 +16,9 @@ var teapot = GAME.Model({
     material: {
         vertexColors: THREE.VertexColors,
         shading: THREE.SmoothShading,
-        map: api.texture(
-        		'assets/textures/teapot.jpg', 
-        		{
-        			repeat:{
-        				x: 4, 
-        				y:4
-        			}
-        		}
-        	),
+        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
         kind: "phong",
+        side: THREE.DoubleSide,
         useCustomMaterial: true,
         rest: 0,
         fri: 1
@@ -36,8 +30,10 @@ var teapot = GAME.Model({
         z: 0
     },
 
-    rot: {
-        z: 30
+    scale: {
+        x: 4,
+        y: 4, 
+        z: 4
     }
 
 });
@@ -50,7 +46,7 @@ var teapot = GAME.Model({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(model);  model._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(model);  model.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
@@ -60,7 +56,12 @@ Model is a simple class too. But it doesn't depends on `Three.js geometry` objec
 
 Parameter      |       Default        | Type               | Description |
 -------------- | -------------------- | ------------------ | ----------- |
-**path**       | ""                   | `String`           | Url adress to JSON file.
+**path**       | ""                   | `String`(url)      | Url adress to model JSON file.
+**physics**    | ""                   | `String`(url)      | Url adress to physics model JSON file.
+
+**physics** parameter is used for adding shape that will be calculated in Physi.js. Usually it is used to defining light variant of existing model, so physics will work faster. If you don't type **physics** parameter - it will be replaced with **path**.
+
+<aside class="notice"><code>scale</code> parameter will be also applied to physics shape, but it can be changed only in three.js mesh.</aside>
 
 Also, if model has vertex colors - you can add `useVertexColors` property to material parameter object (as with `useCustomMaterial`).
 

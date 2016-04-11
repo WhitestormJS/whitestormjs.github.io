@@ -36,7 +36,7 @@ var parametric = GAME.Parametric({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(parametric);  parametric._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(parametric);  parametric.position.set(0, 100, 0);"></i>
     </div>
 </div>
 

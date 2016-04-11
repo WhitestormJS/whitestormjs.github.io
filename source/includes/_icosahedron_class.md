@@ -32,11 +32,17 @@ var icosahedron = GAME.Icosahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(icosahedron);  icosahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(icosahedron);  icosahedron.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
 `WHS.Icosahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In geometry, an **icosahedron** is a polyhedron with 20 faces.
+There are many kinds of icosahedra, with some being more symmetrical than others. The most well known is the Platonic, convex regular icosahedron. 
+
+<img src="images/shapes/icosahedron.gif">
+
 
 `WHS.Icosahedron` creates Icosahedron object by it's `radius` and `detail`.
 

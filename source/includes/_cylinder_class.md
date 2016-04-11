@@ -33,11 +33,15 @@ var cylinder = GAME.Cylinder({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(cylinder);  cylinder._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(cylinder);  cylinder.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
 `WHS.Cylinder` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+A **cylinder** is one of the most basic curvilinear geometric shapes, the surface *formed by the points at a fixed distance from a given straight line, the axis of the cylinder.* The solid enclosed by this surface and by two planes perpendicular to the axis is also called a cylinder. The surface area and the volume of a cylinder have been known since deep antiquity.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Cylinder-with-blender.png" width="250">
 
 `WHS.Cylinder` creates Cylinder object by it's `radiusTop`, `radiusBottom` and `height`
 

@@ -31,11 +31,15 @@ var dodecahedron = GAME.Dodecahedron({
     </div>
     <div class="actions">
         <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(dodecahedron);  dodecahedron._pos.set(0, 100, 0);"></i>
+        <i class="fa fa-repeat" onclick="reset_mesh(dodecahedron);  dodecahedron.position.set(0, 100, 0);"></i>
     </div>
 </div>
 
 `WHS.Dodecahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In geometry, a **dodecahedron** is any *polyhedron with twelve flat faces*. The most familiar dodecahedron is the regular dodecahedron, which is a Platonic solid. There are also three regular star dodecahedra, which are constructed as stellations of the convex form. All of these have icosahedral symmetry, order 120.
+
+<img src="images/shapes/dodecahedron.gif">
 
 `WHS.Dodecahedron` creates Dodecahedron object by it's `radius` and `detail`.
 
