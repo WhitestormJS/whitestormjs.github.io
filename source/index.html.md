@@ -28,7 +28,6 @@ includes:
   - parametric_class
   - ring_class
   - shape2d_class
-  - smooth_class
   - text_class
   - torus_class
   - torusknot_class
@@ -216,7 +215,7 @@ Parameter               |       Default                                | Type   
                         |  **}**                                       |           | TODO.
 
 <aside class="notice">
-More information about Physijs properties you can find [here](https://github.com/chandlerprall/Physijs/wiki)
+More information about Physijs properties you can find at <a href="https://github.com/chandlerprall/Physijs/wiki">it's site</a>
 </aside>
 
 ## Enable debugging.
@@ -259,6 +258,14 @@ var shape = GAME.Shape({
 > **.build( ...tags )** - aplly position and rotation to mesh, returning `Promise` when ready.
 >
 > **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World). Returns `Promise` object.
+>
+> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
+>
+> **.setPosition( x, y, z )** - set object's position by x, y, z. Returns new `WHS object`.
+>
+> **.setRotation( x, y, z )** - set object's rotation by x, y, z. Returns new `WHS object`.
+>
+> **.copy( source )** - assign object to this object. Returns new `WHS object`.
 >
 > **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
 >
@@ -344,7 +351,23 @@ var light = GAME.SpotLight( {
 
 > <h4>Methods:</h4>
 >
-> **All that WHS.Shape has +**
+> **.build( ...tags )** - aplly position and rotation to mesh, returning `Promise` when ready.
+>
+> **.addTo( root, ...tags )** - adds WHS.Light object to scene (WHS.World). Returns `Promise` object.
+>
+> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
+>
+> **.setPosition( x, y, z )** - set object's position by x, y, z. Returns new `WHS object`.
+>
+> **.setRotation( x, y, z )** - set object's rotation by x, y, z. Returns new `WHS object`.
+>
+> **.copy( source )** - assign object to this object. Returns new `WHS object`.
+>
+> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
+>
+> **.remove()** - remove object from scene. Returns `WHS object`.
+>
+> **.retrieve()** - add object to scene after it was removed. Returns `WHS object`.
 >
 > **.buildShadow()** - apply shadowmap parameters to light.
 

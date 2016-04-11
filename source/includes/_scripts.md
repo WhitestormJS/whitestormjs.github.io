@@ -16,12 +16,10 @@ function reset_mesh( whsobject ) {
     whsobject.mesh.__dirtyPosition = true;
     whsobject.mesh.__dirtyRotation = true;
 
-    whsobject.rotation.set(0, 0, 0);
+    whsobject.setRotation(0, 0, 0);
 
     whsobject.mesh.setLinearVelocity(new THREE.Vector3(0, 0, 0));
     whsobject.mesh.setAngularVelocity(new THREE.Vector3(0, 0, 0));
-
-
 }
 
 // NOTE: Basic scene with sphere and ground.
@@ -118,8 +116,8 @@ var sphere2 = Sphere_example.Sphere(
 });
 
 (new WHS.loop(function() {
-    sphere2.position.copy( sphere.position );
-    sphere2.rotation.copy( sphere.rotation );
+    sphere2.position = sphere.position;
+    sphere2.rotation = sphere.rotation;
 })).start();
 
 Sphere_example.Plane(groundParams);
@@ -181,8 +179,8 @@ var box2 = Box_example.Box(
 });
 
 (new WHS.loop(function() {
-    box2.position.copy( box.position );
-    box2.rotation.copy( box.rotation );
+    box2.position = box.position;
+    box2.rotation = box.rotation;
 })).start();
 
 Box_example.Plane(groundParams);
@@ -244,8 +242,8 @@ var cylinder2 = Cylinder_example.Cylinder(
 });
 
 (new WHS.loop(function() {
-    cylinder2.position.copy( cylinder.position );
-    cylinder2.rotation.copy( cylinder.rotation );
+    cylinder2.position = cylinder.position;
+    cylinder2.rotation = cylinder.rotation;
 })).start();
 
 Cylinder_example.Plane(groundParams);
@@ -303,8 +301,8 @@ var dodecahedron2 = Dodecahedron_example.Dodecahedron(
 });
 
 (new WHS.loop(function() {
-    dodecahedron2.position.copy( dodecahedron.position );
-    dodecahedron2.rotation.copy( dodecahedron.rotation );
+    dodecahedron2.position = dodecahedron.position;
+    dodecahedron2.rotation = dodecahedron.rotation;
 })).start();
 
 Dodecahedron_example.Plane(groundParams);
@@ -362,8 +360,8 @@ var polyhedron2 = Polyhedron_example.Polyhedron(
 });
 
 (new WHS.loop(function() {
-    polyhedron2.position.copy( polyhedron.position );
-    polyhedron2.rotation.copy( polyhedron.rotation );
+    polyhedron2.position = polyhedron.position;
+    polyhedron2.rotation = polyhedron.rotation;
 })).start();
 
 Polyhedron_example.Plane(groundParams);
@@ -421,8 +419,8 @@ var icosahedron2 = Icosahedron_example.Icosahedron(
 });
 
 (new WHS.loop(function() {
-    icosahedron2.position.copy( icosahedron.position );
-    icosahedron2.rotation.copy( icosahedron.rotation );
+    icosahedron2.position = icosahedron.position;
+    icosahedron2.rotation = icosahedron.rotation;
 })).start();
 
 Icosahedron_example.Plane(groundParams);
@@ -480,8 +478,8 @@ var octahedron2 = Octahedron_example.Octahedron(
 });
 
 (new WHS.loop(function() {
-    octahedron2.position.copy( octahedron.position );
-    octahedron2.rotation.copy( octahedron.rotation );
+    octahedron2.position = octahedron.position;
+    octahedron2.rotation = octahedron.rotation;
 })).start();
 
 Octahedron_example.Plane(groundParams);
@@ -547,8 +545,8 @@ var tetrahedron2 = Tetrahedron_example.Tetrahedron(
 });
 
 (new WHS.loop(function() {
-    tetrahedron2.position.copy( tetrahedron.position );
-    tetrahedron2.rotation.copy( tetrahedron.rotation );
+    tetrahedron2.position = tetrahedron.position;
+    tetrahedron2.rotation = tetrahedron.rotation;
 })).start();
 
 Tetrahedron_example.Plane(groundParams);
@@ -667,7 +665,7 @@ var model = Model_example.Model(
     material: {
         vertexColors: THREE.VertexColors,
         shading: THREE.PlaneShading,
-        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
+        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 1, y:1}}),
         kind: "phong",
         side: THREE.DoubleSide,
         useCustomMaterial: true,
@@ -682,9 +680,9 @@ var model = Model_example.Model(
     },
 
     scale: {
-        x: 4,
-        y: 4, 
-        z: 4
+        x: 1.5,
+        y: 1.5, 
+        z: 1.5
     }
 });
 
@@ -753,7 +751,7 @@ defaultParams.container = document.getElementById("parametric_ex");
 var Parametric_example = new WHS.World( defaultParams );
 
 function createParametric( u, v ) {
-    return new THREE.Vector3( u * 300, Math.random() * 50, v * 300);
+    return new THREE.Vector3( u * 60, Math.random() * 10, v * 60);
 }
 
 var parametric = Parametric_example.Parametric(
@@ -779,7 +777,26 @@ var parametric = Parametric_example.Parametric(
 
 Parametric_example.OrbitControls();
 
-Parametric_example.Plane(groundParams);
+Parametric_example.Box({    
+    geometry:{
+        width: 250,
+        height: 1,
+        depth: 250
+    },
+
+    mass: 0,
+    
+    material: {
+        color: 0xff0000,
+        kind: "basic"
+    },
+
+    pos: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
 
 //Parametric_example.start();
 
@@ -835,8 +852,8 @@ var text = Text_example.Text(
         text: "hello world",
         parameters: {
             font: "assets/fonts/gentilis_bold.typeface.js",
-            size: 200,
-            height: 50,
+            size: 20,
+            height: 5,
             curveSegments: 6
         }
     },
@@ -857,7 +874,26 @@ var text = Text_example.Text(
 
 Text_example.OrbitControls();
 
-Text_example.Plane(groundParams);
+Text_example.Box({    
+    geometry:{
+        width: 250,
+        height: 1,
+        depth: 250
+    },
+
+    mass: 0,
+    
+    material: {
+        color: 0xff0000,
+        kind: "basic"
+    },
+
+    pos: {
+        x: 0,
+        y: 0,
+        z: 0
+    }
+});
 
 //Text_example.start();
 
