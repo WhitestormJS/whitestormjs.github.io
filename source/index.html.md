@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: WhitestormJS Documentation (API Reference)
 
 language_tabs:
   - javascript
@@ -9,7 +9,7 @@ language_tabs:
 toc_footers:
   - <a href='http://threejs.org/'><b>Three.js <i>r75</i></b></a>
   - <a href='https://github.com/WhitestormJS/Physijs'>Get custom <b>Physijs</b></a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://plus.google.com/113564780584588197070?rel=author'>Google</a>
 
 includes:
   - box_class
@@ -50,6 +50,7 @@ includes:
 
 search: true
 ---
+
 
 <h1 class="bigline">Introduction</h1>
 
@@ -105,7 +106,6 @@ Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js fo
 Include Three.js, Wagner, and Physi.js libraries. Include a script tag linking the WhitestormJS library in your head or after your body:
 
 Also you need to put pathes to `physijs_worker.js` file and `ammo.js`. It will cause some errors, if you forget to do so.
-
 
 # Core
 

@@ -41,7 +41,7 @@ var cylinder = GAME.Cylinder({
 
 A **cylinder** is one of the most basic curvilinear geometric shapes, the surface *formed by the points at a fixed distance from a given straight line, the axis of the cylinder.* The solid enclosed by this surface and by two planes perpendicular to the axis is also called a cylinder. The surface area and the volume of a cylinder have been known since deep antiquity.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Cylinder-with-blender.png" width="250">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Cylinder-with-blender.png" alt="rendered cylinder" width="250">
 
 `WHS.Cylinder` creates Cylinder object by it's `radiusTop`, `radiusBottom` and `height`
 

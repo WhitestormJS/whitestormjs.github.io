@@ -56,4 +56,4 @@ Parameter          |       Default        | Type      | Description |
 
 <script src="https://gist.github.com/sasha240100/186976e65a13e62ec333.js"></script>
 
-<img src="images/shapes/torusknot.png">
+<img src="images/shapes/torusknot.png" alt="torusknot shape">

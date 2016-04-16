@@ -58,11 +58,11 @@ The same as in `WHS.Model` you can use `useVertexColors` and `useCustomMaterial`
 
 Right example will create the following:
 
-<img src="images/shapes/morph.png">
+<img src="images/shapes/morph.png" alt="first morph keyframe">
 
 And each frame it will change:
 
-<img src="images/shapes/morph2.png">
+<img src="images/shapes/morph2.png" alt="another morph keyframe">
 
 <aside class="notice">
 	This class use <code>morph</code> property in <code>WHS.Shape</code>. You need to specify <code>duration</code> and <code>speed</code> settings.

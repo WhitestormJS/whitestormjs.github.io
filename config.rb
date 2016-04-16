@@ -33,8 +33,8 @@ configure :build do
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
-  activate :minify_javascript
-  # activate :relative_assets
-  # activate :asset_hash
-  # activate :gzip
+  # activate :minify_javascript
+  activate :relative_assets
+  activate :asset_hash
+  activate :gzip
 end

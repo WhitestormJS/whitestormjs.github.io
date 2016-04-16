@@ -68,6 +68,6 @@ Then it creates an `Three.js geometry`:
 
 And a `Physijs mesh`, that is similar to `Three.js mesh`, but it also participates in collision calculations. This mesh is a combination of `Three.js geometry` and `Physijs material` (The same as in three.js, but with friction and restitution).
 
-<img src="images/shapes/extrude.png">
+<img src="images/shapes/extrude.png" alt="rendered extrude from it's example">
 
 

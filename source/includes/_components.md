@@ -68,4 +68,4 @@ Parameter      |       Default        | Type      | Description |
 -------------- | -------------------- | --------- | ----------- |
 **todo**       | 0x000000             | `Color`   | TODO
 
-<img src="images/skybox.png">
+<img src="images/skybox.png" alt="Skybox in fps example.">

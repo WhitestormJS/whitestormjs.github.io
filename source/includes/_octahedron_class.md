@@ -40,7 +40,7 @@ var octahedron = GAME.Octahedron({
 
 In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular octahedron is a Platonic solid composed of eight equilateral triangles, four of which meet at each vertex.
 
-<img src="images/shapes/octahedron.gif">
+<img src="images/shapes/octahedron.gif" alt="rendered octahedron">
 
 `WHS.Octahedron` creates Octahedron object by it's `radius` and `detail`.
 

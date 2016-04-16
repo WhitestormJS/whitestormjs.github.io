@@ -67,4 +67,4 @@ Also, if model has vertex colors - you can add `useVertexColors` property to mat
 
 Similar one is `WHS.Morph`. It's like a model, but this one supports animations.
 
-<img src="images/shapes/model.png">
+<img src="images/shapes/model.png" alt="physics and for rendering model created with whitestorm.js">

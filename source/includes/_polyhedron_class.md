@@ -40,7 +40,7 @@ var polyhedron = GAME.Polyhedron({
 
 In elementary geometry, a **polyhedron** is *a solid in three dimensions with flat polygonal faces, straight edges and sharp corners or vertices*.
 
-<img src="images/shapes/polyhedron.gif">
+<img src="images/shapes/polyhedron.gif" alt="rendered polyhedron">
 
 `WHS.Polyhedron` creates Polyhedron object by it's `radius` and `detail`.
 

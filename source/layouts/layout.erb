@@ -18,9 +18,35 @@ under the License.
 <html>
   <head>
     <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><%= current_page.data.title || "API Documentation" %></title>
+    <meta name="description" content="Whitestorm.js is a framework for 3D web apps built with Three.js technology. It implements a core for fast development of a 3D scene with physics.">
+    <meta name="keywords" content="three.js, whitestorm.js, framework, 3d, enine, webworkers, physics">
+    <link rel="author" href="https://plus.google.com/113564780584588197070"/>
+
+    <!-- Bots -->
+    <meta name="ROBOTS" CONTENT="NOARCHIVE">  
+    <meta name="googlebot" content="noodp">
+
+    <!-- Other -->
+    <meta name="copyright" content="Alexander Buzin"> 
+    <meta name="language" content="english" />
+
+
+    <!-- Opengraph -->
+    <meta property="og:title" content='<%= current_page.data.title || "API Documentation" %>'/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/WhitestormJS/whitestorm.js/master/development/art/logo/default.png"/>
+    <meta property="og:url" content="http://whitestormjs.xyz/"/>
+    <meta property="og:description" content="Whitestorm.js is a framework for 3D web apps built with Three.js technology. It implements a core for fast development of a 3D scene with physics."/>
+    <meta property="fb:admins" content="alexbuzin88"/>
+
+    <!-- Twitter cards -->
+    <meta property="twitter:title" content='<%= current_page.data.title || "API Documentation" %>'/>
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/WhitestormJS/whitestorm.js/master/development/art/logo/default.png"/>
+    <meta property="twitter:url" content="http://whitestormjs.xyz/"/>
+    <meta property="twitter:description" content="Whitestorm.js is a framework for 3D web apps built with Three.js technology. It implements a core for fast development of a 3D scene with physics."/>
+    <meta property="twitter:card" content="summary"/>
 
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>

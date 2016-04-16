@@ -68,4 +68,4 @@ Parameter         |       Default        | Type      | Description |
 
 <script src="https://gist.github.com/sasha240100/158b43f76862cf606c06.js"></script>
 
-<img src="images/shapes/text.png">
+<img src="images/shapes/text.png" alt="rendered text on it's example">

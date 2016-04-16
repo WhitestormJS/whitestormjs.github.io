@@ -51,4 +51,4 @@ Parameter          |       Default        | Type      | Description |
 
 <script src="https://gist.github.com/sasha240100/c320e12f7e594c48fb8e.js"></script>
 
-<img src="images/shapes/torus.png">
+<img src="images/shapes/torus.png" alt="rendered torus on it's example">

@@ -55,4 +55,4 @@ Parameter      |       Default        | Type      | Description |
 Example will create heightfield-like geometry. `u` and `v` are like `x` and `y` in shape, but their values are always from `0` to `1`.
 We use them in `THREE.Vector3` like `x` and `z` and `Math.random()` for `y`.
 
-<img src="images/shapes/parametric.png">
+<img src="images/shapes/parametric.png" alt="rendered parametric on it's example">

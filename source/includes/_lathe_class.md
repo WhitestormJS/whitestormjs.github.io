@@ -66,4 +66,4 @@ Then it creates an `Three.js geometry`:
 
 Right example will create the following shape: 
 
-<img src="images/shapes/lathe.png">
+<img src="images/shapes/lathe.png" alt="rendered lathe on it's example">

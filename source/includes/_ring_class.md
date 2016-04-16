@@ -50,6 +50,6 @@ Parameter      |       Default        | Type      | Description |
 <code>WHS.Ring</code> doesn't support physics, so if you want to make it with physics - you can use <code>WHS.Torus</code> and scale it <code>x</code> 1/(your torus outerRadius - innerRadius), so it's width will be 1 and then multiply by value near 0 to make it very thin.
 </aside>
 
-<img src="images/shapes/ring.png">
+<img src="images/shapes/ring.png" alt="ring shape">
 
 <aside class="warning">Need to be fixed. In progress.</aside>
