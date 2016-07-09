@@ -1,43 +1,78 @@
 <h2 class="ws" id="extrude">Extrude [Class]</h2>
 
-> WHS.Extrude example:
+<div class="blockTitle h3">Basic extrude example</div>
 
 ```javascript
 
-var shape = new THREE.Shape([
-    new THREE.Vector2( -4,-4 ),
-    new THREE.Vector2( -2,0  ),
-    new THREE.Vector2( -4,4  ),
-    new THREE.Vector2(  0,2  ),
-    new THREE.Vector2(  4,4  ),
-    new THREE.Vector2(  2,0  ),
-    new THREE.Vector2(  4,-4 ),
-    new THREE.Vector2(  0,-2 )
+const shape = new THREE.Shape([
+  new THREE.Vector2(-4,-4),
+  new THREE.Vector2(-2,0),
+  new THREE.Vector2(-4,4),
+  new THREE.Vector2(0,2),
+  new THREE.Vector2(4,4),
+  new THREE.Vector2(2,0),
+  new THREE.Vector2(4,-4),
+  new THREE.Vector2(0,-2)
 ]);
 
-var extrude = GAME.Extrude({
-    geometry: {
-        shapes: shape,
-        options: {
-            bevelEnabled: false,
-            bevelSize: 0,
-            amount: 2
-        } 
-    },
+const extrude = new WHS.Extrude({
+  geometry: {
+    shapes: shape,
+    options: {
+      bevelEnabled: false,
+      bevelSize: 0,
+      amount: 2
+    } 
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    kind: 'basic',
+    color: 0xffffff
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+extrude.addTo(world);
+
+```
+
+```coffeescript
+
+shape = new (THREE.Shape)([
+  new (THREE.Vector2)(-4, -4)
+  new (THREE.Vector2)(-2, 0)
+  new (THREE.Vector2)(-4, 4)
+  new (THREE.Vector2)(0, 2)
+  new (THREE.Vector2)(4, 4)
+  new (THREE.Vector2)(2, 0)
+  new (THREE.Vector2)(4, -4)
+  new (THREE.Vector2)(0, -2)
+])
+
+extrude = new (WHS.Extrude)(
+  geometry:
+    shapes: shape
+    options:
+      bevelEnabled: false
+      bevelSize: 0
+      amount: 2
+  mass: 10
+  material:
+    kind: 'basic'
+    color: 0xffffff
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+extrude.addTo world
 
 ```
 

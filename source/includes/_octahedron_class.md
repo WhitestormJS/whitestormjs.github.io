@@ -1,28 +1,49 @@
 <h2 class="ws" id="octahedron">Octahedron [Class]</h2>
 
-> WHS.Icosahedron example: 
+<div class="blockTitle h3">Basic octahedron example</div>
 
 ```javascript
 
-var octahedron = GAME.Octahedron({
-    geometry: {
-        radius: 2,
-        detail: 1
-    },
+const octahedron = new WHS.Octahedron({
+  geometry: {
+    radius: 2,
+    detail: 1
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+octahedron.addTo(world);
+
+```
+
+```coffeescript
+
+octahedron = new (WHS.Octahedron)(
+  geometry:
+    radius: 2
+    detail: 1
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+octahedron.addTo world
 
 ```
 

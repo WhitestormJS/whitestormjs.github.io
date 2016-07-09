@@ -6,10 +6,6 @@
 
 `WHS.Shape2D` consist of shapes that are in `shapes` parameter.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**shapes**     | []                   | `Array`   | Array of 2D shapes.
-
 <div class="params" id="shape2d-geometry">
   <h5>Shape2D geometry object <a href="#shape2d-geometry" class="anchor"></a></h5>
   <ul>

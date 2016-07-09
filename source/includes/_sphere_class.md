@@ -1,31 +1,46 @@
 <h2 class="ws" id="sphere">Sphere [Class]</h2>
 
-> WHS.Sphere that creates object with sphere geometry.
+<div class="blockTitle h3">Basic sphere example</div>
 
 ```javascript
 
-var sphere = GAME.Sphere( {
+const sphere = new WHS.Sphere( {
+  geometry: {
+    radius: 2
+  },
 
-    geometry: {
-        radius: 2
-    },
+  mass: 10,
 
-    mass: 10,
+  material: {
+    color: 0xffffff,
+    kind: 'lambert'
+  },
 
-    material: {
-        color: 0xffffff,
-        kind: "lambert",
-        rest: 0,
-        fri: 1
-    },
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
+});
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+sphere.addTo(world);
 
-} );
+```
+
+```coffeescript
+
+sphere = new (WHS.Sphere)(
+  geometry: radius: 2
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'lambert'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+sphere.addTo world
 
 ```
 

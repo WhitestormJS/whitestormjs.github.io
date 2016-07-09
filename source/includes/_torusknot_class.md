@@ -1,32 +1,44 @@
 <h2 class="ws" id="torusknot">Torusknot [Class]</h2>
 
-> WHS.Torusknot example:
+<div class="blockTitle h3">Basic torusknot example</div>
 
 ```javascript
 
-var torusknot = GAME.Torusknot({
+const torusknot = new WHS.Torusknot({
+  geometry: {
+    radius:5,
+    tube: 2
+  },
 
-    geometry: {
-        radius:5,
-        tube: 2
-    },
+  mass: 10,
 
-    mass: 10,
+  material: {
+    kind: "phong",
+    color: 0xffffff
+  },
 
-    material: {
-        vertexColors: THREE.VertexColors,
-        shading: THREE.SmoothShading,
-        map: api.texture('assets/textures/bricks.jpg'),
-        kind: "phong"
-    },
-
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
-
+  pos: {
+    y: 100
+  }
 });
+
+torusknot.addTo(world);
+
+```
+
+```coffeescript
+
+torusknot = new (WHS.Torusknot)(
+  geometry:
+    radius: 5
+    tube: 2
+  mass: 10
+  material:
+    kind: 'phong'
+    color: 0xffffff
+  pos: y: 100)
+
+torusknot.addTo world
 
 ```
 

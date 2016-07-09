@@ -15,7 +15,7 @@ const box = new WHS.Box({
   mass: 1,
 
   material: {
-    kind: "basic",
+    kind: 'basic',
     color: 0xffffff
   },
 
@@ -26,7 +26,7 @@ const box = new WHS.Box({
   }
 });
 
-box.addTo(GAME);
+box.addTo(world);
 
 ```
 
@@ -46,11 +46,10 @@ box = new (WHS.Box)(
     y: 70
     z: 60)
 
-box.addTo GAME
+box.addTo world
 
 ```
 
-> This class supports G_ API and experimental softbody feature. 
 
 `WHS.Box` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

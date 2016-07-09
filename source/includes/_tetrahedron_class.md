@@ -1,31 +1,51 @@
 <h2 class="ws" id="tetrahedron">Tetrahedron [Class]</h2>
 
-> WHS.Tetrahedron example: 
+<div class="blockTitle h3">Basic tetrahedron example</div>
 
 ```javascript
 
-var tetrahedron = GAME.Tetrahedron({
-    geometry: {
-        radius: 2,
-        detail: 1
-    },
+const tetrahedron = new WHS.Tetrahedron({
+  geometry: {
+    radius: 2,
+    detail: 1
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+tetrahedron.addTo(world);
 
 ```
 
+```coffeescript
+
+tetrahedron = new (WHS.Tetrahedron)(
+  geometry:
+    radius: 2
+    detail: 1
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+tetrahedron.addTo world
+
+```
 
 `WHS.Tetrahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

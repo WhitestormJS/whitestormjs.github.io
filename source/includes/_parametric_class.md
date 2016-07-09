@@ -1,32 +1,55 @@
 <h2 class="ws" id="parametric">Parametric [Class]</h2>
 
-> WHS.Parametric example: 
+<div class="blockTitle h3">Basic parametric example</div>
 
 ```javascript
 
-function createParametric( u, v ) {
-    return new THREE.Vector3( u * 30, Math.random() * 5, v * 30);
+const createParametric = (u, v) => {
+  return new THREE.Vector3(u * 30, Math.random() * 5, v * 30);
 }
 
-var parametric = GAME.Parametric({
-    geometry: {
-        func: createParametric
-    },
+const parametric = new WHS.Parametric({
+  geometry: {
+    func: createParametric
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "lambert",
-        side: THREE.DoubleSide
-    },
+  material: {
+    kind: 'lambert',
+    color: 0xffffff,
+    side: THREE.DoubleSide
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: -10
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: -10
+  }
 });
+
+parametric.addTo(world);
+
+```
+
+```coffeescript
+
+parametric = new (WHS.Parametric)(
+  geometry: func: createParametric
+  mass: 10
+  material:
+    kind: 'lambert'
+    color: 0xffffff
+    side: THREE.DoubleSide
+  pos:
+    x: 0
+    y: 100
+    z: -10)
+
+createParametric = (u, v) ->
+  new (THREE.Vector3)(u * 30, Math.random() * 5, v * 30)
+
+parametric.addTo world
 
 ```
 

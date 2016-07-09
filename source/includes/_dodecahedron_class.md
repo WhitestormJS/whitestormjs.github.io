@@ -1,27 +1,46 @@
 <h2 class="ws" id="dodecahedron">Dodecahedron [Class]</h2>
 
-> WHS.Dodecahedron example: 
+<div class="blockTitle h3">Basic dodecahedron example</div>
 
 ```javascript
 
-var dodecahedron = GAME.Dodecahedron({
-    geometry: {
-        radius: 2
-    },
+const dodecahedron = new WHS.Dodecahedron({
+  geometry: {
+    radius: 2
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+dodecahedron.addTo(world);
+
+```
+
+```coffeescript
+
+dodecahedron = new (WHS.Dodecahedron)(
+  geometry: radius: 2
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+dodecahedron.addTo world
 
 ```
 

@@ -73,29 +73,85 @@ Automizing your web app with **whitestorm.js** is fast and comfortable. You can 
 
 # Getting started
 
-> Include Three.js and Physi.js to your document. Then include Whitestorm.js
-> Define your world with parameters:
-
-```javascript
-var GAME = new WHS.init({
-    // Type parameters here.
-
-    path_worker: 'physijs_worker.js', // Path to Physijs worker here.
-    path_ammo: 'ammo.js' // Path to Ammo.js.
-});
-
-// Define your scene objects here.
-
-GAME.start(); // Start animations and physics simulation.
-```
-
-
+<div class="blockTitle h2">HTML</div>
 ```html
-<script src="three.js"></script>
-<script src="physi.js"></script>
 <!-- WhitestormJS library -->
 <script src="whitestorm.js"></script>
+<!-- My app written in WhitestormJS -->
+<script src="app.js"></script>
 ```
+
+<div class="blockTitle h2">JAVASCRIPT (app.js)</div>
+```javascript
+
+const world = new WHS.World({
+  stats: "fps", // fps, ms, mb or false if not need.
+  autoresize: true,
+
+  gravity: { // Physic gravity.
+    x: 0,
+    y: -100,
+    z: 0
+  }
+});
+
+const sphere = new WHS.Sphere({ // Create sphere object.
+  geometry: {
+    radius: 3
+  },
+
+  mass: 10, // Mass of physics object.
+
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
+
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
+});
+
+sphere.addTo(GAME);
+sphere.getNative(); // Returns THREE.Mesh of this object.
+
+world.start(); // Start animations and physics simulation.
+
+```
+
+```coffeescript
+
+world = new (WHS.World)(
+  stats: 'fps'
+  autoresize: true
+  gravity:
+    x: 0
+    y: -100
+    z: 0)
+
+sphere = new (WHS.Sphere)(
+  geometry: radius: 3
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+sphere.addTo GAME
+sphere.getNative()
+# Returns THREE.Mesh of this object.
+
+world.start()
+# Start animations and physics simulation.
+
+```
+
+> It's better to inlude whitestorm.js file before the end of body tag. It will force page to load content first. Your code should come after whitestorm.js included.
 
 Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries must work properly. 
 `WHS.World` initializes 3D world with parameters.

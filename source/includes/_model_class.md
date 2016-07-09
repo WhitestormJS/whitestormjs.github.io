@@ -1,42 +1,73 @@
 <h2 class="ws" id="model">Model [Class]</h2>
 
-> WHS.Model example:
+<div class="blockTitle h3">Basic model example</div>
 
 ```javascript
 
-var teapot = GAME.Model({
+const teapot = new WHS.Model({
+  geometry: {
+    path: "assets/models/utah-teapot-large.json",
+    physics: "assets/models/utah-teapot-light.json"
+  },
 
-    geometry: {
-        path: "assets/models/utah-teapot-large.json",
-        physics: "assets/models/utah-teapot-light.json"
-    },
+  mass: 10,
 
-    mass: 10,
+  material: {
+    vertexColors: THREE.VertexColors,
+    shading: THREE.SmoothShading,
+    map: WHS.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
+    kind: 'phong',
+    side: THREE.DoubleSide,
+    useCustomMaterial: true,
+    rest: 0,
+    fri: 1
+  },
 
-    material: {
-        vertexColors: THREE.VertexColors,
-        shading: THREE.SmoothShading,
-        map: WHS.API.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
-        kind: "phong",
-        side: THREE.DoubleSide,
-        useCustomMaterial: true,
-        rest: 0,
-        fri: 1
-    },
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    },
-
-    scale: {
-        x: 4,
-        y: 4, 
-        z: 4
-    }
-
+  scale: {
+    x: 4,
+    y: 4, 
+    z: 4
+  }
 });
+
+teapot.addTo(world);
+
+```
+
+```coffeescript
+
+teapot = new (WHS.Model)(
+  geometry:
+    path: 'assets/models/utah-teapot-large.json'
+    physics: 'assets/models/utah-teapot-light.json'
+  mass: 10
+  material:
+    vertexColors: THREE.VertexColors
+    shading: THREE.SmoothShading
+    map: WHS.texture('assets/textures/teapot.jpg', repeat:
+      x: 2
+      y: 2)
+    kind: 'phong'
+    side: THREE.DoubleSide
+    useCustomMaterial: true
+    rest: 0
+    fri: 1
+  pos:
+    x: 0
+    y: 100
+    z: 0
+  scale:
+    x: 4
+    y: 4
+    z: 4)
+
+teapot.addTo world
 
 ```
 

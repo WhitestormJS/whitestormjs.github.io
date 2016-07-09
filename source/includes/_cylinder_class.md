@@ -1,29 +1,51 @@
 <h2 class="ws" id="cylinder">Cylinder [Class]</h2>
 
-> WHS.Cylinder example: 
+<div class="blockTitle h3">Basic cylinder example</div>
 
 ```javascript
 
-var cylinder = GAME.Cylinder({
-    geometry: {
-        radiusTop: 2,
-        radiusBottom: 4,
-        height: 5
-    },
+const cylinder = new WHS.Cylinder({
+  geometry: {
+    radiusTop: 2,
+    radiusBottom: 4,
+    height: 5
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+cylinder.addTo(world);
+
+```
+
+```coffeescript
+
+cylinder = new (WHS.Cylinder)(
+  geometry:
+    radiusTop: 2
+    radiusBottom: 4
+    height: 5
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+cylinder.addTo world
 
 ```
 

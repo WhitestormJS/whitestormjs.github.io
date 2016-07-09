@@ -1,38 +1,51 @@
 <h2 class="ws" id="morph">Morph [Class]</h2>
 
-> WHS.Morph example:
+<div class="blockTitle h3">Basic morph example</div>
 
 ```javascript
 
-var parrot = GAME.Morph( {
+const morph = GAME.Morph( {
+  geometry: {
+    path: "assets/models/morph/parrot.js"
+  },
 
-    geometry: {
-        path: "assets/models/morph/parrot.js"
-    },
+  material: {
+    kind: 'basic',
+    useVertexColors: true
+  },
 
-    material: {
-        useVertexColors: true,
-        kind: "basic"
-    },
+  scale: {
+    x: 0.1,
+    y: 0.1,
+    z: 0.1
+  },
 
-    pos: {
-        x: 0,
-        y: 0,
-        z: 0
-    },
+  morph: {
+    duration: 0.5,
+    speed: 250
+  }
+});
 
-    scale: {
-        x: 0.1,
-        y: 0.1,
-        z: 0.1
-    },
+morph.addTo(world);
 
-    morph: {
-        duration: 0.5,
-        speed: 250
-    }
+```
 
-} );
+```coffeescript
+
+morph = GAME.Morph(
+  geometry: path: 'assets/models/morph/parrot.js'
+  material:
+    kind: 'basic'
+    useVertexColors: true
+  scale:
+    x: 0.1
+    y: 0.1
+    z: 0.1
+  morph:
+    duration: 0.5
+    speed: 250)
+
+morph.addTo world
 
 ```
 

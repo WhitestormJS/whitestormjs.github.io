@@ -1,31 +1,51 @@
 <h2 class="ws" id="polyhedron">Polyhedron [Class]</h2>
 
-> WHS.Polyhedron example: 
+<div class="blockTitle h3">Basic polyhedron example</div>
 
 ```javascript
 
-var polyhedron = GAME.Polyhedron({
-    geometry: {
-        radius: 2,
-        detail: 1
-    },
+const polyhedron = new WHS.Polyhedron({
+  geometry: {
+    radius: 2,
+    detail: 1
+  },
 
-    mass: 10,
+  mass: 10,
 
-    material: {
-        color: 0xffffff,
-        kind: "basic"
-    },
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    pos: {
-        x: 0,
-        y: 100,
-        z: 0
-    }
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  }
 });
+
+polyhedron.addTo(world);
 
 ```
 
+```coffeescript
+
+polyhedron = new (WHS.Polyhedron)(
+  geometry:
+    radius: 2
+    detail: 1
+  mass: 10
+  material:
+    color: 0xffffff
+    kind: 'basic'
+  pos:
+    x: 0
+    y: 100
+    z: 0)
+
+polyhedron.addTo world
+
+```
 
 `WHS.Polyhedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

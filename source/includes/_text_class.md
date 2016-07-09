@@ -1,35 +1,58 @@
 <h2 class="ws" id="text">Text [Class]</h2>
 
-> WHS.Text example:
+<div class="blockTitle h3">Basic text example</div>
 
 ```javascript
 
-var text = GAME.Text({
-
-    geometry: {
-        text: "hello world",
-        parameters: {
-            font: "assets/fonts/gentilis_bold.typeface.js",
-            size: 20,
-            height: 5,
-            curveSegments: 6
-        }
-    },
-
-    mass: 10,
-
-    material: {
-        color: 0x00ff00,
-        kind: "lambert"
-    },
-
-    pos: {
-        x: -40,
-        y: 20,
-        z: 0
+const text = new WHS.Text({
+  geometry: {
+    text: 'hello world',
+    parameters: {
+      font: 'assets/fonts/gentilis_bold.typeface.js',
+      size: 20,
+      height: 5,
+      curveSegments: 6
     }
+  },
 
+  mass: 10,
+
+  material: {
+    color: 0x00ff00,
+    kind: "lambert"
+  },
+
+  pos: {
+    x: -40,
+    y: 20,
+    z: 0
+  }
 });
+
+text.addTo(world);
+
+```
+
+```coffeescript
+
+text = new (WHS.Text)(
+  geometry:
+    text: 'hello world'
+    parameters:
+      font: 'assets/fonts/gentilis_bold.typeface.js'
+      size: 20
+      height: 5
+      curveSegments: 6
+  mass: 10
+  material:
+    color: 0x00ff00
+    kind: 'lambert'
+  pos:
+    x: -40
+    y: 20
+    z: 0)
+
+text.addTo world
 
 ```
 

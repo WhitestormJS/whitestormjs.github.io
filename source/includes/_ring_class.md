@@ -1,36 +1,56 @@
 <h2 class="ws" id="ring">Ring [Class] [2D]</h2>
 
-> WHS.Ring example:
+<div class="blockTitle h3">Basic ring example</div>
 
 ```javascript
 
+const ring = new WHS.Ring({
+  geometry: {
+    innerRadius: 5,
+    outerRadius: 2
+  },
 
-var ring = GAME.Ring({
+  mass: 0,
 
-    geometry: {
-        innerRadius: 5,
-        outerRadius: 2
-    },
+  material: {
+    kind: 'basic',
+    color: 0xffffff,
+    side: THREE.DoubleSide
+  },
 
-    mass: 0,
+  pos: {
+    x: 0,
+    y: 8,
+    z: 0
+  },
 
-    material: {
-        color: 0xffffff,
-        kind: "basic",
-        side: THREE.DoubleSide
-    },
-
-    pos: {
-        x: 0,
-        y: 8,
-        z: 0
-    },
-
-    rot: {
-        x: Math.PI/4
-    }
-
+  rot: {
+    x: Math.PI/4
+  }
 });
+
+ring.addTo(world);
+
+```
+
+```coffeescript
+
+ring = new (WHS.Ring)(
+  geometry:
+    innerRadius: 5
+    outerRadius: 2
+  mass: 0
+  material:
+    kind: 'basic'
+    color: 0xffffff
+    side: THREE.DoubleSide
+  pos:
+    x: 0
+    y: 8
+    z: 0
+  rot: x: Math.PI / 4)
+
+ring.addTo world
 
 ```
 

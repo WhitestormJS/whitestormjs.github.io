@@ -1,29 +1,46 @@
 <h2 class="ws" id="torus">Torus [Class]</h2>
 
-> WHS.Torus example:
+<div class="blockTitle h3">Basic torus example</div>
 
 ```javascript
 
-var torus = GAME.Torus({
+const torus = new WHS.Torus({
+  geometry: {
+    radius: 5,
+    tube: 2
+  },
 
-    geometry: {
-        radius: 5,
-        tube: 2
-    },
+  mass: 10,
 
-    mass: 10,
+  material: {
+    kind: 'lambert',
+    color: 0xffffff,
+    side: THREE.DoubleSide
+  },
 
-    material: {
-        color: 0xffffff,
-        kind: "lambert",
-        side: THREE.DoubleSide
-    },
+  pos: {
+    y: 35
+  }
+});
 
-    pos: {
-        x: 0,
-        y: 35,
-        z: 0
-    }
+torus.addTo(world);
+
+```
+
+```coffeescript
+
+torus = new (WHS.Torus)(
+  geometry:
+    radius: 5
+    tube: 2
+  mass: 10
+  material:
+    kind: 'lambert'
+    color: 0xffffff
+    side: THREE.DoubleSide
+  pos: y: 35)
+
+torus.addTo world
 
 ```
 
