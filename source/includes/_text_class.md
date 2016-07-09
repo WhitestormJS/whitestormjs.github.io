@@ -38,24 +38,93 @@ var text = GAME.Text({
 
 `WHS.Text` class is made for creating 3D text objects.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**text**       | "Hello World!"       | `String`  | Text that will be displayed.
-**parameters** | Text parameters.     | `Object`  | Text parameters.
+<div class="params" id="text-geometry">
+  <h5>Text geometry object <a href="#text-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="text-geometry-text">
+      <h3><a href="#text-geometry-text" class="anchor"></a> text
+        <span class="type">String</span>
+        <span class="default">"Hello World!"</span>
+      </h3>
+      <p>Text geometry text</p>
+    </li>
+    <li id="text-geometry-parameters">
+      <h3><a href="#text-geometry-parameters" class="anchor"></a> parameters
+        <span class="type">Object</span>
+      </h3>
+      <p><a href="#text-parameters">Parameters object</a></p>
+    </li>
+  </ul>
+</div>
 
-### Text parameters.
-
-Parameter         |       Default        | Type      | Description |
------------------ | -------------------- | --------- | ----------- |
-**size**          | 1                    | `Number`  | Font size.
-**height**        | 50                   | `Number`  | Font height?
-**curveSegments** | 1                    | `Number`  | Number of curves
-**font**          | "Adelle"             | `String`  | Font name
-**weight**        | "normal"             | `String`  | Font weight
-**style**         | "normal"             | `String`  | Font style
-**bevelEnabled**  | false                | `Boolean` | Is bevel enabled?
-**bevelThickness**| 10                   | `Number`  | Bevel thickness.
-**bevelSize**     | 8                    | `Number`  | Bevel size.
+<div class="params" id="text-parameters">
+  <h5>Parameters object <a href="#text-parameters" class="anchor"></a></h5>
+  <ul>
+    <li id="text-parameters-size">
+      <h3><a href="#text-parameters-size" class="anchor"></a> size
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Text parameters size</p>
+    </li>
+    <li id="text-parameters-height">
+      <h3><a href="#text-parameters-height" class="anchor"></a> height
+        <span class="type">Number</span>
+        <span class="default">50</span>
+      </h3>
+      <p>Text parameters height</p>
+    </li>
+    <li id="text-parameters-curveSegments">
+      <h3><a href="#text-parameters-curveSegments" class="anchor"></a> curveSegments
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Text parameters curveSegments</p>
+    </li>
+    <li id="text-parameters-font">
+      <h3><a href="#text-parameters-font" class="anchor"></a> font
+        <span class="type">String</span>
+        <span class="default">"Adelle"</span>
+      </h3>
+      <p>Text parameters font</p>
+    </li>
+    <li id="text-parameters-weight">
+      <h3><a href="#text-parameters-weight" class="anchor"></a> weight
+        <span class="type">String</span>
+        <span class="default">"normal"</span>
+      </h3>
+      <p>Text parameters weight</p>
+    </li>
+    <li id="text-parameters-style">
+      <h3><a href="#text-parameters-style" class="anchor"></a> style
+        <span class="type">String</span>
+        <span class="default">"normal"</span>
+      </h3>
+      <p>Text parameters style</p>
+    </li>
+    <li id="text-parameters-bevelEnabled">
+      <h3><a href="#text-parameters-bevelEnabled" class="anchor"></a> bevelEnabled
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Text parameters bevelEnabled</p>
+    </li>
+    <li id="text-parameters-bevelThickness">
+      <h3><a href="#text-parameters-bevelThickness" class="anchor"></a> bevelThickness
+        <span class="type">Number</span>
+        <span class="default">10</span>
+      </h3>
+      <p>Text parameters bevelThickness</p>
+    </li>
+    <li id="text-parameters-bevelSize">
+      <h3><a href="#text-parameters-bevelSize" class="anchor"></a> bevelSize
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Text parameters bevelSize</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/158b43f76862cf606c06.js"></script>
 

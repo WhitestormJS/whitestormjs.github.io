@@ -4,10 +4,43 @@
 
 `WHS.Tube` class makes a tube that extrudes along a 3d curve.
 
-Parameter          |       Default        | Type      | Description |
------------------- | -------------------- | --------- | ----------- |
-**path**           | customSinCurve()     | `Object`  | Tube curve object.
-**segments**       | 20                   | `Number`  | Number of segments.
-**radius**         | 2                    | `Number`  | Radius.
-**radiusSegments** | 8                    | `Number`  | Radius segments number.
-**closed**         | false                | `Boolean` | TODO
+<div class="params" id="tube-geometry">
+  <h5>Tube geometry object <a href="#tube-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="tube-geometry-path">
+      <h3><a href="#tube-geometry-path" class="anchor"></a> path
+        <span class="type">Object</span>
+        <span class="default">customSinCurve()</span>
+      </h3>
+      <p>Tube geometry path</p>
+    </li>
+    <li id="tube-geometry-segments">
+      <h3><a href="#tube-geometry-segments" class="anchor"></a> segments
+        <span class="type">Number</span>
+        <span class="default">20</span>
+      </h3>
+      <p>Tube geometry segments</p>
+    </li>
+    <li id="tube-geometry-radius">
+      <h3><a href="#tube-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">2</span>
+      </h3>
+      <p>Tube geometry radius</p>
+    </li>
+    <li id="tube-geometry-radiusSegments">
+      <h3><a href="#tube-geometry-radiusSegments" class="anchor"></a> radiusSegments
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Tube geometry radiusSegments</p>
+    </li>
+    <li id="tube-geometry-closed">
+      <h3><a href="#tube-geometry-closed" class="anchor"></a> closed
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Tube geometry closed</p>
+    </li>
+  </ul>
+</div>

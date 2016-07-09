@@ -35,11 +35,32 @@ var parametric = GAME.Parametric({
 
 `WHS.Parametric` class is used for creating objects representing a parametric surface.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**func**       | functon() {}         | `Function`| Function for generating surface.
-**slices**     | 10                   | `Number`  | The count of slices.
-**stacks**     | 10                   | `Number`  | The count of stacks.
+<div class="params" id="parametric-geometry">
+  <h5>Parametric geometry object <a href="#parametric-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="parametric-geometry-func">
+      <h3><a href="#parametric-geometry-func" class="anchor"></a> func
+        <span class="type">Function</span>
+        <span class="default">functon() {}</span>
+      </h3>
+      <p>Parametric geometry func</p>
+    </li>
+    <li id="parametric-geometry-slices">
+      <h3><a href="#parametric-geometry-slices" class="anchor"></a> slices
+        <span class="type">Number</span>
+        <span class="default">10</span>
+      </h3>
+      <p>Parametric geometry slices</p>
+    </li>
+    <li id="parametric-geometry-stacks">
+      <h3><a href="#parametric-geometry-stacks" class="anchor"></a> stacks
+        <span class="type">Number</span>
+        <span class="default">10</span>
+      </h3>
+      <p>Parametric geometry stacks</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/9d4741da789ecbc02557.js"></script>
 

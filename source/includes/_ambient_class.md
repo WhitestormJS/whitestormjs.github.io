@@ -21,9 +21,22 @@ var ambient = GAME.AmbientLight( {
 
 It supports only `color` parameter, which defines the color of the surrounded light and `intensity` of light.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**color**      | 0xffffff             | `Color`   | Light color.
-**intensity**  | 1                    | `Number`  | Light intensity.
-
-
+<div class="params" id="ambient-light">
+  <h5>Ambient light object <a href="#ambient-light" class="anchor"></a></h5>
+  <ul>
+    <li id="ambient-light-color">
+      <h3><a href="#ambient-light-color" class="anchor"></a> color
+        <span class="type">HEX</span>
+        <span class="default">0xffffff</span>
+      </h3>
+      <p>Ambient light color</p>
+    </li>
+    <li id="ambient-light-intensity">
+      <h3><a href="#ambient-light-intensity" class="anchor"></a> intensity
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Ambient light intensity</p>
+    </li>
+  </ul>
+</div>

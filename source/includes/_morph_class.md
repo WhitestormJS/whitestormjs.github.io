@@ -41,9 +41,18 @@ var parrot = GAME.Morph( {
 
 `WHS.Morph` is used for creating animated object's that doesn't support physics. Off course you can make your own class, based on `WHS.Shape` that will run animation and support physics. But you will need to update your geometry in Physi.js each time you update anmation. Physi.js currently provides physic only for static geometries. 
 
-Parameter      |       Default        | Type               | Description |
--------------- | -------------------- | ------------------ | ----------- |
-**path**       | ""                   | `String`           | Url adress to JSON file.
+<div class="params" id="morph-geometry">
+  <h5>Model geometry object <a href="#morph-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="morph-geometry-path">
+      <h3><a href="#morph-geometry-path" class="anchor"></a> path
+        <span class="type">String</span>
+        <span class="default">""</span>
+      </h3>
+      <p>Morph geometry path</p>
+    </li>
+  </ul>
+</div>
 
 The same as in `WHS.Model` you can use `useVertexColors` and `useCustomMaterial` properties.
 

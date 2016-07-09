@@ -1,4 +1,4 @@
-<h2 class="ws" id="ring">Ring [Class]</h2>
+<h2 class="ws" id="ring">Ring [Class] [2D]</h2>
 
 > WHS.Ring example:
 
@@ -38,11 +38,53 @@ var ring = GAME.Ring({
 
 `WHS.Ring` class makes a circle or just 2D `WHS.Torus` that doesn't support physics.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**func**       | functon() {}         | `Function`| Function for generating surface.
-**slices**     | 10                   | `Number`  | The count of slices.
-**stacks**     | 10                   | `Number`  | The count of stacks.
+<div class="params" id="ring-geometry">
+  <h5>Ring geometry object <a href="#ring-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="ring-geometry-innerRadius">
+      <h3><a href="#ring-geometry-innerRadius" class="anchor"></a> innerRadius
+        <span class="type">Number</span>
+        <span class="default">0</span>
+      </h3>
+      <p>Ring geometry innerRadius</p>
+    </li>
+    <li id="ring-geometry-outerRadius">
+      <h3><a href="#ring-geometry-outerRadius" class="anchor"></a> outerRadius
+        <span class="type">Number</span>
+        <span class="default">50</span>
+      </h3>
+      <p>Ring geometry outerRadius</p>
+    </li>
+    <li id="ring-geometry-thetaSegments">
+      <h3><a href="#ring-geometry-thetaSegments" class="anchor"></a> thetaSegments
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Ring geometry thetaSegments</p>
+    </li>
+    <li id="ring-geometry-phiSegments">
+      <h3><a href="#ring-geometry-phiSegments" class="anchor"></a> phiSegments
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Ring geometry phiSegments</p>
+    </li>
+    <li id="ring-geometry-thetaStart">
+      <h3><a href="#ring-geometry-thetaStart" class="anchor"></a> thetaStart
+        <span class="type">Number</span>
+        <span class="default">0</span>
+      </h3>
+      <p>Ring geometry thetaStart</p>
+    </li>
+    <li id="ring-geometry-thetaLength">
+      <h3><a href="#ring-geometry-thetaLength" class="anchor"></a> thetaLength
+        <span class="type">Number</span>
+        <span class="default">Math.PI * 2</span>
+      </h3>
+      <p>Ring geometry thetaLength</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/9d4741da789ecbc02557.js"></script>
 

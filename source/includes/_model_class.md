@@ -45,10 +45,25 @@ var teapot = GAME.Model({
 
 Model is a simple class too. But it doesn't depends on `Three.js geometry` object. It loads geometry from `JSON` file by url as it's material, but material you can replace with your own. Just add `useCustomMaterial` property with `true` value in `material` parameter object.
 
-Parameter      |       Default        | Type               | Description |
--------------- | -------------------- | ------------------ | ----------- |
-**path**       | ""                   | `String`(url)      | Url adress to model JSON file.
-**physics**    | ""                   | `String`(url)      | Url adress to physics model JSON file.
+<div class="params" id="model-geometry">
+  <h5>Model geometry object <a href="#model-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="model-geometry-path">
+      <h3><a href="#model-geometry-path" class="anchor"></a> path
+        <span class="type">String</span>
+        <span class="default">""</span>
+      </h3>
+      <p>Model geometry path</p>
+    </li>
+    <li id="model-geometry-physics">
+      <h3><a href="#model-geometry-physics" class="anchor"></a> physics
+        <span class="type">String</span>
+        <span class="default">""</span>
+      </h3>
+      <p>Model geometry physics</p>
+    </li>
+  </ul>
+</div>
 
 **physics** parameter is used for adding shape that will be calculated in Physi.js. Usually it is used to defining light variant of existing model, so physics will work faster. If you don't type **physics** parameter - it will be replaced with **path**.
 

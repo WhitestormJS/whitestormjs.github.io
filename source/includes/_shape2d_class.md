@@ -10,4 +10,17 @@ Parameter      |       Default        | Type      | Description |
 -------------- | -------------------- | --------- | ----------- |
 **shapes**     | []                   | `Array`   | Array of 2D shapes.
 
+<div class="params" id="shape2d-geometry">
+  <h5>Shape2D geometry object <a href="#shape2d-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="shape2d-geometry-shapes">
+      <h3><a href="#shape2d-geometry-shapes" class="anchor"></a> shapes
+        <span class="type">Array</span>
+        <span class="default">[]</span>
+      </h3>
+      <p>Shape2D geometry shapes</p>
+    </li>
+  </ul>
+</div>
+
 <script src="https://gist.github.com/sasha240100/118ced78b8c3a9aeb008.js"></script>

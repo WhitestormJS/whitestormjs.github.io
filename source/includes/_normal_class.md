@@ -18,6 +18,15 @@ var ambient = GAME.NormalLight( {
 
 It also doesn't need `pos` and `target` properties.
 
-Parameter         |       Default        | Type      | Description |
------------------ | -------------------- | --------- | ----------- |
-**color**         | 0xffffff             | `Color`   | Light color.
+<div class="params" id="normal-light">
+  <h5>Normal light object <a href="#normal-light" class="anchor"></a></h5>
+  <ul>
+    <li id="normal-light-color">
+      <h3><a href="#normal-light-color" class="anchor"></a> color
+        <span class="type">HEX</span>
+        <span class="default">0xffffff</span>
+      </h3>
+      <p>Normal light color</p>
+    </li>
+  </ul>
+</div>

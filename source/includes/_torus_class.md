@@ -32,13 +32,46 @@ var torus = GAME.Torus({
 
 `WHS.Torus` class makes a torus figure. Torus is a donut. Donut is a torus.
 
-Parameter          |       Default        | Type      | Description |
------------------- | -------------------- | --------- | ----------- |
-**radius**         | 100                  | `Number`  | Torus radius.
-**tube**           | 40                   | `Number`  | Torus tube radius.
-**radialSegments** | 8                    | `Number`  | Radial segments.
-**tubularSegments**| 6                    | `Number`  | Tubular segments.
-**arc**            | 2                    | `Number`  | TODO
+<div class="params" id="torus-geometry">
+  <h5>Torus geometry object <a href="#torus-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="torus-geometry-radius">
+      <h3><a href="#torus-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">100</span>
+      </h3>
+      <p>Torus geometry radius</p>
+    </li>
+    <li id="torus-geometry-tube">
+      <h3><a href="#torus-geometry-tube" class="anchor"></a> tube
+        <span class="type">Number</span>
+        <span class="default">40</span>
+      </h3>
+      <p>Torus geometry tube</p>
+    </li>
+    <li id="torus-geometry-radialSegments">
+      <h3><a href="#torus-geometry-radialSegments" class="anchor"></a> radialSegments
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Torus geometry radialSegments</p>
+    </li>
+    <li id="torus-geometry-tubularSegments">
+      <h3><a href="#torus-geometry-tubularSegments" class="anchor"></a> tubularSegments
+        <span class="type">Number</span>
+        <span class="default">6</span>
+      </h3>
+      <p>Torus geometry tubularSegments</p>
+    </li>
+    <li id="torus-geometry-arc">
+      <h3><a href="#torus-geometry-arc" class="anchor"></a> arc
+        <span class="type">Number</span>
+        <span class="default">2</span>
+      </h3>
+      <p>Torus geometry arc</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/c320e12f7e594c48fb8e.js"></script>
 

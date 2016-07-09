@@ -38,9 +38,24 @@ The best analogy would be a light source that acts like the sun: the sun is so f
 
 It has the same options as `WHS.AmbientLight` in `light` paramater, but it also supports `pos` and `target` paramaters.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**color**      | 0xffffff             | `Color`   | Light color.
-**intensity**  | 1                    | `Number`  | Light intensity.
+<div class="params" id="directional-light">
+  <h5>Directinal light object <a href="#directional-light" class="anchor"></a></h5>
+  <ul>
+    <li id="directional-light-color">
+      <h3><a href="#directional-light-color" class="anchor"></a> color
+        <span class="type">HEX</span>
+        <span class="default">0xffffff</span>
+      </h3>
+      <p>Directinal light color</p>
+    </li>
+    <li id="directional-light-intensity">
+      <h3><a href="#directional-light-intensity" class="anchor"></a> intensity
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Directinal light intensity</p>
+    </li>
+  </ul>
+</div>
 
 <aside class="notice"><code>DirectinalLight</code> affects only meshes with <code>lambert</code> and <code>phong</code> material.</aside>
