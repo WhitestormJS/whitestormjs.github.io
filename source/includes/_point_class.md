@@ -69,5 +69,4 @@ It has the same options as `WHS.AmbientLight` in `light` paramater, but it also 
   </ul>
 </div>
 
-
 <aside class="notice"><code>WHS.PointLight</code> affects meshes with <code>lambert</code> and <code>phong</code> material.</aside>

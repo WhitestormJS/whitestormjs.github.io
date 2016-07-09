@@ -2,34 +2,55 @@
 
 <h2 class="ws" id="box">Box [Class]</h2>
 
-> Basic box, created with WHS.Box property.
-
+<div class="blockTitle h3">Basic box example</div>
 ```javascript
 
-var box = GAME.Box({
+const box = new WHS.Box({
+  geometry: {
+    width: 2,
+    height: 2,
+    depth: 2
+  },
 
-    geometry: { // Fill box geometry here.
-        width: 2,
-        height: 2,
-        depth: 2
-    },
+  mass: 1,
 
-    mass: 1,
+  material: {
+    kind: "basic",
+    color: 0xffffff
+  },
 
-    material: {
-        kind: "basic",
-        color: 0xffffff
-    },
+  pos: {
+    x: 50,
+    y: 70,
+    z: 60
+  }
+});
 
-    pos: {
-        x: 50,
-        y: 70,
-        z: 60
-    }
-
-);
+box.addTo(GAME);
 
 ```
+
+```coffeescript
+
+box = new (WHS.Box)(
+  geometry:
+    width: 2
+    height: 2
+    depth: 2
+  mass: 1
+  material:
+    kind: 'basic'
+    color: 0xffffff
+  pos:
+    x: 50
+    y: 70
+    z: 60)
+
+box.addTo GAME
+
+```
+
+> This class supports G_ API and experimental softbody feature. 
 
 `WHS.Box` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

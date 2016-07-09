@@ -3,7 +3,7 @@ title: WhitestormJS Documentation (API Reference)
 
 language_tabs:
   - javascript
-  - html
+  - coffeescript
 
 toc_footers:
   - <a href='http://threejs.org/'><b>Three.js <i>r75</i></b></a>
