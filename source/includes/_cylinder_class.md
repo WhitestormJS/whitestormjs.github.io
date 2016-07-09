@@ -36,11 +36,38 @@ A **cylinder** is one of the most basic curvilinear geometric shapes, the surfac
 
 `WHS.Cylinder` creates Cylinder object by it's `radiusTop`, `radiusBottom` and `height`
 
-Parameter         |       Default        | Type      | 
------------------ | -------------------- | --------- | 
-**radiusTop**     | 1                    | `Number`  |
-**radiusBottom**  | 1                    | `Number`  | 
-**height**        | 1                    | `Number`  |
-**radiusSegments**| 32                   | `Number`  |
+<div class="params" id="cylinder-geometry">
+  <h5>Cylinder geometry object <a href="#cylinder-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="cylinder-geometry-radiusTop">
+      <h3><a href="#cylinder-geometry-radiusTop" class="anchor"></a> radiusTop
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Cylinder geometry radiusTop</p>
+    </li>
+    <li id="cylinder-geometry-radiusBottom">
+      <h3><a href="#cylinder-geometry-radiusBottom" class="anchor"></a> radiusBottom
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Cylinder geometry radiusBottom</p>
+    </li>
+    <li id="cylinder-geometry-height">
+      <h3><a href="#cylinder-geometry-height" class="anchor"></a> height
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Cylinder geometry height</p>
+    </li>
+    <li id="cylinder-geometry-radiusSegments">
+      <h3><a href="#cylinder-geometry-radiusSegments" class="anchor"></a> radiusSegments
+        <span class="type">Number</span>
+        <span class="default">32</span>
+      </h3>
+      <p>Cylinder geometry radiusSegments</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/452b417534e092a75e8f.js"></script>

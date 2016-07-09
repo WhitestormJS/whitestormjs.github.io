@@ -38,15 +38,60 @@ It is similar to `THREE.SphereGeometry`, but it also contain's all properties, a
 
 You need to fill these parameters:
 
-Parameter         |       Default        | Type      | Description |
------------------ | -------------------- | --------- | ----------- |
-**radius**        | 1                    | `Number`  | Sphere radius.
-**widthSegments** | 8                    | `Number`  | Sphere radius.
-**heightSegments**| 6                    | `Number`  | Sphere radius.
-**phiStart**      | Math.PI*2            | `Number`  | Sphere radius.
-**phiLength**     | 1                    | `Number`  | Sphere radius.
-**thetaStart**    | 1                    | `Number`  | Sphere radius.
-**thetaLength**   | 1                    | `Number`  | Sphere radius.
+<div class="params" id="sphere-geometry">
+  <h5>Sphere geometry object <a href="#sphere-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="sphere-geometry-radius">
+      <h3><a href="#sphere-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Sphere geometry radius</p>
+    </li>
+    <li id="sphere-geometry-widthSegments">
+      <h3><a href="#sphere-geometry-widthSegments" class="anchor"></a> widthSegments
+        <span class="type">Number</span>
+        <span class="default">8</span>
+      </h3>
+      <p>Sphere geometry widthSegments</p>
+    </li>
+    <li id="sphere-geometry-heightSegments">
+      <h3><a href="#sphere-geometry-heightSegments" class="anchor"></a> heightSegments
+        <span class="type">Number</span>
+        <span class="default">6</span>
+      </h3>
+      <p>Sphere geometry heightSegments</p>
+    </li>
+    <li id="sphere-geometry-phiStart">
+      <h3><a href="#sphere-geometry-phiStart" class="anchor"></a> phiStart
+        <span class="type">Number</span>
+        <span class="default">0</span>
+      </h3>
+      <p>Sphere geometry phiStart</p>
+    </li>
+    <li id="sphere-geometry-phiLength">
+      <h3><a href="#sphere-geometry-phiLength" class="anchor"></a> phiLength
+        <span class="type">Number</span>
+        <span class="default">Math.PI * 2</span>
+      </h3>
+      <p>Sphere geometry phiLength</p>
+    </li>
+    <li id="sphere-geometry-thetaStart">
+      <h3><a href="#sphere-geometry-thetaStart" class="anchor"></a> thetaStart
+        <span class="type">Number</span>
+        <span class="default"></span>
+      </h3>
+      <p>Sphere geometry thetaStart</p>
+    </li>
+    <li id="sphere-geometry-thetaLength">
+      <h3><a href="#sphere-geometry-thetaLength" class="anchor"></a> thetaLength
+        <span class="type">Number</span>
+        <span class="default">Math.PI</span>
+      </h3>
+      <p>Sphere geometry thetaLength</p>
+    </li>
+  </ul>
+</div>
 
 Then it creates an `Three.js geometry`:
 

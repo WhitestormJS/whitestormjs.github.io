@@ -34,9 +34,24 @@ In geometry, a **dodecahedron** is any *polyhedron with twelve flat faces*. The 
 
 `WHS.Dodecahedron` creates Dodecahedron object by it's `radius` and `detail`.
 
-Parameter         |       Default        | Type      | 
------------------ | -------------------- | --------- | 
-**radius**        | 1                    | `Number`  |
-**detail**        | 1                    | `Number`  | 
+<div class="params" id="dodecahedron-geometry">
+  <h5>Dodecahedron geometry object <a href="#dodecahedron-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="dodecahedron-geometry-radius">
+      <h3><a href="#dodecahedron-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Dodecahedron geometry radius</p>
+    </li>
+    <li id="dodecahedron-geometry-detail">
+      <h3><a href="#dodecahedron-geometry-detail" class="anchor"></a> detail
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Dodecahedron geometry detail</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/6c36848a37c9d8833ace.js"></script>

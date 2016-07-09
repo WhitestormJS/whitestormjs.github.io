@@ -4,10 +4,38 @@
 
 `WHS.Plane` class is used for creating planes by it's `width` and `height`.
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**width**      | 1                    | `Number`  | Plane width.
-**height**     | 1                    | `Number`  | Plane height.
-**segments**   | 32                   | `Number`  | Plane detality.
+<div class="params" id="plane-geometry">
+  <h5>Plane geometry object <a href="#plane-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="plane-geometry-width">
+      <h3><a href="#plane-geometry-width" class="anchor"></a> width
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Plane geometry width</p>
+    </li>
+    <li id="plane-geometry-width">
+      <h3><a href="#plane-geometry-width" class="anchor"></a> width
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Plane geometry width</p>
+    </li>
+    <li id="plane-geometry-wSegments">
+      <h3><a href="#plane-geometry-wSegments" class="anchor"></a> wSegments
+        <span class="type">Number</span>
+        <span class="default">32</span>
+      </h3>
+      <p>Plane geometry widthSegments</p>
+    </li>
+    <li id="plane-geometry-hSegments">
+      <h3><a href="#plane-geometry-hSegments" class="anchor"></a> hSegments
+        <span class="type">Number</span>
+        <span class="default">32</span>
+      </h3>
+      <p>Plane geometry heightSegments</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/aa821a5174b0204259e9.js"></script>

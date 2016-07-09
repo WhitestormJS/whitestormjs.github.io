@@ -35,9 +35,24 @@ In geometry, a **tetrahedron** is *a polyhedron composed of four triangular face
 
 `WHS.Tetrahedron` creates Tetrahedron object by it's `radius` and `detail`.
 
-Parameter         |       Default        | Type      | 
------------------ | -------------------- | --------- | 
-**radius**        | 1                    | `Number`  |
-**detail**        | 1                    | `Number`  | 
+<div class="params" id="tetrahedron-geometry">
+  <h5>Tetrahedron geometry object <a href="#tetrahedron-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="tetrahedron-geometry-radius">
+      <h3><a href="#tetrahedron-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Tetrahedron geometry radius</p>
+    </li>
+    <li id="tetrahedron-geometry-detail">
+      <h3><a href="#tetrahedron-geometry-detail" class="anchor"></a> detail
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Tetrahedron geometry detail</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/769a64629d8180f38a17.js"></script>

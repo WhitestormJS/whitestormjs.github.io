@@ -48,10 +48,25 @@ var extrude = GAME.Extrude({
 
 It is similar to `THREE.ExtrudeGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
 
-Parameter      |       Default        | Type               | Description |
--------------- | -------------------- | ------------------ | ----------- |
-**shapes**     | []                   | `Array` or `Object`| Array of shapes or a shape.
-**options**    | {}                   | `Object`           | Object with parameters.
+<div class="params" id="extrude-geometry">
+  <h5>Extrude geometry object <a href="#extrude-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="extrude-geometry-shapes">
+      <h3><a href="#extrude-geometry-shapes" class="anchor"></a> shapes
+        <span class="type">Array</span>
+        <span class="default">[]</span>
+      </h3>
+      <p>Extrude geometry shapes</p>
+    </li>
+    <li id="extrude-geometry-options">
+      <h3><a href="#extrude-geometry-options" class="anchor"></a> options
+        <span class="type">Object</span>
+        <span class="default">{}</span>
+      </h3>
+      <p>Extrude geometry options</p>
+    </li>
+  </ul>
+</div>
 
 Then it creates an `Three.js geometry`:
 

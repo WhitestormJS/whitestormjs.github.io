@@ -35,9 +35,24 @@ In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular oct
 
 `WHS.Octahedron` creates Octahedron object by it's `radius` and `detail`.
 
-Parameter         |       Default        | Type      | 
------------------ | -------------------- | --------- | 
-**radius**        | 1                    | `Number`  |
-**detail**        | 1                    | `Number`  | 
+<div class="params" id="octahedron-geometry">
+  <h5>Octahedron geometry object <a href="#octahedron-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="octahedron-geometry-radius">
+      <h3><a href="#octahedron-geometry-radius" class="anchor"></a> radius
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Octahedron geometry radius</p>
+    </li>
+    <li id="octahedron-geometry-detail">
+      <h3><a href="#octahedron-geometry-detail" class="anchor"></a> detail
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Octahedron geometry detail</p>
+    </li>
+  </ul>
+</div>
 
 <script src="https://gist.github.com/sasha240100/2e4fd99eed06e9c5bd05.js"></script>

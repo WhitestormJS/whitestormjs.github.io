@@ -39,11 +39,32 @@ It is similar to `THREE.BoxGeometry`, but it also contain's all properties, appl
 
 Here are parameters of geometry object, that you need to fill:
 
-Parameter      |       Default        | Type      | Description |
--------------- | -------------------- | --------- | ----------- |
-**width**      | 1                    | `Number`  | Geometry width.
-**height**     | 1                    | `Number`  | Geometry height.
-**depth**      | 1                    | `Number`  | Geometry depth.
+<div class="params" id="box-geometry">
+  <h5>Box geometry object <a href="#box-geometry" class="anchor"></a></h5>
+  <ul>
+    <li id="box-geometry-width">
+      <h3><a href="#box-geometry-width" class="anchor"></a> width
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Box geometry width</p>
+    </li>
+    <li id="box-geometry-height">
+      <h3><a href="#box-geometry-height" class="anchor"></a> height
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Box geometry height</p>
+    </li>
+    <li id="box-geometry-depth">
+      <h3><a href="#box-geometry-depth" class="anchor"></a> depth
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Box geometry depth</p>
+    </li>
+  </ul>
+</div>
 
 Then it creates an `Three.js geometry`:
 
