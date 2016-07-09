@@ -40,15 +40,6 @@ var teapot = GAME.Model({
 
 ```
 
-<div id="model_ex" class="example output">
-    <div class="splash" onclick="Model_example.start()">
-        <img src="images/play.png" width="30" height="30">
-    </div>
-    <div class="actions">
-        <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(model);  model.position.set(0, 100, 0);"></i>
-    </div>
-</div>
 
 `WHS.Model` class loader for loading objects in JSON format.
 

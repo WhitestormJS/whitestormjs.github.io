@@ -36,15 +36,6 @@ var parrot = GAME.Morph( {
 
 ```
 
-<div id="morph_ex" class="example output">
-    <div class="splash" onclick="Morph_example.start()">
-        <img src="images/play.png" width="30" height="30">
-    </div>
-    <div class="actions">
-        <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat"></i>
-    </div>
-</div>
 
 `WHS.Model` is a class for loading animated models or meshes.
 

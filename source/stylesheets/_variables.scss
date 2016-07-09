@@ -14,6 +14,13 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
+@font-face {
+  font-family: 'Source Code Pro';
+  src: font-url('SourceCodePro-Medium.otf.woff') format('woff');
+  font-size: 13px;
+  line-height: 1.5em;
+  font-weight: 500;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOMIZE SLATE
@@ -23,17 +30,17 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #222222;
+$nav-bg: #2D3134;
 $examples-bg: #393939;
 $code-bg: #292929;
 $code-annotation-bg: #1c1c1c;
-$nav-subitem-bg: #262626;
-$nav-active-bg: #2467af;
+$nav-subitem-bg: #272b2d;
+$nav-active-bg: linear-gradient(180deg, #5abaf0, #4aafed);
 $lang-select-border: #000;
-$lang-select-bg: #222;
+$lang-select-bg: #242729;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
-$main-bg: #eaf2f6;
+$main-bg: #fff;
 $aside-notice-bg: #8fbcd4;
 $aside-warning-bg: #c97a7e;
 $aside-warning-yellow-bg: #E6B442;
@@ -53,15 +60,15 @@ $lang-select-pressed-text: #fff; // color of language tab text when mouse is pre
 
 // SIZES
 ////////////////////
-$nav-width: 230px; // width of the navbar
-$examples-width: calc(50% - 20px); // portion of the screen taken up by code examples
+$nav-width: 180px; // width of the navbar
+$examples-width: calc(50% + 40px); // portion of the screen taken up by code examples
 $logo-margin: 20px; // margin between nav items and logo, ignored if search is active
 $main-padding: 30px; // padding to left and right of content & examples
 $nav-padding: 15px; // padding to left and right of navbar
 $nav-v-padding: 10px; // padding used vertically around search boxes and results
 $nav-indent: 10px; // extra padding for ToC subitems
 $code-annotation-padding: 13px; // padding inside code annotations
-$h1-margin-bottom: 21px; // padding under the largest header tags
+$h1-margin-bottom: 41px; // padding under the largest header tags
 $tablet-width: 930px; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
 
@@ -69,7 +76,7 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+  font-family: Whitney SSm A,Whitney SSm B,Helvetica,Arial,sans-serif;
   font-size: 13px;
 }
 
@@ -79,9 +86,11 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 }
 
 %code-font {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  line-height: 1.5;
+  font-family: Source Code Pro,Menlo,monospace;
+  font-size: 13px;
+  line-height: 1.5em;
+  font-weight: 500;
+  word-break: break-word;
 }
 
 

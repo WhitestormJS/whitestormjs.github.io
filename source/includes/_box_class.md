@@ -31,17 +31,6 @@ var box = GAME.Box({
 
 ```
 
-
-<div id="box_ex" class="example output">
-    <div class="splash" onclick="Box_example.start()">
-        <img src="images/play.png" width="30" height="30">
-    </div>
-    <div class="actions">
-        <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(box);  box.position.set(0, 100, 0);"></i>
-    </div>
-</div>
-
 `WHS.Box` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Box` class is used to create box objects of different size.

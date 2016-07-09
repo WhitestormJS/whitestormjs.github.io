@@ -37,15 +37,6 @@ var lathe = GAME.Lathe({
 
 ```
 
-<div id="lathe_ex" class="example output">
-    <div class="splash" onclick="Lathe_example.start()">
-        <img src="images/play.png" width="30" height="30">
-    </div>
-    <div class="actions">
-        <i class="fa fa-pause"></i>
-        <i class="fa fa-repeat" onclick="reset_mesh(lathe);  lathe.position.set(0, 50, 10);"></i>
-    </div>
-</div>
 
 `WHS.Lathe` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

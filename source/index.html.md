@@ -4,7 +4,6 @@ title: WhitestormJS Documentation (API Reference)
 language_tabs:
   - javascript
   - html
-  - output
 
 toc_footers:
   - <a href='http://threejs.org/'><b>Three.js <i>r75</i></b></a>
@@ -186,11 +185,214 @@ Parameter     |       Default        | Type      | Description |
 **assets**    | "./assets"           | `String`  | Assets folder.
 **container** | document.body        | `Object`  | Where to put whs canvas.
 
-<aside class="warning yellow">
-You must include <code>path_worker</code> and <code>path_ammo</code> parameters with pathes to Physi.js worker script and Ammo.js.
-</aside>
+<div class="params">
+  <h5>Properties</h5>
+  <ul>
+    <li>
+      <h3>stats
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Stats.js extension for three.js and physi.js frame rate/miliseconds or megabytes calculation.</p>
+    </li>
+    <li>
+      <h3>autoresize
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Turn on if you want to have your app resized with window or it's container width and height properties.</p>
+    </li>
+    <li>
+      <h3>softbody
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Should be turned on if you are going to use softbodies in your world. That will force physi.js to use <code>btSoftRigidDynamicsWorld</code></p>
+    </li>
+    <li>
+      <h3>shadowmap
+        <span class="type">Object</span>
+      </h3>
+      <p>Shadowmap propertis for Three.js scene</p>
+      <ul>
+        <li>
+          <h3>enabled
+            <span class="type">Boolean</span>
+            <span class="default">true</span>
+          </h3>
+          <p>Shadowmap enabled state. If <code>false</code> - scene will receive no shadow</p>
+        </li>
+        <li>
+          <h3>type
+            <span class="type">Number</span>
+            <span class="default">THREE.PCFSoftShadowMap</span>
+          </h3>
+          <p>Shadowmap type number</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3>helpers
+        <span class="type">Object</span>
+      </h3>
+      <p>World helpers (TODO)</p>
+      <ul>
+        <li>
+          <h3>grid
+            <span class="type">Boolean</span>
+            <span class="default">false</span>
+          </h3>
+          <p>Grid helper for world</p>
+        </li>
+        <li>
+          <h3>axis
+            <span class="type">Boolean</span>
+            <span class="default">false</span>
+          </h3>
+          <p>Axis helper for world</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3>gravity
+        <span class="type">Object</span>
+      </h3>
+      <p>Gravity direction</p>
+      <ul>
+        <li>
+          <h3>x
+            <span class="type">Number</span>
+            <span class="default">0</span>
+          </h3>
+          <p>Gravity direction x coordinate</p>
+        </li>
+        <li>
+          <h3>y
+            <span class="type">Number</span>
+            <span class="default">0</span>
+          </h3>
+          <p>Gravity direction y coordinate</p>
+        </li>
+        <li>
+          <h3>z
+            <span class="type">Number</span>
+            <span class="default">0</span>
+          </h3>
+          <p>Gravity direction z coordinate</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3>camera
+        <span class="type">Object</span>
+      </h3>
+      <p><a href="#">Camera object</a></p>
+    </li>
+    <li>
+      <h3>rWidth
+        <span class="type">Number (0 - 1)</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Width resolution ratio</p>
+    </li>
+    <li>
+      <h3>rHeight
+        <span class="type">Number (0 - 1)</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Height resolution ratio</p>
+    </li>
+    <li>
+      <h3>width
+        <span class="type">Number</span>
+        <span class="default">window.innerWidth</span>
+      </h3>
+      <p>Width of canvas for the world</p>
+    </li>
+    <li>
+      <h3>height
+        <span class="type">Number</span>
+        <span class="default">window.innerHeight</span>
+      </h3>
+      <p>Height of canvas for the world</p>
+    </li>
+    <li>
+      <h3>physics
+        <span class="type">Object</span>
+      </h3>
+      <p><a href="#">Physics object</a></p>
+    </li>
+    <li>
+      <h3>fog
+        <span class="type">Object</span>
+      </h3>
+      <p><a href="#">Fog object</a></p>
+    </li>
+    <li>
+      <h3>background
+        <span class="type">Object</span>
+      </h3>
+      <p>Canvas/world background color and opacity</p>
+      <ul>
+        <li>
+          <h3>color
+            <span class="type">HEX</span>
+            <span class="default">0x000000</span>
+          </h3>
+          <p>World background color</p>
+        </li>
+        <li>
+          <h3>opacity
+            <span class="type">Number (0 - 1)</span>
+            <span class="default">1</span>
+          </h3>
+          <p>World background opacity</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3>container
+        <span class="type">DOM Object</span>
+        <span class="default">document.body</span>
+      </h3>
+      <p>DOM Object that world canvas will be appended to</p>
+    </li>
+  </ul>
+</div>
 
-### Camera object.
+<div class="params">
+  <h5>Camera object</h5>
+  <ul>
+    <li>
+      <h3>x, y, z
+        <span class="type">Numbers</span>
+        <span class="default">0, 0, 0</span>
+      </h3>
+      <p>Camera position x, y, z properties</p>
+    </li>
+    <li>
+      <h3>aspect
+        <span class="type">Number</span>
+        <span class="default">75</span>
+      </h3>
+      <p>Camera aspect</p>
+    </li>
+    <li>
+      <h3>near
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Camera near</p>
+    </li>
+    <li>
+      <h3>far
+        <span class="type">Number</span>
+        <span class="default">1000</span>
+      </h3>
+      <p>Camera far</p>
+    </li>
+  </ul>
+</div>
 
 Parameter     |       Default        | Type      | Description |
 ------------- | -------------------- | --------- | ----------- |
@@ -198,6 +400,7 @@ Parameter     |       Default        | Type      | Description |
   aspect    | 75                   | `Number`  | Camera aspect.
   near      | 1                    | `Number`  | Camera near.
   far       | 1000                 | `Number`  | Camera far.
+
 
 ### Physics object. (PhysiJS settings)
 
@@ -230,7 +433,7 @@ All proccesses, such as *creating, building, adding to world or removing* will b
 
 ## WHS.Shape [Super Class]
 
-> WHS.Shape structure.
+<div class="blockTitle"><h2>Structure.</h2></div>
 
 ```javascript
 
@@ -253,27 +456,26 @@ var shape = GAME.Shape({
 
 ```
 
-> <h4>Methods:</h4>
->
-> **.build( ...tags )** - aplly position and rotation to mesh, returning `Promise` when ready.
->
-> **.addTo( root, ...tags )** - add WHS.Shape object to scene (WHS.World). Returns `Promise` object.
->
-> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
->
-> **.setPosition( x, y, z )** - set object's position by x, y, z. Returns new `WHS object`.
->
-> **.setRotation( x, y, z )** - set object's rotation by x, y, z. Returns new `WHS object`.
->
-> **.copy( source )** - assign object to this object. Returns new `WHS object`.
->
-> **.clone()** - clone object and it's parameters including latest position/rotation. Returns new `WHS object`.
->
-> **.remove()** - remove object from scene. Returns `WHS object`.
->
-> **.retrieve()** - add object to scene after it was removed. Returns `WHS object`.
->
-> <div class="tip-right"> <b>...tags</b> is a list of tags that inform core how to make changes to <code>WHS objects</code>.</div>
+<blockquote class="section">
+  <header>Methods:</header>
+  <table>
+    <tr>
+      <th>.build(...tags)</th><td>Aplly position and rotation to mesh, returning `Promise` when ready.</td>
+    </tr>
+    <tr>
+      <th>.addTo(root, ...tags)</th><td>Adds WHS.Light object to scene (WHS.World). Returns Promise object.</td>
+    </tr>
+    <tr>
+      <th>.copy(source)</th><td>Copy source object data to this object. Returns new WHS object.</td>
+    </tr>
+    <tr>
+      <th>.clone()</th><td>Clone object and it’s parameters including latest position/rotation. Returns new WHS object.</td>
+    </tr>
+    <tr>
+      <th>.remove()</th><td>Remove object from scene. Returns removed WHS object.</td>
+    </tr>
+  </table>
+</blockquote>
 
 WHS.Shape is a default class for all object's (except lights and cameras).
 It consist of Three.js mesh, Physi.js mesh and whs parameters such as geometry or material.
