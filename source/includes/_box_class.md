@@ -3,6 +3,7 @@
 <h2 class="ws" id="box">Box</h2>
 
 <div class="blockTitle h3">Basic box example</div>
+
 ```javascript
 
 const box = new WHS.Box({
@@ -13,6 +14,8 @@ const box = new WHS.Box({
   },
 
   mass: 1,
+
+  softbody: false,
 
   material: {
     kind: 'basic',
@@ -51,11 +54,7 @@ box.addTo world
 ```
 
 
-`WHS.Box` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
-
-`WHS.Box` class is used to create box objects of different size.
-
-It is similar to `THREE.BoxGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
+`WHS.Box` Creates a simple 3D Box. It extends <a href="#shape">`WHS.Shape`</a> and inherits all of the <a href="#shape">`WHS.Shape`</a> methods.
 
 Here are parameters of geometry object, that you need to fill:
 
@@ -82,6 +81,35 @@ Here are parameters of geometry object, that you need to fill:
         <span class="default">1</span>
       </h3>
       <p>Depth of box</p>
+    </li>
+    <li id="box-geometry-depth">
+      <h3><a href="#box-geometry-depth" class="anchor"></a> depth
+        <span class="type">Number</span>
+        <span class="default">1</span>
+      </h3>
+      <p>Depth of box</p>
+    </li>
+    <li id="box-softbody">
+      <h3><a href="#box-softbody" class="anchor"></a> softbody
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>When set to true, WhitestormJs will process
+      this shape as a soft body.</p>      
+    </li>
+    <li id="box-material">
+      <h3><a href="#box-material" class="anchor"></a> material
+        <span class="type">Object</span>
+        <span class="default">
+        ```
+        javascript
+        {
+          kind:'basic'
+        }          
+        ```
+        </span>
+      </h3>
+      <p>A three.js Material object, to apply to the shape.</p>      
     </li>
   </ul>
 </div>
