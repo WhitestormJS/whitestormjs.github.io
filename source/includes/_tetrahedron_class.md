@@ -1,4 +1,4 @@
-<h2 class="ws" id="tetrahedron">Tetrahedron [Class]</h2>
+<h2 class="ws" id="tetrahedron">Tetrahedron</h2>
 
 <div class="blockTitle h3">Basic tetrahedron example</div>
 

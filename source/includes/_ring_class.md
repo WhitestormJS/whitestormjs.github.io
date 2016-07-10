@@ -1,4 +1,4 @@
-<h2 class="ws" id="ring">Ring [Class] [2D]</h2>
+<h2 class="ws" id="ring">Ring [2D]</h2>
 
 <div class="blockTitle h3">Basic ring example</div>
 

@@ -1,28 +1,22 @@
-<h2 class="wsl" id="spot">SpotLight [Class]</h2>
+<h2 class="wsl" id="spot">SpotLight</h2>
 
-> red WHS.SpotLight:
+<div class="blockTitle h3">Green SpotLight example</div>
 
 ```javascript
 
-var spotlight = GAME.SpotLight( {
-    light: {
-        color: 0xff0000, // Red.
-        intensity: 3,
-        distance: 1000
-    },
+new WHS.SpotLight( {
+  light: {
+    color: 0x00ff00,
+    intensity: 3,
+    distance: 1000
+  },
 
-    pos: {
-    	x: 10,
-    	y: 20,
-    	z: 10
-    },
-
-    target: {
-    	x: 0,
-    	y: 0,
-    	z: 0
-    }
-} );
+  pos: {
+  	x: 10,
+  	y: 20,
+  	z: 10
+  }
+}).addTo(world);
 
 ```
 

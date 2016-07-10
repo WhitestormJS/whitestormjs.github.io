@@ -1,4 +1,4 @@
-<h2 class="ws" id="sphere">Sphere [Class]</h2>
+<h2 class="ws" id="sphere">Sphere</h2>
 
 <div class="blockTitle h3">Basic sphere example</div>
 
@@ -17,9 +17,7 @@ const sphere = new WHS.Sphere( {
   },
 
   pos: {
-    x: 0,
-    y: 100,
-    z: 0
+    y: 100
   }
 });
 
@@ -36,9 +34,7 @@ sphere = new (WHS.Sphere)(
     color: 0xffffff
     kind: 'lambert'
   pos:
-    x: 0
-    y: 100
-    z: 0)
+    y: 100)
 
 sphere.addTo world
 

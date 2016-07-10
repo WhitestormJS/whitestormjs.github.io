@@ -1,4 +1,4 @@
-<h2 class="ws" id="lathe">Lathe [Class]</h2>
+<h2 class="ws" id="lathe">Lathe</h2>
 
 <div class="blockTitle h3">Basic lathe example</div>
 

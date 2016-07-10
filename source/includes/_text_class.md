@@ -1,4 +1,4 @@
-<h2 class="ws" id="text">Text [Class]</h2>
+<h2 class="ws" id="text">Text</h2>
 
 <div class="blockTitle h3">Basic text example</div>
 

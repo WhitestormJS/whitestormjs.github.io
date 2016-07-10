@@ -1,4 +1,4 @@
-<h2 class="ws" id="model">Model [Class]</h2>
+<h2 class="ws" id="model">Model</h2>
 
 <div class="blockTitle h3">Basic model example</div>
 

@@ -1,4 +1,4 @@
-<h2 class="ws" id="torusknot">Torusknot [Class]</h2>
+<h2 class="ws" id="torusknot">Torusknot</h2>
 
 <div class="blockTitle h3">Basic torusknot example</div>
 

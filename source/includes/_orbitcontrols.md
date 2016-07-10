@@ -1,10 +1,16 @@
 ## Orbit controls.
 
-> Orbit controls: 
+<div class="blockTitle h3">Example of using Orbit Controls</div>
 
 ```javascript
 
-GAME.OrbitControls();
+world.setControls(WHS.orbitControls());
+
+```
+
+```coffeescript
+
+world.setControls WHS.orbitControls()
 
 ```
 

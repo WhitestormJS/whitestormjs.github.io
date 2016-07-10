@@ -1,4 +1,4 @@
-<h2 class="ws" id="icosahedron">Icosahedron [Class]</h2>
+<h2 class="ws" id="icosahedron">Icosahedron</h2>
 
 <div class="blockTitle h3">Basic icosahedron example</div>
 

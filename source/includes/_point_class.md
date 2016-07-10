@@ -1,33 +1,30 @@
-<h2 class="wsl" id="point">PointLight [Class]</h2>
+<h2 class="wsl" id="point">PointLight</h2>
 
-> red WHS.PointLight:
+<div class="blockTitle h3">Red PointLight example</div>
 
 ```javascript
 
-var pointlight = GAME.PointLight( {
-    light: {
-        color: 0xff0000, // Red.
-        intensity: 3,
-        distance: 1000
-    },
+new WHS.PointLight( {
+  light: {
+    color: 0xff0000,
+    intensity: 3,
+    distance: 1000
+  },
 
-    pos: {
-    	x: 10,
-    	y: 20,
-    	z: 10
-    },
+  pos: {
+  	x: 10,
+  	y: 20,
+  	z: 10
+  },
 
-    target: {
-    	x: 0,
-    	y: 0,
-    	z: 0
-    }
-} );
+  target {
+    x: 5
+  }
+}).addTo(world);
 
 ```
 
-> This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)
-
+> This light will fall down from vec3(10, 20, 10) to vec3(5, 0, 0)
 
 `WHS.PointLight` is a simple class, it extends `WHS.Light` and inherits all it's methods.
 

@@ -1,4 +1,4 @@
-<h2 class="ws" id="parametric">Parametric [Class]</h2>
+<h2 class="ws" id="parametric">Parametric</h2>
 
 <div class="blockTitle h3">Basic parametric example</div>
 

@@ -1,17 +1,25 @@
 # Lights
 
-<h2 class="wsl" id="ambient">AmbientLight [Class]</h2>
+<h2 class="wsl" id="ambient">AmbientLight</h2>
 
-> WHS.AmbientLight example:
+<div class="blockTitle h3">AmbientLight example</div>
 
 ```javascript
 
-var ambient = GAME.AmbientLight( {
-    light: {
-        color: 0xffffff,
-        intensity: 0.2
-    }
-} );
+new WHS.AmbientLight( {
+  light: {
+    color: 0xffffff,
+    intensity: 0.2
+  }
+}).addTo(world);
+
+```
+
+```coffeescript
+
+new (WHS.AmbientLight)(light:
+  color: 0xffffff
+  intensity: 0.2).addTo world
 
 ```
 

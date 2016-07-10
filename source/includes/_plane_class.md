@@ -1,4 +1,41 @@
-<h2 class="ws" id="plane">Plane [Class]</h2>
+<h2 class="ws" id="plane">Plane</h2>
+
+<div class="blockTitle h3">Basic plane example</div>
+
+```javascript
+
+const plane = new WHS.Plane({
+  geometry: {
+    width: 20,
+    height: 30
+  },
+
+  mass: 0,
+
+  material: {
+    color: 0xff0000,
+    kind: 'basic'
+  }
+});
+
+plane.addTo(world);
+
+```
+
+```coffeescript
+
+plane = new (WHS.Plane)(
+  geometry:
+    width: 20
+    height: 30
+  mass: 0
+  material:
+    color: 0xff0000
+    kind: 'basic')
+
+plane.addTo world
+
+```
 
 `WHS.Plane` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 

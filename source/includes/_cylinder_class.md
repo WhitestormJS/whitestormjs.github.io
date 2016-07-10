@@ -1,4 +1,4 @@
-<h2 class="ws" id="cylinder">Cylinder [Class]</h2>
+<h2 class="ws" id="cylinder">Cylinder</h2>
 
 <div class="blockTitle h3">Basic cylinder example</div>
 

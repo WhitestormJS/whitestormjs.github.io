@@ -1,4 +1,4 @@
-<h2 class="ws" id="torus">Torus [Class]</h2>
+<h2 class="ws" id="torus">Torus</h2>
 
 <div class="blockTitle h3">Basic torus example</div>
 

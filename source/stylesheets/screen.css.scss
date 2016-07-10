@@ -504,7 +504,6 @@ html, body {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
-    @extend %break-words;
     @extend %code-font;
   }
 
@@ -516,21 +515,21 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #0e74c3;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $aside-notice-bg;
+    background: linear-gradient(180deg, #5abaf0, #4aafed);
     line-height: 1.6;
+    color: white;
 
     &.warning {
-      background-color: $aside-warning-bg;
+      background: $aside-warning-bg;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
     &.warning.yellow {
-      background-color: $aside-warning-yellow-bg !important;
-      text-shadow: 0 1px 0 lighten($aside-warning-yellow-bg, 15%) !important;
-      background-image: url(../images/warning.png);
+      background: #ffae54 !important;
+      text-shadow: 0 1px 0 darken(#ffae54, 15%) !important;
     }
 
     &.success {
@@ -840,6 +839,19 @@ h2.wsl:after {
     float: right;
     padding: 1px 5px;
     text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px rgba(120,164,33,1);
+    font-weight: 500;
+}
+
+h2.wso:after {
+    content: "WHS.Object";
+    background: linear-gradient(180deg, #9b61e3, #9061dc);
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    display: block;
+    float: right;
+    padding: 1px 5px;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #5021a4;
     font-weight: 500;
 }
 

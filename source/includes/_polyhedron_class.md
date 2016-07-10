@@ -1,4 +1,4 @@
-<h2 class="ws" id="polyhedron">Polyhedron [Class]</h2>
+<h2 class="ws" id="polyhedron">Polyhedron</h2>
 
 <div class="blockTitle h3">Basic polyhedron example</div>
 
@@ -54,13 +54,6 @@ In elementary geometry, a **polyhedron** is *a solid in three dimensions with fl
 <img src="images/shapes/polyhedron.gif" alt="rendered polyhedron">
 
 `WHS.Polyhedron` creates Polyhedron object by it's `radius` and `detail`.
-
-Parameter         |       Default        | Type      | 
------------------ | -------------------- | --------- | 
-**verticesOfCube**| get verticesOfCube   | `Array`   |
-**indicesOfFaces**| get indicesOfFaces   | `Array`   |
-**radius**        | 6                    | `Number`  |
-**detail**        | 2                    | `Number`  | 
 
 <div class="params" id="polyhedron-geometry">
   <h5>Polyhedron geometry object <a href="#polyhedron-geometry" class="anchor"></a></h5>

@@ -1,4 +1,4 @@
-<h2 class="ws" id="morph">Morph [Class]</h2>
+<h2 class="ws" id="morph">Morph</h2>
 
 <div class="blockTitle h3">Basic morph example</div>
 

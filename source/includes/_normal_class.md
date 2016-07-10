@@ -1,14 +1,21 @@
-<h2 class="wsl" id="normal">NormalLight [Class]</h2>
+<h2 class="wsl" id="normal">NormalLight</h2>
 
-> WHS.HemisphereLight:
+<div class="blockTitle h3">NormalLight example</div>
 
 ```javascript
 
-var ambient = GAME.NormalLight( {
-    light: {
-        color: 0xffffff
-    }
-} );
+new WHS.NormalLight( {
+  light: {
+    color: 0xffffff
+  }
+}).addTo(world);
+
+```
+
+```coffeescript
+
+new (WHS.NormalLight)(light: color: 0xffffff).addTo world
+
 
 ```
 

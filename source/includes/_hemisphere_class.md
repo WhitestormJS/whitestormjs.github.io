@@ -1,21 +1,30 @@
-<h2 class="wsl" id="hemisphere">HemisphereLight [Class]</h2>
+<h2 class="wsl" id="hemisphere">HemisphereLight</h2>
 
-> WHS.HemisphereLight:
+<div class="blockTitle h3">HemisphereLight example</div>
 
 ```javascript
 
-var ambient = GAME.HemisphereLight( {
-    light: {
-        skyColor: 0xffffff,
-        groundColor: 0xffffff,
-        intensity: 0.2
-    }
-} );
+new WHS.HemisphereLight({
+  light: {
+    skyColor: 0xff0000,
+    groundColor: 0x0000ff,
+    intensity: 0.2
+  }
+}).addTo(world);
 
 ```
 
-> This light will fall down from vec3(10, 20, 10) to vec3(0, 0, 0)
+```coffeescript
 
+new WHS.HemisphereLight({
+  light: {
+    skyColor: 0xff0000,
+    groundColor: 0x0000ff,
+    intensity: 0.2
+  }
+}).addTo(world);
+
+```
 
 `WHS.HemisphereLight` is a simple class, it extends `WHS.Light` and inherits all it's methods.
 

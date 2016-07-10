@@ -1,4 +1,4 @@
-<h2 class="ws" id="dodecahedron">Dodecahedron [Class]</h2>
+<h2 class="ws" id="dodecahedron">Dodecahedron</h2>
 
 <div class="blockTitle h3">Basic dodecahedron example</div>
 

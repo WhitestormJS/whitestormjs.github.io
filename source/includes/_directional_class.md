@@ -1,10 +1,10 @@
-<h2 class="wsl" id="directional">DirectinalLight [Class]</h2>
+<h2 class="wsl" id="directional">DirectinalLight</h2>
 
-> WHS.DirectinalLight:
+<div class="blockTitle h3">DirectinalLight example</div>
 
 ```javascript
 
-var directionallight = GAME.DirectinalLight( {
+new WHS.DirectinalLight( {
     light: {
         color: 0xffffff,
         intensity: 0.2
@@ -14,14 +14,21 @@ var directionallight = GAME.DirectinalLight( {
     	x: 10,
     	y: 20,
     	z: 10
-    },
-
-    target: {
-    	x: 0,
-    	y: 0,
-    	z: 0
     }
-} );
+}).addTo(world);
+
+```
+
+```coffeescript
+
+new (WHS.DirectinalLight)(
+  light:
+    color: 0xffffff
+    intensity: 0.2
+  pos:
+    x: 10
+    y: 20
+    z: 10).addTo world
 
 ```
 

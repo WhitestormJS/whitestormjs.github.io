@@ -1,4 +1,4 @@
-<h2 class="ws" id="extrude">Extrude [Class]</h2>
+<h2 class="ws" id="extrude">Extrude</h2>
 
 <div class="blockTitle h3">Basic extrude example</div>
 

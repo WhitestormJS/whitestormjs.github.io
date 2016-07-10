@@ -1,6 +1,6 @@
 # Shapes
 
-<h2 class="ws" id="box">Box [Class]</h2>
+<h2 class="ws" id="box">Box</h2>
 
 <div class="blockTitle h3">Basic box example</div>
 ```javascript

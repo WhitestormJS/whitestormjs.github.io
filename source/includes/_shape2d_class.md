@@ -1,4 +1,58 @@
-<h2 class="ws" id="shape2d">Shape2D [Class]</h2>
+<h2 class="ws" id="shape2d">Shape2D</h2>
+
+<div class="blockTitle h3">Basic shape (2d) example</div>
+
+```javascript
+
+const rectWidth = 10,
+  rectLength = 5;
+
+const rectShape = new THREE.Shape();
+rectShape.moveTo(0,0);
+rectShape.lineTo(0, rectWidth);
+rectShape.lineTo(rectLength, rectWidth);
+rectShape.lineTo(rectLength, 0);
+rectShape.lineTo(0, 0);
+
+const plane = new WHS.Plane({
+  geometry: {
+    shape: rectShape
+  },
+
+  mass: 0,
+
+  material: {
+    color: 0xff0000,
+    kind: 'basic'
+  }
+});
+
+plane.addTo(world);
+
+```
+
+```coffeescript
+
+rectWidth = 10
+rectLength = 5
+
+rectShape = new (THREE.Shape)
+rectShape.moveTo 0, 0
+rectShape.lineTo 0, rectWidth
+rectShape.lineTo rectLength, rectWidth
+rectShape.lineTo rectLength, 0
+rectShape.lineTo 0, 0
+
+plane = new (WHS.Plane)(
+  geometry: shape: rectShape
+  mass: 0
+  material:
+    color: 0xff0000
+    kind: 'basic')
+
+plane.addTo world
+
+```
 
 `WHS.Shape2D` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
@@ -11,7 +65,7 @@
   <ul>
     <li id="shape2d-geometry-shapes">
       <h3><a href="#shape2d-geometry-shapes" class="anchor"></a> shapes
-        <span class="type">Array</span>
+        <span class="type">Array or Single object</span>
         <span class="default">[]</span>
       </h3>
       <p>Shape2D geometry shapes</p>
