@@ -94,12 +94,14 @@ shape.addTo world
   </table>
 </blockquote>
 
-WHS.Shape is a default class for all object's (except lights and cameras).
-It consist of Three.js mesh, Physi.js mesh and whs parameters such as geometry or material.
+WHS.Shape is the parent class for all objects (except lights and cameras).
+This class wraps a Three.js mesh and a Physi.js mesh within the whs parameters.
 
-**geometry** is an object that contains shape's options for generating vertices and faces.
+A Shape usually needs two things to be built:
 
-**material** is an object that contains material properties of Three.js + friction and restitution for physics material in Physi.js.
+A **Geometry** which is an object that contains options for generating vertices and faces.
+
+A **Material**  which is an object that contains material properties of Three.js and friction and restitution options for physics calculation in Physi.js.
 
 <div class="params" id="shape-params">
   <h5>Shape parameters <a href="#shape-params" class="anchor"></a></h5>
@@ -129,7 +131,7 @@ It consist of Three.js mesh, Physi.js mesh and whs parameters such as geometry o
       <h3><a href="#shape-params-geometry" class="anchor"></a> geometry
         <span class="type">Object</span>
       </h3>
-      <p>Geometry object is specific for each shape type. For example <code>WHS.Sphere</code> will have it's own object that contain only <code>radius</code> property.</p>
+      <p>Geometry object is specific for each shape type. For example <code>WHS.Sphere</code> will have it's own object that contains only <code>radius</code> property.</p>
     </li>
     <li id="shape-params-material" class="nested">
       <h3><a href="#shape-params-material" class="anchor"></a> material
@@ -335,5 +337,5 @@ To choose material setup `kind` property with name of Three.js material type. Fo
 <script src="https://gist.github.com/sasha240100/51180537efcdacb005a3.js"></script>
 
 <aside class="success">
-<b>WhitestormJS material support this types</b>: 
+<b>WhitestormJS material support this types</b>:
 </aside>
