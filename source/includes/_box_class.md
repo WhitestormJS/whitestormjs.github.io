@@ -67,21 +67,21 @@ Here are parameters of geometry object, that you need to fill:
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Box geometry width</p>
+      <p>Width of box</p>
     </li>
     <li id="box-geometry-height">
       <h3><a href="#box-geometry-height" class="anchor"></a> height
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Box geometry height</p>
+      <p>Height of box</p>
     </li>
     <li id="box-geometry-depth">
       <h3><a href="#box-geometry-depth" class="anchor"></a> depth
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Box geometry depth</p>
+      <p>Depth of box</p>
     </li>
   </ul>
 </div>
@@ -91,5 +91,3 @@ Then it creates an `Three.js geometry`:
 <script src="https://gist.github.com/sasha240100/7084bd4d0a271be6adfe.js"></script>
 
 And a `Physijs mesh`, that is similar to `Three.js mesh`, but it also participates in collision calculations. This mesh is a combination of `Three.js geometry` and `Physijs material` (The same as in three.js, but with friction and restitution).
-
-

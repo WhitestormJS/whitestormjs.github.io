@@ -31,7 +31,7 @@ const teapot = new WHS.Model({
 
   scale: {
     x: 4,
-    y: 4, 
+    y: 4,
     z: 4
   }
 });
@@ -84,14 +84,14 @@ Model is a simple class too. But it doesn't depends on `Three.js geometry` objec
         <span class="type">String</span>
         <span class="default">""</span>
       </h3>
-      <p>Model geometry path</p>
+      <p>Model path</p>
     </li>
     <li id="model-geometry-physics">
       <h3><a href="#model-geometry-physics" class="anchor"></a> physics
         <span class="type">String</span>
         <span class="default">""</span>
       </h3>
-      <p>Model geometry physics</p>
+      <p>Model physics</p>
     </li>
   </ul>
 </div>

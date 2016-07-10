@@ -7,11 +7,11 @@
 const points = [];
 
 for (let i = 0; i < 10; i++) {
-  points.push( 
-    new THREE.Vector2( 
-      (Math.sin(i * 0.7) * 15 + 50) / 10, 
-      (i - 5) * 0.2 
-    ) 
+  points.push(
+    new THREE.Vector2(
+      (Math.sin(i * 0.7) * 15 + 50) / 10,
+      (i - 5) * 0.2
+    )
   );
 }
 
@@ -78,28 +78,28 @@ It is similar to `THREE.LatheGeometry`, but it also contain's all properties, ap
         <span class="type">Array</span>
         <span class="default">[]</span>
       </h3>
-      <p>Lathe geometry points</p>
+      <p>Lathe points</p>
     </li>
     <li id="lathe-geometry-segments">
       <h3><a href="#lathe-geometry-segments" class="anchor"></a> segments
         <span class="type">Object</span>
         <span class="default">{}</span>
       </h3>
-      <p>Lathe geometry segments</p>
+      <p>Lathe segments</p>
     </li>
     <li id="lathe-geometry-phiStart">
       <h3><a href="#lathe-geometry-phiStart" class="anchor"></a> phiStart
         <span class="type">Object</span>
         <span class="default">{}</span>
       </h3>
-      <p>Lathe geometry phiStart</p>
+      <p>phi Start of Lathe</p>
     </li>
     <li id="lathe-geometry-phiLength">
       <h3><a href="#lathe-geometry-phiLength" class="anchor"></a> phiLength
         <span class="type">Object</span>
         <span class="default">{}</span>
       </h3>
-      <p>Lathe geometry phiLength</p>
+      <p>phi Length of Lathe</p>
     </li>
   </ul>
 </div>
@@ -108,6 +108,6 @@ Then it creates an `Three.js geometry`:
 
 <script src="https://gist.github.com/sasha240100/06c3b07fc14e4d1a828d.js"></script>
 
-Right example will create the following shape: 
+Right example will create the following shape:
 
 <img src="images/shapes/lathe.png" alt="rendered lathe on it's example">

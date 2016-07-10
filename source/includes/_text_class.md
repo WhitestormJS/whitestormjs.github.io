@@ -69,7 +69,7 @@ text.addTo world
         <span class="type">String</span>
         <span class="default">"Hello World!"</span>
       </h3>
-      <p>Text geometry text</p>
+      <p>Text that you want to display, for example "Hello World"</p>
     </li>
     <li id="text-geometry-parameters">
       <h3><a href="#text-geometry-parameters" class="anchor"></a> parameters
@@ -88,63 +88,63 @@ text.addTo world
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Text parameters size</p>
+      <p>Size of your text</p>
     </li>
     <li id="text-parameters-height">
       <h3><a href="#text-parameters-height" class="anchor"></a> height
         <span class="type">Number</span>
         <span class="default">50</span>
       </h3>
-      <p>Text parameters height</p>
+      <p>height of your text</p>
     </li>
     <li id="text-parameters-curveSegments">
       <h3><a href="#text-parameters-curveSegments" class="anchor"></a> curveSegments
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Text parameters curveSegments</p>
+      <p>curveSegments in your text </p>
     </li>
     <li id="text-parameters-font">
       <h3><a href="#text-parameters-font" class="anchor"></a> font
         <span class="type">String</span>
         <span class="default">"Adelle"</span>
       </h3>
-      <p>Text parameters font</p>
+      <p>font of text, for example "Adelle"</p>
     </li>
     <li id="text-parameters-weight">
       <h3><a href="#text-parameters-weight" class="anchor"></a> weight
         <span class="type">String</span>
         <span class="default">"normal"</span>
       </h3>
-      <p>Text parameters weight</p>
+      <p>weight of text</p>
     </li>
     <li id="text-parameters-style">
       <h3><a href="#text-parameters-style" class="anchor"></a> style
         <span class="type">String</span>
         <span class="default">"normal"</span>
       </h3>
-      <p>Text parameters style</p>
+      <p>style of text</p>
     </li>
     <li id="text-parameters-bevelEnabled">
       <h3><a href="#text-parameters-bevelEnabled" class="anchor"></a> bevelEnabled
         <span class="type">Boolean</span>
         <span class="default">false</span>
       </h3>
-      <p>Text parameters bevelEnabled</p>
+      <p>Boolean to set bevelEnabled on text</p>
     </li>
     <li id="text-parameters-bevelThickness">
       <h3><a href="#text-parameters-bevelThickness" class="anchor"></a> bevelThickness
         <span class="type">Number</span>
         <span class="default">10</span>
       </h3>
-      <p>Text parameters bevelThickness</p>
+      <p>bevelThickness of text</p>
     </li>
     <li id="text-parameters-bevelSize">
       <h3><a href="#text-parameters-bevelSize" class="anchor"></a> bevelSize
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>Text parameters bevelSize</p>
+      <p>bevelSize of text</p>
     </li>
   </ul>
 </div>

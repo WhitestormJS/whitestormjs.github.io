@@ -66,21 +66,21 @@ parametric.addTo world
         <span class="type">Function</span>
         <span class="default">functon() {}</span>
       </h3>
-      <p>Parametric geometry func</p>
+      <p>Parametric function</p>
     </li>
     <li id="parametric-geometry-slices">
       <h3><a href="#parametric-geometry-slices" class="anchor"></a> slices
         <span class="type">Number</span>
         <span class="default">10</span>
       </h3>
-      <p>Parametric geometry slices</p>
+      <p>Parametric slices</p>
     </li>
     <li id="parametric-geometry-stacks">
       <h3><a href="#parametric-geometry-stacks" class="anchor"></a> stacks
         <span class="type">Number</span>
         <span class="default">10</span>
       </h3>
-      <p>Parametric geometry stacks</p>
+      <p>Parametric stacks</p>
     </li>
   </ul>
 </div>

@@ -61,14 +61,14 @@ In geometry, a **dodecahedron** is any *polyhedron with twelve flat faces*. The 
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Dodecahedron geometry radius</p>
+      <p>Radius of dodecahedron</p>
     </li>
     <li id="dodecahedron-geometry-detail">
       <h3><a href="#dodecahedron-geometry-detail" class="anchor"></a> detail
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Dodecahedron geometry detail</p>
+      <p>Dodecahedron detail</p>
     </li>
   </ul>
 </div>

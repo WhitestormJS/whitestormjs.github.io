@@ -31,6 +31,7 @@ GEM
     fastimage (1.8.1)
       addressable (~> 2.3, >= 2.3.5)
     ffi (1.9.10)
+    ffi (1.9.10-x64-mingw32)
     ffi (1.9.10-x86-mingw32)
     haml (4.0.7)
       tilt
@@ -90,6 +91,8 @@ GEM
     minitest (5.8.4)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.7.2-x64-mingw32)
+      mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.2-x86-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
     padrino-helpers (0.13.1)
@@ -123,6 +126,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
   x86-mingw32
 
 DEPENDENCIES
@@ -135,4 +139,4 @@ DEPENDENCIES
   rouge (~> 1.10.1)
 
 BUNDLED WITH
-   1.12.1
+   1.12.5

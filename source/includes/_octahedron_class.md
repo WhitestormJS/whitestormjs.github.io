@@ -64,14 +64,14 @@ In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular oct
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Octahedron geometry radius</p>
+      <p>Radius of octahedron</p>
     </li>
     <li id="octahedron-geometry-detail">
       <h3><a href="#octahedron-geometry-detail" class="anchor"></a> detail
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Octahedron geometry detail</p>
+      <p>Octahedron detail</p>
     </li>
   </ul>
 </div>

@@ -55,50 +55,50 @@ torusknot.addTo world
         <span class="type">Number</span>
         <span class="default">100</span>
       </h3>
-      <p>Torusknot geometry radius</p>
+      <p>radius of Torusknot</p>
     </li>
     <li id="torusknot-geometry-tube">
       <h3><a href="#torusknot-geometry-tube" class="anchor"></a> tube
         <span class="type">Number</span>
         <span class="default">40</span>
       </h3>
-      <p>Torusknot geometry tube</p>
+      <p>Torusknot tube</p>
     </li>
     <li id="torusknot-geometry-radialSegments">
       <h3><a href="#torusknot-geometry-radialSegments" class="anchor"></a> radialSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>Torusknot geometry radialSegments</p>
+      <p>radialSegments in Torusknot</p>
     </li>
     <li id="torusknot-geometry-tubularSegments">
       <h3><a href="#torusknot-geometry-tubularSegments" class="anchor"></a> tubularSegments
         <span class="type">Number</span>
         <span class="default">6</span>
       </h3>
-      <p>Torusknot geometry tubularSegments</p>
+      <p>tubularSegments in Torusknot</p>
     </li>
     <li id="torusknot-geometry-p">
       <h3><a href="#torusknot-geometry-p" class="anchor"></a> p
         <span class="type">Number</span>
         <span class="default">2</span>
       </h3>
-      <p>Torusknot geometry p</p>
+      <p>Torusknot p</p>
     </li>
     <li id="torusknot-geometry-q">
       <h3><a href="#torusknot-geometry-q" class="anchor"></a> q
         <span class="type">Number</span>
         <span class="default">3</span>
       </h3>
-      <p>Torusknot geometry q</p>
+      <p>Torusknot q</p>
     </li>
     <li id="torusknot-geometry-heightScale">
       <h3><a href="#torusknot-geometry-heightScale" class="anchor"></a> heightScale
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Torusknot geometry heightScale</p>
     </li>
+    <p>heightScale of Torusknot</p>
   </ul>
 </div>
 

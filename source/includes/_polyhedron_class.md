@@ -63,28 +63,28 @@ In elementary geometry, a **polyhedron** is *a solid in three dimensions with fl
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Polyhedron geometry verticesOfCube</p>
+      <p>Vertices of cube of polyhedron</p>
     </li>
     <li id="polyhedron-geometry-indicesOfFaces">
       <h3><a href="#polyhedron-geometry-indicesOfFaces" class="anchor"></a> indicesOfFaces
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Polyhedron geometry indicesOfFaces</p>
+      <p>Indices of faces of polyhedron</p>
     </li>
     <li id="polyhedron-geometry-radius">
       <h3><a href="#polyhedron-geometry-radius" class="anchor"></a> radius
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Polyhedron geometry radius</p>
+      <p>Radius of polyhedron</p>
     </li>
     <li id="polyhedron-geometry-detail">
       <h3><a href="#polyhedron-geometry-detail" class="anchor"></a> detail
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Polyhedron geometry detail</p>
+      <p>Polyhedron detail</p>
     </li>
   </ul>
 </div>

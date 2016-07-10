@@ -52,7 +52,7 @@ morph.addTo world
 
 `WHS.Model` is a class for loading animated models or meshes.
 
-`WHS.Morph` is used for creating animated object's that doesn't support physics. Off course you can make your own class, based on `WHS.Shape` that will run animation and support physics. But you will need to update your geometry in Physi.js each time you update anmation. Physi.js currently provides physic only for static geometries. 
+`WHS.Morph` is used for creating animated object's that doesn't support physics. Off course you can make your own class, based on `WHS.Shape` that will run animation and support physics. But you will need to update your geometry in Physi.js each time you update anmation. Physi.js currently provides physic only for static geometries.
 
 <div class="params" id="morph-geometry">
   <h5>Model geometry object <a href="#morph-geometry" class="anchor"></a></h5>
@@ -62,7 +62,7 @@ morph.addTo world
         <span class="type">String</span>
         <span class="default">""</span>
       </h3>
-      <p>Morph geometry path</p>
+      <p>Morph path</p>
     </li>
   </ul>
 </div>

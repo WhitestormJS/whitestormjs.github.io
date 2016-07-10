@@ -66,28 +66,28 @@ A **cylinder** is one of the most basic curvilinear geometric shapes, the surfac
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Cylinder geometry radiusTop</p>
+      <p>Top radius of cylinder</p>
     </li>
     <li id="cylinder-geometry-radiusBottom">
       <h3><a href="#cylinder-geometry-radiusBottom" class="anchor"></a> radiusBottom
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Cylinder geometry radiusBottom</p>
+      <p>Bottom radius of cylinder</p>
     </li>
     <li id="cylinder-geometry-height">
       <h3><a href="#cylinder-geometry-height" class="anchor"></a> height
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Cylinder geometry height</p>
+      <p>Height of cylinder</p>
     </li>
     <li id="cylinder-geometry-radiusSegments">
       <h3><a href="#cylinder-geometry-radiusSegments" class="anchor"></a> radiusSegments
         <span class="type">Number</span>
         <span class="default">32</span>
       </h3>
-      <p>Cylinder geometry radiusSegments</p>
+      <p>radius     Segments of cylinder</p>
     </li>
   </ul>
 </div>

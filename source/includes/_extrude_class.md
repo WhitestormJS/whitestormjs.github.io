@@ -22,7 +22,7 @@ const extrude = new WHS.Extrude({
       bevelEnabled: false,
       bevelSize: 0,
       amount: 2
-    } 
+    }
   },
 
   mass: 10,
@@ -91,14 +91,14 @@ It is similar to `THREE.ExtrudeGeometry`, but it also contain's all properties, 
         <span class="type">Array</span>
         <span class="default">[]</span>
       </h3>
-      <p>Extrude geometry shapes</p>
+      <p>Extrude shapes</p>
     </li>
     <li id="extrude-geometry-options">
       <h3><a href="#extrude-geometry-options" class="anchor"></a> options
         <span class="type">Object</span>
         <span class="default">{}</span>
       </h3>
-      <p>Extrude geometry options</p>
+      <p>Extrude options</p>
     </li>
   </ul>
 </div>
@@ -110,5 +110,3 @@ Then it creates an `Three.js geometry`:
 And a `Physijs mesh`, that is similar to `Three.js mesh`, but it also participates in collision calculations. This mesh is a combination of `Three.js geometry` and `Physijs material` (The same as in three.js, but with friction and restitution).
 
 <img src="images/shapes/extrude.png" alt="rendered extrude from it's example">
-
-

@@ -49,28 +49,28 @@ plane.addTo world
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Plane geometry width</p>
+      <p>Plane width</p>
     </li>
-    <li id="plane-geometry-width">
-      <h3><a href="#plane-geometry-width" class="anchor"></a> width
+    <li id="plane-geometry-height">
+      <h3><a href="#plane-geometry-height" class="anchor"></a> Height
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Plane geometry width</p>
+      <p>Plane Height</p>
     </li>
     <li id="plane-geometry-wSegments">
       <h3><a href="#plane-geometry-wSegments" class="anchor"></a> wSegments
         <span class="type">Number</span>
         <span class="default">32</span>
       </h3>
-      <p>Plane geometry widthSegments</p>
+      <p>width Segments in Plane</p>
     </li>
     <li id="plane-geometry-hSegments">
       <h3><a href="#plane-geometry-hSegments" class="anchor"></a> hSegments
         <span class="type">Number</span>
         <span class="default">32</span>
       </h3>
-      <p>Plane geometry heightSegments</p>
+      <p>height Segments in Plane</p>
     </li>
   </ul>
 </div>

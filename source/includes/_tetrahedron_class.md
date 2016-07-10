@@ -63,14 +63,14 @@ In geometry, a **tetrahedron** is *a polyhedron composed of four triangular face
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Tetrahedron geometry radius</p>
+      <p>Radius of tetrahedron</p>
     </li>
     <li id="tetrahedron-geometry-detail">
       <h3><a href="#tetrahedron-geometry-detail" class="anchor"></a> detail
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Tetrahedron geometry detail</p>
+      <p>Tetrahedron detail</p>
     </li>
   </ul>
 </div>

@@ -66,42 +66,42 @@ ring.addTo world
         <span class="type">Number</span>
         <span class="default">0</span>
       </h3>
-      <p>Ring geometry innerRadius</p>
+      <p>Inner radius of Ring</p>
     </li>
     <li id="ring-geometry-outerRadius">
       <h3><a href="#ring-geometry-outerRadius" class="anchor"></a> outerRadius
         <span class="type">Number</span>
         <span class="default">50</span>
       </h3>
-      <p>Ring geometry outerRadius</p>
+      <p>Outer radius of Ring</p>
     </li>
     <li id="ring-geometry-thetaSegments">
       <h3><a href="#ring-geometry-thetaSegments" class="anchor"></a> thetaSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>Ring geometry thetaSegments</p>
+      <p>theta segments of Ring</p>
     </li>
     <li id="ring-geometry-phiSegments">
       <h3><a href="#ring-geometry-phiSegments" class="anchor"></a> phiSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>Ring geometry phiSegments</p>
+      <p>phi segments of Ring</p>
     </li>
     <li id="ring-geometry-thetaStart">
       <h3><a href="#ring-geometry-thetaStart" class="anchor"></a> thetaStart
         <span class="type">Number</span>
         <span class="default">0</span>
       </h3>
-      <p>Ring geometry thetaStart</p>
+      <p>theta start of Ring</p>
     </li>
     <li id="ring-geometry-thetaLength">
       <h3><a href="#ring-geometry-thetaLength" class="anchor"></a> thetaLength
         <span class="type">Number</span>
         <span class="default">Math.PI * 2</span>
       </h3>
-      <p>Ring geometry thetaLength</p>
+      <p>theta length of Ring</p>
     </li>
   </ul>
 </div>
