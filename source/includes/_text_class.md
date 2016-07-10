@@ -88,35 +88,35 @@ text.addTo world
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Size of your text</p>
+      <p>Size of text</p>
     </li>
     <li id="text-parameters-height">
       <h3><a href="#text-parameters-height" class="anchor"></a> height
         <span class="type">Number</span>
         <span class="default">50</span>
       </h3>
-      <p>height of your text</p>
+      <p>Thickness to extrude of text</p>
     </li>
     <li id="text-parameters-curveSegments">
       <h3><a href="#text-parameters-curveSegments" class="anchor"></a> curveSegments
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>curveSegments in your text </p>
+      <p>Number of points on the curves in text </p>
     </li>
     <li id="text-parameters-font">
       <h3><a href="#text-parameters-font" class="anchor"></a> font
         <span class="type">String</span>
         <span class="default">"Adelle"</span>
       </h3>
-      <p>font of text, for example "Adelle"</p>
+      <p>font of text, like 'Roboto','Noto','helvetica' etc.</p>
     </li>
     <li id="text-parameters-weight">
       <h3><a href="#text-parameters-weight" class="anchor"></a> weight
         <span class="type">String</span>
         <span class="default">"normal"</span>
       </h3>
-      <p>weight of text</p>
+      <p>weight of text like 'normal', 'bold' etc. </p>
     </li>
     <li id="text-parameters-style">
       <h3><a href="#text-parameters-style" class="anchor"></a> style
@@ -130,21 +130,21 @@ text.addTo world
         <span class="type">Boolean</span>
         <span class="default">false</span>
       </h3>
-      <p>Boolean to set bevelEnabled on text</p>
+      <p>Boolean to turn on bevel on text, bevel refers to an edge of a structure that is not perpendicular to the faces of the piece.</p>
     </li>
     <li id="text-parameters-bevelThickness">
       <h3><a href="#text-parameters-bevelThickness" class="anchor"></a> bevelThickness
         <span class="type">Number</span>
         <span class="default">10</span>
       </h3>
-      <p>bevelThickness of text</p>
+      <p>Thickness of bevel. depth of bevel. how deep is bevel, if enabled </p>
     </li>
     <li id="text-parameters-bevelSize">
       <h3><a href="#text-parameters-bevelSize" class="anchor"></a> bevelSize
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>bevelSize of text</p>
+      <p>How far from text outline is bevel</p>
     </li>
   </ul>
 </div>

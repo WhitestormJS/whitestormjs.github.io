@@ -68,7 +68,7 @@ plane.addTo world
         <span class="type">Array or Single object</span>
         <span class="default">[]</span>
       </h3>
-      <p>Shape2D shapes array or object</p>
+      <p>shapes array or shapes object, a object that contains 2D shapes in it. </p>
     </li>
   </ul>
 </div>

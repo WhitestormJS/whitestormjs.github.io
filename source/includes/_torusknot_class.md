@@ -62,35 +62,35 @@ torusknot.addTo world
         <span class="type">Number</span>
         <span class="default">40</span>
       </h3>
-      <p>Torusknot tube</p>
+      <p>Diameter Torusknot tube from torusknot is made up</p>
     </li>
     <li id="torusknot-geometry-radialSegments">
       <h3><a href="#torusknot-geometry-radialSegments" class="anchor"></a> radialSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>radialSegments in Torusknot</p>
+      <p>Number of radius segments that makes up cross section of tube of Torusknot</p>
     </li>
     <li id="torusknot-geometry-tubularSegments">
       <h3><a href="#torusknot-geometry-tubularSegments" class="anchor"></a> tubularSegments
         <span class="type">Number</span>
         <span class="default">6</span>
       </h3>
-      <p>tubularSegments in Torusknot</p>
+      <p>Number of segments that makes up a tube of Torusknot</p>
     </li>
     <li id="torusknot-geometry-p">
       <h3><a href="#torusknot-geometry-p" class="anchor"></a> p
         <span class="type">Number</span>
         <span class="default">2</span>
       </h3>
-      <p>Torusknot p</p>
+      <p>This value determines, how many times the geometry winds around its axis of rotational symmetry</p>
     </li>
     <li id="torusknot-geometry-q">
       <h3><a href="#torusknot-geometry-q" class="anchor"></a> q
         <span class="type">Number</span>
         <span class="default">3</span>
       </h3>
-      <p>Torusknot q</p>
+      <p>This value determines, how many times the geometry winds around a circle in the interior of the torus</p>
     </li>
     <li id="torusknot-geometry-heightScale">
       <h3><a href="#torusknot-geometry-heightScale" class="anchor"></a> heightScale
@@ -98,7 +98,7 @@ torusknot.addTo world
         <span class="default">1</span>
       </h3>
     </li>
-    <p>heightScale of Torusknot</p>
+    <p>Scale of height of Torusknot</p>
   </ul>
 </div>
 

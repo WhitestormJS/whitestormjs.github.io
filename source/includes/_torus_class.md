@@ -57,35 +57,35 @@ torus.addTo world
         <span class="type">Number</span>
         <span class="default">100</span>
       </h3>
+      <p>radius of Torus</p>
     </li>
-    <p>radius of Torus</p>
     <li id="torus-geometry-tube">
       <h3><a href="#torus-geometry-tube" class="anchor"></a> tube
         <span class="type">Number</span>
         <span class="default">40</span>
       </h3>
-      <p>Torus tube</p>
+      <p>Diameter of tube from which torus is made up</p>
     </li>
     <li id="torus-geometry-radialSegments">
       <h3><a href="#torus-geometry-radialSegments" class="anchor"></a> radialSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>radialSegments in Torus</p>
+      <p>radial Segments in Torus, number of segments that makes up cross section of tube of torus</p>
     </li>
     <li id="torus-geometry-tubularSegments">
       <h3><a href="#torus-geometry-tubularSegments" class="anchor"></a> tubularSegments
         <span class="type">Number</span>
         <span class="default">6</span>
       </h3>
-      <p>tubularSegments in Torus</p>
+      <p>tubular Segments in Torus, Number of segments that makes up torus</p>
     </li>
     <li id="torus-geometry-arc">
       <h3><a href="#torus-geometry-arc" class="anchor"></a> arc
         <span class="type">Number</span>
         <span class="default">2</span>
       </h3>
-      <p>arc of Torus</p>
+      <p>Central angle of torus, arc of torus</p>
     </li>
   </ul>
 </div>

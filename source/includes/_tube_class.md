@@ -75,35 +75,35 @@ tube.addTo world
         <span class="type">Object</span>
         <span class="default">customSinCurve()</span>
       </h3>
-      <p>path of Tube</p>
+      <p>Path of tube along which tube will be formed, it's a curve </p>
     </li>
     <li id="tube-geometry-segments">
       <h3><a href="#tube-geometry-segments" class="anchor"></a> segments
         <span class="type">Number</span>
         <span class="default">20</span>
       </h3>
-      <p>segments in Tube</p>
+      <p>Number of segments that makes up a tube </p>
     </li>
     <li id="tube-geometry-radius">
       <h3><a href="#tube-geometry-radius" class="anchor"></a> radius
         <span class="type">Number</span>
         <span class="default">2</span>
       </h3>
-      <p>radius of Tube</p>
+      <p>Radius of tube</p>
     </li>
     <li id="tube-geometry-radiusSegments">
       <h3><a href="#tube-geometry-radiusSegments" class="anchor"></a> radiusSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>radiusSegments in Tube</p>
+      <p>Number of radius segments that makes up cross section of tube</p>
     </li>
     <li id="tube-geometry-closed">
       <h3><a href="#tube-geometry-closed" class="anchor"></a> closed
         <span class="type">Boolean</span>
         <span class="default">false</span>
       </h3>
-      <p>Boolean to make closed tube</p>
+      <p>Boolean to make tube close or open</p>
     </li>
   </ul>
 </div>
