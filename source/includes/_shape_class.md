@@ -110,6 +110,7 @@ A **Material**  which is an object that contains material properties of Three.js
       <h3><a href="#shape-params-mass" class="anchor"></a> mass
         <span class="type">Number</span>
         <span class="default">10</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
       <p>Physics object mass. Should be applied only to objects with <a href="#shape-params-physics">physics parameter</a> turned on.</p>
     </li>
@@ -124,6 +125,7 @@ A **Material**  which is an object that contains material properties of Three.js
       <h3><a href="#shape-params-softbody" class="anchor"></a> softbody
         <span class="type">Boolean</span>
         <span class="default">false</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
       <p>Defines object's physics state. Default state is RigidBody which means that object is not solid. Can be also SoftBody if turned on. See <a href="#">shapes that support softbody</a>[TODO: Make softbody shapes list]</p>
     </li>
@@ -325,7 +327,8 @@ A **Material**  which is an object that contains material properties of Three.js
     <li id="shape-params-physics">
       <h3><a href="#shape-params-physics" class="anchor"></a> physics
         <span class="type">Boolean</span>
-        <span class="default">(regular): true / (light): false</span>
+        <span class="default">true</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
       <p>Defines if object is a physics object</p>
     </li>

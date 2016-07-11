@@ -59,7 +59,8 @@ includes:
   - components
 
   - plugins
-  - scripts
+
+  - info
 
 search: true
 ---
