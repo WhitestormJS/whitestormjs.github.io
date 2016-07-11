@@ -80,13 +80,14 @@ extrude.addTo world
 Extrude geometry means that you can create a 3D mesh from any 2D shape using three.js geometry based on `THREE.Vector2`. Such implementation will help you to make volumed shapes that have their own depth and can be seen from all angels.
 
 You can also find some interesting examples made using three.js which is a core of Whitestorm.js, such as:
+
  - [Webgl geometry extrude](http://threejs.org/examples/webgl_geometry_extrude_shapes.html)
  - [Extrude shapes from geodata](http://threejs.org/examples/webgl_geometry_extrude_shapes2.html)
  - [Extrude splines](http://threejs.org/examples/webgl_geometry_extrude_splines.html)
 
 Such examples can be easily implemented using whitestorm.js or it's plugins. Use `WHS.Extrude` class with `THREE.Shape` to get extrude effect of shape defined by 2D vectors.
 
-It is similar to `THREE.ExtrudeGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
+This class is similar to `THREE.ExtrudeGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
 
 <div class="params" id="extrude-geometry">
   <h5>Extrude geometry object <a href="#extrude-geometry" class="anchor"></a></h5>
