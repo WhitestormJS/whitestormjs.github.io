@@ -43,7 +43,7 @@ torusknot.addTo world
 ```
 
 
-`WHS.Torusknot` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Torusknot` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Torusknot` class makes a torusknot figure. It's like crooked donut, very crooked.
 
@@ -97,8 +97,8 @@ torusknot.addTo world
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
+      <p>Scale of height of Torusknot</p>
     </li>
-    <p>Scale of height of Torusknot</p>
   </ul>
 </div>
 

@@ -57,7 +57,7 @@ text.addTo world
 ```
 
 
-`WHS.Text` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Text` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Text` class is made for creating 3D text objects.
 
@@ -69,7 +69,7 @@ text.addTo world
         <span class="type">String</span>
         <span class="default">"Hello World!"</span>
       </h3>
-      <p>Text that you want to display, for example "Hello World"</p>
+      <p>Text that you want to display, for example <code>Hello World</code></p>
     </li>
     <li id="text-geometry-parameters">
       <h3><a href="#text-geometry-parameters" class="anchor"></a> parameters
@@ -88,14 +88,14 @@ text.addTo world
         <span class="type">Number</span>
         <span class="default">1</span>
       </h3>
-      <p>Size of text</p>
+      <p>Size of your text</p>
     </li>
     <li id="text-parameters-height">
       <h3><a href="#text-parameters-height" class="anchor"></a> height
         <span class="type">Number</span>
         <span class="default">50</span>
       </h3>
-      <p>Thickness to extrude of text</p>
+      <p>Thickness to extrude text</p>
     </li>
     <li id="text-parameters-curveSegments">
       <h3><a href="#text-parameters-curveSegments" class="anchor"></a> curveSegments
@@ -109,14 +109,14 @@ text.addTo world
         <span class="type">String</span>
         <span class="default">"Adelle"</span>
       </h3>
-      <p>font of text, like 'Roboto','Noto','helvetica' etc.</p>
+      <p>font of text, like <code>Roboto</code>,<code>Noto</code>,<code>helvetica</code> etc.</p>
     </li>
     <li id="text-parameters-weight">
       <h3><a href="#text-parameters-weight" class="anchor"></a> weight
         <span class="type">String</span>
         <span class="default">"normal"</span>
       </h3>
-      <p>weight of text like 'normal', 'bold' etc. </p>
+      <p>weight of text like <code>normal</code>, <code>bold</code> etc. </p>
     </li>
     <li id="text-parameters-style">
       <h3><a href="#text-parameters-style" class="anchor"></a> style
@@ -130,7 +130,7 @@ text.addTo world
         <span class="type">Boolean</span>
         <span class="default">false</span>
       </h3>
-      <p>Boolean to turn on bevel on text, bevel refers to an edge of a structure that is not perpendicular to the faces of the piece.</p>
+      <p>Boolean to turn on bevel on text, <code>bevel</code> refers to an edge of a structure that is not perpendicular to the faces of the piece.</p>
     </li>
     <li id="text-parameters-bevelThickness">
       <h3><a href="#text-parameters-bevelThickness" class="anchor"></a> bevelThickness
@@ -144,7 +144,7 @@ text.addTo world
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>How far from text outline is bevel</p>
+      <p>How far text outline is from bevel</p>
     </li>
   </ul>
 </div>

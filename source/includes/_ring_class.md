@@ -54,9 +54,9 @@ ring.addTo world
 
 ```
 
-`WHS.Ring` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Ring` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
-`WHS.Ring` class makes a circle or just 2D `WHS.Torus` that doesn't support physics.
+`WHS.Ring` class makes a circle or just 2D <a href="#torus">`WHS.Torus`</a> that doesn't support physics.
 
 <div class="params" id="ring-geometry">
   <h5>Ring geometry object <a href="#ring-geometry" class="anchor"></a></h5>
@@ -66,42 +66,42 @@ ring.addTo world
         <span class="type">Number</span>
         <span class="default">0</span>
       </h3>
-      <p>Inner radius of Ring</p>
+      <p>Inner radius of ring, default is <code>0</code> make sure to set it none zero to make your object look like a ring </p>
     </li>
     <li id="ring-geometry-outerRadius">
       <h3><a href="#ring-geometry-outerRadius" class="anchor"></a> outerRadius
         <span class="type">Number</span>
         <span class="default">50</span>
       </h3>
-      <p>Outer radius of Ring</p>
+      <p>Outer radius of ring</p>
     </li>
     <li id="ring-geometry-thetaSegments">
       <h3><a href="#ring-geometry-thetaSegments" class="anchor"></a> thetaSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>theta segments of Ring</p>
+      <p>theta segments of ring, a higher number means the ring will be more round.</p>
     </li>
     <li id="ring-geometry-phiSegments">
       <h3><a href="#ring-geometry-phiSegments" class="anchor"></a> phiSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>phi segments of Ring</p>
+      <p>phi segments of ring</p>
     </li>
     <li id="ring-geometry-thetaStart">
       <h3><a href="#ring-geometry-thetaStart" class="anchor"></a> thetaStart
         <span class="type">Number</span>
         <span class="default">0</span>
       </h3>
-      <p>theta start of Ring</p>
+      <p>theta start, starting angle of ring</p>
     </li>
     <li id="ring-geometry-thetaLength">
       <h3><a href="#ring-geometry-thetaLength" class="anchor"></a> thetaLength
         <span class="type">Number</span>
         <span class="default">Math.PI * 2</span>
       </h3>
-      <p>theta length of Ring</p>
+      <p>theta length, central angle of ring</p>
     </li>
   </ul>
 </div>

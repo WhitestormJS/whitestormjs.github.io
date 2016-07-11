@@ -54,7 +54,7 @@ plane.addTo world
 
 ```
 
-`WHS.Shape2D` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Shape2D` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Shape2D` is an universal class, that allows you create different 2D shapes in 3D scene. Unfortunately, all of them don't support physics, so you can make a similar 3D obect and scale it width to be near zero.
 
