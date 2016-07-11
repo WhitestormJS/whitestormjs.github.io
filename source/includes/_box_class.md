@@ -57,7 +57,9 @@ box.addTo world
 `WHS.Box` Creates a simple 3D Box. It extends <a href="#shape">`WHS.Shape`</a> and inherits all of its methods.
 
 As told on <a href="#shape">`WHS.Shape`</a> definition, while you can pass any of the inherited params for this shape construction, you will need to
-pass specific parameters to build this mesh.
+pass specific parameters to build this mesh as a __geometry__ object.
+
+This shape can by set as a <a href="#shape-params-softbody">softbody</a> object.
 
 <div class="params" id="box-geometry">
   <h5>Box geometry object <a href="#box-geometry" class="anchor"></a></h5>
@@ -82,14 +84,6 @@ pass specific parameters to build this mesh.
         <span class="default">1</span>
       </h3>
       <p>Depth of box</p>
-    </li>
-    <li id="box-softbody">
-      <h3><a href="#box-softbody" class="anchor"></a> softbody
-        <span class="type">Boolean</span>
-        <span class="default">false</span>
-      </h3>
-      <p>When set to true, WhitestormJs will process
-      this shape as a soft body mesh.</p>      
     </li>
   </ul>
 </div>
