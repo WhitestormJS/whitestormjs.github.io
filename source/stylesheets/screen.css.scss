@@ -1019,6 +1019,14 @@ div.params {
             color: #ffae54;
             font-weight: 600;
           }
+          &.only.green {
+            color: #c1ef65;
+            font-weight: 600;
+          }
+          &.only.blue {
+            color: #77bcd7;
+            font-weight: 600;
+          }
         }
       }
       p {
