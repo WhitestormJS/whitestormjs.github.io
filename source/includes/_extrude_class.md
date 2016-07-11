@@ -187,5 +187,5 @@ This class is similar to `THREE.ExtrudeGeometry`, but it also contain's all prop
   </ul>
 </div>
 
-### Extrude example
+#### Screenshot from extrude example
 <img src="images/shapes/extrude.png" alt="rendered extrude from it's example">
