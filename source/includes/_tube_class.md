@@ -63,7 +63,7 @@ tube = new (WHS.Tube)(
 tube.addTo world
 
 ```
-`WHS.Tube` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Tube` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Tube` class makes a tube that extrudes along a 3d curve.
 

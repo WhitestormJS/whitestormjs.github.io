@@ -45,7 +45,7 @@ torus.addTo world
 ```
 
 
-`WHS.Torus` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+`WHS.Torus` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Torus` class makes a torus figure. Torus is a donut. Donut is a torus.
 
@@ -57,28 +57,28 @@ torus.addTo world
         <span class="type">Number</span>
         <span class="default">100</span>
       </h3>
-      <p>radius of Torus</p>
+      <p>Radius of torus</p>
     </li>
     <li id="torus-geometry-tube">
       <h3><a href="#torus-geometry-tube" class="anchor"></a> tube
         <span class="type">Number</span>
         <span class="default">40</span>
       </h3>
-      <p>Diameter of tube from which torus is made up</p>
+      <p>Diameter of tube from which torus is constructed</p>
     </li>
     <li id="torus-geometry-radialSegments">
       <h3><a href="#torus-geometry-radialSegments" class="anchor"></a> radialSegments
         <span class="type">Number</span>
         <span class="default">8</span>
       </h3>
-      <p>radial Segments in Torus, number of segments that makes up cross section of tube of torus</p>
+      <p>Radial segments in torus, number of segments that makes up cross section of tube of torus</p>
     </li>
     <li id="torus-geometry-tubularSegments">
       <h3><a href="#torus-geometry-tubularSegments" class="anchor"></a> tubularSegments
         <span class="type">Number</span>
         <span class="default">6</span>
       </h3>
-      <p>tubular Segments in Torus, Number of segments that makes up torus</p>
+      <p>Tubular segments in torus, number of segments that makes up torus</p>
     </li>
     <li id="torus-geometry-arc">
       <h3><a href="#torus-geometry-arc" class="anchor"></a> arc
