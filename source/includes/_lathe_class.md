@@ -64,11 +64,13 @@ lathe.addTo world
 
 ```
 
-`WHS.Lathe` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+A LatheGeometry allows you to create shapes from a smooth curve. This curve is defined by a number of points (also called knots) and is most often called a spline. This spline is rotated around a fixed point and results in vase- and bell-like shapes. 
 
-`WHS.Lathe` is a class for generating meshes with axial symmetry. Possible uses include donuts, pipes, vases etc. The lathe rotate around the Y axis.
+In 3D computer graphics, a lathed object is a 3D model whose vertex geometry is produced by rotating the points of a spline or other point set around a fixed axis. The lathing may be partial; the amount of rotation is not necessarily a full 360 degrees. The point set providing the initial source data can be thought of as a cross section through the object along a plane containing its axis of radial symmetry.
 
-It is similar to `THREE.LatheGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
+The [following example](http://threejs.org/docs/scenes/geometry-browser.html#LatheGeometry) shows a geometry which can be generated using `WHS.Lathe` class.
+
+<aside class="notice">This class inherits <a href="#shape">`WHS.Shape`</a> prototype.</aside>
 
 <div class="params" id="lathe-geometry">
   <h5>Lathe geometry object <a href="#lathe-geometry" class="anchor"></a></h5>
@@ -78,36 +80,32 @@ It is similar to `THREE.LatheGeometry`, but it also contain's all properties, ap
         <span class="type">Array</span>
         <span class="default">[]</span>
       </h3>
-      <p>Lathe points</p>
+      <p>Array that contain `THREE.Vector2`. The x-coordinate of each point must be greater than zero.</p>
     </li>
     <li id="lathe-geometry-segments">
       <h3><a href="#lathe-geometry-segments" class="anchor"></a> segments
-        <span class="type">Object</span>
-        <span class="default">{}</span>
+        <span class="type">Number</span>
+        <span class="default">12</span>
       </h3>
-      <p>Lathe segments</p>
+      <p>The number of circumference segments to generate</p>
     </li>
     <li id="lathe-geometry-phiStart">
       <h3><a href="#lathe-geometry-phiStart" class="anchor"></a> phiStart
-        <span class="type">Object</span>
-        <span class="default">{}</span>
+        <span class="type">Number</span>
+        <span class="default">0</span>
       </h3>
-      <p>phi Start of Lathe</p>
+      <p>The starting angle in radians</p>
     </li>
     <li id="lathe-geometry-phiLength">
       <h3><a href="#lathe-geometry-phiLength" class="anchor"></a> phiLength
-        <span class="type">Object</span>
-        <span class="default">{}</span>
+        <span class="type">Number (0 - 2 * Math.PI)</span>
+        <span class="default">2 * Math.PI</span>
       </h3>
-      <p>phi Length of Lathe</p>
+      <p>The radian (0 to `2PI`) range of the lathed section `2PI` is a closed lathe, less than `2PI` is a portion</p>
     </li>
   </ul>
 </div>
 
-Then it creates an `Three.js geometry`:
-
-<script src="https://gist.github.com/sasha240100/06c3b07fc14e4d1a828d.js"></script>
-
-Right example will create the following shape:
+#### Example on the right side will create the following object:
 
 <img src="images/shapes/lathe.png" alt="rendered lathe on it's example">
