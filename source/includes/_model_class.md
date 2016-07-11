@@ -71,10 +71,12 @@ teapot.addTo world
 
 ```
 
+Model class loads geometry from `JSON` file by url as it's material, but material you can replace with your own. Just add `useCustomMaterial` property with `true` value in `material` parameter object. This class should be used if none of other simple classes can generate such geometry or you basically need to load your custom geometry, that can be for example car or teapot model. 
 
-`WHS.Model` class loader for loading objects in JSON format.
+- [Basic Model example](http://192.241.128.187/current/examples/basic/model/)
+- [Example with several models of different types](http://192.241.128.187/current/examples/design/easter/)
 
-Model is a simple class too. But it doesn't depends on `Three.js geometry` object. It loads geometry from `JSON` file by url as it's material, but material you can replace with your own. Just add `useCustomMaterial` property with `true` value in `material` parameter object.
+<aside class="notice">This class inherits <a href="#shape">`WHS.Shape`</a> prototype.</aside>
 
 <div class="params" id="model-geometry">
   <h5>Model geometry object <a href="#model-geometry" class="anchor"></a></h5>
@@ -84,24 +86,57 @@ Model is a simple class too. But it doesn't depends on `Three.js geometry` objec
         <span class="type">String</span>
         <span class="default">""</span>
       </h3>
-      <p>Model path</p>
+      <p>Path to file that is a model which will be conerted to <code>geometry</code> and/or <code>material</code></p>
     </li>
     <li id="model-geometry-physics">
       <h3><a href="#model-geometry-physics" class="anchor"></a> physics
         <span class="type">String</span>
-        <span class="default">""</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
-      <p>Model physics</p>
+      <p>Additional path to gile with geometry that will be used only by physics part</p>
     </li>
   </ul>
 </div>
 
-**physics** parameter is used for adding shape that will be calculated in Physi.js. Usually it is used to defining light variant of existing model, so physics will work faster. If you don't type **physics** parameter - it will be replaced with **path**.
+By default model class uses material loaded with model file (if such exists). To turn that ability off you may be interested in following additional properties to `material` parameter:
 
-<aside class="notice"><code>scale</code> parameter will be also applied to physics shape, but it can be changed only in three.js mesh.</aside>
+<div class="params" id="model-material">
+  <h5>Custom material properties for model <a href="#model-material" class="anchor"></a></h5>
+  <ul>
+    <li id="model-material-useVertexColors">
+      <h3><a href="#model-material-useVertexColors" class="anchor"></a> useVertexColors
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>If <code>true</code> - will set <code>morphTargets</code> and <code>vertexColors</code> properties automatically to material that you define. Works similarly to <a href="#model-material-useCustomMaterial"><code>useCustomMaterial</code></a></p>
+    </li>
+    <li id="model-material-useCustomMaterial">
+      <h3><a href="#model-material-useCustomMaterial" class="anchor"></a> useCustomMaterial
+        <span class="type">Boolean</span>
+        <span class="default">false</span>
+      </h3>
+      <p>Forces model class to use material provided by <code>material</code> property of <a href="#shape">WHS.Shape</a></p>
+    </li>
+  </ul>
+</div>
 
-Also, if model has vertex colors - you can add `useVertexColors` property to material parameter object (as with `useCustomMaterial`).
+Also model has it's own physics addition to `physics` parameter:
 
-Similar one is `WHS.Morph`. It's like a model, but this one supports animations.
+<div class="params" id="model-physics">
+  <h5>Physics parameters for modell <a href="#model-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="model-physics-type">
+      <h3><a href="#model-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
 
-<img src="images/shapes/model.png" alt="physics and for rendering model created with whitestorm.js">
+<aside class="notice">If you want to use animated model - you may be interested in similar class called <a href="#morph"><code>WHS.Morph</code></a></aside>
+
+#### Simple teapot model added by WHS.Model class
+<img src="images/shapes/model.png" alt="model created with whitestorm.js">
