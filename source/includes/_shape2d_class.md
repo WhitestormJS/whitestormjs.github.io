@@ -1,4 +1,4 @@
-<h2 class="ws" id="shape2d">Shape2D</h2>
+<h2 class="ws" id="shape2d">Shape2D [2D]</h2>
 
 <div class="blockTitle h3">Basic shape (2d) example</div>
 
