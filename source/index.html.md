@@ -97,13 +97,21 @@ search: true
 > * [Performance / Sticks](http://192.241.128.187/current/examples/performance/sticks/)  (Collisions performance of 320 basic box objects.)
 > * [Performance / Softbodies](http://192.241.128.187/current/examples/performance/softbodies/)  (Collisions performance of 10 softbodies.)
 
-**Whiestorm.js** is a _framework_ for 3D web apps built with Three.js technology.
+**Whiestorm.js** is a framework for 3D web apps built with Three.js technology.
 
-It implements a _core_ with component system and plugin support for fast development of 3D scene with physics.
+It implements a core with component system and plugin support for fast development of 3D scene with physics.
 
-Automizing your web app with **whitestorm.js** is fast and comfortable. You can use whitestorm's API for creating different shapes instead of writing common functions each time. This engine has physics support implemented by [custom Physi.js](https://github.com/WhitestormJS/Physijs) library, which is much faster than others. Framework provides extended component control and high frame rate, because it uses [**WebWorkers** technology](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) for multithreading.
+Automizing your web app with whitestorm is fast and comfortable. This engine has physics support implemented by custom Physi.js library, which is much faster than others. Framework provides extended component control and high frame rate, because it uses [WebWorkers technology](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) for multithreading.
 
-**Framework's goal is to simplify coding workflow and add plugin's feature to 3D part of the web.**
+#### FRAMEWORKS GOAL
+
+We want simplify your coding workflow and add plugin's feature to 3D part of the web.
+
+<img src="images/intro.png">
+
+#### SIMPLE IS BETTER
+
+Each time you want to develop even a basic application - you need to describe every 3D part of it, such as renderer, frame updating, include external physics, write autoresize if needed. This time we want you to make all it much easier with best performance and functionality. You still can manage all of them, but if you forgot to do that, or just don't need it - whitestorm.js will do all it for you.
 
 # Getting started
 
