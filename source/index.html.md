@@ -68,15 +68,34 @@ search: true
 
 <h1 class="bigline">Introduction</h1>
 
-> Examples:
+<div class="blockTitle h3">EXAMPLES</div>
+> BASIC:
 >
-> * [FPS](http://192.241.128.187/current/examples/fps.html)  (First person example with Wagner effects and terrain.)
-> * [Basic](http://192.241.128.187/current/examples/basic.html)  (Basic "Hello world!" example.)
-> * [Material](http://192.241.128.187/current/examples/basic_material.html)  (Basic example with material.)
-> * [Object/Model](http://192.241.128.187/current/examples/basic_model.html)  (Teapot model with *Three.js* JSONLoader.)
-> * [Object/Wall](http://192.241.128.187/current/examples/stone_wall.html)  (Stone wall (basic).)
-> * [Plugin/Color](http://192.241.128.187/current/examples/plugin_example.html)  (Basic plugin example.)
-> * [Skybox](http://192.241.128.187/current/examples/skybox.html) (Skybox example)
+> * [Basic / Hello world](http://192.241.128.187/current/examples/basic/helloworld/)  (Basic "Hello world!" example.)
+> * [Basic / Model](http://192.241.128.187/current/examples/basic/model/)  (Basic model example.)
+> * [Basic / Debugging](http://192.241.128.187/current/examples/basic/debugging/)  (Object's debug example.)
+> * [Basic / Extending API](http://192.241.128.187/current/examples/basic/extending/)  (Extending api example.)
+> * [Basic / Softbody](http://192.241.128.187/current/examples/basic/softbody/)  (Basic softbody implementation.)
+> * [Basic / Three.js](http://192.241.128.187/current/examples/basic/threejs/)  (Importing three.js scene to whitestormjs core.)
+>
+> DESIGN:
+>
+> * [Design / Saturn](http://192.241.128.187/current/examples/design/saturn/)  (Saturn planet example from [codepen](http://codepen.io/Yakudoo/pen/qbygaJ))
+> * [Design / Easter](http://192.241.128.187/current/examples/design/easter/)  (Easter rabbit with easter eggs.)
+>
+> FIRST-PERSON:
+>
+> * [FPS / Shooter](http://192.241.128.187/current/examples/fps/shooter/)  (First person game with animated objects) 
+> * [FPS / Fog](http://192.241.128.187/current/examples/fps/fog/)  (First person example with Wagner effects and terrain. + fog)
+>
+> PHYSICS:
+>
+> * [Physics / Dominos](http://192.241.128.187/current/examples/physics/domino/)  (Physics example with dominos.)
+>
+> PERFORMANCE:
+>
+> * [Performance / Sticks](http://192.241.128.187/current/examples/performance/sticks/)  (Collisions performance of 320 basic box objects.)
+> * [Performance / Softbodies](http://192.241.128.187/current/examples/performance/softbodies/)  (Collisions performance of 10 softbodies.)
 
 **Whiestorm.js** is a _framework_ for 3D web apps built with Three.js technology.
 
