@@ -6,7 +6,7 @@ language_tabs:
   - coffeescript
 
 toc_footers:
-  - <a href='http://threejs.org/'><b>Three.js <i>r75</i></b></a>
+  - <a href='http://threejs.org/'><b>Three.js <i>r79</i></b></a>
   - <a href='https://github.com/WhitestormJS/Physijs'>Get custom <b>Physijs</b></a>
   - <a href='https://plus.google.com/113564780584588197070?rel=author'>Google</a>
 
@@ -195,14 +195,27 @@ world.start()
 
 > It's better to inlude whitestorm.js file before the end of body tag. It will force page to load content first. Your code should come after whitestorm.js included.
 
-Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries must work properly. 
-`WHS.World` initializes 3D world with parameters.
+Whitestorm.js uses Three.js for rendering your scene and objects and Physi.js for simulating physics. Both those libraries are already included in build and should work properly. You can also make your own build that will satisfy your needs by playing with whitestorm.js [build configuration file](https://github.com/WhitestormJS/whitestorm.js/blob/master/webpack.config.babel.js) and [CLI commands](https://github.com/WhitestormJS/whitestorm.js/blob/master/.github/CONTRIBUTING.md#cli)
 
-<aside class="notice">It is advised to download your own copies of the following libraries, as large changes can break backwards compatibility.</aside>
+<aside class="notice">It is advised to <b>download your own copies of the following libraries</b>, as large changes can break backwards compatibility.</aside>
 
-Include Three.js, Wagner, and Physi.js libraries. Include a script tag linking the WhitestormJS library in your head or after your body:
+<aside class="notice">You may <b>run latest versions</b> of whitestorm.js and your browser or other environment where you are going to use your application to achieve best performance results. </aside>
 
-Also you need to put pathes to `physijs_worker.js` file and `ammo.js`. It will cause some errors, if you forget to do so.
+To create whitestorm.js app you should make a basic HTML document with `html`, `head` and `body` tags. Next step is to include Whitestorm.js to the document and main app script file. You can do it simply using `script` tag (see right side) for more details. 
+
+We love to create awesome things and we noticed that we can reduce code for setting up basic things like world or box. That's why we developed API that powers your development proccess by wrapping existing three.js API.
+
+#### WHITESTORM.JS CODE VS THREE.JS NATIVE CODE
+
+<figure class="cd-image-container is-visible">
+    <img src="images/code_three_retro.png" alt="Three.js">
+    <span class="cd-image-label" data-type="original">Three.js</span>
+    <div class="cd-resize-img" style="width: 47.916665%;">
+      <img src="images/code_whs.png" alt="Whitestorm.js">
+      <span class="cd-image-label" id="whslabel" data-type="modified">Whitestorm.js</span>
+    </div>
+    <span class="cd-handle" style="left: 47.916665%;"></span>
+</figure> 
 
 # Core
 
