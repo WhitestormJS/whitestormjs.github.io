@@ -45,6 +45,21 @@ shape.addTo world
     <tr>
       <th>.remove()</th><td>Remove object from scene. Returns removed WHS object.</td>
     </tr>
+    <tr>
+      <th>.G_(params)</th><td>Generates new geometry by geometry params object (specific for each shape).</td>
+    </tr>
+    <tr>
+      <th>.M_(params)</th><td>Generates new material by material params object.</td>
+    </tr>
+    <tr>
+      <th>.setAngularVelocity(x, y, z)</th><td>Sets angular(rotation) velocity to physics object.</td>
+    </tr>
+    <tr>
+      <th>.setLinearVelocity(x, y, z)</th><td>Sets linear(position) velocity to physics object.</td>
+    </tr>
+    <tr>
+      <th>.raycast(raycaster, intersects)</th><td>Get intersections between a casted ray and this mesh. Raycaster.intersectObject will call this method.</td>
+    </tr>
   </table>
 </blockquote>
 
@@ -80,6 +95,9 @@ shape.addTo world
       <th>phong</th><td>THREE.MeshPhongMaterial</td>
     </tr>
     <tr>
+      <th>points</th><td>THREE.PointsMaterial</td>
+    </tr>
+    <tr>
       <th>pointcloud</th><td>THREE.MeshPointsMaterial</td>
     </tr>
     <tr>
@@ -89,7 +107,25 @@ shape.addTo world
       <th>shader</th><td>THREE.MeshShaderMaterial</td>
     </tr>
     <tr>
+      <th>standard</th><td>THREE.MeshStandardMaterial</td>
+    </tr>
+    <tr>
       <th>sprite</th><td>THREE.MeshSpriteMaterial</td>
+    </tr>
+  </table>
+</blockquote>
+
+<blockquote id="softbody-list" class="section">
+  <header>List of shapes that support softbody:</header>
+  <table>
+    <tr>
+      <th>Sphere</th><td>Full support</td>
+    </tr>
+    <tr>
+      <th>Box</th><td>Experimental</td>
+    </tr>
+    <tr>
+      <th></th><td><b>Other shapes will be added soon</b></td>
     </tr>
   </table>
 </blockquote>
@@ -127,7 +163,7 @@ A **Material**  which is an object that contains material properties of Three.js
         <span class="default">false</span>
         <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
-      <p>Defines object's physics state. Default state is RigidBody which means that object is not solid. Can be also SoftBody if turned on. See <a href="#">shapes that support softbody</a>[TODO: Make softbody shapes list]</p>
+      <p>Defines object's physics state. Default state is RigidBody which means that object is not solid. Can be also SoftBody if turned on. See <a href="#softbody-list">shapes that support softbody</a></p>
     </li>
     <li id="shape-params-geometry">
       <h3><a href="#shape-params-geometry" class="anchor"></a> geometry
@@ -146,7 +182,13 @@ A **Material**  which is an object that contains material properties of Three.js
             <span class="type">String</span>
             <span class="default">"basic"</span>
           </h3>
-          <p>This property defines material type. (TODO: Make list)</p>
+          <p>This property defines material type.</p>
+        </li>
+        <li>
+          <h3>...
+            <span class="only blue">THREE.Material properties</span>
+          </h3>
+          <p>Depends on material kind. <a href="http://threejs.org/docs/index.html?q=mater#Reference/Materials/Material">More about THREE.Material properties</a></p>
         </li>
       </ul>
     </li>

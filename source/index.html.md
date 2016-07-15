@@ -17,7 +17,7 @@ includes:
   - light_class
   - camera_class
   - curve_class
-  - enable_debug
+  - gapi
 
   - api
 
@@ -114,6 +114,8 @@ We want simplify your coding workflow and add plugin's feature to 3D part of the
 Each time you want to develop even a basic application - you need to describe every 3D part of it, such as renderer, frame updating, include external physics, write autoresize if needed. This time we want you to make all it much easier with best performance and functionality. You still can manage all of them, but if you forgot to do that, or just don't need it - whitestorm.js will do all it for you.
 
 # Getting started
+
+## Install & usage
 
 <div class="blockTitle h2">HTML</div>
 ```html
@@ -215,7 +217,13 @@ We love to create awesome things and we noticed that we can reduce code for sett
       <span class="cd-image-label" id="whslabel" data-type="modified">Whitestorm.js</span>
     </div>
     <span class="cd-handle" style="left: 47.916665%;"></span>
-</figure> 
+</figure>
+
+## Enable debugging.
+Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.
+
+For debugging simulation proccess set `WHS.debug = true;` at the begining of your application.
+All proccesses, such as *creating, building, adding to world or removing* will be described in the console. 
 
 # Core
 
