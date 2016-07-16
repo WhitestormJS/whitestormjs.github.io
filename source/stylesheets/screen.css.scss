@@ -73,6 +73,20 @@ html, body {
   font-size: 13px;
   font-weight: bold;
 
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+   
+  &::-webkit-scrollbar-track {
+      color: transparent;
+  }
+   
+  &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      color: #242729;
+      background-color: rgba(0,0,0,0.5);
+  }
+
   // language selector for mobile devices
   .lang-selector {
     display: none;
