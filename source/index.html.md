@@ -219,6 +219,15 @@ We love to create awesome things and we noticed that we can reduce code for sett
     <span class="cd-handle" style="left: 47.916665%;"></span>
 </figure>
 
+#### ENVIRONMENT
+
+<a href="https://www.google.com/chrome/browser/desktop/index.html"><img src="images/logos/chrome.jpg" width="40%" style="padding: 20px 0; display: inline-block;"></a>
+<a href="http://electron.atom.io/"><img src="images/logos/electron.svg" width="40%" style="padding: 30px 40px; display: inline-block; float: right;"></a>
+<a href="https://www.mozilla.org/en-US/firefox/new/"><img src="images/logos/firefox.png" width="32%" style="padding: 20px 0; display: inline-block;"></a>
+<a href="https://cordova.apache.org/"><img src="images/logos/cordova.png" width="40%" style="padding: 20px 50px; display: inline-block; float: right;"></a>
+<a href="http://www.opera.com/"><img src="images/logos/opera.png" width="30%" style="padding: 20px 0; display: inline-block;"></a>
+<a href="http://phonegap.com/"><img src="images/logos/phonegap.png" width="40%" style="padding: 20px 50px; display: inline-block; float: right;"></a>
+
 ## Enable debugging.
 Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.
 
