@@ -97,7 +97,7 @@ search: true
 > * [Performance / Sticks](http://192.241.128.187/current/examples/performance/sticks/)  (Collisions performance of 320 basic box objects.)
 > * [Performance / Softbodies](http://192.241.128.187/current/examples/performance/softbodies/)  (Collisions performance of 10 softbodies.)
 
-**Whiestorm.js** is a framework for 3D web apps built with Three.js technology.
+**WhitestormJS** is a framework for 3D web apps built with Three.js technology.
 
 It implements a core with component system and plugin support for fast development of 3D scene with physics.
 
