@@ -164,11 +164,11 @@ new (WHS.Skybox)(
 Skybox is frequently used in 3D games. You can easily create skies around your virtual world by setting `path` to your image in <a href="#extras-skybox">SkyBox options</a> and <a href="#extras-skybox-imgSuffix">extension property</a>.
 Skybox can be 2 types:
 
- - **box** - Skybox is a mesh with THREE.BoxGeometry geometry and requires 6 images to build skybox. They should end with one of 'xpos', 'xneg', 'ypos', 'yneg', 'zpos', 'zneg' and extension name. 
+ - **box** - Skybox is a mesh with THREE.BoxGeometry geometry and requires 6 images to build skybox. They should end with one of 'xpos', 'xneg', 'ypos', 'yneg', 'zpos', 'zneg' and extension name.
 
 Example: **images/myskyboxname-xpos.png**. Where `path` is **images/myskyboxname-**, `imgSuffix` is **.png**.
 
- - **sphere** - Requires only one image to be. 
+ - **sphere** - Requires only one image to be.
 
 Example: **images/myskyboxname.png**. Where `path` is **images/myskyboxname**, `imgSuffix` is **.png**.
 
@@ -192,7 +192,7 @@ Example: **images/myskyboxname.png**. Where `path` is **images/myskyboxname**, `
     </li>
     <li id="extras-skybox-radius">
       <h3><a href="#extras-skybox-radius" class="anchor"></a> radius
-        <span class="type">Nymber</span>
+        <span class="type">Number</span>
         <span class="default">10</span>
       </h3>
       <p>Radius of skybox if <code>sphere</code> or a / 2 of cube if <code>box</code> </p>
