@@ -1,13 +1,13 @@
 <h2 class="wso" id="light">Light</h2>
 
-<div class="blockTitle h2">Example of using light</div>
+<div class="blockTitle h2">Example of using light | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%20%20%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200xffffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20z:%2050%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20sphere%20=%20new%20WHS.Sphere(%7B%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20radius:%206%0D%0A%20%20%7D,%0D%0A%20%20%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20kind:%20'phong',%0D%0A%20%20%20%20color:%200x00ff00%0D%0A%20%20%7D%0D%0A%7D)%0D%0A%0D%0Aconst%20light%20=%20new%20WHS.SpotLight(%20%7B%0D%0A%20%20light:%20%7B%0D%0A%20%20%20%20color:%200xffffff,%0D%0A%20%20%20%20intensity:%200.6,%0D%0A%20%20%20%20distance:%20500%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20shadowmap:%20%7B%0D%0A%20%20%20%20width:%202048,%0D%0A%20%20%20%20height:%202048,%0D%0A%20%20%20%20top:%200,%0D%0A%20%20%20%20fov:%2090%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20pos:%20%7B%0D%0A%20%20%20%20x:%20160,%0D%0A%20%20%20%20y:%20120,%0D%0A%20%20%20%20z:%20160%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20target:%20%7B%0D%0A%20%20%20%20y:%2010%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Alight.addTo(world);%0D%0A%0D%0Asphere.addTo(world);%0D%0A%0D%0Aworld.start();">PLAYGROUND</a></div>
 
 ```javascript
 
 const light = new WHS.SpotLight( {
   light: {
     color: 0xffffff,
-    intensity: 0.3,
+    intensity: 0.6,
     distance: 500
   },
 
@@ -38,7 +38,7 @@ light.addTo(world);
 light = new (WHS.SpotLight)(
   light:
     color: 0xffffff
-    intensity: 0.3
+    intensity: 0.6
     distance: 500
   shadowmap:
     width: 2048

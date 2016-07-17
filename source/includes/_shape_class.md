@@ -1,13 +1,13 @@
 <h2 class="wso" id="shape">Shape</h2>
 
-<div class="blockTitle h2">Structure.</div>
+<div class="blockTitle h2">Structure. | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%20%20%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200xffffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20z:%2050%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20shape%20=%20new%20WHS.Shape(%0D%0A%20%20new%20THREE.Mesh(%20//%20Green%20sphere%20with%20radius%203.%0D%0A%20%20%20%20new%20THREE.SphereGeometry(3,%2032,%2032),%0D%0A%20%20%20%20new%20THREE.MeshBasicMaterial(%7Bcolor:%200x00ff00%7D)%0D%0A%20%20)%0D%0A);%0D%0A%0D%0Ashape.addTo(world);%0D%0A%0D%0Aworld.start();">PLAYGROUND</a> </div>
 
 ```javascript
 
 const shape = new WHS.Shape(
-  new THREE.Mesh( // White sphere with radius 3.
+  new THREE.Mesh( // Green sphere with radius 3.
     new THREE.SphereGeometry(3, 32, 32),
-    new THREE.MeshBasicMaterial({color: 0xffffff})
+    new THREE.MeshBasicMaterial({color: 0x00ff00})
   )
 );
 
@@ -19,7 +19,7 @@ shape.addTo(world);
 
 shape = new (WHS.Shape)(
   new (THREE.Mesh)(
-    new (THREE.SphereGeometry)(3, 32, 32), new (THREE.MeshBasicMaterial)(color: 0xffffff)
+    new (THREE.SphereGeometry)(3, 32, 32), new (THREE.MeshBasicMaterial)(color: 0x00ff00)
   )
 )
 

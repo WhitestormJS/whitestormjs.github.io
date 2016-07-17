@@ -660,6 +660,15 @@ html, body {
     &.h3 {
       font-size: 14pt;
     }
+
+    a {
+      color: #0099e5;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: #ccc; //292e31
+      }
+    }
   }
 
   div.example {

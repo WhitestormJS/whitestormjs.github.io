@@ -51,7 +51,7 @@ tetrahedron.addTo world
 
 In geometry, a **tetrahedron** is *a polyhedron composed of four triangular faces, six straight edges, and four vertex corners*. The tetrahedron is the simplest of all the ordinary convex polyhedra and the only one that has fewer than 5 faces.
 
-<img src="images/shapes/tetrahedron.gif" alt="rendered tetrahedron">
+<img src="images/shapes/tetrahedron_comp.gif" alt="rendered tetrahedron">
 
 `WHS.Tetrahedron` creates Tetrahedron object by it's `radius` and `detail`.
 

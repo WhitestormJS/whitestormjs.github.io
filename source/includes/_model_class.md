@@ -98,6 +98,12 @@ Model class loads geometry from `JSON` file by url as it's material, but materia
   </ul>
 </div>
 
+It is aviced to use 2 models if you need to create a high-polygonal shape for rendering. So you also need to set `physics` parameter in geometry with path to low-polygonal variation of model that you are going to use to achieve better physics performance.
+
+<img src="images/shapes/forrendering.png" width="49%" alt="For rendering">
+<img src="images/shapes/forphysics.png" width="50%" alt="For physics">
+
+
 By default model class uses material loaded with model file (if such exists). To turn that ability off you may be interested in following additional properties to `material` parameter:
 
 <div class="params" id="model-material">

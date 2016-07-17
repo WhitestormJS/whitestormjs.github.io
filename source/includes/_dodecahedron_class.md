@@ -49,7 +49,7 @@ dodecahedron.addTo world
 
 In geometry, a **dodecahedron** is any *polyhedron with twelve flat faces*. The most familiar dodecahedron is the regular dodecahedron, which is a Platonic solid. There are also three regular star dodecahedra, which are constructed as stellations of the convex form. All of these have icosahedral symmetry, order 120.
 
-<img src="images/shapes/dodecahedron.gif" alt="rendered dodecahedron">
+<img src="images/shapes/dodecahedron_comp.gif" alt="rendered dodecahedron">
 
 `WHS.Dodecahedron` creates Dodecahedron object by it's `radius` and `detail`.
 

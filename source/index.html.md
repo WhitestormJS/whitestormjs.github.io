@@ -121,21 +121,28 @@ Each time you want to develop even a basic application - you need to describe ev
 ```html
 <!-- WhitestormJS library -->
 <script src="whitestorm.js"></script>
-<!-- My app written in WhitestormJS -->
+<!-- App written in WhitestormJS -->
 <script src="app.js"></script>
 ```
 
-<div class="blockTitle h2">JAVASCRIPT (app.js)</div>
+<div class="blockTitle h2">JAVASCRIPT (app.js) | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%20%20%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200xffffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20gravity:%20%7B%20//%20Physic%20gravity.%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%20-100,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20z:%2050%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20sphere%20=%20new%20WHS.Sphere(%7B%20//%20Create%20sphere%20object.%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20radius:%203%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20mass:%2010,%0D%0A%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20color:%200x00ff00,%0D%0A%20%20%20%20kind:%20'basic'%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Asphere.addTo(world);%0D%0Asphere.getNative();%20//%20Returns%20THREE.Mesh%20of%20this%20object.%0D%0A%0D%0Aworld.start();%20//%20Start%20animations%20and%20physics%20simulation.">PLAYGROUND</a></div>
 ```javascript
 
 const world = new WHS.World({
-  stats: "fps", // fps, ms, mb or false if not need.
   autoresize: true,
+  
+  background: {
+    color: 0xffffff
+  },
 
   gravity: { // Physic gravity.
     x: 0,
     y: -100,
     z: 0
+  },
+
+  camera: {
+    z: 50
   }
 });
 
@@ -144,21 +151,15 @@ const sphere = new WHS.Sphere({ // Create sphere object.
     radius: 3
   },
 
-  mass: 10, // Mass of physics object.
+  mass: 10,
 
   material: {
-    color: 0xffffff,
+    color: 0x00ff00,
     kind: 'basic'
-  },
-
-  pos: {
-    x: 0,
-    y: 100,
-    z: 0
   }
 });
 
-sphere.addTo(GAME);
+sphere.addTo(world);
 sphere.getNative(); // Returns THREE.Mesh of this object.
 
 world.start(); // Start animations and physics simulation.
@@ -168,30 +169,27 @@ world.start(); // Start animations and physics simulation.
 ```coffeescript
 
 world = new (WHS.World)(
-  stats: 'fps'
   autoresize: true
+  background: color: 0xffffff
   gravity:
     x: 0
     y: -100
-    z: 0)
-
+    z: 0
+  camera: z: 50)
 sphere = new (WHS.Sphere)(
   geometry: radius: 3
   mass: 10
   material:
-    color: 0xffffff
-    kind: 'basic'
-  pos:
-    x: 0
-    y: 100
-    z: 0)
+    color: 0x00ff00
+    kind: 'basic')
+sphere.addTo world
 
-sphere.addTo GAME
 sphere.getNative()
 # Returns THREE.Mesh of this object.
 
 world.start()
 # Start animations and physics simulation.
+
 
 ```
 

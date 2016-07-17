@@ -53,7 +53,7 @@ icosahedron.addTo world
 In geometry, an **icosahedron** is a polyhedron with 20 faces.
 There are many kinds of icosahedra, with some being more symmetrical than others. The most well known is the Platonic, convex regular icosahedron.
 
-<img src="images/shapes/icosahedron.gif" alt="rendered icosahedron">
+<img src="images/shapes/icosahedron_comp.gif" alt="rendered icosahedron">
 
 
 `WHS.Icosahedron` creates Icosahedron object by it's `radius` and `detail`.
