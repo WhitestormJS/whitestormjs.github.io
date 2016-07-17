@@ -7,8 +7,8 @@ language_tabs:
 
 toc_footers:
   - <a href='http://threejs.org/'><b>Three.js <i>r79</i></b></a>
-  - <a href='https://github.com/WhitestormJS/Physijs'>Get custom <b>Physijs</b></a>
-  - <a href='https://plus.google.com/113564780584588197070?rel=author'>Google</a>
+  - <a href='https://twitter.com/whitestormjs'>Twitter</a>
+  - <a href='http://whitestorm.js/playground/'><b>PLAYGROUND</b></a>
 
 includes:
   - object_class
