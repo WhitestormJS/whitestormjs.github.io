@@ -3,4 +3,4 @@
 //= require ./app/_search
 //= require ./app/_toc
 //= require ./_slider
-//= require ./_scrollbar
+//= require ./_offline
