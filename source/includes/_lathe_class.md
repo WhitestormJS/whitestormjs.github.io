@@ -1,6 +1,6 @@
 <h2 class="ws" id="lathe">Lathe</h2>
 
-<div class="blockTitle h3">Basic lathe example</div>
+<div class="blockTitle h3">Basic lathe example | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200xffffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20gravity:%20%7B%20//%20Physic%20gravity.%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%20-2,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20x:20,%0D%0A%20%20%20%20y:20,%0D%0A%20%20%20%20z:20%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20points%20=%20%5B%5D;%0D%0A%0D%0Afor%20(let%20i%20=%200;%20i%20%3C%2010;%20i++)%20%7B%0D%0A%20%20points.push(%0D%0A%20%20%20%20new%20THREE.Vector2(%0D%0A%20%20%20%20%20%20(Math.sin(i%20*%200.7)%20*%2015%20+%2050)%20/%2010,%0D%0A%20%20%20%20%20%20(i%20-%205)%20*%200.2%0D%0A%20%20%20%20)%0D%0A%20%20);%0D%0A%7D%0D%0A%0D%0Aconst%20lathe%20=%20new%20WHS.Lathe(%7B%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20points:%20points%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20mass:%2010,%0D%0A%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20kind:%20'lambert',%0D%0A%20%20%20%20color:%200xffff00,%0D%0A%20%20%20%20side:%20THREE.DoubleSide%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20pos:%20%7B%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%200,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Alathe.addTo(world);%0D%0A%0D%0A//set%20mouse%20controls%20to%20intract%20with%20world%0D%0Aworld.setControls(WHS.orbitControls());%0D%0A%0D%0Aworld.start();%20//%20Start%20animations%20and%20physics%20simulation.">PLAYGROUND</a></div>
 
 ```javascript
 
@@ -64,7 +64,7 @@ lathe.addTo world
 
 ```
 
-A LatheGeometry allows you to create shapes from a smooth curve. This curve is defined by a number of points (also called knots) and is most often called a spline. This spline is rotated around a fixed point and results in vase- and bell-like shapes. 
+A LatheGeometry allows you to create shapes from a smooth curve. This curve is defined by a number of points (also called knots) and is most often called a spline. This spline is rotated around a fixed point and results in vase- and bell-like shapes.
 
 In 3D computer graphics, a lathed object is a 3D model whose vertex geometry is produced by rotating the points of a spline or other point set around a fixed axis. The lathing may be partial; the amount of rotation is not necessarily a full 360 degrees. The point set providing the initial source data can be thought of as a cross section through the object along a plane containing its axis of radial symmetry.
 

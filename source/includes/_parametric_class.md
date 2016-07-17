@@ -1,6 +1,6 @@
 <h2 class="ws" id="parametric">Parametric</h2>
 
-<div class="blockTitle h3">Basic parametric example</div>
+<div class="blockTitle h3">Basic parametric example | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200xffffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20gravity:%20%7B%20//%20Physic%20gravity.%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%20-2,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20x:50,%0D%0A%20%20%20%20y:50,%0D%0A%20%20%20%20z:50%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20createParametric%20=%20(u,%20v)%20=%3E%20%7B%0D%0A%20%20return%20new%20THREE.Vector3(u%20*%2030,%20Math.random()%20*%205,%20v%20*%2030);%0D%0A%7D%0D%0A%0D%0Aconst%20parametric%20=%20new%20WHS.Parametric(%7B%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20func:%20createParametric%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20mass:%200,%0D%0A%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20kind:%20'lambert',%0D%0A%20%20%20%20color:%200xffffff,%0D%0A%20%20%20%20side:%20THREE.DoubleSide%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20pos:%20%7B%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%200,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aparametric.addTo(world);%0D%0A%0D%0A//set%20mouse%20controls%20to%20intract%20with%20world%0D%0Aworld.setControls(WHS.orbitControls());%0D%0A%0D%0Aworld.start();%20//%20Start%20animations%20and%20physics%20simulation.">PLAYGROUND</a></div>
 
 ```javascript
 
@@ -55,7 +55,7 @@ parametric.addTo world
 
 `WHS.Parametric` generates a geometry representing [Parametric surface](https://en.wikipedia.org/wiki/Parametric_surface)
 
-It is usually used to develop different kinds of highfields or [visualize a math function](https://stemkoski.github.io/Three.js/Graphulus-Function.html). 
+It is usually used to develop different kinds of highfields or [visualize a math function](https://stemkoski.github.io/Three.js/Graphulus-Function.html).
 
  - [Parametric surface](http://math.hws.edu/graphicsbook/source/threejs/curves-and-surfaces.html)
  - ["Graphulus"](https://stemkoski.github.io/Three.js/Graphulus-Surface.html)

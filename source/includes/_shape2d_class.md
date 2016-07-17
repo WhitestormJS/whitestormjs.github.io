@@ -1,6 +1,6 @@
 <h2 class="ws" id="shape2d">Shape2D [2D]</h2>
 
-<div class="blockTitle h3">Basic shape (2d) example</div>
+<div class="blockTitle h3">Basic shape (2d) example | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200x00ffff%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20gravity:%20%7B%20//%20Physic%20gravity.%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%20-2,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20x:15,%0D%0A%20%20%20%20y:20,%0D%0A%20%20%20%20z:10%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20rectWidth%20=%2010,%0D%0A%20%20rectLength%20=%205;%0D%0A%0D%0Aconst%20rectShape%20=%20new%20THREE.Shape();%0D%0ArectShape.moveTo(0,0);%0D%0ArectShape.lineTo(0,%20rectWidth);%0D%0ArectShape.lineTo(rectLength,%20rectWidth);%0D%0ArectShape.lineTo(rectLength,%200);%0D%0ArectShape.lineTo(0,%200);%0D%0A%0D%0Aconst%20plane%20=%20new%20WHS.Plane(%7B%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20shape:%20rectShape%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20mass:%200,%0D%0A%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20color:%200xff0000,%0D%0A%20%20%20%20kind:%20'basic'%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aplane.addTo(world);%0D%0A%0D%0A//set%20mouse%20controls%20to%20intract%20with%20world%0D%0Aworld.setControls(WHS.orbitControls());%0D%0A%0D%0Aworld.start();%20//%20Start%20animations%20and%20physics%20simulation.">PLAYGROUND</a></div>
 
 ```javascript
 

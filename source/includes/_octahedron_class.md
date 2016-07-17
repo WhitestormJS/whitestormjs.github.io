@@ -1,6 +1,6 @@
 <h2 class="ws" id="octahedron">Octahedron</h2>
 
-<div class="blockTitle h3">Basic octahedron example</div>
+<div class="blockTitle h3">Basic octahedron example | <a target="_blank" href="http://whitestormjs.xyz/playground/?code=const%20world%20=%20new%20WHS.World(%7B%0D%0A%20%20autoresize:%20true,%0D%0A%0D%0A%20%20background:%20%7B%0D%0A%20%20%20%20color:%200x000000%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20gravity:%20%7B%20//%20Physic%20gravity.%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%200,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20camera:%20%7B%0D%0A%20%20%20%20x:5,%0D%0A%20%20%20%20y:5,%0D%0A%20%20%20%20z:%205%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aconst%20octahedron%20=%20new%20WHS.Octahedron(%7B%0D%0A%20%20geometry:%20%7B%0D%0A%20%20%20%20radius:%202,%0D%0A%20%20%20%20detail:%201%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20mass:%201,%0D%0A%0D%0A%20%20material:%20%7B%0D%0A%20%20%20%20color:%200x0fffff,%0D%0A%20%20%20%20kind:%20'basic'%0D%0A%20%20%7D,%0D%0A%0D%0A%20%20pos:%20%7B%0D%0A%20%20%20%20x:%200,%0D%0A%20%20%20%20y:%200,%0D%0A%20%20%20%20z:%200%0D%0A%20%20%7D%0D%0A%7D);%0D%0A%0D%0Aoctahedron.addTo(world);%0D%0A%0D%0A%0D%0A//set%20mouse%20controls%20to%20intract%20with%20world%0D%0Aworld.setControls(WHS.orbitControls());%0D%0A%0D%0Aworld.start();%20//%20Start%20animations%20and%20physics%20simulation.">PLAYGROUND</a></div>
 
 ```javascript
 
