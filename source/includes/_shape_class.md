@@ -366,13 +366,52 @@ A **Material**  which is an object that contains material properties of Three.js
         </li>
       </ul>
     </li>
-    <li id="shape-params-physics">
+    <li id="shape-params-physics" class="nested">
       <h3><a href="#shape-params-physics" class="anchor"></a> physics
         <span class="type">Boolean</span>
         <span class="default">true</span>
         <span class="only blue physics">PHYSICS ONLY</span>
       </h3>
       <p>Defines if object is a physics object</p>
+      <ul>
+        <li>
+          <h3>friction
+            <span class="type">Number</span>
+            <span class="default">0.8</span>
+          </h3>
+          <p>Object material friction. <a href="https://en.wikipedia.org/wiki/Friction">-WIKI-</a></p>
+        </li>
+        <li>
+          <h3>restitution
+            <span class="type">Number</span>
+            <span class="default">0.3</span>
+            <span class="only blue">RIGIDBODIES ONLY</span>
+          </h3>
+          <p>Object material restitution. <a href="https://en.wikipedia.org/wiki/Restitution">-WIKI-</a></p>
+        </li>
+        <li>
+          <h3>damping
+            <span class="type">Number</span>
+            <span class="default">0</span>
+          </h3>
+          <p>Linear & angular damping. <a href="https://en.wikipedia.org/wiki/Damping">-WIKI-</a></p>
+        </li>
+        <li>
+          <h3>pressure
+            <span class="type">Number</span>
+            <span class="default">100</span>
+            <span class="only blue">SOFTBODIES ONLY</span>
+          </h3>
+          <p><a href="https://en.wikipedia.org/wiki/Pressure">-WIKI-</a></p>
+        </li>
+        <li>
+          <h3>margin
+            <span class="type">Number</span>
+            <span class="default">0</span>
+          </h3>
+          <p>Collision margin</p>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

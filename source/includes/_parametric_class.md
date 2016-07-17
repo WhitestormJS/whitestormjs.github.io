@@ -90,5 +90,21 @@ It is usually used to develop different kinds of highfields or [visualize a math
 Example will create heightfield-like geometry. `u` and `v` are like `x` and `y` in shape, but their values are always from `0` to `1`.
 We use them in `THREE.Vector3` like `x` and `z` and `Math.random() * 5` for `y`.
 
+Physics parametric object can be convex or concave. By default it's `convex` but you can also switch to concave:
+
+<div class="params" id="parametric-physics">
+  <h5>Physics parameters for parametric <a href="#parametric-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="parametric-physics-type">
+      <h3><a href="#parametric-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
+
 #### Parametric generated using u and v
 <img src="images/shapes/parametric.png" alt="rendered parametric on it's example">

@@ -90,6 +90,20 @@ torus.addTo world
   </ul>
 </div>
 
-<script src="https://gist.github.com/sasha240100/c320e12f7e594c48fb8e.js"></script>
+Physics torus object can be convex or concave. By default it's `convex` but you can also switch to concave:
+
+<div class="params" id="torus-physics">
+  <h5>Physics parameters for torus <a href="#torus-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="torus-physics-type">
+      <h3><a href="#torus-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
 
 <img src="images/shapes/torus.png" alt="rendered torus on it's example">

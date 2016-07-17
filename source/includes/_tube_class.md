@@ -107,3 +107,20 @@ tube.addTo world
     </li>
   </ul>
 </div>
+
+Physics tube object can be convex or concave. By default it's `convex` but you can also switch to concave:
+
+<div class="params" id="tube-physics">
+  <h5>Physics parameters for tube <a href="#tube-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="tube-physics-type">
+      <h3><a href="#tube-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
+

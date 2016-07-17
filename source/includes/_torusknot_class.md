@@ -102,6 +102,20 @@ torusknot.addTo world
   </ul>
 </div>
 
-<script src="https://gist.github.com/sasha240100/186976e65a13e62ec333.js"></script>
+Physics torusknot object can be convex or concave. By default it's `convex` but you can also switch to concave:
+
+<div class="params" id="torusknot-physics">
+  <h5>Physics parameters for torusknot <a href="#torusknot-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="torusknot-physics-type">
+      <h3><a href="#torusknot-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
 
 <img src="images/shapes/torusknot.png" alt="torusknot shape">

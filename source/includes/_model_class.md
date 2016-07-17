@@ -126,10 +126,10 @@ By default model class uses material loaded with model file (if such exists). To
   </ul>
 </div>
 
-Also model has it's own physics addition to `physics` parameter:
+Physics model object can be convex or concave. By default it's `convex` but you can also switch to concave:
 
 <div class="params" id="model-physics">
-  <h5>Physics parameters for modell <a href="#model-physics" class="anchor"></a></h5>
+  <h5>Physics parameters for model <a href="#model-physics" class="anchor"></a></h5>
   <ul>
     <li id="model-physics-type">
       <h3><a href="#model-physics-type" class="anchor"></a> type

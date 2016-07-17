@@ -106,6 +106,23 @@ The [following example](http://threejs.org/docs/scenes/geometry-browser.html#Lat
   </ul>
 </div>
 
+
+Physics lathe object can be convex or concave. By default it's `convex` but you can also switch to concave:
+
+<div class="params" id="lathe-physics">
+  <h5>Physics parameters for lathe <a href="#lathe-physics" class="anchor"></a></h5>
+  <ul>
+    <li id="lathe-physics-type">
+      <h3><a href="#lathe-physics-type" class="anchor"></a> type
+        <span class="type">String</span>
+        <span class="default">"convex"</span>
+        <span class="only blue physics">PHYSICS ONLY</span>
+      </h3>
+      <p>Can be two types, <code>"convex"</code> or <code>"concave"</code>. Last once more affects performance of physics simulation proccess.</p>
+    </li>
+  </ul>
+</div>
+
 #### Example on the right side will create the following object:
 
 <img src="images/shapes/lathe.png" alt="rendered lathe on it's example">
