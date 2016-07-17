@@ -716,6 +716,14 @@ html, body {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
   }
+
+  div.params ul li h3 {
+    width: 100px !important;
+  }
+
+  div.params ul li p {
+    margin: 0 0 0 120px !important;
+  }
 }
 
 @media (max-width: $phone-width) {
