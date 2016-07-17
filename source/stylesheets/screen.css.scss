@@ -90,10 +90,6 @@ html, body {
   // language selector for mobile devices
   .lang-selector {
     display: none;
-    a {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-    }
   }
 
   // This is the logo at the top of the ToC
@@ -307,7 +303,7 @@ html, body {
 
 .lang-selector {
   background-color: $lang-select-bg;
-  height: 50px;
+  min-height: 50px;
   font-weight: bold;
   width: inherit;
   padding: 0 30px;
@@ -731,6 +727,27 @@ html, body {
     margin-right: 0;
   }
 
+  .blockTitle {
+    float: left !important;
+    position: relative;
+    color: #333 !important;
+  }
+
+  .cd-image-container, div.params, .blockTitle {
+    width: 100% !important;
+  }
+
+  aside {
+    float: right !important;
+    width: 100% !important;
+  }
+
+  .logos {
+    width: 100% !important;
+    float: left !important;
+    padding: 20px 0 !important;
+  }
+
   .tocify-wrapper .lang-selector {
     display: block;
   }
@@ -740,12 +757,29 @@ html, body {
   }
 
   %right-col {
-    width: auto;
+    width: calc(100% - 60px) !important;
     float: none;
+    position: relative;
+    float: left;
   }
 
   %right-col + %left-col {
     margin-top: $main-padding;
+  }
+
+  .gist {
+    width: calc(100% - 60px) !important;
+    padding: 0 30px !important;
+  }
+
+  .highlight {
+    width: calc(100% - 60px) !important;
+  }
+
+  table, tbody, tr {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
   }
 }
 
