@@ -45,7 +45,8 @@ You can choose a version of WhitestormJS that you need. By default, there are 2 
 - `retreive()` removed. (no scence)
 - `Fog` and `FogExp` moved to `WHS.World` class as scene configuration.
 - [Plugin workflow](https://github.com/WhitestormJS/whs-plugin.js) repository created.
-- TODO.
+- SoftBody fixed
+- Playground added
 
 **r9**
 

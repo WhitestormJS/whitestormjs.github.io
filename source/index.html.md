@@ -82,6 +82,7 @@ search: true
 >
 > * [Design / Saturn](http://192.241.128.187/current/examples/design/saturn/)  (Saturn planet example from [codepen](http://codepen.io/Yakudoo/pen/qbygaJ))
 > * [Design / Easter](http://192.241.128.187/current/examples/design/easter/)  (Easter rabbit with easter eggs.)
+>  * [Design / Points](http://192.241.128.187/current/examples/design/points/)  (Using WHS.Points to make a point cloud shaped in cube.)
 >
 > FIRST-PERSON:
 >
@@ -95,7 +96,6 @@ search: true
 > PERFORMANCE:
 >
 > * [Performance / Sticks](http://192.241.128.187/current/examples/performance/sticks/)  (Collisions performance of 320 basic box objects.)
-> * [Performance / Softbodies](http://192.241.128.187/current/examples/performance/softbodies/)  (Collisions performance of 10 softbodies.)
 
 **WhitestormJS** is a framework for 3D web apps built with Three.js technology.
 
@@ -211,7 +211,7 @@ We love to create awesome things and we noticed that we can reduce code for sett
     <img src="images/code_three_retro.png" alt="Three.js">
     <span class="cd-image-label" data-type="original">Three.js</span>
     <div class="cd-resize-img" style="width: 47.916665%;">
-      <img src="images/code_whs.png" alt="Whitestorm.js">
+      <img src="images/code_whs.png" alt="Whitestorm.js" style="max-width: none !important;">
       <span class="cd-image-label" id="whslabel" data-type="modified">Whitestorm.js</span>
     </div>
     <span class="cd-handle" style="left: 47.916665%;"></span>

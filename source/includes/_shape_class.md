@@ -52,13 +52,52 @@ shape.addTo world
       <th>.M_(params)</th><td>Generates new material by material params object.</td>
     </tr>
     <tr>
-      <th>.setAngularVelocity(x, y, z)</th><td>Sets angular(rotation) velocity to physics object.</td>
-    </tr>
-    <tr>
-      <th>.setLinearVelocity(x, y, z)</th><td>Sets linear(position) velocity to physics object.</td>
-    </tr>
-    <tr>
       <th>.raycast(raycaster, intersects)</th><td>Get intersections between a casted ray and this mesh. Raycaster.intersectObject will call this method.</td>
+    </tr>
+  </table>
+</blockquote>
+
+<blockquote class="section">
+  <header>Inherited methods + set/get:</header>
+  <table>
+    <tr>
+      <th>.setNative(mesh)</th><td>Set Three.js mesh as native object.</td>
+    </tr>
+    <tr>
+      <th>.getNative()</th><td>Get native object.</td>
+    </tr>
+    <tr>
+      <th>.getParent()</th><td>Get object's parent (WHS).</td>
+    </tr>
+    <tr>
+      <th>.getWorld()</th><td>Get world where object is located.</td>
+    </tr>
+    <tr>
+      <th>.setMaterial(material)</th><td>Set Three.js material to native.</td>
+    </tr>
+  </table>
+</blockquote>
+
+<blockquote class="section">
+  <header>Physics-related methods:</header>
+  <table>
+    <tr>
+      <th>.setAngularVelocity(vector3)</th><td>Sets angular(rotation) velocity to physics object.</td>
+    </tr>
+    <tr>
+      <th>.setLinearVelocity(vector3)</th><td>Sets linear(position) velocity to physics object.</td>
+    </tr>
+    <tr>
+      <th>.getAngularVelocity()</th><td>Get angular velocity of physics object.</td>
+    </tr>
+    <tr>
+      <th>.getLinearVelocity()</th><td>Get linear velocity of physics object.</td>
+    </tr>
+    <tr>
+      <th>.applyCentralImpulse({force: vector3})</th><td>Apply impulse to center of object (0, 0, 0).</td>
+    </tr>
+    <tr>
+      <th>.applyImpulse({force: vector3, offset: vector3})</th><td>Get linear velocity of physics object.</td>
     </tr>
   </table>
 </blockquote>
@@ -125,7 +164,10 @@ shape.addTo world
       <th>Box</th><td>Experimental</td>
     </tr>
     <tr>
-      <th></th><td><b>Other shapes will be added soon</b></td>
+      <th>(Other shapes)</th><td><b>Not tested.</b></td>
+    </tr>
+    <tr>
+      <th>Model</th><td><b>No</b></td>
     </tr>
   </table>
 </blockquote>
