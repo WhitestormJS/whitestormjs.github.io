@@ -95,6 +95,13 @@ Model class loads geometry from `JSON` file by url as it's material, but materia
       </h3>
       <p>Additional path to gile with geometry that will be used only by physics part</p>
     </li>
+    <li id="model-geometry-loader">
+      <h3><a href="#model-geometry-loader" class="anchor"></a> loader
+        <span class="type">Object</span>
+        <span class="default">new THREE.JSONLoader()</span>
+      </h3>
+      <p>A Three.js loader to proccess model file</p>
+    </li>
   </ul>
 </div>
 

@@ -64,6 +64,13 @@ morph.addTo world
       </h3>
       <p>Morph path</p>
     </li>
+    <li id="morph-geometry-loader">
+      <h3><a href="#morph-geometry-loader" class="anchor"></a> loader
+        <span class="type">Object</span>
+        <span class="default">new THREE.JSONLoader()</span>
+      </h3>
+      <p>A Three.js loader to proccess model file</p>
+    </li>
   </ul>
 </div>
 
