@@ -6,7 +6,7 @@ language_tabs:
   - coffeescript
 
 toc_footers:
-  - <a href='http://threejs.org/'><b>Three.js <i>r79</i></b></a>
+  - <a href='http://threejs.org/'><b>Three.js <i>r80</i></b></a>
   - <a href='https://twitter.com/whitestormjs'>Twitter</a>
   - <a href='http://whitestorm.js/playground/'><b>PLAYGROUND</b></a>
 
@@ -19,7 +19,7 @@ includes:
   - curve_class
   - gapi
 
-  - api
+  - extras
 
   - box_class
   - sphere_class
@@ -56,7 +56,7 @@ includes:
   - fpscontrols
   - orbitcontrols
 
-  - components
+  - utils
 
   - plugins
 
