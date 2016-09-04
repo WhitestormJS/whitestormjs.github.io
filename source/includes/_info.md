@@ -24,6 +24,48 @@ You can choose a version of WhitestormJS that you need. By default, there are 2 
   </table>
 </blockquote>
 
+**r11**
+
+- *Bug fixes*
+- `DOFConstraint` added.
+- Loop
+   - Added shorthand for `.addLoop()` and `.removeLoop()`
+- List
+   - Added `.get()` method.
+- World
+   - `.addLoop()` and `.removeLoop()` now return Promises.
+   - Added proper `.remove()` function.
+- CoreObject
+   - `Object` renamed to `CoreObject`
+   - Added proper `.remove()` function.
+- Lights
+   - Fixed `target` option. Now works with Object3D and Vector3(both).
+- STRUCTURE
+   - Added modularity
+   - Optimized for webpack usage.
+   - Webpack build transformed to UMD.
+   - `src` now consist of `examples` and `framework`
+   - Fixed `_assets` folder.
+   - Removed unused `_lib/` folder
+   - Removed `_temp` folder.
+- OPTIMIZATION
+    - Removed unused dependencies in package.json
+- EXAMPLES
+   - Fixed `performance/softbodies` example.
+   - Added `basic/cloth` example.
+   - Added `basic/cloth2` example.
+   - Added `basic/cloth3` example.
+- TESTS.
+   - Added unit tests:
+   - `core/`
+   - `meshes/`
+   - `cameras/`
+   - `utils/`
+   - `extras/`
+   - `lights/`
+   - Fixed Travis CI.
+- Three.js version updated to r80.
+
 **r10**
 
 - Added variations (light version + regular version).

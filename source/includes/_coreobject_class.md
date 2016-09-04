@@ -1,5 +1,5 @@
 
-## Object
+## CoreObject
 
 <blockquote class="section">
   <header>Methods:</header>

@@ -11,7 +11,7 @@ toc_footers:
   - <a href='http://whitestorm.js/playground/'><b>PLAYGROUND</b></a>
 
 includes:
-  - object_class
+  - coreobject_class
   - world_class
   - shape_class
   - light_class
