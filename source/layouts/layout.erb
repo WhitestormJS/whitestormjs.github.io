@@ -22,8 +22,9 @@ under the License.
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><%= current_page.data.title || "API Documentation" %></title>
     <meta name="description" content="Whitestorm.js is a framework for 3D web apps built with Three.js technology. It implements a core for fast development of a 3D scene with physics.">
-    <meta name="keywords" content="three.js, whitestorm.js, framework, 3d, enine, webworkers, physics">
+    <meta name="keywords" content="three.js, physics, whitestorm.js, framework, 3d, library, github, webgl">
     <link rel="author" href="https://plus.google.com/113564780584588197070"/>
+    <meta name="google-site-verification" content="pbTJ2Oktz_eQSZVDu3fZcUdHss1Im7RY3kVdeDYEt8U" />
 
     <!-- Bots -->
     <meta name="ROBOTS" CONTENT="NOARCHIVE">  
@@ -48,19 +49,11 @@ under the License.
     <meta property="twitter:description" content="Whitestorm.js is a framework for 3D web apps built with Three.js technology. It implements a core for fast development of a 3D scene with physics."/>
     <meta property="twitter:card" content="summary"/>
 
-
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
-    <% if current_page.data.search %>
-      <%= javascript_include_tag  "all" %>
-    <% else %>
-      <%= javascript_include_tag  "all_nosearch" %>
-    <% end %>
-    <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css">-->
-
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -122,5 +115,11 @@ under the License.
       </div>
     </div>
     <a href="https://github.com/WhitestormJS/whitestorm.js"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 99;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <% if current_page.data.search %>
+      <%= javascript_include_tag  "all" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 
 
-<h2 class="wso" id="skybox">Skybox</h2>
+<h2 class="wso deprecated" id="skybox">Skybox</h2>
 
 <div class="blockTitle h3">Adding SkyBox</div>
 
@@ -94,6 +94,8 @@ Example: **images/myskyboxname.png**. Where `path` is **images/myskyboxname**, `
 ### Skybox example
 <img src="images/skybox.png" alt="Skybox in fps example.">
 
+<aside class="warning yellow">This class is <code>deprecated</code> and will soon be used as a plugin to WhitestormJS, not as a class in it.</aside>
+
 
 
 <h2 class="ws" id="group">Group</h2>
@@ -140,6 +142,8 @@ group.addTo world
 `WHS.Group` equivalent in three.js is Object3D. It also has position and rotation that will affect it's children object and usually used just for this.
 
 Has been used in [Saturn](http://192.241.128.187/current/examples/design/saturn/) example.
+
+You can pass Three.js meshes/lights too!
 
 <div class="params" id="extras-group">
   <h5>Group arguments <a href="#extras-group" class="anchor"></a></h5>
@@ -202,3 +206,54 @@ loop1.start()
 Loop will be executed each frame we render world. As a loop handler we pass a function that receives a `THREE.Clock` object.
 This class can be used in animations and smooth transitions of position for example.
 
+
+## List
+
+<div class="blockTitle h3">Usage of WHS.List</div>
+
+```javascript
+
+const list = new WHS.List([1, 2, 3]);
+
+list.add(4); // [1, 2, 3, 4]
+list.remove(2); // [1, 3, 4]
+
+list.get(); // Returns array [1, 3, 4]
+
+```
+
+```coffeescript
+
+list = new (WHS.List)([
+  1
+  2
+  3
+])
+
+list.add 4
+# [1, 2, 3, 4]
+
+list.remove 2
+# [1, 3, 4]
+
+list.get()
+# Returns array [1, 3, 4]
+
+```
+
+<blockquote class="section">
+  <header>Methods:</header>
+  <table>
+    <tr>
+      <th>.add()</th><td>Adds element to list.</td>
+    </tr>
+    <tr>
+      <th>.remove()</th><td>Removes element from list.</td>
+    </tr>
+    <tr>
+      <th>.get()</th><td>Get array of elements from list.</td>
+    </tr>
+  </table>
+</blockquote>
+
+List class implements simple array management. It can be used in non-3D parts too.

@@ -445,7 +445,9 @@ html, body {
   }
 
   h3 {
-    text-decoration: underline;
+    text-shadow: 0.5px 0;
+    letter-spacing: -0.5px;
+    font-weight: bolder;
   }
 
   h4, h5, h6 {
@@ -506,6 +508,10 @@ html, body {
   p, li, dt, dd {
     line-height: 26px;
     margin-top: 0;
+
+    strong {
+      text-shadow: 0 -0.5px rgba(0,0,0,0.3), 0 0.5px rgba(0,0,0,0.3), -0.5px 0 rgba(0,0,0,0.3), 0.5px 0 rgba(0,0,0,0.3) !important;
+    }
   }
 
   img {
@@ -892,42 +898,42 @@ blockquote p b, blockquote p strong {
 }
 
 h2.ws:after {
-    content: "WHS.Shape";
-    background: linear-gradient(180deg, #5abaf0, #4aafed);
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    display: block;
-    float: right;
-    padding: 1px 5px;
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #0e74c3;
-    font-weight: 500;
+  content: "WHS.Shape";
+  background: linear-gradient(180deg, #5abaf0, #4aafed);
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  display: block;
+  float: right;
+  padding: 1px 5px;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #0e74c3;
+  font-weight: 500;
 }
 
 h2.wsl:after {
-    content: "WHS.Light";
-    background: linear-gradient(180deg, #B8E361, rgba(184,220,97,1));
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    display: block;
-    float: right;
-    padding: 1px 5px;
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px rgba(120,164,33,1);
-    font-weight: 500;
+  content: "WHS.Light";
+  background: linear-gradient(180deg, #B8E361, rgba(184,220,97,1));
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  display: block;
+  float: right;
+  padding: 1px 5px;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px rgba(120,164,33,1);
+  font-weight: 500;
 }
 
 h2.wso:after {
-    content: "WHS.Object";
-    background: linear-gradient(180deg, #9b61e3, #9061dc);
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    display: block;
-    float: right;
-    padding: 1px 5px;
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #5021a4;
-    font-weight: 500;
+  content: "WHS.Object";
+  background: linear-gradient(180deg, #9b61e3, #9061dc);
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  display: block;
+  float: right;
+  padding: 1px 5px;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #5021a4;
+  font-weight: 500;
 }
 
 .err {
@@ -1141,4 +1147,23 @@ div.params {
     padding-left: 52.5px;
     float: left;
   }
+}
+
+code.prettyprint {
+  word-break: break-all;
+}
+
+
+.deprecated:before {
+  content: "Deprecated";
+  background: linear-gradient(180deg, #6171e3, #61b4dc);
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  display: block;
+  float: right;
+  padding: 1px 5px;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.5), 0 1px 1px #2155a4;
+  font-weight: 500;
+  margin-left: 10px;
 }

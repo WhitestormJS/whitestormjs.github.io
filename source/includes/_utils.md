@@ -1,4 +1,4 @@
-<h1 class="big" id="extras">Utils</h1>
+<h1 class="big" id="utils">Utils</h1>
 
 ## API: extend(object, ...extensions);
 
