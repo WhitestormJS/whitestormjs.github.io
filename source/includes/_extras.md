@@ -206,6 +206,8 @@ loop1.start()
 Loop will be executed each frame we render world. As a loop handler we pass a function that receives a `THREE.Clock` object.
 This class can be used in animations and smooth transitions of position for example.
 
+There is also a shorthand to not to write `world.addLoop(loop)` each time. You can simply start loop and add it to world at the same time by passing world as a parameter: `loop.start(world)`.
+
 
 ## List
 
