@@ -1,0 +1,19 @@
+/* Base Application Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Lato|Montserrat|Shrikhand');
+
+$font-ballo: 'Baloo Bhai', cursive;
+$font-lato: 'Lato', sans-serif;
+$font-mont: 'Montserrat', sans-serif;
+$font-shri: 'Shrikhand', cursive;
+
+body {
+  background: #262C38;
+}
+
+#background {
+  width: 100%;
+  height: 100%;
+}
+
+@import 'Header.scss';

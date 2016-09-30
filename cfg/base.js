@@ -28,7 +28,7 @@ module.exports = {
     noInfo: false
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.jsx', '.js'],
     alias: {
       actions: `${defaultSettings.srcPath}/actions/`,
       components: `${defaultSettings.srcPath}/components/`,
