@@ -1,4 +1,53 @@
-header {
-  height: 100px;
+@import '_fonts.scss';
 
+/*
+
+$font-ballo: 'Baloo Bhai', cursive;
+$font-lato: 'Lato', sans-serif;
+$font-mont: 'Montserrat', sans-serif;
+$font-shri: 'Shrikhand', cursive;
+$font-paci: 'Pacifico', cursive;
+$font-vare: 'Varela Round', sans-serif;
+$font-days: 'Days One', sans-serif;
+$font-elec: 'Electrolize', sans-serif;
+
+*/
+
+header {
+  height: 50px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+
+  &>* {
+    align-self: center;
+  }
+
+  &>div {
+    margin-top: 20px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-ballo;
+    font-size: 14pt;
+    padding: 0px 10px;
+
+    &.inverted {
+      border-radius: .25rem;
+      border: 2px solid #eee;
+      transition: all 0.3s linear;
+      margin: 0 5px;
+
+      &:hover {
+        background: #eee;
+        color: #29acff;
+      }
+    }
+  }
+
+  span {
+    font-family: $font-lato; //lato
+  }
 }

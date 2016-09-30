@@ -9,10 +9,11 @@ import TableCompare from './main/TableCompare';
 class AppComponent extends React.Component {
   render() {
     return (
-      <Background>
+      <div>
+        <Background />
         <Header />
         <TableCompare />
-      </Background>
+      </div>
     );
   }
 }

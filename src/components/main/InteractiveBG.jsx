@@ -20,7 +20,7 @@ class Background extends Component {
   }
 
   render() {
-    return (<canvas id="background">{this.props.children}</canvas>)
+    return (<canvas id="background" style={{position: 'absolute', zIndex: -1, top: 0}}></canvas>)
   }
 }
 
