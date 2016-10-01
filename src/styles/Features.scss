@@ -1,0 +1,44 @@
+@import '_fonts.scss';
+
+/*
+
+$font-ballo: 'Baloo Bhai', cursive;
+$font-lato: 'Lato', sans-serif;
+$font-mont: 'Montserrat', sans-serif;
+$font-shri: 'Shrikhand', cursive;
+$font-paci: 'Pacifico', cursive;
+$font-vare: 'Varela Round', sans-serif;
+$font-days: 'Days One', sans-serif;
+$font-elec: 'Electrolize', sans-serif;
+
+*/
+
+$item-width: 220px;
+
+.features {
+  height: 200px;
+  width: 80%;
+  margin: 100px auto;
+
+  .features-item {
+    width: $item-width;
+
+    img {
+      width: $item-width;
+    }
+
+    h1 {
+      color: white;
+      text-transform: uppercase;
+      font-size: 18pt;
+      font-family: $font-mont;
+    }
+
+    ul {
+      color: white;
+      padding: 12pt;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+  }
+}
