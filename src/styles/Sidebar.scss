@@ -1,0 +1,76 @@
+@import '_fonts.scss';
+
+/*
+
+$font-ballo: 'Baloo Bhai', cursive;
+$font-lato: 'Lato', sans-serif;
+$font-mont: 'Montserrat', sans-serif;
+$font-shri: 'Shrikhand', cursive;
+$font-paci: 'Pacifico', cursive;
+$font-vare: 'Varela Round', sans-serif;
+$font-days: 'Days One', sans-serif;
+$font-elec: 'Electrolize', sans-serif;
+
+*/
+
+$docs-color: #B8E361; //  #B8E361; // #29acff;
+
+.sidebar {
+  padding: 10px;
+  width: 320px;
+  font-family: $font-vare; // lato, mont, vare, elec
+
+  h1 {
+    color: white;
+    box-shadow: inset 40px 0px 30px -22px $docs-color, -16px 0px 20px -16px $docs-color;
+    padding: 0 10px;
+    margin: 0 40px;
+    font-family: $font-elec;
+  }
+
+  ul {
+    border-radius: 10px;
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    li {
+      border-left: 2px solid white;
+      list-style-type: none;
+      padding: 10px 10px;
+      color: white;
+      font-size: 10pt;
+
+      &.active  {
+        border-left: 6px solid white;
+        box-shadow: inset 20px 0px 20px -21px white;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &.category {
+      padding: 15px 0 0 10px;
+
+      li {
+        border-left: 2px solid rgba(255, 255, 255, 0.5);
+        box-shadow: inset 20px 0px 20px -25px white;
+
+        &.category-title {
+          font-family: $font-mont;
+          font-size: 14pt;
+          margin-left: -2px;
+          border-left: 4px solid white;
+          box-shadow: inset 20px 0px 20px -22px $docs-color, -16px 0px 20px -16px $docs-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

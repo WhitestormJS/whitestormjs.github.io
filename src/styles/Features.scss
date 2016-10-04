@@ -19,12 +19,16 @@ $item-width: 220px;
   height: 200px;
   width: 80%;
   margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
 
   .features-item {
-    width: $item-width;
+    max-width: $item-width;
 
     img {
-      width: $item-width;
+      height: $item-width / 2;
+      display: block;
+      margin: 0 auto;
     }
 
     h1 {
@@ -35,10 +39,16 @@ $item-width: 220px;
     }
 
     ul {
-      color: white;
+      color: #eee;
       padding: 12pt;
       font-size: 10pt;
+      font-family: $font-mont;
       line-height: 1.5;
+
+      b {
+        text-shadow: 0 0 1px rgba(255,255,255,0.5);
+        color: white;
+      }
     }
   }
 }
