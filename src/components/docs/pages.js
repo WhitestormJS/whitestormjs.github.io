@@ -10,9 +10,13 @@ const removeYaml = (content) => {
 
 const pages = {
   docs: {
-    'main': [
-      removeYaml(require('raw!../../pages/docs/main.md')),
-      require('markdown-with-front-matter!../../pages/docs/main.md')
+    'getting-started': [
+      removeYaml(require('raw!../../pages/docs/getting-started.md')),
+      require('markdown-with-front-matter!../../pages/docs/getting-started.md')
+    ],
+    'newpage': [
+      removeYaml(require('raw!../../pages/docs/newpage.md')),
+      require('markdown-with-front-matter!../../pages/docs/newpage.md')
     ]
   }
 }

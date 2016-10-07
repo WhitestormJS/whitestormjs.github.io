@@ -2,7 +2,7 @@ import 'normalize.css/normalize.css';
 import 'styles/App.scss';
 
 import React from 'react';
-import {BrowserRouter, Match, Miss, Link} from 'react-router';
+import {BrowserRouter, Match, Miss} from 'react-router';
 import Header from './main/Header';
 import {Docs, DocsPage} from './docs/Docs';
 import Background from './main/InteractiveBG';

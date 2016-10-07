@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import PAGES from './pages';
 import Sidebar from './Sidebar/index';
+import Content from './Content/index';
 
 export class Docs extends React.Component {
   render() {
@@ -13,9 +13,9 @@ export class DocsPage extends React.Component {
   render() {
     return (
       <div>
-        <Sidebar />
+        <Sidebar pages={PAGES.docs} title="API" />
+        <Content page={PAGES.docs[this.props.params.name]} />
       </div>
     )
-        // <ReactMarkdown source={PAGES.docs[this.props.params.name][0]} />
   }
 }
