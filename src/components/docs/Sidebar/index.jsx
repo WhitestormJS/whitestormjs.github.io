@@ -34,7 +34,7 @@ export default class Sidebar extends Component {
           ))}
 
           {_.map(categories[1], (data, key) => (
-            <Category title={key} key={key}>
+            <Category title={key} key={key} id={key}>
               {_.map(data, (page, i) => (
                 <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
                   matched ?

@@ -56,21 +56,48 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
       }
     }
 
+    span.category-title {
+      font-family: $font-mont;
+      font-size: 14pt;
+      margin-left: -2px;
+      border-left: 4px solid white;
+      box-shadow: inset 20px 0px 20px -22px $docs-color, -16px 0px 20px -16px $docs-color;
+      font-weight: bold;
+      display: list-item;
+      list-style: none;
+      padding: 10px 10px;
+      color: white;
+      margin: 15px 0 0 10px;
+      cursor: pointer;
+
+      .category-fold {
+        background: url(../images/left-arrow.png);
+        transform: rotate(-90deg);
+        width: 10px;
+        height: 18px;
+        display: inline-block;
+        background-size: 100%;
+        float: right;
+
+        &.folded {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
     &.category {
-      padding: 15px 0 0 10px;
+      padding: 0;
+      margin: 0 0 0 10px;
+      overflow: hidden;
+      border-radius: 0px;
+
+      &.folded {
+        max-height: 0px !important;
+      }
 
       li {
         border-left: 2px solid rgba(255, 255, 255, 0.5);
         box-shadow: inset 20px 0px 20px -25px white;
-
-        &.category-title {
-          font-family: $font-mont;
-          font-size: 14pt;
-          margin-left: -2px;
-          border-left: 4px solid white;
-          box-shadow: inset 20px 0px 20px -22px $docs-color, -16px 0px 20px -16px $docs-color;
-          font-weight: bold;
-        }
       }
     }
   }
