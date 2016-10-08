@@ -8,7 +8,7 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content">
-        <h1>{this.props.page[1].title}</h1>
+        <h1>{this.props.page[1].longtitle ? this.props.page[1].longtitle : this.props.page[1].title}</h1>
         {this.props.page[1].tags ?
           <div className="content-tags">
             {_.map(

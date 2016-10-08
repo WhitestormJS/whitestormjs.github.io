@@ -46,6 +46,12 @@ $font-elec: 'Electrolize', sans-serif;
       padding: 0 7px;
       margin: 20px 30px;
       font-family: $font-vare;
+      margin-left: -10px;
+      font-size: 10pt;
+
+      code {
+        margin: 0 20px;
+      }
 
       &:after {
         content: '.';
@@ -56,38 +62,77 @@ $font-elec: 'Electrolize', sans-serif;
         color: transparent;
         box-shadow: inset -30px 0px 30px -30px #fff, inset -40px 0px 40px -50px #fff, 16px 0px 20px -16px #fff;
       }
+
+      &:before {
+        content: '';
+        background: url('../images/h4.png');
+        background-size: 100%;
+        position: absolute;
+        left: -38px;
+        top: 4px;
+        width: 12px;
+        height: 8px;
+        background-size: 100%;
+        display: block;
+        float: left;
+      }
     }
 
     h1 {
       @extend h4;
       margin: 20px 0px;
       font-size: 20pt;
+      margin-left: 0px;
 
       &:after {
         box-shadow: inset -30px 0px 30px -30px #fff, inset -40px 0px 40px -35px #fff, 16px 0px 20px -16px #fff;
+      }
+
+      &:before {
+        background: url('../images/h1.png');
+        background-size: 100%;
+        top: 10px;
+        left: -50px;
       }
     }
 
     h2 {
       @extend h4;
       margin: 20px 10px;
-      font-size: 16pt;
+      font-size: 18pt;
+      margin-left: -10px;
 
       &:after {
         box-shadow: inset -30px 0px 30px -30px #fff, inset -40px 0px 40px -40px #fff, 16px 0px 20px -16px #fff;
+      }
+
+      &:before {
+        background: url('../images/h2.png');
+        background-size: 100%;
+        top: 7px;
+        left: -40px;
       }
     }
 
     h3 {
       @extend h4;
       margin: 20px 20px;
+      margin-left: -10px;
+      font-size: 14pt;
 
       &:after {
         box-shadow: inset -30px 0px 30px -30px #fff, inset -40px 0px 40px -45px #fff, 16px 0px 20px -16px #fff;
       }
+
+      &:before {
+        background: url('../images/h3.png');
+        background-size: 100%;
+        top: 6px;
+      }
     }
 
     p {
+      // color: #eee;
       text-align: justify;
       text-justify: inter-word;
       font-family: $font-vare;
@@ -108,26 +153,43 @@ $font-elec: 'Electrolize', sans-serif;
 
       p {
         margin: 0;
+        text-align: left;
+
+        a {
+          color: #2994ff;
+          text-decoration: underline;
+        }
       }
 
       &:before {
         content: '';
         background: url('../images/note.png');
         position: absolute;
-        left: -22px;
+        left: -20px;
         top: 2px;
-        width: 12px; // 14
-        height: 15px; // 18
+        width: 11px; // 14
+        height: 14px; // 18
         background-size: 100%;
         display: block;
         float: left;
       }
     }
 
+    em {
+      color: #aaecff;
+    }
+
+    code:not(.hljs) {
+      color: #eee;
+      border-radius: 2px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2px 5px;
+    }
+
     pre {
       border-left: 2px solid rgba(255, 174, 84, 0.5);
       box-shadow: inset 20px 0px 20px -25px #ffae54;
-      padding: 0 20px;
+      padding: 10px 20px;
       margin: 10px 0;
       position: relative;
       background: rgba(0, 0, 0, 0.2);
@@ -166,6 +228,10 @@ $font-elec: 'Electrolize', sans-serif;
 
       .hljs-regexp {
         color: #ebde68;
+      }
+
+      .hljs-comment {
+        color: #777;
       }
     }
 

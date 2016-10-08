@@ -1,5 +1,5 @@
 import React from 'react';
-import PAGES from './pages';
+import PAGES from '../../pages/docs/index';
 import Sidebar from './Sidebar/index';
 import Content from './Content/index';
 
