@@ -39,6 +39,14 @@ $font-elec: 'Electrolize', sans-serif;
     padding: 20px 50px;
     color: white;
 
+    ul {
+      list-style-type: circle;
+
+      li {
+        line-height: 2;
+      }
+    }
+
     h4 {
       position: relative;
       color: white;
