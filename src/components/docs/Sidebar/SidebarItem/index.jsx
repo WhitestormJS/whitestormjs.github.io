@@ -15,10 +15,14 @@ export class Category extends Component {
   constructor(...props) {
     super(...props);
 
-    this.state[`folded-${this.props.id}`] =
-      typeof cookie.load(`folded-${this.props.id}`) !== undefined
-        ? cookie.load(`folded-${this.props.id}`)
-        : false;
+    if (this.props.isActive) {
+      this.state[`folded-${this.props.id}`] = false;
+    } else {
+      this.state[`folded-${this.props.id}`] =
+        typeof cookie.load(`folded-${this.props.id}`) !== undefined
+          ? cookie.load(`folded-${this.props.id}`)
+          : false;
+    }
   }
 
   triggerFold() {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
-import {Match} from 'react-router';
+import {Match, matchPattern} from 'react-router';
 import {Item, Category} from './SidebarItem/index';
 
 export default class Sidebar extends Component {
@@ -35,15 +35,27 @@ export default class Sidebar extends Component {
             } />
           ))}
 
-          {_.map(categories[1], (data, key) => (
-            <Category title={key} key={key} id={key}>
-              {_.map(data, (page, i) => (
-                <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
-                  <Item link={prefix + page[1]} title={page[0][1].title} active={matched} />
-                } />
-              ))}
-            </Category>
-          ))}
+          {_.map(categories[1], (data, key) => {
+            let isActive = false;
+
+            _.map(data, (page, i) => {
+              isActive = matchPattern(
+                '/api/' + page[1],
+                window.location,
+                false
+              ) ? true : isActive;
+            });
+
+            return (
+              <Category title={key} key={key} id={key} isActive={isActive}>
+                {_.map(data, (page, i) => (
+                  <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
+                    <Item link={prefix + page[1]} title={page[0][1].title} active={matched} />
+                  } />
+                ))}
+              </Category>
+            )
+          })}
         </ul>
       </div>
     )

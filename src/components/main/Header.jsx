@@ -15,7 +15,7 @@ export default class Header extends Component {
             <span style={{color: '#800'}}>\</span>
             -
           </span>*/}
-          <a target="_blank" href="https://whslack.herokuapp.com/" style={{padding:'0 20px'}}><img src={require('../../images/slack.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
+          <a target="_blank" href="https://discord.gg/5yNCvC4" style={{padding:'0 20px'}}><img src={require('../../images/discord.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
           <a target="_blank" href="https://github.com/WhitestormJS/whitestorm.js" className="inverted">GitHub</a>
           <Link to="/api">API</Link>
           <Link to="/contributors">Contribute</Link>
