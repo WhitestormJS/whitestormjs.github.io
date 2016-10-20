@@ -18,56 +18,36 @@ tags:
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Box` Creates a simple 3D Box. It extends <a href="#shape">`WHS.Shape`</a> and inherits all of its methods.
+
+As told on <a href="#shape">`WHS.Shape`</a> definition, while you can pass any of the inherited params for this shape construction, you will need to
+pass specific parameters to build this mesh as a __geometry__ object.
+
+This shape can be set as a **softbody** object.
 
 ```javascript
+const box = new WHS.Box({
+  geometry: {
+    width: 2,
+    height: 2,
+    depth: 2
+  },
 
-import * as THREE from 'three';
+  mass: 1,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  softbody: false,
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+  material: {
+    kind: 'basic',
+    color: 0xffffff
+  },
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  position: {
+    x: 50,
+    y: 70,
+    z: 60
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+box.addTo(world);
 ```

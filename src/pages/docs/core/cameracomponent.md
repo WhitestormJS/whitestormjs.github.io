@@ -1,19 +1,41 @@
 ---
 
-title: CameraComponent [TODO]
+title: CameraComponent
 longtitle: WHS.CameraComponent
 category: Core
 
 tags:
  - three.js
- - webgl
  - 3d
  - core
  - decorators
+ - camera
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+**CameraComponent** wraps classes based on `THREE.Camera` (such as `THREE.PerspectiveCamera`). **CameraComponent** offers main functionality for working with camera and extends properties that you can define before executing camera.
+
+## Usage with existing Three.js camera.
+
+That's how you can make a `WHS.Element` from a three.js light:
+
+```javascript
+const ball = new WHS.Element(
+  new THREE.PerspectiveCamera(
+    45,
+    window.innerWidth / window.innerHeight,
+    1,
+    1000
+  ),
+  [WHS.CameraComponent]
+);
+```
+
+## 3D Transforms
+
+See [3D transforms](/api/3d-transforms) page for more details about **CameraComponent** 3d transform methods/attributes.
+
+## Making a Light Component
 
 ```javascript
 
@@ -22,20 +44,22 @@ import * as THREE from 'three';
 // Basic component class.
 import {Component} from 'whitestormjs/core/Component';
 // Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
+import CameraComponent from 'whitestormjs/core/CameraComponent';
 // Some utils that should help.
 import {extend, loadMaterial} from 'whitestormjs/utils/index';
 
-@MeshComponent
-class BasicSphere extends Component {
+@CameraComponent
+class BasicCamera extends Component {
   constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+    super(params, BasicCamera.defaults);
 
+    // Defaults.
     extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
+      near: 1
+      far: 1000
     });
 
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
+    if (params.build) { // params.build is "true" by default. (@CameraComponent)
       this.build(params);
       // Apply position & rotation, scale ...
       super.wrap();
@@ -43,13 +67,12 @@ class BasicSphere extends Component {
   }
 
   build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
     return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
+      this.native = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight
+        params.near
+        params.intensity
       );
 
       resolve();
@@ -57,12 +80,12 @@ class BasicSphere extends Component {
   }
 
   clone() {
-    return new BasicSphere({build: false}).copy(this);
+    return new BasicCamera({build: false}).copy(this);
   }
 }
 
 export {
-  BasicSphere
+  BasicCamera
 };
 
 ```

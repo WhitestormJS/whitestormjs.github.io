@@ -14,6 +14,10 @@ const pages = {
       removeYaml(require('raw!./getting-started.md')),
       require('markdown-with-front-matter!./getting-started.md')
     ],
+    '3d-transforms': [
+      removeYaml(require('raw!./3dTransforms.md')),
+      require('markdown-with-front-matter!./3dTransforms.md')
+    ],
 
     // Core
 
