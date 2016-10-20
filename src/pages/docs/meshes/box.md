@@ -4,6 +4,11 @@ title: Box [TODO]
 longtitle: WHS.Box
 category: Meshes
 
+featured:
+  title: Box
+  describe: How to use a basic element
+  image: box.png
+
 tags:
  - three.js
  - webgl

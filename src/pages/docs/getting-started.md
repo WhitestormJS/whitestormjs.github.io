@@ -2,6 +2,11 @@
 
 title: Getting started
 
+featured:
+  title: Getting started
+  describe: In this article you will find useful information about WhitestormJS framework and it's usage.
+  image: getting-started.png
+
 tags:
  - three.js
  - webgl

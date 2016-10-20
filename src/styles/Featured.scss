@@ -1,0 +1,74 @@
+@import '_fonts.scss';
+
+/*
+
+$font-ballo: 'Baloo Bhai', cursive;
+$font-lato: 'Lato', sans-serif;
+$font-mont: 'Montserrat', sans-serif;
+$font-shri: 'Shrikhand', cursive;
+$font-paci: 'Pacifico', cursive;
+$font-vare: 'Varela Round', sans-serif;
+$font-days: 'Days One', sans-serif;
+$font-elec: 'Electrolize', sans-serif;
+
+*/
+
+$docs-color: #B8E361; //  #B8E361; // #29acff;
+
+.featured {
+  float: right;
+  width: calc(100% - 370px);
+  padding: 10px;
+  font-family: $font-vare; // lato, mont, vare, elec
+
+  h1 {
+    color: white;
+    box-shadow: inset 40px 0px 30px -22px $docs-color, -16px 0px 20px -16px $docs-color;
+    padding: 0 10px;
+    margin: 0 40px;
+    font-family: $font-elec;
+  }
+
+  .block {
+    padding: 40px;
+    width: calc(100% - 80px);
+
+    .item {
+      padding: 10px;
+      width: calc(100% / 3 - 20px);
+      color: white;
+      display: inline-block;
+      vertical-align: top;
+
+      img {
+        width: 100%;
+      }
+
+      a.title {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 16pt;
+        line-height: 1.5;
+        border-bottom: 1.5px solid transparent;
+        transition: border-bottom 0.1s linear;
+
+        &:hover {
+          border-bottom: 1.5px solid white;
+        }
+      }
+
+      a.image:hover + a.title {
+        border-bottom: 1.5px solid white;
+      }
+
+      p.desc {
+        margin: 5px 0;
+        padding: 0 10px;
+        font-size: 10pt;
+        line-height: 1.2;
+        color: #ddd;
+      }
+    }
+  }
+}

@@ -19,17 +19,19 @@ export default class Sidebar extends Component {
       return [other, result];
     })();
 
-    console.log(categories);
+    const prefix = this.props.prefix || '';
 
     return (
       <div className="sidebar">
         <h1>{this.props.title}</h1>
         <ul>
+          <Match key="main" exactly pattern="/api" children={({matched}) =>
+            <Item link="/api" title="Main page" active={matched} />
+          } />
+
           {_.map(categories[0], (data, i) => (
             <Match key={i} pattern={'/api/' + data[1]} children={({matched}) =>
-              matched ?
-              (<Item link={data[1]} title={data[0][1].title} active />)
-              : (<Item link={data[1]} title={data[0][1].title} />)
+              <Item link={prefix + data[1]} title={data[0][1].title} active={matched} />
             } />
           ))}
 
@@ -37,9 +39,7 @@ export default class Sidebar extends Component {
             <Category title={key} key={key} id={key}>
               {_.map(data, (page, i) => (
                 <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
-                  matched ?
-                  (<Item link={page[1]} title={page[0][1].title} active />)
-                  : (<Item link={page[1]} title={page[0][1].title} />)
+                  <Item link={prefix + page[1]} title={page[0][1].title} active={matched} />
                 } />
               ))}
             </Category>
