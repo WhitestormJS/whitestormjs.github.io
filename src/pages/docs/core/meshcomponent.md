@@ -10,6 +10,7 @@ tags:
  - 3d
  - core
  - decorators
+ - mesh
 
 ---
 
@@ -19,15 +20,16 @@ It defines _position, rotation, quaternion and scale_ properties that are used t
 
 ## Usage with existing Three.js mesh
 
-That's how you can make a `WHS.Component` from a three.js mesh:
+That's how you can make a `WHS.Element` from a three.js mesh:
 
 ```javascript
-const ball = MeshComponent(new WHS.Component(
+const ball = new WHS.Element(
   new THREE.Mesh(
     new THREE.SphereGeometry(3, 16, 16),
     new THREE.MeshBasicMaterial({color: 0xffffff})
-  )
-));
+  ),
+  [WHS.MeshComponent]
+);
 ```
 
 ## 3D Transforms
