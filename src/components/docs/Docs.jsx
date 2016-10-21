@@ -9,7 +9,7 @@ export class Docs extends React.Component {
     return (
       <div>
         <Sidebar pages={PAGES.docs} title="API" prefix="/api/" />
-        <Featured pages={PAGES.docs} title="MAIN PAGE" />
+        <Featured pages={PAGES.docs} title="- Documentation -" />
       </div>
     )
   }

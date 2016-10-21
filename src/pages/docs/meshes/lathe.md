@@ -3,6 +3,7 @@
 title: Lathe
 longtitle: WHS.Lathe
 category: Meshes
+icon: lathe_class.png
 
 tags:
  - three.js

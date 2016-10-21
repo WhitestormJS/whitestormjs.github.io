@@ -3,6 +3,7 @@
 title: Text
 longtitle: WHS.Text
 category: Meshes
+icon: text_class.png
 
 tags:
  - three.js

@@ -3,6 +3,7 @@
 title: Torus
 longtitle: WHS.Torus
 category: Meshes
+icon: torus_class.png
 
 tags:
  - three.js

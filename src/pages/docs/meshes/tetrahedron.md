@@ -3,6 +3,7 @@
 title: Tetrahedron
 longtitle: WHS.Tetrahedron
 category: Meshes
+icon: tetrahedron_class.png
 
 tags:
  - three.js

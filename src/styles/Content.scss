@@ -1,3 +1,5 @@
+@import '_colors.scss';
+
 /*
 
 $font-ballo: 'Baloo Bhai', cursive;
@@ -32,6 +34,24 @@ $font-elec: 'Electrolize', sans-serif;
       top: 0;
       color: transparent;
       box-shadow: inset -30px 0px 30px -30px $docs-color, inset -40px 0px 40px -30px $docs-color, 16px 0px 20px -16px $docs-color;
+    }
+
+    &.purple {
+      box-shadow: inset 40px 0px 40px -45px $uiPurple, -16px 0px 20px -16px $uiPurple !important;
+
+      &:after {
+        box-shadow: inset -30px 0px 30px -30px $uiPurple, inset -40px 0px 40px -30px $uiPurple, 16px 0px 20px -16px $uiPurple !important;
+      }
+    }
+
+    img {
+      height: 16pt;
+      margin: 0 20px;
+      vertical-align: bottom;
+      position: absolute;
+      left: -54px;
+      padding: 8px;
+      z-index: 999;
     }
   }
 

@@ -3,6 +3,7 @@
 title: Sphere
 longtitle: WHS.Sphere
 category: Meshes
+icon: sphere_class.png
 
 tags:
  - three.js

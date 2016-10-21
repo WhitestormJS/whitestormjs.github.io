@@ -4,7 +4,15 @@ import cookie from 'react-cookie';
 export class Item extends Component {
   render() {
     return (
-      <a href={this.props.link ? this.props.link : '#'}><li className={this.props.active ? 'active' : ''}>{this.props.title}</li></a>
+      <a href={this.props.link ? this.props.link : '#'}>
+        <li className={this.props.active ? 'active' : ''}>
+          {this.props.title}
+          {
+            this.props.icon ?
+            (<img src={require('../../../../images/docs/icons/' + this.props.icon)}></img>) : null
+          }
+        </li>
+      </a>
     )
   }
 }

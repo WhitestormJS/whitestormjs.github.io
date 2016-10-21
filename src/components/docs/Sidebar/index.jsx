@@ -31,7 +31,10 @@ export default class Sidebar extends Component {
 
           {_.map(categories[0], (data, i) => (
             <Match key={i} pattern={'/api/' + data[1]} children={({matched}) =>
-              <Item link={prefix + data[1]} title={data[0][1].title} active={matched} />
+              <Item link={prefix + data[1]} title={data[0][1].title}
+                active={matched}
+                icon={data[0][1].icon ? data[0][1].icon : false}
+              />
             } />
           ))}
 
@@ -50,7 +53,10 @@ export default class Sidebar extends Component {
               <Category title={key} key={key} id={key} isActive={isActive}>
                 {_.map(data, (page, i) => (
                   <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
-                    <Item link={prefix + page[1]} title={page[0][1].title} active={matched} />
+                    <Item link={prefix + page[1]} title={page[0][1].title}
+                      active={matched}
+                      icon={page[0][1].icon ? page[0][1].icon : false}
+                    />
                   } />
                 ))}
               </Category>

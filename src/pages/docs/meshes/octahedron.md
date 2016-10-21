@@ -3,6 +3,7 @@
 title: Octahedron
 longtitle: WHS.Octahedron
 category: Meshes
+icon: octahedron_class.png
 
 tags:
  - three.js

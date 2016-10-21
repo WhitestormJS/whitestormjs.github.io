@@ -3,6 +3,7 @@
 title: Icosahderon
 longtitle: WHS.Icosahderon
 category: Meshes
+icon: icosahedron_class.png
 
 tags:
  - three.js

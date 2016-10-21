@@ -3,6 +3,7 @@
 title: Tube
 longtitle: WHS.Tube
 category: Meshes
+icon: tube_class.png
 
 tags:
  - three.js

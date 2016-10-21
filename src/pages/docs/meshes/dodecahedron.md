@@ -3,6 +3,7 @@
 title: Dodecahedron
 longtitle: WHS.Dodecahedron
 category: Meshes
+icon: dodecahedron_class.png
 
 tags:
  - three.js

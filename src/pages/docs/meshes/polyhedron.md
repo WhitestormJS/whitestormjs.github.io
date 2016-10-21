@@ -3,6 +3,7 @@
 title: Polyhedron
 longtitle: WHS.Polyhedron
 category: Meshes
+icon: polyhedron_class.png
 
 tags:
  - three.js

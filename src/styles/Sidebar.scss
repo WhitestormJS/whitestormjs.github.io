@@ -48,11 +48,25 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
       color: white;
       font-size: 10pt;
 
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
       &.active  {
+        background: rgba(255, 255, 255, 0.1);
         border-left: 6px solid white;
         box-shadow: inset 20px 0px 20px -21px white;
-        padding: 10px 20px;
-        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 10px 10px 20px;
+      }
+
+      &:hover img {
+        opacity: 1;
+      }
+
+      img {
+        width: 15px;
+        float: right;
+        opacity: 0.8;
       }
     }
 

@@ -3,6 +3,7 @@
 title: Plane
 longtitle: WHS.Plane
 category: Meshes
+icon: plane_class.png
 
 tags:
  - three.js

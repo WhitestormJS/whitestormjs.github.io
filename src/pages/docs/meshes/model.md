@@ -3,6 +3,7 @@
 title: Model
 longtitle: WHS.Model
 category: Meshes
+icon: model_class.png
 
 tags:
  - three.js

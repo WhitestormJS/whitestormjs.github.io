@@ -3,6 +3,7 @@
 title: Extrude
 longtitle: WHS.Extrude
 category: Meshes
+icon: extrude_class.png
 
 tags:
  - three.js

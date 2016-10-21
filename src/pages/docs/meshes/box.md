@@ -3,6 +3,7 @@
 title: Box
 longtitle: WHS.Box
 category: Meshes
+icon: box_class.png
 
 featured:
   title: Box

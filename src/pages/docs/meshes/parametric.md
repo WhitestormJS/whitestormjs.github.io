@@ -3,6 +3,7 @@
 title: Parametric
 longtitle: WHS.Parametric
 category: Meshes
+icon: parametric_class.png
 
 tags:
  - three.js

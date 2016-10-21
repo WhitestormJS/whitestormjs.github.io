@@ -3,6 +3,7 @@
 title: Shape
 longtitle: WHS.Shape
 category: Meshes
+icon: shape_class.png
 
 tags:
  - three.js

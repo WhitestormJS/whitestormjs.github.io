@@ -3,6 +3,7 @@
 title: Ring
 longtitle: WHS.Ring
 category: Meshes
+icon: ring_class.png
 
 tags:
  - three.js
