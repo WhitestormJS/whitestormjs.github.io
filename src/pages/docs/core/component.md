@@ -5,7 +5,7 @@ longtitle: WHS.Component
 category: Core
 
 featured:
-  title: WHS.Component
+  title: Components
   describe: Have you ever heard about component system, reactJS and es6 modules? Now it's time to deep in modular apps with cool interaction.
   image: component.png
 

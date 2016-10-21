@@ -1,6 +1,6 @@
 ---
 
-title: Box [TODO]
+title: Box
 longtitle: WHS.Box
 category: Meshes
 
@@ -14,7 +14,9 @@ tags:
  - webgl
  - 3d
  - core
- - decorators
+ - component
+ - MeshComponent
+ - box
 
 ---
 

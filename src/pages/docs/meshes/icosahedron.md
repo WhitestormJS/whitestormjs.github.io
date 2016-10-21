@@ -1,6 +1,6 @@
 ---
 
-title: Icosahderon [TODO]
+title: Icosahderon
 longtitle: WHS.Icosahderon
 category: Meshes
 
@@ -9,60 +9,42 @@ tags:
  - webgl
  - 3d
  - core
- - decorators
+ - component
+ - MeshComponent
+ - icosahedron
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Icosahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In geometry, an **icosahedron** is a polyhedron with 20 faces.
+There are many kinds of icosahedra, with some being more symmetrical than others. The most well known is the Platonic, convex regular icosahedron.
+
+`WHS.Icosahedron` creates Icosahedron object by it's `radius` and `detail`.
+
 
 ```javascript
 
-import * as THREE from 'three';
+const icosahedron = new WHS.Icosahedron({
+  geometry: {
+    radius: 2,
+    detail: 1
+  },
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  mass: 10,
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  position: {
+    x: 0,
+    y: 100,
+    z: 0
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
+icosahedron.addTo(world);
 
 ```
