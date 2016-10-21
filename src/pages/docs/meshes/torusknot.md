@@ -1,6 +1,6 @@
 ---
 
-title: Torusknot [TODO]
+title: Torusknot
 longtitle: WHS.Torusknot
 category: Meshes
 
@@ -8,61 +8,34 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - torusknot
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Torusknot` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
+
+`WHS.Torusknot` class makes a torusknot figure. It's like crooked donut, very crooked.
 
 ```javascript
+const torusknot = new WHS.Torusknot({
+  geometry: {
+    radius:5,
+    tube: 2
+  },
 
-import * as THREE from 'three';
+  mass: 10,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  material: {
+    kind: "phong",
+    color: 0xffffff
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  pos: {
+    y: 100
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+torusknot.addTo(world);
 ```

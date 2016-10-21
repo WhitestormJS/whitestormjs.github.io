@@ -1,68 +1,38 @@
 ---
 
-title: Plane [TODO]
+title: Plane
 longtitle: WHS.Plane
 category: Meshes
 
 tags:
  - three.js
  - webgl
- - 3d
  - core
- - decorators
+ - component
+ - MeshComponent
+ - plane
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Plane` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+`WHS.Plane` class is used for creating planes by it's `width` and `height`.
+
 
 ```javascript
+const plane = new WHS.Plane({
+  geometry: {
+    width: 20,
+    height: 30
+  },
 
-import * as THREE from 'three';
+  mass: 0,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
-
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  material: {
+    color: 0xff0000,
+    kind: 'basic'
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+plane.addTo(world);
 ```

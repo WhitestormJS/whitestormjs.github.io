@@ -1,68 +1,49 @@
 ---
 
-title: Ring [TODO]
+title: Ring
 longtitle: WHS.Ring
 category: Meshes
 
 tags:
  - three.js
  - webgl
- - 3d
- - core
- - decorators
+ - 2d
+ - component
+ - MeshComponent
+ - polyhedron
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+
+`WHS.Ring` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
+
+`WHS.Ring` class makes a circle or just 2D <a href="#torus">`WHS.Torus`</a> that doesn't support physics.
 
 ```javascript
+const ring = new WHS.Ring({
+  geometry: {
+    innerRadius: 5,
+    outerRadius: 2
+  },
 
-import * as THREE from 'three';
+  mass: 0,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  material: {
+    kind: 'basic',
+    color: 0xffffff,
+    side: THREE.DoubleSide
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+  position: {
+    x: 0,
+    y: 8,
+    z: 0
+  },
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  rotation: {
+    x: Math.PI/4
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+ring.addTo(world);
 ```

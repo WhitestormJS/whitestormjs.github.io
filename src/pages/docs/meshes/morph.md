@@ -1,6 +1,6 @@
 ---
 
-title: Morph [TODO]
+title: Morph
 longtitle: WHS.Morph
 category: Meshes
 
@@ -8,61 +8,38 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - morph
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Morph` is a class for loading animated models or meshes.
+
+`WHS.Morph` is used for creating animated object's that doesn't support physics. Off course you can make your own class, based on `WHS.MeshComponent` that will run animation and support physics. But you will need to update your geometry in Physi.js each time you update anmation. Physi.js currently provides physic only for static geometries.
 
 ```javascript
+const morph = new WHS.Morph( {
+  geometry: {
+    path: "assets/models/morph/parrot.js"
+  },
 
-import * as THREE from 'three';
+  material: {
+    kind: 'basic',
+    useVertexColors: true
+  },
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  scale: {
+    x: 0.1,
+    y: 0.1,
+    z: 0.1
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  morph: {
+    duration: 0.5,
+    speed: 250
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+morph.addTo(world);
 ```

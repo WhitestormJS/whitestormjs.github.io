@@ -1,68 +1,48 @@
 ---
 
-title: Shape [TODO]
+title: Shape
 longtitle: WHS.Shape
 category: Meshes
 
 tags:
  - three.js
  - webgl
- - 3d
- - core
- - decorators
+ - 2d
+ - component
+ - MeshComponent
+ - shape
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Shape` is an universal class, that allows you create different 2D shapes in 3D scene. Unfortunately, all of them don't support physics, so you can make a similar 3D obect and scale it width to be near zero.
+
+`WHS.Shape` consist of shapes that are in `shapes` parameter.
 
 ```javascript
 
-import * as THREE from 'three';
+const rectWidth = 10,
+  rectLength = 5;
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+const rectShape = new THREE.Shape();
+rectShape.moveTo(0,0);
+rectShape.lineTo(0, rectWidth);
+rectShape.lineTo(rectLength, rectWidth);
+rectShape.lineTo(rectLength, 0);
+rectShape.lineTo(0, 0);
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+const plane = new WHS.Shape({
+  geometry: {
+    shape: rectShape
+  },
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
+  mass: 0,
 
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  material: {
+    color: 0xff0000,
+    kind: 'basic'
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
+plane.addTo(world);
 
 ```

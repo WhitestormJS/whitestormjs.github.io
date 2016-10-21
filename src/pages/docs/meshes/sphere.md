@@ -1,6 +1,6 @@
 ---
 
-title: Sphere [TODO]
+title: Sphere
 longtitle: WHS.Sphere
 category: Meshes
 
@@ -8,61 +8,37 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - sphere
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Sphere` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+`WHS.Sphere` class is used to create sphere objects by it's `radius` property and other values that determinates it's detality.
+
+It is similar to `THREE.SphereGeometry`, but it also contain's all properties, applied by `WHS.Shape`, such as material, mass and vectors like position (pos) and rotation (rot).
+
+Then it creates an `Three.js mesh` or a `Physijs mesh`, that is similar to `Three.js mesh`, but it also participates in collision calculations. This mesh is a combination of `Three.js geometry` and `Physijs material` (The same as in three.js, but with friction and restitution).
 
 ```javascript
+const sphere = new WHS.Sphere({
+  geometry: {
+    radius: 2
+  },
 
-import * as THREE from 'three';
+  mass: 10,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  material: {
+    color: 0xffffff,
+    kind: 'lambert'
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  position: {
+    y: 100
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+sphere.addTo(world);
 ```

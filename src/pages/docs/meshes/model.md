@@ -1,6 +1,6 @@
 ---
 
-title: Model [TODO]
+title: Model
 longtitle: WHS.Model
 category: Meshes
 
@@ -9,60 +9,49 @@ tags:
  - webgl
  - 3d
  - core
- - decorators
+ - component
+ - MeshComponent
+ - model
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+Model class loads geometry from `JSON` file by url as it's material, but material you can replace with your own. Just add `useCustomMaterial` property with `true` value in `material` parameter object. This class should be used if none of other simple classes can generate such geometry or you basically need to load your custom geometry, that can be for example car or teapot model. 
+
+- [Basic Model example](http://192.241.128.187/current/examples/basic/model/)
+- [Example with several models of different types](http://192.241.128.187/current/examples/design/easter/)
 
 ```javascript
+const teapot = new WHS.Model({
+  geometry: {
+    path: "assets/models/utah-teapot-large.json",
+    physics: "assets/models/utah-teapot-light.json"
+  },
 
-import * as THREE from 'three';
+  mass: 10,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  material: {
+    vertexColors: THREE.VertexColors,
+    shading: THREE.SmoothShading,
+    map: WHS.texture('assets/textures/teapot.jpg', {repeat:{x: 2, y:2}}),
+    kind: 'phong',
+    side: THREE.DoubleSide,
+    useCustomMaterial: true,
+    rest: 0,
+    fri: 1
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+  pos: {
+    x: 0,
+    y: 100,
+    z: 0
+  },
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  scale: {
+    x: 4,
+    y: 4,
+    z: 4
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+teapot.addTo(world);
 ```

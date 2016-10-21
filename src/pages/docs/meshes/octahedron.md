@@ -1,6 +1,6 @@
 ---
 
-title: Octahedron [TODO]
+title: Octahedron
 longtitle: WHS.Octahedron
 category: Meshes
 
@@ -8,61 +8,39 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - octahedron
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Octahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
+
+In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular octahedron is a Platonic solid composed of eight equilateral triangles, four of which meet at each vertex.
+
+`WHS.Octahedron` creates Octahedron object by it's `radius` and `detail`.
+
 
 ```javascript
+const octahedron = new WHS.Octahedron({
+  geometry: {
+    radius: 2,
+    detail: 1
+  },
 
-import * as THREE from 'three';
+  mass: 10,
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  material: {
+    color: 0xffffff,
+    kind: 'basic'
+  },
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+  position: {
+    x: 0,
+    y: 100,
+    z: 0
   }
+});
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+octahedron.addTo(world);
 ```

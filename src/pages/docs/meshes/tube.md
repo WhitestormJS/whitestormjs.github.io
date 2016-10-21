@@ -1,6 +1,6 @@
 ---
 
-title: Tube [TODO]
+title: Tube
 longtitle: WHS.Tube
 category: Meshes
 
@@ -8,61 +8,45 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - tube
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Tube` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
+
+`WHS.Tube` class makes a tube that extrudes along a 3d curve.
 
 ```javascript
+const CustomSinCurve = THREE.Curve.create(
+  function (scale) { // custom curve constructor
+    this.scale = (scale === undefined) ? 1 : scale;
+  },
 
-import * as THREE from 'three';
+  function ( t ) { // getPoint: t is between 0-1
+    const tx = t * 3 - 1.5,
+        ty = Math.sin( 2 * Math.PI * t ),
+        tz = 0;
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
-
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
+    return new THREE.Vector3(tx, ty, tz).multiplyScalar(this.scale);
   }
+);
 
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
+const path = new CustomSinCurve( 10 );
 
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
+const tube = new WHS.Tube({
+  geometry: {
+    path: path
+  },
 
-      resolve();
-    });
+  mass: 0,
+
+  material: {
+    color: 0x0000ff,
+    kind: 'lambert'
   }
+});
 
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+tube.addTo(world);
 ```

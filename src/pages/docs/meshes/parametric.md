@@ -1,6 +1,6 @@
 ---
 
-title: Parametric [TODO]
+title: Parametric
 longtitle: WHS.Parametric
 category: Meshes
 
@@ -8,61 +8,46 @@ tags:
  - three.js
  - webgl
  - 3d
- - core
- - decorators
+ - component
+ - MeshComponent
+ - parametric
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+`WHS.Parametric` generates a geometry representing [Parametric surface](https://en.wikipedia.org/wiki/Parametric_surface)
+
+It is usually used to develop different kinds of highfields or [visualize a math function](https://stemkoski.github.io/Three.js/Graphulus-Function.html).
+
+ - [Parametric surface](http://math.hws.edu/graphicsbook/source/threejs/curves-and-surfaces.html)
+ - ["Graphulus"](https://stemkoski.github.io/Three.js/Graphulus-Surface.html)
+
+Example will create heightfield-like geometry. `u` and `v` are like `x` and `y` in shape, but their values are always from `0` to `1`.
+We use them in `THREE.Vector3` like `x` and `z` and `Math.random() * 5` for `y`.
 
 ```javascript
-
-import * as THREE from 'three';
-
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
-
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
-
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
-
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
-  }
-
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
+const createParametric = (u, v) => {
+  return new THREE.Vector3(u * 30, Math.random() * 5, v * 30);
 }
 
-export {
-  BasicSphere
-};
+const parametric = new WHS.Parametric({
+  geometry: {
+    func: createParametric
+  },
 
+  mass: 10,
+
+  material: {
+    kind: 'lambert',
+    color: 0xffffff,
+    side: THREE.DoubleSide
+  },
+
+  position: {
+    x: 0,
+    y: 100,
+    z: -10
+  }
+});
+
+parametric.addTo(world);
 ```
