@@ -88,6 +88,10 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
         margin: 0 10px;
       }
 
+      &.active  {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
       .category-fold {
         background: url(../images/left-arrow.png);
         transform: rotate(-90deg);

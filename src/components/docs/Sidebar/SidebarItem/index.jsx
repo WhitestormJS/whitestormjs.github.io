@@ -44,7 +44,7 @@ export class Category extends Component {
   render() {
     return (
       <div>
-      <span className='category-title' onClick={this.triggerFold.bind(this)}>
+      <span className={this.props.isActive ? 'category-title active' : 'category-title'} onClick={this.triggerFold.bind(this)}>
         {
           this.props.icon ?
           (<img src={require('../../../../images/docs/icons/' + this.props.icon)} />)

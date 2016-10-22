@@ -30,7 +30,7 @@ export default class Sidebar extends Component {
           } />
 
           {_.map(categories[0], (data, i) => (
-            <Match key={i} pattern={'/api/' + data[1]} children={({matched}) =>
+            <Match key={i} pattern={prefix + data[1]} children={({matched}) =>
               <Item link={prefix + data[1]} title={data[0][1].title}
                 active={matched}
                 icon={data[0][1].icon ? data[0][1].icon : false}
@@ -43,7 +43,13 @@ export default class Sidebar extends Component {
 
             _.map(data, (page, i) => {
               isActive = matchPattern(
-                '/api/' + page[1],
+                prefix + page[1],
+                window.location,
+                false
+              ) ? true : isActive;
+
+              isActive = matchPattern(
+                prefix + key + '/' + page[1],
                 window.location,
                 false
               ) ? true : isActive;
@@ -58,10 +64,10 @@ export default class Sidebar extends Component {
                 isActive={isActive}
               >
                 {_.map(data, (page, i) => (
-                  <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
-                    <Item link={prefix + page[1]} title={page[0][1].title}
+                  <Match key={i} pattern={prefix + key + '/' + page[1]} children={({matched}) =>
+                    <Item link={prefix + key + '/' + page[1]} title={page[0][1].title}
                       active={matched}
-                      icon={page[0][1].icon ? page[0][1].icon : false}
+                      icon={this.props.categories[key].noExtend ? page[0][1].icon : this.props.categories[key].icon}
                     />
                   } />
                 ))}

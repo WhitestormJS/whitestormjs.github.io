@@ -168,6 +168,21 @@ const pages = {
     'orbit': [
       removeYaml(require('raw!./controls/orbit.md')),
       require('markdown-with-front-matter!./controls/orbit.md')
+    ],
+
+    // Utils
+
+    'extend': [
+      removeYaml(require('raw!./utils/extend.md')),
+      require('markdown-with-front-matter!./utils/extend.md')
+    ],
+    'texture': [
+      removeYaml(require('raw!./utils/texture.md')),
+      require('markdown-with-front-matter!./utils/texture.md')
+    ],
+    'loadMaterial': [
+      removeYaml(require('raw!./utils/loadMaterial.md')),
+      require('markdown-with-front-matter!./utils/loadMaterial.md')
     ]
   }
 }
@@ -178,7 +193,8 @@ const categories = {
       icon: 'core.png'
     },
     'Meshes': {
-      icon: 'meshes.png'
+      icon: 'meshes.png',
+      noExtend: true
     },
     'Lights': {
       icon: 'lights.png'
@@ -188,6 +204,9 @@ const categories = {
     },
     'Controls': {
       icon: 'controls.png'
+    },
+    'Utils': {
+      icon: 'utils.png'
     }
   }
 }

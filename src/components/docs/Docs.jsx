@@ -19,8 +19,8 @@ export class DocsPage extends Component {
   render() {
     return (
       <div>
-        <Sidebar pages={PAGES.docs} categories={categories.docs} title="API" />
-        <Content page={PAGES.docs[this.props.params.name]} />
+        <Sidebar pages={PAGES.docs} categories={categories.docs} title="API" prefix="/api/" />
+        <Content page={PAGES.docs[this.props.params.name.replace(/.*\//, '')]} />
       </div>
     )
   }

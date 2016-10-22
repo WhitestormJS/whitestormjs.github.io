@@ -20,7 +20,8 @@ class AppComponent extends React.Component {
 
           <Match exactly pattern="/" component={TableCompare} />
           <Match exactly pattern="/api" component={Docs} />
-          <Match pattern="/api/:name" component={DocsPage} />
+          <Match exactly pattern="/api/:cat/:name" component={DocsPage} />
+          <Match exactly pattern="/api/:name" component={DocsPage} />
         </div>
       </BrowserRouter>
     );
