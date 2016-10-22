@@ -157,6 +157,17 @@ const pages = {
     'cube_camera': [
       removeYaml(require('raw!./cameras/cube_camera.md')),
       require('markdown-with-front-matter!./cameras/cube_camera.md')
+    ],
+
+    // Controls
+
+    'first-person': [
+      removeYaml(require('raw!./controls/first-person.md')),
+      require('markdown-with-front-matter!./controls/first-person.md')
+    ],
+    'orbit': [
+      removeYaml(require('raw!./controls/orbit.md')),
+      require('markdown-with-front-matter!./controls/orbit.md')
     ]
   }
 }
@@ -174,6 +185,9 @@ const categories = {
     },
     'Cameras': {
       icon: 'camera.png'
+    },
+    'Controls': {
+      icon: 'controls.png'
     }
   }
 }
