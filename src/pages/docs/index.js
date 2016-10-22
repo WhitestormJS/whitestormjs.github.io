@@ -119,6 +119,29 @@ const pages = {
     'tube': [
       removeYaml(require('raw!./meshes/tube.md')),
       require('markdown-with-front-matter!./meshes/tube.md')
+    ],
+
+    // Lights
+
+    'ambient_light': [
+      removeYaml(require('raw!./lights/ambient_light.md')),
+      require('markdown-with-front-matter!./lights/ambient_light.md')
+    ],
+    'directional_light': [
+      removeYaml(require('raw!./lights/directional_light.md')),
+      require('markdown-with-front-matter!./lights/directional_light.md')
+    ],
+    'hemisphere_light': [
+      removeYaml(require('raw!./lights/hemisphere_light.md')),
+      require('markdown-with-front-matter!./lights/hemisphere_light.md')
+    ],
+    'point_light': [
+      removeYaml(require('raw!./lights/point_light.md')),
+      require('markdown-with-front-matter!./lights/point_light.md')
+    ],
+    'spot_light': [
+      removeYaml(require('raw!./lights/spot_light.md')),
+      require('markdown-with-front-matter!./lights/spot_light.md')
     ]
   }
 }
