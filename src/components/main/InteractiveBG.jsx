@@ -6,26 +6,41 @@ export default class Background extends Component {
     color: '#29acff'
   };
 
-  state = {
-    granimInstance: null
-  };
-
   componentDidMount() {
-    this.setState({granimInstance: new Granim({
-        element: '#background',
-        name: 'granim',
-        opacity: [1, 0.2, 1],
-        direction: 'diagonal',
-        states : {
-          'default-state': {
-            gradients: [
-              // ['#262c38', '#262c38', '#b8e361'], // Green
-              ['#262c38', '#262c38', this.props.color] // Blue
-            ]
-          }
+    window.granimInstance = new Granim({
+      element: '#background',
+      name: 'granim',
+      opacity: [1, 0.2, 1],
+      stateTransitionSpeed: 300,
+      direction: 'diagonal',
+      states : {
+        'default-state': {
+          gradients: [
+            ['#262c38', '#262c38', this.props.color]
+          ]
+        },
+        'main': {
+          gradients: [
+            ['#262c38', '#262c38', '#29acff'] // Blue
+          ]
+        },
+        'api': {
+          gradients: [
+            ['#262c38', '#262c38', '#b8e361'] // Green
+          ]
+        },
+        'contrib': {
+          gradients: [
+            ['#262c38', '#262c38', '#9b61e3'] // Green
+          ]
+        },
+        'team': {
+          gradients: [
+            ['#262c38', '#262c38', '#ffae54'] // Green
+          ]
         }
-      })
-    });
+      }
+    })
   }
 
   render() {
