@@ -142,10 +142,43 @@ const pages = {
     'spot_light': [
       removeYaml(require('raw!./lights/spot_light.md')),
       require('markdown-with-front-matter!./lights/spot_light.md')
+    ],
+
+    // Cameras
+
+    'perspective_camera': [
+      removeYaml(require('raw!./cameras/perspective_camera.md')),
+      require('markdown-with-front-matter!./cameras/perspective_camera.md')
+    ],
+    'ortographic_camera': [
+      removeYaml(require('raw!./cameras/ortographic_camera.md')),
+      require('markdown-with-front-matter!./cameras/ortographic_camera.md')
+    ],
+    'cube_camera': [
+      removeYaml(require('raw!./cameras/cube_camera.md')),
+      require('markdown-with-front-matter!./cameras/cube_camera.md')
     ]
   }
 }
 
+const categories = {
+  docs: {
+    'Core': {
+      icon: 'core.png'
+    },
+    'Meshes': {
+      icon: 'meshes.png'
+    },
+    'Lights': {
+      icon: 'lights.png'
+    },
+    'Cameras': {
+      icon: 'camera.png'
+    }
+  }
+}
+
 export {
-  pages as default
+  pages as default,
+  categories
 };

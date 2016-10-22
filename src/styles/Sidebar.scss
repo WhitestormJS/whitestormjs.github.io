@@ -72,7 +72,6 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
 
     span.category-title {
       font-family: $font-mont;
-      font-size: 14pt;
       margin-left: -2px;
       border-left: 4px solid white;
       box-shadow: inset 20px 0px 20px -22px $docs-color, -16px 0px 20px -16px $docs-color;
@@ -83,6 +82,11 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
       color: white;
       // margin: 15px 0 0 0px;
       cursor: pointer;
+
+      img {
+        width: 12px;
+        margin: 0 10px;
+      }
 
       .category-fold {
         background: url(../images/left-arrow.png);

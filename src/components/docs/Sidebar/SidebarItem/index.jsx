@@ -45,6 +45,11 @@ export class Category extends Component {
     return (
       <div>
       <span className='category-title' onClick={this.triggerFold.bind(this)}>
+        {
+          this.props.icon ?
+          (<img src={require('../../../../images/docs/icons/' + this.props.icon)} />)
+          : null
+        }
         {this.props.title}
         <div className={`category-fold ${this.state['folded-' + this.props.id] ? 'folded' : ''}`}
         style={{transition: `all ${0.15 + 0.01 * this.props.children.length}s linear`}}></div>

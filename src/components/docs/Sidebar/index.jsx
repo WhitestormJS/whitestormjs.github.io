@@ -50,7 +50,13 @@ export default class Sidebar extends Component {
             });
 
             return (
-              <Category title={key} key={key} id={key} isActive={isActive}>
+              <Category
+                title={key}
+                icon={this.props.categories[key] ? this.props.categories[key].icon : false}
+                key={key}
+                id={key}
+                isActive={isActive}
+              >
                 {_.map(data, (page, i) => (
                   <Match key={i} pattern={'/api/' + page[1]} children={({matched}) =>
                     <Item link={prefix + page[1]} title={page[0][1].title}
