@@ -22,7 +22,7 @@ export default class Sidebar extends Component {
     const prefix = this.props.prefix || '';
 
     return (
-      <div className="sidebar">
+      <div className={this.props.className + ' sidebar'}>
         <h1>{this.props.title}</h1>
         <ul>
           <Match key="main" exactly pattern="/api" children={({matched}) =>

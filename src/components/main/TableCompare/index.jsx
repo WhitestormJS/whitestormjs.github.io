@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import TableItem from './TableItem';
+import { RouteTransition } from 'react-router-transition';
 
 export default class TableCompare extends Component {
   render() {
     return (
+      <RouteTransition
+        pathname={this.props.location.pathname}
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+      >
       <div className="features">
         <TableItem
         name="Built-in physics"
@@ -36,6 +43,7 @@ export default class TableCompare extends Component {
           'Easiest Hello World example'
         ]} />
       </div>
+      </RouteTransition>
     )
   }
 }

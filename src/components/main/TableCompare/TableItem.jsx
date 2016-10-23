@@ -9,7 +9,7 @@ export default class TableItem extends Component {
         <h1>{this.props.name}</h1>
         <ul>
           {_.map(this.props.list, item => (
-            <li dangerouslySetInnerHTML={{__html: item}}></li>
+            <li key={item} dangerouslySetInnerHTML={{__html: item}}></li>
           ))}
         </ul>
       </div>

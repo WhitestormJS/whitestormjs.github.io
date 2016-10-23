@@ -3,12 +3,12 @@ import 'styles/App.scss';
 
 import React from 'react';
 import {BrowserRouter, Match, Miss} from 'react-router';
-// import { RouteTransition } from 'react-router-transition';
 import Header from './main/Header';
-import {Docs, DocsPage} from './docs/Docs';
+import {DocsMain, DocsSidebar, DocsPage} from './docs/Docs';
 import {Contribute} from './contribute/index';
 import Background from './main/InteractiveBG';
 import TableCompare from './main/TableCompare';
+
 
 class AppComponent extends React.Component {
   render() {
@@ -21,11 +21,12 @@ class AppComponent extends React.Component {
           <Miss component={Background} />
           <Header />
 
-          <Match exactly pattern="/" component={TableCompare} />
-          <Match exactly pattern="/api" component={Docs} />
-          <Match exactly pattern="/api/:cat/:name" component={DocsPage} />
-          <Match exactly pattern="/api/:name" component={DocsPage} />
-          <Match exactly pattern="/contribute" component={Contribute} />
+            <Match exactly pattern="/" component={TableCompare} />
+            <Match pattern="/api" component={DocsSidebar} />
+            <Match exactly pattern="/api" component={DocsMain} />
+            <Match exactly pattern="/api/:cat/:name" component={DocsPage} />
+            <Match exactly pattern="/api/:name" component={DocsPage} />
+            <Match exactly pattern="/contribute" component={Contribute} />
 
         </div>
       </BrowserRouter>
