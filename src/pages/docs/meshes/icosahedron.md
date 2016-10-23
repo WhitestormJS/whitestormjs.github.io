@@ -4,6 +4,9 @@ title: Icosahderon
 longtitle: WHS.Icosahderon
 category: Meshes
 icon: icosahedron_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

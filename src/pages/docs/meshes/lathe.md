@@ -4,6 +4,9 @@ title: Lathe
 longtitle: WHS.Lathe
 category: Meshes
 icon: lathe_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

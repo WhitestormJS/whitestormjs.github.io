@@ -25,8 +25,24 @@ export default class Content extends Component {
           </div>
         : null
         }
-
         <div className="content-body">
+          {_.isBoolean(pageData.wip) ?
+            <span className="wip">This page is <u>in development</u></span> : null
+          }
+          {_.isString(pageData.wip) ?
+            <span className="wip">This page is <u>in development</u><br />
+              <p>{pageData.wip}</p>
+            </span>
+            : null
+          }
+          {_.isArray(pageData.wip) ?
+            <span className="wip">This page is <u>in development</u><br />
+              <ul>
+                {_.map(pageData.wip, v => (<li>{v}</li>))}
+              </ul>
+            </span>
+            : null
+          }
           <ReactMarkdown source={this.props.page[0]} renderers={Object.assign(ReactMarkdown.renderers, {
             CodeBlock: CodeBlock
           })} />

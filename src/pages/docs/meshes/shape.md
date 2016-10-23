@@ -4,6 +4,9 @@ title: Shape
 longtitle: WHS.Shape
 category: Meshes
 icon: shape_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

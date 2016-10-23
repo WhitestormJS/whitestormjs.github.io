@@ -1,68 +1,42 @@
 ---
 
-title: Line [TODO]
+title: Line
 longtitle: WHS.Line
 category: Meshes
+wip: 
+ - Add a properties table
+ - Add more information
 
 tags:
  - three.js
  - webgl
  - 3d
  - core
- - decorators
+ - component
+ - MeshComponent
+ - line
 
 ---
 
-Component is a main class which is commonly used in core parts of WhitestormJS framework.
+Usage as a rope (`softbody:true`):
 
 ```javascript
+const rope1 = new WHS.Line({
+  geometry: {
+    curve: new THREE.LineCurve3(sphereStart.position.clone(), new THREE.Vector3(10, 30, 0))
+  },
 
-import * as THREE from 'three';
+  physics: {
+    piterations: 10,
+    viterations: 10
+  },
 
-// Basic component class.
-import {Component} from 'whitestormjs/core/Component';
-// Decorator for THREE.Mesh for component class.
-import MeshComponent from 'whitestormjs/core/MeshComponent';
-// Some utils that should help.
-import {extend, loadMaterial} from 'whitestormjs/utils/index';
+  mass: 1,
 
-@MeshComponent
-class BasicSphere extends Component {
-  constructor(params = {}) {
-    super(params, BasicSphere.defaults);
+  softbody: true
+});
 
-    extend(params, {
-      myParameter: 10 // Default for myParameter. (Sphere radius)
-    });
+rope1.addTo(GAME);
 
-    if (params.build) { // params.build is "true" by default. (@MeshComponent)
-      this.build(params);
-      // Apply position & rotation, scale ...
-      super.wrap();
-    }
-  }
-
-  build(params = {}) {
-    // Load THREE.Material from properties.
-    const material = loadMaterial(params.material);
-
-    return new Promise((resolve) => {
-      this.native = new THREE.Mesh(
-        new THREE.SphereGeometry(params.myParameter, 16, 16),
-        material
-      );
-
-      resolve();
-    });
-  }
-
-  clone() {
-    return new BasicSphere({build: false}).copy(this);
-  }
-}
-
-export {
-  BasicSphere
-};
-
+rope1.appendAnchor(GAME, toptube, 50, 1);
 ```

@@ -4,6 +4,9 @@ title: Torus
 longtitle: WHS.Torus
 category: Meshes
 icon: torus_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

@@ -4,6 +4,9 @@ title: Ring
 longtitle: WHS.Ring
 category: Meshes
 icon: ring_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

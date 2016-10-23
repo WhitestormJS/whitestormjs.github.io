@@ -3,6 +3,9 @@
 title: PerspectiveCamera
 longtitle: WHS.PerspectiveCamera
 category: Cameras
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js
@@ -15,7 +18,7 @@ tags:
 
 ---
 
-(TODO)
+Camera with perspective projection.
 
 ```javascript
 const camera = new WHS.PerspectiveCamera({

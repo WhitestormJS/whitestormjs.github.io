@@ -3,7 +3,10 @@
 title: .loadMaterial()
 longtitle: WHS.loadMaterial()
 category: Utils
-
+wip: 
+ - Add more info
+ - Add examples
+ 
 tags:
  - utils
  - loadMaterial

@@ -4,6 +4,9 @@ title: Octahedron
 longtitle: WHS.Octahedron
 category: Meshes
 icon: octahedron_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

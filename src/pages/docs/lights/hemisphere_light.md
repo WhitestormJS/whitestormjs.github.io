@@ -3,6 +3,9 @@
 title: HemisphereLight
 longtitle: WHS.HemisphereLight
 category: Lights
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

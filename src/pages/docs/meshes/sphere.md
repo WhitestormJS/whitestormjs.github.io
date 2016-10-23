@@ -4,6 +4,9 @@ title: Sphere
 longtitle: WHS.Sphere
 category: Meshes
 icon: sphere_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

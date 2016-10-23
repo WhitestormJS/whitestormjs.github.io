@@ -3,6 +3,9 @@
 title: AmbientLight
 longtitle: WHS.AmbientLight
 category: Lights
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

@@ -3,6 +3,9 @@
 title: firstPersonControls
 longtitle: WHS.firstPersonControls
 category: Controls
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - controls

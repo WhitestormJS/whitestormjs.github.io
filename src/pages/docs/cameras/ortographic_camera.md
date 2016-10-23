@@ -3,6 +3,9 @@
 title: OrtographicCamera
 longtitle: WHS.OrtographicCamera
 category: Cameras
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

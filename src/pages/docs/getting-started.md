@@ -7,6 +7,8 @@ featured:
   describe: In this article you will find useful information about WhitestormJS framework and it's usage.
   image: getting-started.png
 
+wip: Rewrite structure
+
 tags:
  - three.js
  - webgl

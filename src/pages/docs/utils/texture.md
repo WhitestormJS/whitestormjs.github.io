@@ -3,7 +3,10 @@
 title: .texture()
 longtitle: WHS.texture()
 category: Utils
-
+wip: 
+ - Add more info
+ - Add examples
+ 
 tags:
  - utils
  - texture

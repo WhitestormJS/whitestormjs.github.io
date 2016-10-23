@@ -4,6 +4,9 @@ title: Text
 longtitle: WHS.Text
 category: Meshes
 icon: text_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

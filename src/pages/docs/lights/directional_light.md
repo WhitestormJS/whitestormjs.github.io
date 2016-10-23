@@ -3,6 +3,9 @@
 title: DirectionalLight
 longtitle: WHS.DirectionalLight
 category: Lights
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

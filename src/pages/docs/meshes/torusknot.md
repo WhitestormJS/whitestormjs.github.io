@@ -3,6 +3,9 @@
 title: Torusknot
 longtitle: WHS.Torusknot
 category: Meshes
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

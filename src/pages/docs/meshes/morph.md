@@ -3,6 +3,9 @@
 title: Morph
 longtitle: WHS.Morph
 category: Meshes
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

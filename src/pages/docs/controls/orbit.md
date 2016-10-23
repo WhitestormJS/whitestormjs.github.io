@@ -3,6 +3,9 @@
 title: orbitControls
 longtitle: WHS.orbitControls
 category: Controls
+wip: 
+ - Add a properties table
+ - Add more info
 
 tags:
  - controls

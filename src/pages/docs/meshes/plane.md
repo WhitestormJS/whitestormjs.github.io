@@ -4,6 +4,9 @@ title: Plane
 longtitle: WHS.Plane
 category: Meshes
 icon: plane_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

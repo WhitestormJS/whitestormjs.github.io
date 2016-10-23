@@ -4,6 +4,9 @@ title: Box
 longtitle: WHS.Box
 category: Meshes
 icon: box_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 featured:
   title: Box

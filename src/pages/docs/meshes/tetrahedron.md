@@ -4,6 +4,9 @@ title: Tetrahedron
 longtitle: WHS.Tetrahedron
 category: Meshes
 icon: tetrahedron_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

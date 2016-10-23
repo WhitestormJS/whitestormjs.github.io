@@ -4,6 +4,9 @@ title: Polyhedron
 longtitle: WHS.Polyhedron
 category: Meshes
 icon: polyhedron_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

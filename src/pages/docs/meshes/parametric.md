@@ -4,6 +4,9 @@ title: Parametric
 longtitle: WHS.Parametric
 category: Meshes
 icon: parametric_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

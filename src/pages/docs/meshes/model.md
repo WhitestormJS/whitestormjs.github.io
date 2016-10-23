@@ -4,6 +4,9 @@ title: Model
 longtitle: WHS.Model
 category: Meshes
 icon: model_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

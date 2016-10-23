@@ -3,6 +3,9 @@
 title: CubeCamera
 longtitle: WHS.CubeCamera
 category: Cameras
+wip: 
+ - Add a properties table
+ - Add more info
 
 tags:
  - three.js

@@ -4,6 +4,9 @@ title: Tube
 longtitle: WHS.Tube
 category: Meshes
 icon: tube_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

@@ -4,6 +4,9 @@ title: Extrude
 longtitle: WHS.Extrude
 category: Meshes
 icon: extrude_class.png
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

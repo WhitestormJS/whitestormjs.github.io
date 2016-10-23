@@ -3,6 +3,9 @@
 title: PointLight
 longtitle: WHS.PointLight
 category: Lights
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js

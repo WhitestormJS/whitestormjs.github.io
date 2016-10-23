@@ -3,6 +3,9 @@
 title: SpotLight
 longtitle: WHS.SpotLight
 category: Lights
+wip: 
+ - Add a properties table
+ - Rewrite
 
 tags:
  - three.js
