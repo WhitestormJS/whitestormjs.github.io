@@ -52,6 +52,10 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
         background: rgba(255, 255, 255, 0.05);
       }
 
+      &:active {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
       &.active  {
         background: rgba(255, 255, 255, 0.1);
         border-left: 6px solid white;
