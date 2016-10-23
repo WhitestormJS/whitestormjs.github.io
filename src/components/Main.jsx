@@ -6,6 +6,7 @@ import {BrowserRouter, Match, Miss} from 'react-router';
 // import { RouteTransition } from 'react-router-transition';
 import Header from './main/Header';
 import {Docs, DocsPage} from './docs/Docs';
+import {Contribute} from './contribute/index';
 import Background from './main/InteractiveBG';
 import TableCompare from './main/TableCompare';
 
@@ -16,6 +17,7 @@ class AppComponent extends React.Component {
         <div>
           <Match exactly pattern="/" component={Background} />
           <Match pattern="/api" render={() => (<Background color='#B8E361'/>)} />
+          <Match pattern="/contribute" render={() => (<Background color='#9b61e3'/>)} />
           <Miss component={Background} />
           <Header />
 
@@ -23,6 +25,8 @@ class AppComponent extends React.Component {
           <Match exactly pattern="/api" component={Docs} />
           <Match exactly pattern="/api/:cat/:name" component={DocsPage} />
           <Match exactly pattern="/api/:name" component={DocsPage} />
+          <Match exactly pattern="/contribute" component={Contribute} />
+
         </div>
       </BrowserRouter>
     );

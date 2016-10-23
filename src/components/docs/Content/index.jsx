@@ -8,11 +8,11 @@ export default class Content extends Component {
   render() {
     const pageData = this.props.page[1];
     return (
-      <div className="content">
+      <div className={this.props.className ? this.props.className + ' content' : 'content'}>
         <h1 className={pageData.icon ? 'purple' : ''}>
           {pageData.longtitle ? pageData.longtitle : pageData.title}
           {
-            pageData.icon ?
+            _.isString(pageData.icon) ?
             (<img src={require('../../../images/docs/icons/' + pageData.icon)} />) : null
           }
         </h1>

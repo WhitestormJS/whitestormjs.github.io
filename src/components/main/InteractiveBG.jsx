@@ -31,12 +31,12 @@ export default class Background extends Component {
         },
         'contrib': {
           gradients: [
-            ['#262c38', '#262c38', '#9b61e3'] // Green
+            ['#262c38', '#262c38', '#9b61e3'] // Purple
           ]
         },
         'team': {
           gradients: [
-            ['#262c38', '#262c38', '#ffae54'] // Green
+            ['#262c38', '#262c38', '#ffae54'] // Orange
           ]
         }
       }

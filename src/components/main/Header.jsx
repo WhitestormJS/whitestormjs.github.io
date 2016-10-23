@@ -25,7 +25,7 @@ export default class Header extends Component {
           <a target="_blank" href="https://discord.gg/5yNCvC4" style={{padding:'0 20px'}}><img src={require('../../images/discord.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
           <a target="_blank" href="https://github.com/WhitestormJS/whitestorm.js" className="inverted">GitHub</a>
           <Link to="/api" {...linkEvents('api')}>API</Link>
-          <Link to="/contributors" {...linkEvents('contrib')}>Contribute</Link>
+          <Link to="/contribute" {...linkEvents('contrib')}>Contribute</Link>
           <Link to="/team" {...linkEvents('team')}>Developers</Link>
         </div>
       </header>
