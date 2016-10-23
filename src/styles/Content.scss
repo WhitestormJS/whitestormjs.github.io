@@ -59,6 +59,15 @@ $font-elec: 'Electrolize', sans-serif;
     padding: 20px 50px;
     color: white;
 
+    .midimg {
+      max-width: 700px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 700px;
+    }
+
     .wip {
       color: #ff5454;
       font-weight: bold;
@@ -196,8 +205,8 @@ $font-elec: 'Electrolize', sans-serif;
 
     p {
       // color: #eee;
-      text-align: justify;
-      text-justify: inter-word;
+      // text-align: justify;
+      // text-justify: inter-word;
       font-family: $font-vare;
       margin: 10px 0;
       line-height: 1.5;
