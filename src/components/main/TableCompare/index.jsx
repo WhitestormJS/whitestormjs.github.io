@@ -5,6 +5,7 @@ import { RouteTransition } from 'react-router-transition';
 export default class TableCompare extends Component {
   render() {
     return (
+      <div>
       <RouteTransition
         pathname={this.props.location.pathname}
         atEnter={{ opacity: 0 }}
@@ -44,6 +45,16 @@ export default class TableCompare extends Component {
         ]} />
       </div>
       </RouteTransition>
+      <RouteTransition
+        pathname={this.props.location.pathname}
+        atEnter={{ translateX: 5, opacity: 0 }}
+        atLeave={{ translateX: -5, opacity: 0 }}
+        atActive={{ translateX: 0, opacity: 1 }}
+        mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)`, opacity: `${styles.opacity}` })}
+      >
+        <img className="view" src={require('../../../images/whsjs.png')} />
+      </RouteTransition>
+      </div>
     )
   }
 }
