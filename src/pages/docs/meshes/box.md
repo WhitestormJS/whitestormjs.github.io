@@ -4,9 +4,6 @@ title: Box
 longtitle: WHS.Box
 category: Meshes
 icon: box_class.png
-wip: 
- - Add a properties table
- - Rewrite
 
 featured:
   title: Box
@@ -24,9 +21,7 @@ tags:
 
 ---
 
-`WHS.Box` Creates a simple 3D Box. It extends <a href="#shape">`WHS.Shape`</a> and inherits all of its methods.
-
-As told on <a href="#shape">`WHS.Shape`</a> definition, while you can pass any of the inherited params for this shape construction, you will need to
+As told on `WHS.Component` definition, while you can pass any of the inherited params for this component construction, you will need to
 pass specific parameters to build this mesh as a __geometry__ object.
 
 This shape can be set as a **softbody** object.
@@ -34,14 +29,12 @@ This shape can be set as a **softbody** object.
 ```javascript
 const box = new WHS.Box({
   geometry: {
-    width: 2,
-    height: 2,
-    depth: 2
+    width: 2, // Number
+    height: 2, // Number
+    depth: 2 // Number
   },
 
   mass: 1,
-
-  softbody: false,
 
   material: {
     kind: 'basic',

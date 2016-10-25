@@ -39,9 +39,7 @@ const dodecahedron = new WHS.Dodecahedron({
   },
 
   position: {
-    x: 0,
-    y: 10,
-    z: 0
+    y: 10
   }
 });
 

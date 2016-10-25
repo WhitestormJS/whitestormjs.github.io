@@ -18,6 +18,10 @@ const pages = {
       removeYaml(require('raw!./3dTransforms.md')),
       require('markdown-with-front-matter!./3dTransforms.md')
     ],
+    'variations': [
+      removeYaml(require('raw!./variations.md')),
+      require('markdown-with-front-matter!./variations.md')
+    ],
 
     // Core
 
