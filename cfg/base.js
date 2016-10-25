@@ -15,7 +15,7 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    path: path.join(__dirname, '/../docs/assets'),
+    path: path.join(__dirname, '/../assets'),
     filename: 'app.js',
     publicPath: defaultSettings.publicPath
   },

@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean": "rimraf docs/*",
-    "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./docs",
+    "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./",
     "dist": "npm run copy & webpack --env=dist",
     "lint": "eslint ./src",
     "posttest": "npm run lint",
