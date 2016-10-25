@@ -2,7 +2,7 @@ import 'normalize.css/normalize.css';
 import 'styles/App.scss';
 
 import React from 'react';
-import {BrowserRouter, Match, Miss} from 'react-router';
+import {HashRouter, Match, Miss} from 'react-router';
 import Header from './main/Header';
 import {DocsMain, DocsSidebar, DocsPage} from './docs/Docs';
 import {Contribute} from './contribute/index';
@@ -13,7 +13,7 @@ import TableCompare from './main/TableCompare';
 class AppComponent extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <Match exactly pattern="/" component={Background} />
           <Match pattern="/api" render={() => (<Background color='#B8E361'/>)} />
@@ -31,7 +31,7 @@ class AppComponent extends React.Component {
             <Match exactly pattern="/team" component={Team} />
 
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
