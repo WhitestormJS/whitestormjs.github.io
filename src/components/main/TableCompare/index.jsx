@@ -49,7 +49,7 @@ export default class TableCompare extends Component {
         pathname={this.props.location.pathname}
         atEnter={{ translateX: 5, opacity: 0 }}
         atLeave={{ translateX: -5, opacity: 0 }}
-        atActive={{ translateX: 0, opacity: 1 }}
+        atActive={{ translateX: 0, opacity: 0.25 }}
         mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)`, opacity: `${styles.opacity}` })}
       >
         <img className="view" src={require('../../../images/whsjs.png')} />

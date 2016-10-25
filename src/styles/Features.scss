@@ -21,6 +21,8 @@ $item-width: 220px;
   margin: 100px auto;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 
   .features-item {
     max-width: $item-width;
