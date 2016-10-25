@@ -4,6 +4,15 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 import '../../../images/note.png';
 
+const removeYaml = (content) => {
+  if (content.match(/^---/g) && content.match(/---/g).length >= 2) {
+    return content.substring(
+      content.indexOf('---', 1) + 3,
+      content.length
+    );
+  } else return content;
+}
+
 export default class Content extends Component {
   render() {
     const pageData = this.props.page[1];
@@ -43,7 +52,11 @@ export default class Content extends Component {
             </span>
             : null
           }
-          <ReactMarkdown source={this.props.page[0]} renderers={Object.assign(ReactMarkdown.renderers, {
+
+          {
+            console.log(removeYaml(this.props.page[0])) ? null : null
+          }
+          <ReactMarkdown source={removeYaml(this.props.page[0])} renderers={Object.assign(ReactMarkdown.renderers, {
             CodeBlock: CodeBlock
           })} />
         </div>
