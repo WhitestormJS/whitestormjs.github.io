@@ -4,6 +4,10 @@ title: Octahedron
 longtitle: WHS.Octahedron
 category: Meshes
 icon: octahedron_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/Octahedron.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Octahedron.js
+
 wip: 
  - Add a properties table
  - Rewrite

@@ -4,6 +4,9 @@ title: Component
 longtitle: WHS.Component
 category: Core
 
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/core/component.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/core/Component.js
+
 featured:
   title: Components
   describe: Have you ever heard about component system, reactJS and es6 modules? Now it's time to deep in modular apps with cool interaction.

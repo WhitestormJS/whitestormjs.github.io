@@ -24,6 +24,14 @@ export default class Content extends Component {
             _.isString(pageData.icon) ?
             (<img src={require('../../../images/docs/icons/' + pageData.icon)} />) : null
           }
+          {
+            pageData.edit ?
+            (<a className="edit" href={pageData.edit}>✎ Edit</a>) : null
+          }
+          {
+            pageData.source ?
+            (<a className="edit src" href={pageData.source}> <span>&lt;/&gt; - source</span></a>) : null
+          }
         </h1>
         {pageData.tags ?
           <div className="content-tags">

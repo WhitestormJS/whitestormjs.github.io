@@ -53,6 +53,32 @@ $font-elec: 'Electrolize', sans-serif;
       padding: 8px;
       z-index: 999;
     }
+
+    .edit {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Baloo Bhai", cursive;
+      font-size: 14pt;
+      padding: 5px 10px;
+      border-radius: .25rem;
+      border: 2px solid #eee;
+      transition: all 0.3s linear;
+      margin: 0 5px;
+      font-weight: 100;
+      float:right;
+
+      span {
+        font-size: 12pt;
+        font-family: $font-lato;
+        font-weight: 100;
+      }
+
+      &:hover {
+        background: #eee;
+        color: #29acff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+      }
+    }
   }
 
   .content-body {

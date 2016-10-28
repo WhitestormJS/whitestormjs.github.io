@@ -4,6 +4,10 @@ title: Plane
 longtitle: WHS.Plane
 category: Meshes
 icon: plane_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/plane.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Plane.js
+
 wip: 
  - Add a properties table
  - Rewrite

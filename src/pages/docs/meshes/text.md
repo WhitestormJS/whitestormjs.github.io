@@ -4,6 +4,10 @@ title: Text
 longtitle: WHS.Text
 category: Meshes
 icon: text_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/text.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Text.js
+
 wip: 
  - Add a properties table
  - Rewrite

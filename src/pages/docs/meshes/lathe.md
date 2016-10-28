@@ -4,6 +4,10 @@ title: Lathe
 longtitle: WHS.Lathe
 category: Meshes
 icon: lathe_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/lathe.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Lathe.js
+
 wip: 
  - Add a properties table
  - Rewrite

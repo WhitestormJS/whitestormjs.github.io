@@ -4,6 +4,10 @@ title: Ring
 longtitle: WHS.Ring
 category: Meshes
 icon: ring_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/ring.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Ring.js
+
 wip: 
  - Add a properties table
  - Rewrite

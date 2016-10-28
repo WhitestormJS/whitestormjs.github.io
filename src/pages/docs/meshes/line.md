@@ -3,6 +3,10 @@
 title: Line
 longtitle: WHS.Line
 category: Meshes
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/line.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Line.js
+
 wip: 
  - Add a properties table
  - Add more information

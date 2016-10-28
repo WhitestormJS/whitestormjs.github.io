@@ -4,6 +4,10 @@ title: Dodecahedron
 longtitle: WHS.Dodecahedron
 category: Meshes
 icon: dodecahedron_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/dodecahedron.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Dodecahedron.js
+
 wip: 
  - Add a properties table
  - Rewrite

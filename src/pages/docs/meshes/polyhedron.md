@@ -4,6 +4,10 @@ title: Polyhedron
 longtitle: WHS.Polyhedron
 category: Meshes
 icon: polyhedron_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/polyhedron.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Polyhedron.js
+
 wip: 
  - Add a properties table
  - Rewrite

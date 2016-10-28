@@ -4,6 +4,9 @@ title: CameraComponent
 longtitle: WHS.CameraComponent
 category: Core
 
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/core/cameraomponent.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/core/CameraComponent.js
+
 tags:
  - three.js
  - 3d

@@ -3,6 +3,10 @@
 title: Morph
 longtitle: WHS.Morph
 category: Meshes
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/morph.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Morph.js
+
 wip: 
  - Add a properties table
  - Rewrite

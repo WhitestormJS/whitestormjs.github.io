@@ -4,6 +4,10 @@ title: Tetrahedron
 longtitle: WHS.Tetrahedron
 category: Meshes
 icon: tetrahedron_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/tetrahedron.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Tetrahedron.js
+
 wip: 
  - Add a properties table
  - Rewrite

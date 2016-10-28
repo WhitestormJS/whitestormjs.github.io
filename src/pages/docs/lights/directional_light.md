@@ -3,6 +3,10 @@
 title: DirectionalLight
 longtitle: WHS.DirectionalLight
 category: Lights
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/lights/directional_light.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/lights/DirectionalLight.js
+
 wip: 
  - Add a properties table
  - Rewrite

@@ -5,6 +5,9 @@ longtitle: WHS.Box
 category: Meshes
 icon: box_class.png
 
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/box.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Box.js
+
 featured:
   title: Box
   describe: How to use a basic element

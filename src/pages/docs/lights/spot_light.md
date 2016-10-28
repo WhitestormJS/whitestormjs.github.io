@@ -3,6 +3,10 @@
 title: SpotLight
 longtitle: WHS.SpotLight
 category: Lights
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/lights/spot_light.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/lights/SpotLight.js
+
 wip: 
  - Add a properties table
  - Rewrite

@@ -4,6 +4,9 @@ title: LightComponent
 longtitle: WHS.LightComponent
 category: Core
 
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/core/lightcomponent.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/core/LightComponent.js
+
 tags:
  - three.js
  - 3d

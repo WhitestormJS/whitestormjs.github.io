@@ -4,6 +4,10 @@ title: Tube
 longtitle: WHS.Tube
 category: Meshes
 icon: tube_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/tube.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Tube.js
+
 wip: 
  - Add a properties table
  - Rewrite

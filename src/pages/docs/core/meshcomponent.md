@@ -4,6 +4,9 @@ title: MeshComponent
 longtitle: WHS.MeshComponent
 category: Core
 
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/core/mehscomponent.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/core/MeshComponent.js
+
 tags:
  - three.js
  - 3d

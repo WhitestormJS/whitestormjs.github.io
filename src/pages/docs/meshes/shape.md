@@ -4,6 +4,10 @@ title: Shape
 longtitle: WHS.Shape
 category: Meshes
 icon: shape_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/shape.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Shape.js
+
 wip: 
  - Add a properties table
  - Rewrite

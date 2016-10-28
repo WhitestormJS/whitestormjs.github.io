@@ -3,6 +3,10 @@
 title: CubeCamera
 longtitle: WHS.CubeCamera
 category: Cameras
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/cameras/cube_camera.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/cameras/CubeCamera.js
+
 wip: 
  - Add a properties table
  - Add more info

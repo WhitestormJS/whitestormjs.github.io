@@ -4,6 +4,10 @@ title: Sphere
 longtitle: WHS.Sphere
 category: Meshes
 icon: sphere_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/sphere.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Sphere.js
+
 wip: 
  - Add a properties table
  - Rewrite

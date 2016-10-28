@@ -4,6 +4,10 @@ title: Torus
 longtitle: WHS.Torus
 category: Meshes
 icon: torus_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/torus.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Torus.js
+
 wip: 
  - Add a properties table
  - Rewrite

@@ -4,6 +4,11 @@ title: Icosahderon
 longtitle: WHS.Icosahderon
 category: Meshes
 icon: icosahedron_class.png
+
+edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/icosahedron.md
+source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Icosahderon.js
+
+
 wip: 
  - Add a properties table
  - Rewrite
