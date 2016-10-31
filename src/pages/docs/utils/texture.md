@@ -3,9 +3,6 @@
 title: .texture()
 longtitle: WHS.texture()
 category: Utils
-wip: 
- - Add more info
- - Add examples
  
 tags:
  - utils
@@ -16,9 +13,9 @@ tags:
 ## `texture(url, options)`
 
 `WHS.texture()` wraps whs texture object to Three.js texture.
+It is useful in MeshComponents when you need to apply texture as simple as you can.
 
 ```javascript
-
 const cube = WHS.Box({
   geometry: {
     width: 2,
@@ -33,11 +30,21 @@ const cube = WHS.Box({
     map: WHS.texture('assets/textures/box.jpg')
   },
 
-  position: {
-    x: 50,
-    y: 70,
-    z: 60
-  }
+  position: [50, 70, 60]
 );
+```
 
+You can also use it with applying offset or repeat:
+
+```javascript
+WHS.texture('assets/textures/box.jpg', {
+  offset: {
+    x: 0,
+    y: 0
+  },
+  repeat: {
+    x: 1,
+    y: 1
+  }
+});
 ```

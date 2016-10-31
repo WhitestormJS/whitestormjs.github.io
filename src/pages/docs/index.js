@@ -14,6 +14,10 @@ const pages = {
       removeYaml(require('raw!./getting-started.md')),
       require('markdown-with-front-matter!./getting-started.md')
     ],
+    'basic': [
+      removeYaml(require('raw!./basic.md')),
+      require('markdown-with-front-matter!./basic.md')
+    ],
     '3d-transforms': [
       removeYaml(require('raw!./3dTransforms.md')),
       require('markdown-with-front-matter!./3dTransforms.md')
@@ -25,13 +29,29 @@ const pages = {
 
     // Core
 
+    'world': [
+      removeYaml(require('raw!./core/world.md')),
+      require('markdown-with-front-matter!./core/world.md')
+    ],
     'component': [
       removeYaml(require('raw!./core/component.md')),
       require('markdown-with-front-matter!./core/component.md')
     ],
+    'element': [
+      removeYaml(require('raw!./core/element.md')),
+      require('markdown-with-front-matter!./core/element.md')
+    ],
     'meshcomponent': [
       removeYaml(require('raw!./core/meshcomponent.md')),
       require('markdown-with-front-matter!./core/meshcomponent.md')
+    ],
+    'physicscomponent': [
+      removeYaml(require('raw!./core/physicscomponent.md')),
+      require('markdown-with-front-matter!./core/physicscomponent.md')
+    ],
+    'softbodycomponent': [
+      removeYaml(require('raw!./core/softbodycomponent.md')),
+      require('markdown-with-front-matter!./core/softbodycomponent.md')
     ],
     'lightcomponent': [
       removeYaml(require('raw!./core/lightcomponent.md')),

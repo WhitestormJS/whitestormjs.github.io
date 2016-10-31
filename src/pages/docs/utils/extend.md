@@ -3,9 +3,6 @@
 title: .extend()
 longtitle: WHS.extend()
 category: Utils
-wip: 
- - Add more info
- - Add examples
 
 tags:
  - utils

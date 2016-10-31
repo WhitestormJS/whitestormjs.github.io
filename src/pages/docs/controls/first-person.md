@@ -46,3 +46,12 @@ world.setControls(
 );
 
 ```
+
+## Parameters
+```javascript
+{
+  block: document.getElementById('blocker'),
+  speed: 1,
+  ypos: 1
+}
+```

@@ -37,7 +37,11 @@ export default class Sidebar extends Component {
               />
             } />
           ))}
+        </ul>
 
+          <h1>API</h1>
+
+        <ul>
           {_.map(categories[1], (data, key) => {
             let isActive = false;
 

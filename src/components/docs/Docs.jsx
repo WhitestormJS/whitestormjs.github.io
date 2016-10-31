@@ -29,7 +29,7 @@ export class DocsSidebar extends Component {
         atLeave={{ opacity: 0 }}
         atActive={{ opacity: 1 }}
       >
-        <Sidebar className="alignedLeft" pages={PAGES.docs} categories={categories.docs} title="API" prefix="/api/" />
+        <Sidebar className="alignedLeft" pages={PAGES.docs} categories={categories.docs} title="Tutorials" prefix="/api/" />
       </RouteTransition>)
   }
 }

@@ -296,6 +296,7 @@ $font-elec: 'Electrolize', sans-serif;
       margin: 10px 0;
       position: relative;
       background: rgba(0, 0, 0, 0.2);
+      max-width: 657px;
 
       &:before {
         content: '';

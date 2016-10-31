@@ -13,12 +13,12 @@ tags:
 
 ---
 
-(TODO)
-
 Use `WHS.orbitControls` if you want to look for your shape from different angles.
 
 ```javascript
 
-world.setControls(WHS.orbitControls());
+world.setControls(new WHS.OrbitControls());
 
 ```
+
+> Also can accept a target object as a first argument.
