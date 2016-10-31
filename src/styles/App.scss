@@ -17,6 +17,10 @@ body {
   z-index: -1;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 @import 'Header.scss';
 @import 'Features.scss';
 @import 'Sidebar.scss';

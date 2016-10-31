@@ -18,6 +18,18 @@ const pages = {
       removeYaml(require('raw!./basic.md')),
       require('markdown-with-front-matter!./basic.md')
     ],
+    'loops': [
+      removeYaml(require('raw!./loops.md')),
+      require('markdown-with-front-matter!./loops.md')
+    ],
+    'group': [
+      removeYaml(require('raw!./group.md')),
+      require('markdown-with-front-matter!./group.md')
+    ],
+    'vmouse': [
+      removeYaml(require('raw!./vmouse.md')),
+      require('markdown-with-front-matter!./vmouse.md')
+    ],
     '3d-transforms': [
       removeYaml(require('raw!./3dTransforms.md')),
       require('markdown-with-front-matter!./3dTransforms.md')
