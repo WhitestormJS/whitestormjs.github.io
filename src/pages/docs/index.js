@@ -48,6 +48,10 @@ const pages = {
       removeYaml(require('raw!./meshes/box.md')),
       require('markdown-with-front-matter!./meshes/box.md')
     ],
+    'cylinder': [
+      removeYaml(require('raw!./meshes/cylinder.md')),
+      require('markdown-with-front-matter!./meshes/cylinder.md')
+    ],
     'dodecahedron': [
       removeYaml(require('raw!./meshes/dodecahedron.md')),
       require('markdown-with-front-matter!./meshes/dodecahedron.md')

@@ -8,10 +8,6 @@ icon: plane_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/plane.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Plane.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -22,7 +18,6 @@ tags:
 
 ---
 
-`WHS.Plane` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Plane` class is used for creating planes by it's `width` and `height`.
 
@@ -43,4 +38,32 @@ const plane = new WHS.Plane({
 });
 
 plane.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    width: 10, // Number
+    height: 10, // Number
+    wSegments: 32, // Number
+    hSegments: 32 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['width', 'height', 'wSegments', 'hSegments']
+}
 ```

@@ -7,10 +7,6 @@ category: Meshes
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/morph.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Morph.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -36,11 +32,7 @@ const morph = new WHS.Morph( {
     useVertexColors: true
   },
 
-  scale: {
-    x: 0.1,
-    y: 0.1,
-    z: 0.1
-  },
+  scale: [0.1, 0.1, 0.1],
 
   morph: {
     duration: 0.5,
@@ -49,4 +41,36 @@ const morph = new WHS.Morph( {
 });
 
 morph.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    path: '', // String. (Url)
+    loader: JSONLoader // Three.js loader.
+  },
+
+  morph: {
+    duration: 1, // Number. (Time in seconds)
+    speed: 100 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['path', 'loader'],
+  morph: ['duration', 'speed']
+}
 ```

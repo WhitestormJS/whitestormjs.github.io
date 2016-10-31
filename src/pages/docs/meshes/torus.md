@@ -8,10 +8,6 @@ icon: torus_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/torus.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Torus.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -23,7 +19,6 @@ tags:
 ---
 
 
-`WHS.Torus` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Torus` class makes a torus figure. Torus is a donut. Donut is a torus.
 
@@ -49,4 +44,39 @@ const torus = new WHS.Torus({
 });
 
 torus.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    radius: 100, // Number.
+    tube: 40, // Number.
+    radialSegments: 8, // Number.
+    tubularSegments: 6, // Number.
+    arc: Math.PI * 2 // Number.
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: [
+    'radius',
+    'tube',
+    'radialSegments',
+    'tubularSegments',
+    'arc'
+  ]
+}
 ```

@@ -8,10 +8,6 @@ icon: ring_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/ring.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Ring.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -21,9 +17,6 @@ tags:
  - polyhedron
 
 ---
-
-
-`WHS.Ring` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Ring` class makes a circle or just 2D <a href="#torus">`WHS.Torus`</a> that doesn't support physics.
 
@@ -42,11 +35,7 @@ const ring = new WHS.Ring({
     side: THREE.DoubleSide
   },
 
-  position: {
-    x: 0,
-    y: 8,
-    z: 0
-  },
+  position: [0, 8, 0],
 
   rotation: {
     x: Math.PI/4
@@ -54,4 +43,41 @@ const ring = new WHS.Ring({
 });
 
 ring.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    innerRadius: 0, // Number.
+    outerRadius: 50, // Number.
+    thetaSegments: 8, // Number.
+    phiSegments: 8, // Number.
+    thetaStart: 0, // Number.
+    thetaLength: Math.PI * 2 // Number.
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: [
+    'innerRadius', 
+    'outerRadius', 
+    'thetaSegments', 
+    'phiSegments', 
+    'thetaStart', 
+    'thetaLength'
+  ]
+}
 ```

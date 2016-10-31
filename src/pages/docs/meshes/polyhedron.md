@@ -8,10 +8,6 @@ icon: polyhedron_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/polyhedron.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Polyhedron.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -22,7 +18,6 @@ tags:
 
 ---
 
-`WHS.Polyhedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 In elementary geometry, a **polyhedron** is *a solid in three dimensions with flat polygonal faces, straight edges and sharp corners or vertices*.
 
@@ -42,12 +37,36 @@ const polyhedron = new WHS.Polyhedron({
     kind: 'basic'
   },
 
-  position: {
-    x: 0,
-    y: 100,
-    z: 0
-  }
+  position: [0, 100, 0]
 });
 
 polyhedron.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    verticesOfCube: verticesOfCube, // Array.
+    indicesOfFaces: indicesOfFaces, // Array.
+    radius: 6, // Number.
+    detail: 2 // Number.
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['verticesOfCube', 'indicesOfFaces', 'radius', 'detail']
+}
 ```

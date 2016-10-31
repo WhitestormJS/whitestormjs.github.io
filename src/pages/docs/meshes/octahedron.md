@@ -8,10 +8,6 @@ icon: octahedron_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/Octahedron.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Octahedron.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -22,7 +18,6 @@ tags:
 
 ---
 
-`WHS.Octahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 In geometry, an **octahedron** is *a polyhedron with eight faces*. A regular octahedron is a Platonic solid composed of eight equilateral triangles, four of which meet at each vertex.
 
@@ -43,12 +38,34 @@ const octahedron = new WHS.Octahedron({
     kind: 'basic'
   },
 
-  position: {
-    x: 0,
-    y: 100,
-    z: 0
-  }
+  position: [0, 100, 0]
 });
 
 octahedron.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    radius: 1, // Number
+    detail: 0 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['radius', 'detail']
+}
 ```

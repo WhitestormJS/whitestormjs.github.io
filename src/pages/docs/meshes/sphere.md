@@ -8,10 +8,6 @@ icon: sphere_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/sphere.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Sphere.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -21,8 +17,6 @@ tags:
  - sphere
 
 ---
-
-`WHS.Sphere` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 `WHS.Sphere` class is used to create sphere objects by it's `radius` property and other values that determinates it's detality.
 
@@ -49,4 +43,31 @@ const sphere = new WHS.Sphere({
 });
 
 sphere.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    radius: 1, // Number.
+    widthSegments: 8, // Number
+    heightSegments: 6 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['radius', 'widthSegments', 'heightSegments']
+}
 ```

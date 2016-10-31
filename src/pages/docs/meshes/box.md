@@ -32,9 +32,9 @@ This shape can be set as a **softbody** object.
 ```javascript
 const box = new WHS.Box({
   geometry: {
-    width: 2, // Number
-    height: 2, // Number
-    depth: 2 // Number
+    width: 2, 
+    height: 2,
+    depth: 2
   },
 
   mass: 1,
@@ -44,12 +44,35 @@ const box = new WHS.Box({
     color: 0xffffff
   },
 
-  position: {
-    x: 50,
-    y: 70,
-    z: 60
-  }
+  position: [50, 60, 70]
 });
 
 box.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    width: 1, // Number
+    height: 1, // Number
+    depth: 1 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['width', 'height', 'depth']
+}
 ```

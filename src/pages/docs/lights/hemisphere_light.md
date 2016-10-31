@@ -7,10 +7,6 @@ category: Lights
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/lights/hemisphere_light.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/lights/HemisphereLight.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -21,8 +17,6 @@ tags:
  - hemisphere
 
 ---
-
-`WHS.HemisphereLight` is a simple class, it extends `WHS.Light` and inherits all it's methods.
 
 `WHS.HemisphereLight` is a light source positioned directly above the scene. 
 

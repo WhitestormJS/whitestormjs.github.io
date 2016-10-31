@@ -31,7 +31,7 @@ import {Component} from 'whitestormjs/core/Component';
 
 class EmptyComponent extends Component {
   constructor(params = {}) {
-    super(params, SimpleComponent.defaults);
+    super(params, SimpleComponent.defaults, SimpleComponent.instructions);
 
     this.native = new THREE.Object3D();
   }
@@ -40,6 +40,54 @@ class EmptyComponent extends Component {
 const myEmptyElement = new EmptyComponent();
 
 ```
+
+### Defaults & instructions
+
+When we call super - we should pass params object there. And we can also specify **defaults** object to fill required properties.
+
+```javascript
+// ...
+
+class Dinosaur extends Component {
+  static defaults = {
+    teethNumber: 32
+  };
+
+  // ...
+}
+
+const saurolophus = new Dinosaur({teethNumber: 56});
+saurolophus.params.teethNumber // -> 56
+
+const dino = new Dinosaur();
+dino.params.teethNumber // -> 32
+```
+
+And sometimes we need to make simplified record, you may use instructions for that:
+
+```javascript
+// ...
+
+class Star extends Component {
+  static defaults = {
+    direction: {x: 1, y: 0, z: 0}
+  };
+
+  static instructions = {
+    direction: ['x', 'y', 'z']
+  };
+
+  // ...
+}
+
+// After you can use it as here:
+const sun = new Star({direction: [0, 1, 0]})
+
+// Or as usually:
+const sun = new Star({direction: {x: 0, y: 1, z: 0}});
+```
+
+
 
 ## PROPERTIES
 

@@ -54,3 +54,28 @@ const plane = new WHS.Shape({
 plane.addTo(world);
 
 ```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    shapes: [] // Array of THREE.Shape`s
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['shapes']
+}
+```

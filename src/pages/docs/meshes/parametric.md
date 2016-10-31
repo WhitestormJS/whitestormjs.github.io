@@ -8,10 +8,6 @@ icon: parametric_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/parametric.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Parametric.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -50,11 +46,7 @@ const parametric = new WHS.Parametric({
     side: THREE.DoubleSide
   },
 
-  position: {
-    x: 0,
-    y: 100,
-    z: -10
-  }
+  position: [0, 100, -100]
 });
 
 parametric.addTo(world);

@@ -8,10 +8,6 @@ icon: extrude_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/extrude.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Extrude.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -64,12 +60,34 @@ const extrude = new WHS.Extrude({
     color: 0xffffff
   },
 
-  position: {
-    x: 0,
-    y: 100,
-    z: 0
-  }
+  position: [0, 100, 0]
 });
 
 extrude.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    shapes: [], // Array of THREE.Shape`s or THREE.Shape
+    options: {} // Object
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['shapes', 'options']
+}
 ```

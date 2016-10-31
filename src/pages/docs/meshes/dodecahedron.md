@@ -8,10 +8,6 @@ icon: dodecahedron_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/dodecahedron.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Dodecahedron.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -23,7 +19,6 @@ tags:
 
 ---
 
-`WHS.Dodecahedron` is a simple class, it extends `WHS.Shape` and inherits all it's methods.
 
 In geometry, a **dodecahedron** is any *polyhedron with twelve flat faces*. The most familiar dodecahedron is the regular dodecahedron, which is a Platonic solid. There are also three regular star dodecahedra, which are constructed as stellations of the convex form. All of these have icosahedral symmetry, order 120.
 
@@ -48,4 +43,30 @@ const dodecahedron = new WHS.Dodecahedron({
 });
 
 dodecahedron.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    radius: 1, // Number
+    detail: 0 // Number
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['radius', 'detail']
+}
 ```

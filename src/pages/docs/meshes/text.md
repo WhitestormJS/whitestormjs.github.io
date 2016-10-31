@@ -8,10 +8,6 @@ icon: text_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/text.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Text.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -22,7 +18,6 @@ tags:
 
 ---
 
-`WHS.Text` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Text` class is made for creating 3D text objects.
 
@@ -55,4 +50,39 @@ const text = new WHS.Text({
 });
 
 text.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    text: 'Hello World!', // String.
+
+    parameters: { // Object.
+      size: 12,
+      height: 50,
+      curveSegments: 12,
+      font: new THREE.Font(),
+      bevelEnabled: false,
+      bevelThickness: 10,
+      bevelSize: 8
+    }
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: ['text', 'parameters']
+}
 ```

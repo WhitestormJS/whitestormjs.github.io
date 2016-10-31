@@ -8,10 +8,6 @@ icon: tube_class.png
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/meshes/tube.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/meshes/Tube.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -22,7 +18,6 @@ tags:
 
 ---
 
-`WHS.Tube` is a simple class, it extends <a href="#shape">`WHS.Shape`</a> and inherits all it's methods.
 
 `WHS.Tube` class makes a tube that extrudes along a 3d curve.
 
@@ -57,4 +52,39 @@ const tube = new WHS.Tube({
 });
 
 tube.addTo(world);
+```
+
+## Parameters
+### Geometry defaults
+
+```javascript
+{
+  // ...
+
+  geometry: {
+    path: false, // Boolean.
+    segments: 20, // Number.
+    radius: 2, // Number.
+    radiusSegments: 8, // Number.
+    closed: false // Boolean.
+  }
+}
+```
+
+> These defaults are additional, there are also defaults filled by MeshComponent, etc.
+
+### Instructions
+
+```javascript
+{
+  // ...
+
+  geometry: [
+    'path',
+    'segments',
+    'radius',
+    'radiusSegments',
+    'closed'
+  ]
+}
 ```

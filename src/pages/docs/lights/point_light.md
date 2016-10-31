@@ -7,10 +7,6 @@ category: Lights
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/lights/point_light.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/lights/PointLight.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -21,8 +17,6 @@ tags:
  - point
 
 ---
-
-`WHS.PointLight` is a simple class, it extends `WHS.Light` and inherits all it's methods.
 
 `WHS.PointLight` creates a light at a specific position in the scene. The light shines in all directions (roughly similar to a light bulb.)
 
@@ -36,11 +30,7 @@ new WHS.PointLight( {
     distance: 1000
   },
 
-  position: {
-    x: 10,
-    y: 20,
-    z: 10
-  },
+  position: [10, 20, 10],
 
   target {
     x: 5

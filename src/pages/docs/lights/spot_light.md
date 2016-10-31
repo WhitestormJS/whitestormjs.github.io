@@ -7,10 +7,6 @@ category: Lights
 edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pages/docs/lights/spot_light.md
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/components/lights/SpotLight.js
 
-wip: 
- - Add a properties table
- - Rewrite
-
 tags:
  - three.js
  - webgl
@@ -21,8 +17,6 @@ tags:
  - spot
 
 ---
-
-`WHS.SpotLight` is a simple class, it extends `WHS.Light` and inherits all it's methods.
 
 `WHS.SpotLight` creates spot light that can cast shadow in one direction.
 
@@ -38,11 +32,7 @@ new WHS.SpotLight( {
     distance: 1000
   },
 
-  position: {
-    x: 10,
-    y: 20,
-    z: 10
-  }
+  position: [10, 20, 10]
 }).addTo(world);
 ```
 
