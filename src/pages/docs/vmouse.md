@@ -9,7 +9,7 @@ tags:
 
 ---
 
-We noted that usage of _cursor in 3D is a bit uncomfortable in Three.js_ cause you need to wrap that functionality (project the cursor in 3D coordinates with camera) and decided to create our own wrapping of it.
+We noticed that usage of _cursor in 3D is a bit uncomfortable in Three.js_ cause you need to wrap that functionality (project the cursor in 3D coordinates with camera) and decided to create our own wrapping of it.
 
 ## DOM-like events
 
