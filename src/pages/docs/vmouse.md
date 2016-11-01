@@ -29,7 +29,7 @@ sphere.on('mousemove', () => {
 });
 
 sphere.on('mouseout', () => {
-  sphere.material.color.set(UTILS.$colors.mesh);
+  sphere.material.color.set(0xF2F2F2);
   console.log('mouseout');
 });
 

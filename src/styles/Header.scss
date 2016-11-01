@@ -1,4 +1,5 @@
 @import '_fonts.scss';
+@import '_responsive.scss';
 
 /*
 
@@ -14,17 +15,23 @@ $font-elec: 'Electrolize', sans-serif;
 */
 
 header {
-  height: 50px;
+  min-height: 50px;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
+  position: relative;
+
+  @media screen and (max-width: $minNavWidth) {
+    flex-direction: column;
+  }
 
   &>* {
     align-self: center;
   }
 
   &>div {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   a {
@@ -33,6 +40,13 @@ header {
     font-family: $font-ballo;
     font-size: 14pt;
     padding: 0px 10px;
+
+    @media screen and (max-width: $minMiniNavWidth) {
+      padding: 5px 5px;
+      text-align: center;
+      margin: 10px 0;
+      display: block;
+    }
 
     &.inverted {
       border-radius: .25rem;
