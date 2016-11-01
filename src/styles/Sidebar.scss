@@ -1,4 +1,5 @@
 @import '_fonts.scss';
+@import '_responsive.scss';
 
 /*
 
@@ -131,4 +132,29 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
 .alignedLeft.sidebar {
   position: absolute;
   left:0;
+
+  @media screen and (max-width: $desktop) {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-around;
+    position: relative;
+    display: flex;
+  }
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .block {
+    @media screen and (max-width: $desktop) {
+      display: inline-block;
+      min-width: 320px;
+    }
+
+    @media screen and (max-width: 640px) {
+      width: 320px;
+    }
+  }
 }

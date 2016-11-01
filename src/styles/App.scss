@@ -1,15 +1,9 @@
 /* Base Application Styles */
+@import '_responsive.scss';
 
 body {
   background: #262C38;
   overflow-x: hidden;
-  min-width: 950px;
-}
-
-@media screen and (max-width: 950px) {
-  body {
-    overflow-x: auto;
-  }
 }
 
 #background {
