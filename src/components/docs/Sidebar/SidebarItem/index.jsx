@@ -28,7 +28,7 @@ export class Category extends Component {
       this.state[`folded-${this.props.id}`] = false;
     } else {
       this.state[`folded-${this.props.id}`] =
-        typeof cookie.load(`folded-${this.props.id}`) !== undefined
+        cookie.load(`folded-${this.props.id}`) !== undefined
           ? cookie.load(`folded-${this.props.id}`)
           : true;
     }

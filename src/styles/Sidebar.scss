@@ -28,10 +28,18 @@ $docs-color: #B8E361; //  #B8E361; // #29acff;
     padding: 0 10px;
     margin: 0 40px;
     font-family: $font-elec;
+
+    @media screen and (max-width: $desktop) {
+      margin: 0.67em 0;
+    }
   }
 
   ul {
     border-radius: 10px;
+
+    @media screen and (max-width: $desktop) {
+      padding: 0;
+    }
 
     a {
       color: white;

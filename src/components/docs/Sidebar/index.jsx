@@ -60,6 +60,9 @@ export default class Sidebar extends Component {
                   window.location,
                   false
                 ) ? true : isActive;
+
+                isActive = window.location.hash.indexOf(page[1]) > 0 ?
+                  true : isActive;
               });
 
               return (
