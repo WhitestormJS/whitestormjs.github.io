@@ -57,6 +57,10 @@ const pages = {
       removeYaml(require('raw!./core/meshcomponent.md')),
       require('markdown-with-front-matter!./core/meshcomponent.md')
     ],
+    'renderingcomponent': [
+      removeYaml(require('raw!./core/renderingcomponent.md')),
+      require('markdown-with-front-matter!./core/renderingcomponent.md')
+    ],
     'physicscomponent': [
       removeYaml(require('raw!./core/physicscomponent.md')),
       require('markdown-with-front-matter!./core/physicscomponent.md')
@@ -72,6 +76,20 @@ const pages = {
     'cameracomponent': [
       removeYaml(require('raw!./core/cameracomponent.md')),
       require('markdown-with-front-matter!./core/cameracomponent.md')
+    ],
+
+    // Rendering
+    'RenderingPlugin': [
+      removeYaml(require('raw!./rendering/renderingplugin.md')),
+      require('markdown-with-front-matter!./rendering/renderingplugin.md')
+    ],
+    'BasicRendering': [
+      removeYaml(require('raw!./rendering/basicrendering.md')),
+      require('markdown-with-front-matter!./rendering/basicrendering.md')
+    ],
+    'PostProcessor': [
+      removeYaml(require('raw!./rendering/postprocessor.md')),
+      require('markdown-with-front-matter!./rendering/postprocessor.md')
     ],
 
     // Meshes
@@ -231,6 +249,9 @@ const categories = {
   docs: {
     'Core': {
       icon: 'core.png'
+    },
+    'Rendering': {
+      icon: 'screen.png'
     },
     'Meshes': {
       icon: 'meshes.png',

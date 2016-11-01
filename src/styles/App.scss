@@ -15,6 +15,7 @@ body {
   max-width: 100%;
   bottom: -750px;
   z-index: -1;
+  pointer-events: none;
 }
 
 * {

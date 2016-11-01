@@ -31,7 +31,7 @@ export default class TableCompare extends Component {
           'Lights, Cameras, Meshes',
           'ES6 decorators style',
           '<b>Use</b> others components',
-          '<b>Share</b> your plugins',
+          '<b>Share</b> your plugins'
         ]} />
 
         <TableItem
