@@ -22,6 +22,10 @@ const pages = {
       removeYaml(require('raw!./loops.md')),
       require('markdown-with-front-matter!./loops.md')
     ],
+    'debugging': [
+      removeYaml(require('raw!./debugging.md')),
+      require('markdown-with-front-matter!./debugging.md')
+    ],
     'group': [
       removeYaml(require('raw!./group.md')),
       require('markdown-with-front-matter!./group.md')
@@ -251,7 +255,8 @@ const categories = {
       icon: 'core.png'
     },
     'Rendering': {
-      icon: 'screen.png'
+      icon: 'screen.png',
+      noExtend: true
     },
     'Meshes': {
       icon: 'meshes.png',

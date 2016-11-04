@@ -49,19 +49,7 @@ export default class Sidebar extends Component {
               let isActive = false;
 
               _.map(data, (page, i) => {
-                isActive = matchPattern(
-                  prefix + page[1],
-                  window.location,
-                  false
-                ) ? true : isActive;
-
-                isActive = matchPattern(
-                  prefix + key + '/' + page[1],
-                  window.location,
-                  false
-                ) ? true : isActive;
-
-                isActive = window.location.hash.indexOf(page[1]) > 0 ?
+                isActive = window.location.hash.indexOf(`/${page[1]}`) > 0 ?
                   true : isActive;
               });
 
