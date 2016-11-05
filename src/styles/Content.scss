@@ -287,6 +287,10 @@ $font-elec: 'Electrolize', sans-serif;
       color: #aaecff;
     }
 
+    code {
+      white-space: pre-wrap;
+    }
+
     code:not(.hljs) {
       color: #eee;
       border-radius: 2px;

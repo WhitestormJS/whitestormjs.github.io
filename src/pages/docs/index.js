@@ -38,6 +38,10 @@ const pages = {
       removeYaml(require('raw!./3dTransforms.md')),
       require('markdown-with-front-matter!./3dTransforms.md')
     ],
+    'webpack': [
+      removeYaml(require('raw!./webpack.md')),
+      require('markdown-with-front-matter!./webpack.md')
+    ],
     'variations': [
       removeYaml(require('raw!./variations.md')),
       require('markdown-with-front-matter!./variations.md')

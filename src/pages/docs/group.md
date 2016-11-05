@@ -1,6 +1,6 @@
 ---
 
-title: Making groups
+title: Making groups and collision filtering
 
 tags:
  - three.js
@@ -8,6 +8,8 @@ tags:
  - 3d
 
 ---
+
+# GROUPS
 
 Sometimes you need to make groups of objects _(it's not conveniently to apply transforms to each object when can make just one to a group)_. In Three.js you make it using `THREE.Object3D` and it's children.
 
@@ -38,3 +40,23 @@ const group = new WHS.Group(box, sphere);
 ```
 
 > You can list elements in sequence or pass an array. (see es6 rest/spread).
+
+# COLLISION FILTERING
+
+You may also need to specify whether specific objects should collide or not with each other. To implement it you need to specify collision group and mask. 
+
+See [physics / filtering](https://whs-dev.surge.sh/examples/#physics/filtering) demo.
+
+### That's how you can do it with sphere: 
+
+```javascript
+const sphere = new WHS.Sphere({
+  // ...
+
+  physics: {
+    group: 1,
+    mask: 2
+  }
+});
+```
+

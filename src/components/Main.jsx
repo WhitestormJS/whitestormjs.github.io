@@ -9,12 +9,14 @@ import {Contribute} from './contribute/index';
 import {Team} from './team/index';
 import Background from './main/InteractiveBG';
 import TableCompare from './main/TableCompare';
+import Head from './Head';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <HashRouter>
         <div>
+          <Head />
           <Match exactly pattern="/" component={Background} />
           <Match pattern="/api" render={() => (<Background color='#B8E361'/>)} />
           <Match pattern="/contribute" render={() => (<Background color='#9b61e3'/>)} />
