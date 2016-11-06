@@ -40,7 +40,7 @@ class AppComponent extends React.Component {
             <Match exactly pattern="/team" component={Team} />
 
           <Match pattern="/*" render={() => {
-            if (window.ga) window.ga('send', 'pageview', window.location.pathname);
+            if (typeof window.ga === 'function') window.ga('send', 'pageview', window.location.pathname);
             return null;
           }} />
         </div>
