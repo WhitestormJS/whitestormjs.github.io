@@ -39,6 +39,10 @@ class AppComponent extends React.Component {
             <Match exactly pattern="/contribute" component={Contribute} />
             <Match exactly pattern="/team" component={Team} />
 
+          <Match pattern="/*" render={() => {
+            window.ga('send', 'pageview', window.location.pathname);
+            return null;
+          }} />
         </div>
       </HashRouter>
     );
