@@ -22,7 +22,7 @@ header {
   z-index: 2;
   position: relative;
 
-  @media screen and (max-width: $minNavWidth) {
+  @media screen and (max-width: $desktop) {
     flex-direction: column;
   }
 
@@ -78,6 +78,7 @@ header {
 
       @media screen and (max-width: $minMiniNavWidth) {
         display: block;
+        padding: 5px 10px;
       }
 
       &:after {

@@ -28,6 +28,7 @@ class Head extends React.Component {
           {name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'},
           {name: 'ROBOTS', content: 'NOARCHIVE'},
           {name: 'googlebot', content: 'noodp'},
+          {name: 'google-site-verification', content: 'VWo1v0ntHmGAz8hIkyxyTHvJyEpMZ1K_StycElgaDdA'},
           {name: 'copyright', content: 'Alexander Buzin 2015-2016'},
           {name: 'language', content: 'english'},
           {property: 'og:description', content: this.props.desc || defaultDesc},
