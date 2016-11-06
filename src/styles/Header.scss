@@ -39,7 +39,9 @@ header {
     text-decoration: none;
     font-family: $font-ballo;
     font-size: 14pt;
-    padding: 0px 10px;
+    margin: 0px 10px;
+    position: relative;
+    display: inline-block;
 
     @media screen and (max-width: $minMiniNavWidth) {
       padding: 5px 5px;
@@ -48,17 +50,49 @@ header {
       display: block;
     }
 
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      height: 4px;
+      left: 0;
+      top: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      transform: translateY(200%);
+      opacity: 0;
+      transition: all 0.1s linear;
+    }
+
+    &:hover:after {
+      transform: translateY(50%);
+      opacity: 1;
+    }
+
     &.inverted {
       border-radius: .25rem;
       border: 2px solid #eee;
       transition: all 0.3s linear;
       margin: 0 5px;
+      padding: 0px 10px;
+      display: inline;
+
+      @media screen and (max-width: $minMiniNavWidth) {
+        display: block;
+      }
+
+      &:after {
+        display: none;
+      }
 
       &:hover {
         background: #eee;
         color: #29acff;
         box-shadow: 0 0 10px rgba(0, 0, 0, .25);
       }
+    }
+
+    &.logo:after {
+      display: none;
     }
   }
 

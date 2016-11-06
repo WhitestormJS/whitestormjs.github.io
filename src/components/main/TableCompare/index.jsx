@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import TableItem from './TableItem';
 import { RouteTransition } from 'react-router-transition';
+import spring from 'react-motion/lib/spring';
+
+const tConfig = { stiffness: 900, damping: 22 };
 
 export default class TableCompare extends Component {
   render() {
@@ -12,6 +15,19 @@ export default class TableCompare extends Component {
         atLeave={{ opacity: 0 }}
         atActive={{ opacity: 1 }}
       >
+      <div style={{textAlign: "center"}}>
+        <RouteTransition
+          pathname={this.props.location.pathname}
+          atEnter={{ translateX: -5, opacity: 0 }}
+          atLeave={{ translateX: 5, opacity: 0 }}
+          atActive={{ translateX: 0, opacity: 1 }}
+          mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)`, opacity: `${styles.opacity}` })}
+        >
+          <span className="install">npm install&#8202;
+            <a href="https://www.npmjs.com/package/whs" target="_blank" className="whs">whs</a>
+          </span>
+        </RouteTransition>
+      </div>
       <div className="features">
         <TableItem
         name="Built-in physics"
@@ -47,8 +63,8 @@ export default class TableCompare extends Component {
       </RouteTransition>
       <RouteTransition
         pathname={this.props.location.pathname}
-        atEnter={{ translateX: 5, opacity: 0 }}
-        atLeave={{ translateX: -5, opacity: 0 }}
+        atEnter={{ translateX: spring(5, tConfig), opacity: 0 }}
+        atLeave={{ translateX: spring(-5, tConfig), opacity: 0 }}
         atActive={{ translateX: 0, opacity: 0.25 }}
         mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)`, opacity: `${styles.opacity}` })}
       >

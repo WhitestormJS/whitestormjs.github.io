@@ -16,10 +16,51 @@ $font-elec: 'Electrolize', sans-serif;
 
 $item-width: 220px;
 
+.install {
+  font-size: 30pt;
+  font-family: Consolas, "Liberation Mono", Menlo, Monaco, Courier, monospace;
+  color: #eee;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin: 30px 0 0 0;
+  display: inline-block;
+
+
+  @media screen and (max-width: $desktop) {
+    font-size: 20pt;
+  }
+
+  .whs {
+    color: rgb(0, 153, 229);
+    text-shadow: 1px 1px rgba(0, 153, 229, 0.3);
+    text-decoration: none;
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      height: 2.5px;
+      left: 0;
+      top: 100%;
+      background: rgb(0, 153, 229);;
+      transform: translateY(50%);
+      opacity: 0;
+      transition: all 0.1s linear;
+    }
+
+    &:hover:after {
+      transform: translateY(-150%);
+      opacity: 1;
+    }
+  }
+}
+
 .features {
   height: 200px;
   width: 80%;
-  margin: 8% auto;
+  margin: 4% auto; // 8%
   display: flex;
   justify-content: space-between;
   position: relative;

@@ -44,6 +44,14 @@ export default class Background extends Component {
   }
 
   render() {
-    return (<canvas id="background" style={{position: 'fixed', zIndex: -1, top: 0}}></canvas>)
+    return (
+      <div>
+        <canvas id="background"></canvas>
+        <div id="preview"
+          className={this.props.previewActive ? 'active' : ''}
+          style={{backgroundImage: 'url(' + this.props.previewBG + ')'}}
+        ></div>
+      </div>
+    )
   }
 }
