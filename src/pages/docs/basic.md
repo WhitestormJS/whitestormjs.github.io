@@ -1,6 +1,6 @@
 ---
 
-title: Basic sphere («Hello World» examaple)
+title: Basic sphere («Hello World» example)
 longtitle: Creating a basic sphere that falls down on the plane.
 
 tags:
@@ -14,9 +14,9 @@ To create whitestorm.js app you should make a basic HTML document with `html`, `
 
 <img src="../../images/docs/basic/helloworld.png" width="100%" />
 
-You can find this demo by [this link](https://whs-dev.surge.sh/examples/#basic/helloworld).
+Try this [helloworld demo online](https://whs-dev.surge.sh/examples/#basic/helloworld).
 
-First thing you should is setup World object. **When you do this, you do multiple things at once:** 
+First thing you should setup is the World object. **When you do this, you do multiple things at once:** 
  - Setup `THREE.Scene` (or `Physijs.Scene`)
  - Make perspective camera and add it scene.
  - Set gravity (if physics is on)
@@ -47,12 +47,12 @@ const world = new WHS.World({
 
 ```
 
-Next thing is our sphere. By defualt if you use a physics version of whitestorm.js all objects are created as physics objects. If you don't want to have a physics object - simply add `physics: false` line to sphere config.
+Next thing is our sphere. By default if you use a physics version of whitestorm.js all objects are created as physics objects. If you don't want to have a physics object - simply add `physics: false` line to sphere config.
 
 ```javascript
 // const world = ...
 
-const sphere = new WHS.Sphere({ // Create sphere comonent.
+const sphere = new WHS.Sphere({ // Create sphere component.
   geometry: {
     radius: 3,
     widthSegments: 32,
