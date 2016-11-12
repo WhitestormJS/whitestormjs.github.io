@@ -49,6 +49,8 @@ Makes mouse track events for this component.
 - `mouseout` - when your cursor left component.
 - `mousemove` - when your cursor moves in component area.
 - `click` - click & (cursor is in component area)
+- `mousedown` - mousedown & (cursor is in component area)
+- `mouseup` - mouseup & (cursor is in component area)
 
 
 ## Move event

@@ -23,6 +23,7 @@ class Head extends React.Component {
         titleTemplate='WhitestormJS - %s'
         defaultTitle='WhitestormJS 3D framework'
         meta={[
+          {charset: 'UTF-8'},
           {name: 'description', content: this.props.desc || defaultDesc},
           {name: 'keywords', content: realTags},
           {name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'},
