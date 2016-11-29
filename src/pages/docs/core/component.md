@@ -50,17 +50,17 @@ When we call super - we should pass params object there. And we can also specify
 
 class Dinosaur extends Component {
   static defaults = {
-    teethNumber: 32
+    teethCount: 32
   };
 
   // ...
 }
 
-const saurolophus = new Dinosaur({teethNumber: 56});
-saurolophus.params.teethNumber // -> 56
+const saurolophus = new Dinosaur({teethCount: 56});
+saurolophus.params.teethCount // -> 56
 
 const dino = new Dinosaur();
-dino.params.teethNumber // -> 32
+dino.params.teethCount // -> 32
 ```
 
 And sometimes we need to make simplified record, you may use instructions for that:

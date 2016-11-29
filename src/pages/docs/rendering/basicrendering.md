@@ -1,6 +1,6 @@
 ---
 
-title: Plugin - BasicRendering
+title: BasicRendering
 longtitle: WHS.BasicRendering
 category: Rendering
 icon: basicrendering.png
@@ -9,9 +9,6 @@ edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pag
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/rendering/basic/BasicRendering.js
 
 tags:
- - three.js
- - webgl
- - 3d
  - component
  - Rendering
  - BasicRendering
@@ -34,10 +31,16 @@ const conf = {
   }
 }
 
-let world = new WHS.World(conf);
+const world = new WHS.World(conf);
 ```
 
-## Here is the description of available properties :
+## MODULES
+
+### `.$renderer`
+
+`THREE.WebGLRenderer` object.
+
+## Here is the description of available properties:
 
 ### Size
 
@@ -46,7 +49,6 @@ Change the size of the rendering buffer
 {
   // ...
 
-   autoresize: true,
    width: ...
    height: ...
 }
@@ -59,9 +61,11 @@ Change the background color of the screen
 {
   // ...
 
-   background: {
+  rendering: {
+    background: {
       color: 0x162129
-    },
+    }
+  }
 }
 ```
 
@@ -72,10 +76,12 @@ Change the `THREE.WebGLRenderer` options
 {
   // ...
 
-   renderer: {
-        antialias: true,
-        // ... refer to THREE.js doc for WebGLRenderer
-      }
+  rendering: {
+    renderer: {
+      antialias: true,
+      // ... refer to THREE.js doc for WebGLRenderer
+    }
+  }
 }
 ```
 
@@ -84,12 +90,14 @@ Change the `THREE.WebGLRenderer` options
 Change the shadowmap options
 ```javascript
 {
-    // ...
+  // ...
 
+  rendering: {
     shadowmap: {
       type: THREE.PCFSoftShadowMap
       // ... refer to THREE.js doc for Shadowmap options
     }
+  }
 }
 ```
 
@@ -102,7 +110,7 @@ Stats widget can be displayed by this plugin
 
   stats: true,
 
-  init: {
+  modules: {
     stats: true
   },
 }

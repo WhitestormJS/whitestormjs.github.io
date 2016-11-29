@@ -1,6 +1,6 @@
 ---
 
-title: Plugin - PostProcessor
+title: PostProcessor
 longtitle: WHS.PostProcessor
 category: Rendering
 icon: postprocessor.png
@@ -9,9 +9,6 @@ edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pag
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/rendering/post-processing/PostProcessor.js
 
 tags:
- - three.js
- - webgl
- - 3d
  - component
  - Rendering
  - PostProcessing
@@ -31,8 +28,8 @@ To set up your `WHS.World` to use a `WHS.PostProcessor` plugin you need to do li
 ```javascript
 let world = new WHS.World(params);
 
-world.renderingPlugin = new WHS.PostProcessor(renderingParams);
-let plugin = world.renderingPlugin;
+world.$rendering = new WHS.PostProcessor(renderingParams);
+let plugin = world.$rendering;
 ```
 
 ### Adding a Render Pass
@@ -55,7 +52,7 @@ class CustomPass extends WHS.Pass {
     super(name);
   }
 
-   render(renderer, writeBuffer, readBuffer, delta, maskActive) {
+  render(renderer, writeBuffer, readBuffer, delta, maskActive) {
     /* your custom pass rendering stuff */
   }
 }
@@ -69,10 +66,10 @@ Custom passes have to then be added to the PostProcessor `EffectComposer` like t
 
 ```javascript
  plugin.createPass(composer => {
-      const pass = new CustomPass('CustomPassName');
-      pass.renderToScreen = true;
-      composer.addPass(pass);
-    });
+    const pass = new CustomPass('CustomPassName');
+    pass.renderToScreen = true;
+    composer.addPass(pass);
+  });
 ```
 
 > The createPass() method gives you the composer instance, don't forget to add your pass to it once it is instancied.
@@ -95,7 +92,17 @@ const conf = {
 let world = new WHS.World(conf);
 ```
 
-## Here is the description of available properties :
+## MODULES
+
+### `.$renderer`
+
+`THREE.WebGLRenderer` object.
+
+### `.$composer`
+
+`THREE.EffectComposer` object.
+
+## Here is the description of available properties:
 
 ### Size
 
@@ -104,7 +111,6 @@ Change the size of the rendering buffer
 {
   // ...
 
-   autoresize: true,
    width: ...
    height: ...
 }
@@ -117,9 +123,11 @@ Change the background color of the screen
 {
   // ...
 
-   background: {
+  rendering: {
+    background: {
       color: 0x162129
-    },
+    }
+  }
 }
 ```
 
@@ -130,10 +138,12 @@ Change the `THREE.WebGLRenderer` options
 {
   // ...
 
-   renderer: {
-        antialias: true,
-        // ... refer to THREE.js doc for WebGLRenderer
-      }
+  rendering: {
+    renderer: {
+      antialias: true,
+      // ... refer to THREE.js doc for WebGLRenderer
+    }
+  }
 }
 ```
 
@@ -142,7 +152,8 @@ Change the `THREE.WebGLRenderer` options
 Change the `THREE.WebGLRenderTarget` options
 ```javascript
 {
-  renderTarget: {
+  rendering: {
+    renderTarget: {
       minFilter: THREE.LinearFilter,
       magFilter: THREE.LinearFilter,
       format: THREE.RGBAFormat,
@@ -150,6 +161,7 @@ Change the `THREE.WebGLRenderTarget` options
       toScreen: true
       // ... refer to THREE.js doc for WebGLRenderTarget options
     }
+  }
 }
 ```
 
@@ -158,12 +170,14 @@ Change the `THREE.WebGLRenderTarget` options
 Change the shadowmap options
 ```javascript
 {
-    // ...
+  // ...
 
+  rendering: {
     shadowmap: {
       type: THREE.PCFSoftShadowMap
       // ... refer to THREE.js doc for Shadowmap options
     }
+  }
 }
 ```
 
@@ -176,7 +190,7 @@ Stats widget can be displayed by this plugin
 
   stats: true,
 
-  init: {
+  modules: {
     stats: true
   },
 }

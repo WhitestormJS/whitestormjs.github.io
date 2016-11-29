@@ -35,7 +35,7 @@ export default class Header extends Component {
             onMouseOut={() => {
               this.props.parentComponent.setState({'previewActive': false})
             }}
-          href="/plugins">Plugins</a>
+          href="https://plugins.whsjs.io">Plugins</a>
           <a target="_blank"
             onMouseOver={() => {
               this.props.parentComponent.setState({
@@ -46,7 +46,7 @@ export default class Header extends Component {
             onMouseOut={() => {
               this.props.parentComponent.setState({'previewActive': false})
             }}
-          href="/playground">Try it out</a>
+          href="https://playground.whsjs.io">Try it out</a>
           <Link to="/contribute" {...linkEvents('contrib')}>Contribute</Link>
           <Link to="/team" {...linkEvents('team')}>Developers</Link>
         </div>

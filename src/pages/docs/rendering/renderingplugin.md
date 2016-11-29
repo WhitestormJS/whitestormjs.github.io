@@ -9,12 +9,9 @@ edit: https://github.com/WhitestormJS/whitestormjs.github.io/blob/master/src/pag
 source: https://github.com/WhitestormJS/whitestorm.js/blob/dev/src/framework/rendering/RenderingPlugin.js
 
 tags:
- - three.js
- - webgl
- - 3d
  - component
  - RenderingComponent
- - plugin
+ - module
 
 ---
 
@@ -22,8 +19,8 @@ tags:
 <br>Your `WHS.World` instance can have one `RenderingPlugin` that will draw its `Scene` from its `Camera` point a view into the screen, or a framebuffer that can be used for post processing effects.
 
 There is two rendering plugins provided in WhitestormJS :
- * BasicRendering - that is used by default by any `WHS.World` instance, and do basic `WebGLRenderer` drawing to the screen
- * PostProcessor - that can be used to combine multiple rendering passes to achieve post procesing effects.
+ * **BasicRendering** - that is used by default by any `WHS.World` instance, and do basic `WebGLRenderer` drawing to the screen
+ * **PostProcessor** - that can be used to combine multiple rendering passes to achieve post procesing effects.
 
 ## How to configure your `WHS.World` to use a rendering plugin
 ### Default
@@ -37,11 +34,12 @@ If you want to set a different plugin to your world instance, you should proced 
 ```javascript
 let world = new WHS.World(params);
 
-world.renderingPlugin = new WHS.YourRenderingPlugin(renderingParams);
-let plugin = world.renderingPlugin;
+world.$rendering = new WHS.YourRenderingPlugin(renderingParams);
+let plugin = world.$rendering;
 
 plugin.doThings(...);
 ```
+
 > It is important to use it like this, and only assign the `new YourRenderingPlugin(...)` to world.renderingPlugin. Do not store it directly!
 
 to see more, look at the post processing examples.
@@ -57,7 +55,7 @@ class YourRenderingPlugin extends RenderingPlugin {
   constructor(params = {}) {
     super(params);
     return (world) => {
-      this.parentWorld = world;
+      this.world = world;
       return this;
     }
   }
@@ -67,7 +65,7 @@ class YourRenderingPlugin extends RenderingPlugin {
    you'll want to instaciate and store a WebGLRenderer here. */
   }
 
-  renderPlugin(delta) {
+  renderPlugin(scene, camera, delta) {
     /* This is the render callback that will be called on each frames */
   }
 
