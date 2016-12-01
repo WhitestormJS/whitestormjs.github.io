@@ -24,8 +24,11 @@ export default class Header extends Component {
           </span>*/}
           <a target="_blank" href="https://discord.gg/5yNCvC4" className="logo" style={{padding:'0 20px'}}><img src={require('../../images/discord.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
           <a target="_blank" href="https://github.com/WhitestormJS/whitestorm.js" className="inverted">GitHub</a>
-          <Link to="/api" {...linkEvents('api')}>API</Link>
-          <a target="_blank"
+          { //<Link to="/api" {...linkEvents('api')}>API</Link>
+          }
+          <a target="_blank" href="https://whsjs.readme.io">Documentation</a>
+          {
+            /* <a target="_blank"
             onMouseOver={() => {
               this.props.parentComponent.setState({
                 'previewActive': true,
@@ -46,7 +49,8 @@ export default class Header extends Component {
             onMouseOut={() => {
               this.props.parentComponent.setState({'previewActive': false})
             }}
-          href="https://playground.whsjs.io">Try it out</a>
+          href="https://playground.whsjs.io">Try it out</a>*/
+        }
           <Link to="/contribute" {...linkEvents('contrib')}>Contribute</Link>
           <Link to="/team" {...linkEvents('team')}>Developers</Link>
         </div>
