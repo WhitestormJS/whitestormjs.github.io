@@ -15,7 +15,7 @@ Debugging components in Whitestorm.js is easy. You can use as much tools as you 
   <img src="../../images/docs/debugging/debugging.png" />
 </div>
 
-## Satistics
+## Statistics
 
 > This option should be used only in development or beta mode.
 
