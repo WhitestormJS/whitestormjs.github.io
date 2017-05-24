@@ -23,7 +23,7 @@ export default class TableCompare extends Component {
           atActive={{ translateX: 0, opacity: 1 }}
           mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)`, opacity: `${styles.opacity}` })}
         >
-          <span className="install">npm install&#8202;
+          <span className="install">npm install&nbsp;
             <a href="https://www.npmjs.com/package/whs" target="_blank" className="whs">whs</a>
           </span>
         </RouteTransition>
