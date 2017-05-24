@@ -26,11 +26,11 @@ If you've found a *reproduceable* bug, [submit an issue](https://github.com/Whit
 
 You're welcome to fix things for us, and submit pull requests; it frees up time for us to implement useful new features.
 
-## Adding Features
+### Adding Features
 
 If you've added a new feature to WhitestormJS and would like for it to be included, submit a pull request. We'll take a look at it.
 
-## Want to help us? Take a task!
+### Want to help us? Take a task!
 
 We have a [task board](https://github.com/WhitestormJS/whitestorm.js/projects/4) where we keep all TODOs sorted by it's priority.
 
@@ -41,7 +41,7 @@ Before starting contributing it's better to contact us in [discord](https://disc
  - [@hirako2000](https://github.com/hirako2000) (`@Hirako#4563` in discord)
  - [@thejmazz](https://github.com/thejmazz) (`@thejmazz#3954` in discord)
 
-## How to make a PR (Pull Request)
+### How to make a PR (Pull Request)
 
 1. First of all you should **check if there is an issue that you will fix with your PR**.
 2. Then you should go and **make a new branch** with name `#xxx` (Issue number)
@@ -49,7 +49,7 @@ Before starting contributing it's better to contact us in [discord](https://disc
 4. **Submit a PR!**
    - If PR is related to an issue - 📌 **refer to that issue in PR description**.
 
-## Building WhitestormJS
+### Building WhitestormJS
 
 WhitestormJS can be built by installing [Node.js](https://nodejs.org), and the [gulp](https://www.npmjs.com/package/gulp) package through [npm](https://www.npmjs.com/).
 
@@ -68,9 +68,9 @@ $ npm install
 $ npm run build
 ```
 
-## CLI
+### CLI
 
-### Development mode
+#### Development mode
 `npm start`
 - Starts `webpack-dev-server` for whs sources.
 - Starts `webpack-dev-server` for each example located in `./examples`
@@ -80,26 +80,26 @@ $ npm run build
 
 ![](http://i.imgur.com/7bDhpHK.png)
 
-### Build all
+#### Build all
 `npm run build`
 - Runs `gulp build` - build sources
 - Runs `gulp examples:build` - build examples
 
 ![](http://i.imgur.com/AfIQY8l.png)
 
-### Unit testing, coverage, snyk
+#### Unit testing, coverage, snyk
 `npm test`
 Runs all testing suites. Used in Travis CI for this project.
 
 ![](http://i.imgur.com/WbWMykP.png)
 
-### Deploy examples
+#### Deploy examples
 `npm run deploy`
 > Only for those, **who are in dev team and have write access on surge.sh for examples domain**
 
 ----
 
-## Committing
+### Committing
 
 All engine code is in the `src/` folder.
 Modules are in the `modules/`, each having their own build.
@@ -108,9 +108,9 @@ _We still in the process of moving all remaining modules from `src/` to `modules
 
 **Do not edit files in `build/` folder!!!*
 
-### * Commit names.
+### Commit messages
 
-#### Codes.
+#### Codes
  - **CSF** - Code style fix. (Comes with file name.)
  - **TU** - Temporary update. (Will be changed later.)
  - **README** - You changed README.md file.
@@ -119,11 +119,11 @@ _We still in the process of moving all remaining modules from `src/` to `modules
 
 
 
-#### Fixed Issue.
+#### Fixed Issue
 
 If your commit fixes for an _issue_ on github, you must add `Fixed #25`. Where **#25 is ID of the issue.**
 
-#### Syntax.
+#### Syntax
 
 - **Code** - e.g `CSF.` or `TU.` (If your commit matches one of them.)
 - **Comment** - Your comment to commit. (optional, unless you have no code.)
@@ -134,7 +134,7 @@ If your commit fixes for an _issue_ on github, you must add `Fixed #25`. Where *
 >**If you have `CSF` your comment must be the name of the file you fixed.** No dot after filename
 
 
-#### Examples.
+#### Examples
 
 Good:
  - `CSF: ShaderTerrain.js Fixed #25`
