@@ -30,7 +30,7 @@ developers:
     name: Electron
     role: Front-end
   hirako2000:
-    avatar: https://avatars3.githubusercontent.com/u/1500712?v=3&s=96
+    avatar: hirako.jpg
     name: Hirako San
     role: Full-stack
     linkedin: https://www.linkedin.com/in/mehdi-tassoumt-91877816/
