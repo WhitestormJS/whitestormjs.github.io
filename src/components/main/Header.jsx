@@ -22,13 +22,13 @@ export default class Header extends Component {
             <span style={{color: '#800'}}>\</span>
             -
           </span>*/}
-          <a target="_blank" href="https://discord.gg/5yNCvC4" className="logo" style={{padding:'0 20px'}}><img src={require('../../images/discord.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
-          <a target="_blank" href="https://github.com/WhitestormJS/whitestorm.js" className="inverted">GitHub</a>
+          <a href="https://discord.gg/5yNCvC4" className="logo" style={{padding:'0 20px'}}><img src={require('../../images/discord.png')} style={{height: 25, position:'relative', top: 7}}></img></a>
+          <a href="https://github.com/WhitestormJS/whitestorm.js" className="inverted">GitHub</a>
           { //<Link to="/api" {...linkEvents('api')}>API</Link>
           }
-          <a target="_blank" href="https://whsjs.readme.io">Documentation</a>
+          <a href="https://whsjs.readme.io">Documentation</a>
           {
-            /* <a target="_blank"
+            /* <a
             onMouseOver={() => {
               this.props.parentComponent.setState({
                 'previewActive': true,
@@ -39,7 +39,7 @@ export default class Header extends Component {
               this.props.parentComponent.setState({'previewActive': false})
             }}
           href="https://plugins.whsjs.io">Plugins</a>
-          <a target="_blank"
+          <a
             onMouseOver={() => {
               this.props.parentComponent.setState({
                 'previewActive': true,
